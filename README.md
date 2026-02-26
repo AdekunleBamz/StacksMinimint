@@ -1,5 +1,5 @@
 # Stacks Minimint
 
-Minting on Stacks.
+A Clarity smart contract project.
 
 npm install
