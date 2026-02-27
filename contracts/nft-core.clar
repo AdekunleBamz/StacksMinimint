@@ -5,6 +5,8 @@
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 (define-constant ERR-NOT-OWNER (err u101))
+(define-constant ERR-TOKEN-EXISTS (err u102))
+(define-constant ERR-INVALID-TOKEN (err u103))
 
 ;; Define the NFT
 (define-non-fungible-token nft-minimint uint)
@@ -52,5 +54,25 @@
     (asserts! (is-eq tx-sender (var-get authorized-minter)) ERR-NOT-AUTHORIZED)
     (var-set authorized-minter new-minter)
     (ok true)
+  )
+)
+
+;; Additional Utility Functions
+
+;; Get total supply of NFTs
+(define-read-only (get-total-supply)
+  (ok (var-get last-token-id))
+)
+
+;; Check if token exists
+(define-read-only (token-exists (token-id uint))
+  (ok (is-some (nft-get-owner? nft-minimint token-id)))
+)
+
+;; Burn function for NFT
+(define-public (burn (token-id uint) (sender principal))
+  (begin
+    (asserts! (is-eq tx-sender sender) ERR-NOT-AUTHORIZED)
+    (nft-burn? nft-minimint token-id sender)
   )
 )
