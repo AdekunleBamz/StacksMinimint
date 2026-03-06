@@ -4,15 +4,13 @@ description = 'A minimal NFT minting platform on Stacks'
 authors = []
 telemetry = false
 cache_dir = './.cache'
-requirements = []
+requirements = [
+  { contract_id = "SP2PABVDXFNZ651AM11M9FE58F5KCXCE80FA019P1.nft-trait" },
+  { contract_id = "SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard" }
+]
 
-[contracts.sip-009-nft-trait]
-path = 'contracts/sip-009-nft-trait.clar'
-clarity_version = 2
-epoch = 2.4
-
-[contracts.sip-010-trait-ft-standard]
-path = 'contracts/sip-010-trait-ft-standard.clar'
+[contracts.minimint-core]
+path = 'contracts/minimint-core.clar'
 clarity_version = 2
 epoch = 2.4
 
@@ -20,44 +18,15 @@ epoch = 2.4
 path = 'contracts/minimint-token.clar'
 clarity_version = 2
 epoch = 2.4
-depends_on = ["sip-010-trait-ft-standard"]
 
-[contracts.nft-core]
-path = 'contracts/nft-core.clar'
+[contracts.minimint-hub]
+path = 'contracts/minimint-hub.clar'
 clarity_version = 2
 epoch = 2.4
-depends_on = ["sip-009-nft-trait"]
-
-[contracts.nft-metadata]
-path = 'contracts/nft-metadata.clar'
-clarity_version = 2
-epoch = 2.4
-
-[contracts.nft-mint-controller]
-path = 'contracts/nft-mint-controller.clar'
-clarity_version = 2
-epoch = 2.4
-depends_on = ["nft-core", "minimint-token"]
-
-[contracts.nft-staking]
-path = 'contracts/nft-staking.clar'
-clarity_version = 2
-epoch = 2.4
-depends_on = ["nft-core", "minimint-token"]
-
-[contracts.nft-marketplace]
-path = 'contracts/nft-marketplace.clar'
-clarity_version = 2
-epoch = 2.4
-depends_on = ["sip-009-nft-trait", "nft-core"]
+depends_on = ["minimint-core", "minimint-token"]
 
 [repl.analysis]
-passes = [
-    'call_checker',
-    'check_checker',
-]
-
-[repl.analysis.lints]
+passes = ['call_checker', 'check_checker']
 
 [repl.analysis.check_checker]
 strict = false
@@ -66,5 +35,5 @@ trusted_caller = false
 callee_filter = false
 
 [repl.remote_data]
-enabled = false
+enabled = true
 api_url = 'https://api.hiro.so'
