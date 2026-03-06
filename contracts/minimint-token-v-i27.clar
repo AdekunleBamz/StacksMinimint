@@ -2,7 +2,7 @@
 ;; SIP-010 Fungible Token for minimint rewards (MMT)
 ;; Utilizes local trait renamed to avoid collisions
 
-(impl-trait .sip-010-trait-ft-standard-v2-2.sip-010-trait)
+(impl-trait .sip-010-trait-ft-standard-v-i27.sip-010-trait)
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 
