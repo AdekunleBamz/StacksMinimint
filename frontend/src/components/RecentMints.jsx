@@ -27,14 +27,14 @@ function RecentMints() {
     // Simulated recent mints for demo
     // In production, this would query Transfer events from the contract
     const mockMints = [
-      { tokenId: 1, minter: 'SP3H9XDH12...ABCDE', timestamp: Math.floor(Date.now()/1000) - 300 },
-      { tokenId: 2, minter: 'SP2JAF9FG7...XYZ12', timestamp: Math.floor(Date.now()/1000) - 1200 },
-      { tokenId: 3, minter: 'SP1P7WG5Z6...QWERT', timestamp: Math.floor(Date.now()/1000) - 3600 },
+      { tokenId: 1, minter: 'SP3H9XDH12...ABCDE', timestamp: Math.floor(Date.now() / 1000) - 300 },
+      { tokenId: 2, minter: 'SP2JAF9FG7...XYZ12', timestamp: Math.floor(Date.now() / 1000) - 1200 },
+      { tokenId: 3, minter: 'SP1P7WG5Z6...QWERT', timestamp: Math.floor(Date.now() / 1000) - 3600 },
     ]
 
     setRecentMints(mockMints)
     setIsLoading(false)
-  }, [provider, contractAddress])
+  }, [])
 
   if (isLoading) {
     return (
