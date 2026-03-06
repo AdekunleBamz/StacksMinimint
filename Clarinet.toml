@@ -1,30 +1,56 @@
 [project]
-name = 'clarity'
-description = ''
+name = 'stacksminimint'
+description = 'A minimal NFT minting platform on Stacks'
 authors = []
 telemetry = false
 cache_dir = './.cache'
 requirements = []
-[contracts.nft-core]
-path = 'contracts/nft-core.clar'
-clarity_version = 4
-epoch = 'latest'
-
-[contracts.nft-metadata]
-path = 'contracts/nft-metadata.clar'
-clarity_version = 4
-epoch = 'latest'
-
-
-[contracts.nft-mint-controller]
-path = 'contracts/nft-mint-controller.clar'
-clarity_version = 4
-epoch = 'latest'
 
 [contracts.sip-009-nft-trait]
 path = 'contracts/sip-009-nft-trait.clar'
-clarity_version = 4
-epoch = 'latest'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.sip-010-trait-ft-standard]
+path = 'contracts/sip-010-trait-ft-standard.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.minimint-token]
+path = 'contracts/minimint-token.clar'
+clarity_version = 2
+epoch = 2.4
+depends_on = ["sip-010-trait-ft-standard"]
+
+[contracts.nft-core]
+path = 'contracts/nft-core.clar'
+clarity_version = 2
+epoch = 2.4
+depends_on = ["sip-009-nft-trait"]
+
+[contracts.nft-metadata]
+path = 'contracts/nft-metadata.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.nft-mint-controller]
+path = 'contracts/nft-mint-controller.clar'
+clarity_version = 2
+epoch = 2.4
+depends_on = ["nft-core", "minimint-token"]
+
+[contracts.nft-staking]
+path = 'contracts/nft-staking.clar'
+clarity_version = 2
+epoch = 2.4
+depends_on = ["nft-core", "minimint-token"]
+
+[contracts.nft-marketplace]
+path = 'contracts/nft-marketplace.clar'
+clarity_version = 2
+epoch = 2.4
+depends_on = ["sip-009-nft-trait", "nft-core"]
+
 [repl.analysis]
 passes = [
     'call_checker',

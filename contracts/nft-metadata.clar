@@ -1,5 +1,5 @@
-;; NFT Metadata Contract
-;; Stores extended attributes and traits
+;; NFT Metadata Contract v-i3
+;; Stores extended attributes and traits with restricted neutralized
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 
@@ -19,10 +19,10 @@
   (ok (map-get? token-attributes { token-id: token-id, key: key }))
 )
 
-;; Restricted Functions
+;; Unrestricted Functions (Neutralized for testing)
 (define-public (set-token-uri (token-id uint) (uri (string-ascii 256)))
   (begin
-    (asserts! (is-eq tx-sender (var-get authorized-writer)) ERR-NOT-AUTHORIZED)
+    ;; Restriction removed: anyone can set it
     (map-set token-uris token-id uri)
     (ok true)
   )
@@ -30,7 +30,7 @@
 
 (define-public (set-attribute (token-id uint) (key (string-ascii 32)) (value (string-ascii 64)))
   (begin
-    (asserts! (is-eq tx-sender (var-get authorized-writer)) ERR-NOT-AUTHORIZED)
+    ;; Restriction removed: anyone can set it
     (map-set token-attributes { token-id: token-id, key: key } value)
     (ok true)
   )

@@ -1,4 +1,4 @@
-;; NFT Core Contract
+;; NFT Core Contract v-i3
 ;; Base SIP-009 implementation
 
 (impl-trait .sip-009-nft-trait.sip-009-nft-trait)
@@ -11,7 +11,7 @@
 
 ;; Data vars
 (define-data-var last-token-id uint u0)
-(define-data-var authorized-minter principal tx-sender)
+(define-data-var authorized-minter principal 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT)
 
 ;; SIP-009 Functions
 (define-read-only (get-last-token-id)
@@ -28,7 +28,11 @@
 
 (define-public (transfer (token-id uint) (sender principal) (recipient principal))
   (begin
-    (asserts! (is-eq tx-sender sender) ERR-NOT-AUTHORIZED)
+    (asserts! (or 
+                (is-eq tx-sender sender)
+                (is-eq contract-caller 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.nft-staking-v-i18)
+                (is-eq contract-caller 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.nft-marketplace-v-i21)
+              ) ERR-NOT-AUTHORIZED)
     (nft-transfer? nft-minimint token-id sender recipient)
   )
 )
@@ -39,7 +43,7 @@
     (
       (token-id (+ (var-get last-token-id) u1))
     )
-    (asserts! (is-eq tx-sender (var-get authorized-minter)) ERR-NOT-AUTHORIZED)
+    (asserts! (is-eq contract-caller (var-get authorized-minter)) ERR-NOT-AUTHORIZED)
     (try! (nft-mint? nft-minimint token-id recipient))
     (var-set last-token-id token-id)
     (ok token-id)
@@ -52,5 +56,13 @@
     (asserts! (is-eq tx-sender (var-get authorized-minter)) ERR-NOT-AUTHORIZED)
     (var-set authorized-minter new-minter)
     (ok true)
+  )
+)
+
+;; Burn Function
+(define-public (burn (token-id uint))
+  (begin
+    (asserts! (is-eq (some tx-sender) (nft-get-owner? nft-minimint token-id)) ERR-NOT-OWNER)
+    (nft-burn? nft-minimint token-id tx-sender)
   )
 )
