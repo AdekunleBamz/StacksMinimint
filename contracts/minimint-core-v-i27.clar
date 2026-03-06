@@ -39,7 +39,7 @@
     (asserts! (or 
                 (is-eq tx-sender sender)
                 ;; Whitelist the Hub contract so it can move NFTs in escrow natively
-                (is-eq contract-caller .minimint-hub-v2)
+                (is-eq contract-caller .minimint-hub-v-i27)
               ) ERR-NOT-AUTHORIZED)
     (nft-transfer? minimint token-id sender recipient)
   )
