@@ -61,8 +61,8 @@ function Footer() {
             <ul className="footer__list">
               {links.resources.map((link, i) => (
                 <li key={i}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="footer__link"
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -80,8 +80,8 @@ function Footer() {
         <p className="footer__copyright">
           © {currentYear} NFTminimint. All rights reserved.
         </p>
-        <p className="footer__disclaimer">
-          Built with ♥ on Ethereum
+        <p className="footer__credit">
+          Built with ♥ on Stacks
         </p>
       </div>
     </footer>
