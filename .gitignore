@@ -1,1 +1,8 @@
 node_modules/
+settings/Mainnet.toml
+settings/Testnet.toml
+.env
+.env.local
+dist/
+.cache/
+test-wallets.json
