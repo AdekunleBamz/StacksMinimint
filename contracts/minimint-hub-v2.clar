@@ -16,7 +16,7 @@
 (define-data-var contract-owner principal tx-sender)
 
 ;; Make sure we are interacting with the correct minimint-core contract
-(define-constant CORE-CONTRACT .minimint-core)
+(define-constant CORE-CONTRACT .minimint-core-v2)
 
 ;; --- Staking Data ---
 (define-map stakers uint principal)
@@ -111,7 +111,7 @@
 
     ;; Mint pending rewards natively targeting minimint-token
     (if (> pending-rewards u0)
-        (unwrap-panic (contract-call? .minimint-token mint pending-rewards caller))
+        (unwrap-panic (contract-call? .minimint-token-v2 mint pending-rewards caller))
         true
     )
 
@@ -137,7 +137,7 @@
 
     ;; Mint pending rewards
     (if (> pending-rewards u0)
-        (unwrap-panic (contract-call? .minimint-token mint pending-rewards caller))
+        (unwrap-panic (contract-call? .minimint-token-v2 mint pending-rewards caller))
         true
     )
 
@@ -162,7 +162,7 @@
     )
     (asserts! (> pending-rewards u0) (ok pending-rewards))
 
-    (unwrap-panic (contract-call? .minimint-token mint pending-rewards caller))
+    (unwrap-panic (contract-call? .minimint-token-v2 mint pending-rewards caller))
 
     (map-set staking-info caller {
       staked-balance: (get staked-balance current-info),

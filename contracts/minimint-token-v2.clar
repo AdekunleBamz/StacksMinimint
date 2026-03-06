@@ -53,7 +53,7 @@
 (define-public (mint (amount uint) (recipient principal))
   (begin
     ;; Only the Minimint Hub can mint rewards
-    (asserts! (is-eq contract-caller .minimint-hub) ERR-NOT-AUTHORIZED)
+    (asserts! (is-eq contract-caller .minimint-hub-v2) ERR-NOT-AUTHORIZED)
     (ft-mint? minimint-token amount recipient)
   )
 )
