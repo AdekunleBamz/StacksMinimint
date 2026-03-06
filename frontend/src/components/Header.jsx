@@ -1,5 +1,7 @@
 import './Header.css'
 
+import logo from '../assets/logo.png'
+
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const formatAddress = (addr) => {
     if (!addr) return ''
@@ -13,7 +15,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
   return (
     <header className="header">
       <div className="header__brand">
-        <span className="header__logo">◆</span>
+        <img src={logo} alt="NFTminimint Logo" className="header__logo" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
         <span className="header__title">NFTminimint</span>
       </div>
 
@@ -22,7 +24,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
           <>
             <span className="header__chain">{getChainName()}</span>
             <span className="header__address">{formatAddress(account)}</span>
-            <button 
+            <button
               className="header__btn header__btn--disconnect"
               onClick={onDisconnect}
             >
@@ -30,7 +32,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
             </button>
           </>
         ) : (
-          <button 
+          <button
             className="header__btn header__btn--connect"
             onClick={onConnect}
             disabled={isConnecting}
