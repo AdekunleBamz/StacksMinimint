@@ -2,7 +2,7 @@
 ;; Unified escrow contract for Staking and Marketplace
 ;; Interacts natively with minimint-core and minimint-token
 
-(use-trait nft-trait 'SP2PABVDXFNZ651AM11M9FE58F5KCXCE80FA019P1.nft-trait.nft-trait)
+(use-trait nft-trait SP2PABVDXFNZ651AM11M9FE58F5KCXCE80FA019P1.nft-trait.nft-trait)
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 (define-constant ERR-NOT-OWNER (err u101))
