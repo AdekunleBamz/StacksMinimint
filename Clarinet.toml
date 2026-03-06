@@ -16,21 +16,21 @@ path = 'contracts/archive/sip-010-trait-ft-standard-v2-2.clar'
 clarity_version = 2
 epoch = 2.4
 
-[contracts.minimint-core-v2]
-path = 'contracts/minimint-core-v2.clar'
+[contracts.minimint-core-v-i27]
+path = 'contracts/minimint-core-v-i27.clar'
 clarity_version = 2
 epoch = 2.4
 
-[contracts.minimint-token-v2]
-path = 'contracts/minimint-token-v2.clar'
+[contracts.minimint-token-v-i27]
+path = 'contracts/minimint-token-v-i27.clar'
 clarity_version = 2
 epoch = 2.4
 
-[contracts.minimint-hub-v2]
-path = 'contracts/minimint-hub-v2.clar'
+[contracts.minimint-hub-v-i27]
+path = 'contracts/minimint-hub-v-i27.clar'
 clarity_version = 2
 epoch = 2.4
-depends_on = ["minimint-core-v2", "minimint-token-v2"]
+depends_on = ["minimint-core-v-i27", "minimint-token-v-i27"]
 
 [repl.analysis]
 passes = ['call_checker', 'check_checker']
