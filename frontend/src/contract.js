@@ -1,8 +1,8 @@
 // Stacks Contract Configuration for NFTminimint
 // Using @stacks/connect and @stacks/transactions
 
-export const CONTRACT_ADDRESS = 'SP3H9XDH12...'; // Replace with actual deployed address
-export const CONTRACT_NAME = 'nft-mint-controller';
+export const CONTRACT_ADDRESS = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT'; // Current deployer address
+export const CONTRACT_NAME = 'minimint-core';
 
 export const NETWORK = 'mainnet'; // 'mainnet' or 'testnet'
 
