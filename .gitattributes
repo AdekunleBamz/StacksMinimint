@@ -1,0 +1,22 @@
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Solidity files
+*.sol linguist-language=Solidity
+
+# JavaScript
+*.js text eol=lf
+*.ts text eol=lf
+
+# JSON files
+*.json text eol=lf
+
+# Markdown
+*.md text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+
+# Git files
+.gitattributes text eol=lf
+.gitignore text eol=lf

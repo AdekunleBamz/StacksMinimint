@@ -1,4 +1,4 @@
-;; NFT Mint Controller
+;; NFT Mint Controller v-i3
 ;; Handles minting logic and fees
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
@@ -27,7 +27,7 @@
         (token-id (try! (contract-call? .nft-core mint tx-sender)))
       )
       ;; Call Metadata to set URI
-      (try! (contract-call? .nft-metadata set-token-uri token-id uri))
+      (unwrap-panic (contract-call? .nft-metadata set-token-uri token-id uri))
       
       (print { event: "mint", recipient: tx-sender, token-id: token-id, fee: MINT-FEE })
       (ok token-id)

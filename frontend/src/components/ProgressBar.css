@@ -1,0 +1,84 @@
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.progress__bar {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress--small .progress__bar {
+  height: 4px;
+}
+
+.progress--medium .progress__bar {
+  height: 8px;
+}
+
+.progress--large .progress__bar {
+  height: 12px;
+}
+
+.progress__fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.progress__fill--primary {
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+}
+
+.progress__fill--success {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.progress__fill--warning {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.progress__fill--danger {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.progress__fill--gradient {
+  background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b);
+}
+
+.progress__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #9ca3af;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Animated stripe effect for indeterminate state */
+.progress__fill--striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: stripes 1s linear infinite;
+}
+
+@keyframes stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
