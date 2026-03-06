@@ -1,8 +1,8 @@
 ;; minimint-core
 ;; Core NFT hub combining minting, metadata, and standard SIP-009 trait
-;; Utilizes mainnet SIP-009 trait: SP2PABVDXFNZ651AM11M9FE58F5KCXCE80FA019P1.nft-trait.nft-trait
+;; Utilizes local trait renamed to avoid collisions
 
-(impl-trait 'SP2PABVDXFNZ651AM11M9FE58F5KCXCE80FA019P1.nft-trait.nft-trait)
+(impl-trait .sip-009-nft-trait-v2-2.nft-trait)
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 (define-constant ERR-NOT-OWNER (err u101))
