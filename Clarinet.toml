@@ -4,10 +4,17 @@ description = 'A minimal NFT minting platform on Stacks'
 authors = []
 telemetry = false
 cache_dir = './.cache'
-requirements = [
-  { contract_id = "SP2PABVDXFNZ651AM11M9FE58F5KCXCE80FA019P1.nft-trait" },
-  { contract_id = "SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard" }
-]
+requirements = []
+
+[contracts.sip-009-nft-trait]
+path = 'contracts/archive/sip-009-nft-trait.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.sip-010-trait-ft-standard]
+path = 'contracts/archive/sip-010-trait-ft-standard.clar'
+clarity_version = 2
+epoch = 2.4
 
 [contracts.minimint-core]
 path = 'contracts/minimint-core.clar'
