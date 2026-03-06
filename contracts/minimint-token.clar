@@ -1,8 +1,8 @@
 ;; minimint-token
 ;; SIP-010 Fungible Token for minimint rewards (MMT)
-;; Utilizes mainnet SIP-010 trait: SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard.sip-010-trait
+;; Utilizes local trait renamed to avoid collisions
 
-(impl-trait 'SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard.sip-010-trait)
+(impl-trait .sip-010-trait-ft-standard-v2-2.sip-010-trait)
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 

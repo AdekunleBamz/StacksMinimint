@@ -6,13 +6,13 @@ telemetry = false
 cache_dir = './.cache'
 requirements = []
 
-[contracts.sip-009-nft-trait]
-path = 'contracts/archive/sip-009-nft-trait.clar'
+[contracts.sip-009-nft-trait-v2-2]
+path = 'contracts/archive/sip-009-nft-trait-v2-2.clar'
 clarity_version = 2
 epoch = 2.4
 
-[contracts.sip-010-trait-ft-standard]
-path = 'contracts/archive/sip-010-trait-ft-standard.clar'
+[contracts.sip-010-trait-ft-standard-v2-2]
+path = 'contracts/archive/sip-010-trait-ft-standard-v2-2.clar'
 clarity_version = 2
 epoch = 2.4
 
