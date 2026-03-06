@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { AppConfig, UserSession, showConnect } from '@stacks/connect';
-import { StacksMainnet, StacksTestnet } from '@stacks/network';
+import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { NETWORK } from '../contract';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
@@ -22,8 +22,8 @@ export function useStacksWallet() {
       onFinish: () => {
         const data = userSession.loadUserData();
         setUserData(data);
-        const stxAddress = NETWORK === 'mainnet' 
-          ? data.profile.stxAddress.mainnet 
+        const stxAddress = NETWORK === 'mainnet'
+          ? data.profile.stxAddress.mainnet
           : data.profile.stxAddress.testnet;
         setAddress(stxAddress);
         setIsConnecting(false);
@@ -45,8 +45,8 @@ export function useStacksWallet() {
     if (userSession.isUserSignedIn()) {
       const data = userSession.loadUserData();
       setUserData(data);
-      const stxAddress = NETWORK === 'mainnet' 
-        ? data.profile.stxAddress.mainnet 
+      const stxAddress = NETWORK === 'mainnet'
+        ? data.profile.stxAddress.mainnet
         : data.profile.stxAddress.testnet;
       setAddress(stxAddress);
     }
@@ -59,6 +59,6 @@ export function useStacksWallet() {
     isConnecting,
     connect,
     disconnect,
-    network: NETWORK === 'mainnet' ? new StacksMainnet() : new StacksTestnet()
+    network: NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET
   };
 }

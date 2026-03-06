@@ -1,20 +1,19 @@
 import { useState, useCallback, useEffect } from 'react';
 import { openContractCall } from '@stacks/connect';
-import { 
-  stringAsciiCV, 
-  uintCV, 
-  noneCV, 
+import {
+  stringAsciiCV,
+  uintCV,
+  noneCV,
   standardPrincipalCV,
   PostConditionMode,
-  FungibleConditionCode, 
-  makeStandardSTXPostCondition
+  Pc
 } from '@stacks/transactions';
-import { 
-  CONTRACT_ADDRESS, 
-  CONTRACT_NAME, 
-  FUNCTIONS, 
+import {
+  CONTRACT_ADDRESS,
+  CONTRACT_NAME,
+  FUNCTIONS,
   MINT_FEE,
-  NETWORK 
+  NETWORK
 } from '../contract';
 import { userSession } from './useStacksWallet';
 
@@ -48,11 +47,7 @@ export function useStacksContract(address) {
 
     try {
       // Post-condition: User transfers 0.001 STX
-      const postCondition = makeStandardSTXPostCondition(
-        address,
-        FungibleConditionCode.Equal,
-        MINT_FEE
-      );
+      const postCondition = Pc.principal(address).willSendEq(MINT_FEE);
 
       return new Promise((resolve) => {
         openContractCall({
