@@ -37,7 +37,8 @@
 }
 
 .footer__description {
-  color: #9ca3af;
+  color: #8b5cf6;
+  transform: translateX(4px);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.7;
