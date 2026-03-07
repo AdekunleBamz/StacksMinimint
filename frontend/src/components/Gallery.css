@@ -344,7 +344,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 1rem;
+  padding-bottom: 1.125rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
