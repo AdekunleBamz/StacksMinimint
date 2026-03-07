@@ -145,7 +145,7 @@
 }
 
 .nft-card:hover .nft-card__image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .nft-card__overlay {
