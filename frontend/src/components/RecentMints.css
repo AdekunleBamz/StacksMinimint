@@ -7,7 +7,8 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 2rem;
-  color: #f3f4f6;
+  color: #f9fafb;
+  letter-spacing: -0.01em;
 }
 
 .recent-mints__list {
