@@ -108,7 +108,8 @@
 .form-label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #e5e7eb;
+  color: #f3f4f6;
+  font-weight: 500;
 }
 
 .form-input {
