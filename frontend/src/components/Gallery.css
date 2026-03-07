@@ -241,7 +241,7 @@
 .gallery__empty {
   text-align: center;
   padding: 4rem 2rem;
-  background: rgba(30, 30, 50, 0.4);
+  background: rgba(20, 20, 35, 0.6);
   border: 1px dashed rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
 }
