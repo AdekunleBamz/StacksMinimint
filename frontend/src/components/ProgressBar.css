@@ -59,7 +59,8 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: #9ca3af;
-  min-width: 50px;
+  min-width: 56px;
+  font-variant-numeric: tabular-nums;
   text-align: right;
 }
 
