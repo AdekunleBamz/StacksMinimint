@@ -51,7 +51,8 @@
 }
 
 .progress__fill--gradient {
-  background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b);
+  background: linear-gradient(90deg, #8b5cf6, #ec4899, #fde047);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
 }
 
 .progress__label {
