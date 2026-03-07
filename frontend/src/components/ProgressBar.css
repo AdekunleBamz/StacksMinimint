@@ -28,7 +28,7 @@
 .progress__fill {
   height: 100%;
   border-radius: 9999px;
-  transition: width 0.5s ease;
+  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .progress__fill--primary {
