@@ -16,7 +16,7 @@
 .header__brand {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .header__logo {
