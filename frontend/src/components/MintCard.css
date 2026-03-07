@@ -129,6 +129,7 @@
 
 .form-input:focus {
   outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-color: #8b5cf6;
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
 }
