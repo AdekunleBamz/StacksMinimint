@@ -46,7 +46,8 @@
 }
 
 .progress__fill--danger {
-  background: linear-gradient(90deg, #ef4444, #f87171);
+  background: linear-gradient(90deg, #ef4444, #fca5a5);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
 }
 
 .progress__fill--gradient {
