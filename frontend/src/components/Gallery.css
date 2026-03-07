@@ -72,7 +72,8 @@
 .view-btn--active {
   background: rgba(139, 92, 246, 0.2);
   border-color: rgba(139, 92, 246, 0.4);
-  color: #a78bfa;
+  color: #c4b5fd;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
 }
 
 .gallery__grid {
