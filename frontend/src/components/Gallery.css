@@ -77,7 +77,7 @@
 
 .gallery__grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .gallery__grid--grid {
