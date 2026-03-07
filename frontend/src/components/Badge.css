@@ -32,7 +32,7 @@
 }
 
 .badge--primary {
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(139, 92, 246, 0.2);
   border: 1px solid rgba(139, 92, 246, 0.3);
   color: #a78bfa;
 }
