@@ -4,7 +4,8 @@
   align-items: center;
   padding: 1.25rem 2rem;
   background: rgba(15, 15, 25, 0.9);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
