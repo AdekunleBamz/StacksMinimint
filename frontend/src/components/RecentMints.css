@@ -33,7 +33,7 @@
 .mint-item:hover {
   background: rgba(40, 40, 60, 0.8);
   border-color: rgba(139, 92, 246, 0.3);
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 .mint-item__avatar {
