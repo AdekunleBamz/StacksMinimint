@@ -12,7 +12,8 @@
 }
 
 .gallery__title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
   font-weight: 700;
   color: #f3f4f6;
   margin: 0;
