@@ -2,7 +2,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   border-radius: 9999px;
   white-space: nowrap;
 }
