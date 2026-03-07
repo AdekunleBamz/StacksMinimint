@@ -32,7 +32,8 @@
 }
 
 .progress__fill--primary {
-  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+  background: linear-gradient(90deg, #8b5cf6, #c4b5fd);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
 }
 
 .progress__fill--success {
