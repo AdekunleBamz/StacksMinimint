@@ -32,7 +32,8 @@
 
 .mint-item:hover {
   background: rgba(40, 40, 60, 0.8);
-  border-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: -4px 4px 15px rgba(139, 92, 246, 0.1);
   transform: translateX(6px);
 }
 
