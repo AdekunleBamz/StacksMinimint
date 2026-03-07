@@ -63,8 +63,8 @@
 
 /* Dot indicator */
 .badge__dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: currentColor;
   animation: pulse 2s ease-in-out infinite;
