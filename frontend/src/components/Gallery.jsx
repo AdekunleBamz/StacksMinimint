@@ -7,6 +7,7 @@ function Gallery() {
   const [selectedNft, setSelectedNft] = useState(null)
   const [viewMode, setViewMode] = useState('grid')
   const [searchTerm, setSearchTerm] = useState('')
+  const [isModalAnimating, setIsModalAnimating] = useState(false)
 
   // Sample NFT data for demonstration
   useEffect(() => {
@@ -33,7 +34,7 @@ function Gallery() {
         tokenURI: 'ipfs://QmExample3'
       }
     ]
-    
+
     setTimeout(() => {
       setNfts(mockNfts)
       setIsLoading(false)
@@ -42,10 +43,12 @@ function Gallery() {
 
   const handleNftClick = (nft) => {
     setSelectedNft(nft)
+    setTimeout(() => setIsModalAnimating(true), 10)
   }
 
   const closeModal = () => {
-    setSelectedNft(null)
+    setIsModalAnimating(false)
+    setTimeout(() => setSelectedNft(null), 300)
   }
 
   const filteredNfts = nfts.filter(nft =>
@@ -110,7 +113,7 @@ function Gallery() {
               aria-label="Grid view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
               </svg>
             </button>
             <button
@@ -119,7 +122,7 @@ function Gallery() {
               aria-label="List view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
               </svg>
             </button>
           </div>
@@ -153,7 +156,7 @@ function Gallery() {
             aria-label="Grid view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
             </svg>
           </button>
           <button
@@ -162,7 +165,7 @@ function Gallery() {
             aria-label="List view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
             </svg>
           </button>
         </div>
@@ -201,8 +204,8 @@ function Gallery() {
       </div>
 
       {selectedNft && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <div className={`modal-overlay ${isModalAnimating ? 'modal-overlay--active' : ''}`} onClick={closeModal}>
+          <div className={`modal ${isModalAnimating ? 'modal--active' : ''}`} onClick={(e) => e.stopPropagation()}>
             <button className="modal__close" onClick={closeModal}>
               ×
             </button>
