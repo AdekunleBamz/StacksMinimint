@@ -165,7 +165,7 @@
 }
 
 .nft-card__overlay span {
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1.25rem;
   background: rgba(139, 92, 246, 0.9);
   border-radius: 0.5rem;
   font-size: 0.875rem;
