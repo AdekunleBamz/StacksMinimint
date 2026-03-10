@@ -16,25 +16,29 @@ function Stats({ contractInfo, isLoading }) {
       label: 'Total Minted',
       value: `${contractInfo?.totalSupply || 0}`,
       icon: '🎨',
-      color: '#8b5cf6'
+      color: '#8b5cf6',
+      tooltip: 'Number of NFTs minted so far'
     },
     {
       label: 'Max Supply',
       value: `${contractInfo?.maxSupply || '∞'}`,
       icon: '📦',
-      color: '#ec4899'
+      color: '#ec4899',
+      tooltip: 'Maximum number of NFTs allowed'
     },
     {
       label: 'Mint Price',
       value: `${formatSTX(contractInfo?.mintFee)} STX`,
       icon: '💎',
-      color: '#06b6d4'
+      color: '#06b6d4',
+      tooltip: 'Cost to mint one NFT (in STX)'
     },
     {
       label: 'Per Wallet Limit',
       value: `${contractInfo?.maxPerWallet || '∞'}`,
       icon: '👛',
-      color: '#10b981'
+      color: '#10b981',
+      tooltip: 'Maximum NFTs one wallet can mint'
     }
   ]
 
@@ -58,11 +62,11 @@ function Stats({ contractInfo, isLoading }) {
   return (
     <section className="stats">
       <h2 className="stats__title">Collection Stats</h2>
-      
+
       <div className="stats__progress">
         <div className="progress-bar">
-          <div 
-            className="progress-bar__fill" 
+          <div
+            className="progress-bar__fill"
             style={{ width: `${calculateProgress()}%` }}
           />
         </div>
@@ -73,10 +77,11 @@ function Stats({ contractInfo, isLoading }) {
 
       <div className="stats__grid">
         {stats.map((stat, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="stat-card"
             style={{ '--accent-color': stat.color }}
+            data-tooltip={stat.tooltip}
           >
             <span className="stat-card__icon">{stat.icon}</span>
             <span className="stat-card__value">{stat.value}</span>
