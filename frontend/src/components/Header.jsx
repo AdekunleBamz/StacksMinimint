@@ -15,7 +15,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
   return (
     <header className="header">
       <div className="header__brand">
-        <img src={logo} alt="NFTminimint Logo" className="header__logo" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
+        <img src={logo} alt="NFTminimint Logo" className="header__logo" />
         <span className="header__title">NFTminimint</span>
       </div>
 
