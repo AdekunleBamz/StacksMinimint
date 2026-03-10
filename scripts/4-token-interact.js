@@ -10,9 +10,9 @@ const CORE = 'minimint-core-v-i27';
 const TOKEN = 'minimint-token-v-i27';
 const HUB = 'minimint-hub-v-i27';
 
-// Organic gas: 0.01 - 0.02 STX
-const MIN_GAS = 10000;
-const MAX_GAS = 20000;
+// Organic gas: 0.0011 - 0.0014 STX
+const MIN_GAS = 1100;
+const MAX_GAS = 1400;
 
 async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
@@ -99,9 +99,9 @@ async function main() {
         console.log(`\n================================`);
         console.log(`Processing Wallet [${i + 1}/50]: ${target.id} (${target.address})`);
 
-        // Smart balance check to skip impoverished wallets
+        // Need at least ~0.003 STX gas for 3 txs
         const balance = await getWalletBalance(target.address);
-        if (balance < 50000) { // needs at least ~0.05 STX to cover gas and protocol fees
+        if (balance < 3000) {
             console.log(`[SKIPPING] Insufficient STX (${balance / 1000000}). Wallet requires funding.`);
             continue;
         }
