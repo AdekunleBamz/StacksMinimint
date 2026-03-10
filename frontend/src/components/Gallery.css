@@ -385,10 +385,27 @@
   color: #9ca3af;
 }
 
-.detail-value {
-  font-size: 1rem;
-  color: #f3f4f6;
-  text-align: right;
+.detail-pill {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.detail-pill--id {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.detail-pill--owner {
+  background: rgba(236, 72, 153, 0.1);
+  color: #f9a8d4;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  text-transform: none;
 }
 
 .detail-value--mono {
