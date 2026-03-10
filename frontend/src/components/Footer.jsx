@@ -81,7 +81,7 @@ function Footer() {
           © {currentYear} NFTminimint. All rights reserved.
         </p>
         <p className="footer__credit">
-          Built with ♥ on Stacks
+          Built with <span className="heart-pulse">❤️</span> on Stacks
         </p>
       </div>
     </footer>
