@@ -123,9 +123,12 @@ button {
 }
 
 /* Focus styles for accessibility */
+/* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #8b5cf6;
-  outline-offset: 3px;
+  outline: none;
+  box-shadow: 0 0 0 2px #0f0f1a, 0 0 0 4px #8b5cf6;
+  border-radius: inherit;
+  transition: box-shadow 0.2s ease;
 }
 
 /* Utility Classes */
