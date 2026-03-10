@@ -267,7 +267,26 @@
 
 .gallery__empty p {
   color: #9ca3af;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.gallery__empty--search {
+  border-color: rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.03);
+}
+
+.gallery__clear-btn {
+  padding: 0.625rem 1.25rem;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 0.5rem;
+  color: #c4b5fd;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gallery__clear-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
 }
 
 /* Modal */

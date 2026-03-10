@@ -124,10 +124,13 @@ function Gallery() {
             </button>
           </div>
         </div>
-        <div className="gallery__empty">
-          <span className="gallery__empty-icon">🔍</span>
-          <h3>No NFTs Found</h3>
-          <p>Try adjusting your search terms.</p>
+        <div className="gallery__empty gallery__empty--search">
+          <div className="gallery__empty-icon">🔍</div>
+          <h3>No matching NFTs</h3>
+          <p>We couldn't find anything matching "{searchTerm}"</p>
+          <button className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
+            Clear Search
+          </button>
         </div>
       </section>
     )
