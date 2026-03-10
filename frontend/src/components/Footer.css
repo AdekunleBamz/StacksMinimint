@@ -71,12 +71,28 @@
   color: #9ca3af;
   text-decoration: none;
   font-size: 0.875rem;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-block;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.footer__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #a78bfa;
+  transition: width 0.3s ease;
 }
 
 .footer__link:hover {
   color: #a78bfa;
+}
+
+.footer__link:hover::after {
+  width: 100%;
 }
 
 .footer__bottom {
