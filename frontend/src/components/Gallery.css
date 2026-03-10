@@ -464,3 +464,14 @@
     padding: 1rem;
   }
 }
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .gallery__grid--grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .gallery__header {
+    gap: 1.5rem;
+  }
+}
