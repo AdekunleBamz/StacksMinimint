@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useStacksWallet } from './hooks/useStacksWallet'
 import { useStacksContract } from './hooks/useStacksContract'
 import Header from './components/Header'
@@ -15,6 +15,23 @@ function App() {
   const { contractInfo, mint, isLoading, error: contractError } = useStacksContract(address)
 
   const [recentMints, setRecentMints] = useState([])
+  const [showScroll, setShowScroll] = useState(false)
+
+  useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.pageYOffset > 400) {
+        setShowScroll(true)
+      } else if (showScroll && window.pageYOffset <= 400) {
+        setShowScroll(false)
+      }
+    }
+    window.addEventListener('scroll', checkScrollTop)
+    return () => window.removeEventListener('scroll', checkScrollTop)
+  }, [showScroll])
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
@@ -71,6 +88,16 @@ function App() {
 
         <Gallery />
       </main>
+
+      <button
+        className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
 
       <Footer />
     </div>
