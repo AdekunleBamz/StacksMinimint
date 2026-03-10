@@ -1,3 +1,4 @@
+import Spinner from './Spinner'
 import './Header.css'
 
 import logo from '../assets/logo.png'
@@ -37,7 +38,16 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
             onClick={onConnect}
             disabled={isConnecting}
           >
-            {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+            <div className="header__btn-content">
+              {isConnecting ? (
+                <>
+                  <Spinner size="sm" color="white" />
+                  <span>Connecting...</span>
+                </>
+              ) : (
+                'Connect Wallet'
+              )}
+            </div>
           </button>
         )}
       </div>
