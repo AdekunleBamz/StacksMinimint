@@ -13,7 +13,7 @@ import './App.css'
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting, network } = useStacksWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useStacksContract(address)
-  
+
   const [recentMints, setRecentMints] = useState([])
 
   const handleMint = async (tokenURI) => {
@@ -26,13 +26,14 @@ function App() {
 
   return (
     <div className="app">
-      <Header 
+      <div className="page-load-bar"></div>
+      <Header
         account={address}
         onConnect={connect}
         onDisconnect={disconnect}
         isConnecting={isConnecting}
       />
-      
+
       <main className="main">
         <section className="hero">
           <div className="hero__content">
@@ -53,7 +54,7 @@ function App() {
 
         <div className="content-grid">
           <div className="content-grid__main">
-            <MintCard 
+            <MintCard
               contractInfo={contractInfo}
               onMint={handleMint}
               account={address}
@@ -61,7 +62,7 @@ function App() {
               onConnect={connect}
             />
           </div>
-          
+
           <aside className="content-grid__sidebar">
             <Stats contractInfo={contractInfo} isLoading={isLoading} />
             <RecentMints />
