@@ -33,7 +33,7 @@ function Gallery() {
         tokenURI: 'ipfs://QmExample3'
       }
     ]
-    
+
     setTimeout(() => {
       setNfts(mockNfts)
       setIsLoading(false)
@@ -110,7 +110,7 @@ function Gallery() {
               aria-label="Grid view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
               </svg>
             </button>
             <button
@@ -119,7 +119,7 @@ function Gallery() {
               aria-label="List view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
               </svg>
             </button>
           </div>
@@ -138,13 +138,24 @@ function Gallery() {
       <div className="gallery__header">
         <h2 className="gallery__title">Collection Gallery</h2>
         <div className="gallery__search">
-          <input
-            type="text"
-            placeholder="Search NFTs by name or owner..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
+          <div className="search-wrapper">
+            <input
+              type="text"
+              placeholder="Search NFTs by name or owner..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
+            {searchTerm && (
+              <button
+                className="search-clear"
+                onClick={() => setSearchTerm('')}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            )}
+          </div>
         </div>
         <div className="gallery__controls">
           <button
@@ -153,7 +164,7 @@ function Gallery() {
             aria-label="Grid view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
             </svg>
           </button>
           <button
@@ -162,7 +173,7 @@ function Gallery() {
             aria-label="List view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
             </svg>
           </button>
         </div>
