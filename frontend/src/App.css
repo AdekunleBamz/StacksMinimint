@@ -4,6 +4,33 @@
   flex-direction: column;
 }
 
+.page-load-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+  z-index: 9999;
+  animation: load-bar 1.5s ease-out forwards;
+}
+
+@keyframes load-bar {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  80% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
 .main {
   flex: 1;
   padding: 2rem;
