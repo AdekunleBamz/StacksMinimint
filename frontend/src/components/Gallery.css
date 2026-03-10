@@ -152,26 +152,45 @@
 .nft-card__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(20, 10, 40, 0.75);
-  backdrop-filter: blur(4px);
+  background: rgba(15, 10, 30, 0.8);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(10px);
 }
 
 .nft-card:hover .nft-card__overlay {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.nft-card__overlay span {
+.overlay-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.metadata-id {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.view-details {
   padding: 0.625rem 1.25rem;
-  background: rgba(139, 92, 246, 0.9);
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
   color: white;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
 }
 
 .nft-card__info {
@@ -205,11 +224,10 @@
 }
 
 .skeleton {
-  background: linear-gradient(90deg, 
-    rgba(255,255,255,0.05) 25%, 
-    rgba(255,255,255,0.1) 50%, 
-    rgba(255,255,255,0.05) 75%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -233,8 +251,13 @@
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Empty State */
