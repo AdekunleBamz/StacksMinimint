@@ -5,7 +5,7 @@ import logo from '../assets/logo.png'
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const formatAddress = (addr) => {
     if (!addr) return ''
-    return `${addr.slice(0, 5)}...${addr.slice(-5)}`
+    return `${addr.slice(0, 4)}...${addr.slice(-4)}`
   }
 
   const getChainName = () => {
