@@ -22,7 +22,10 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
       <div className="header__wallet">
         {account ? (
           <>
-            <span className="header__chain">{getChainName()}</span>
+            <span className="header__chain">
+              <span className="header__status-dot"></span>
+              {getChainName()}
+            </span>
             <span className="header__address">{formatAddress(account)}</span>
             <button
               className="header__btn header__btn--disconnect"
