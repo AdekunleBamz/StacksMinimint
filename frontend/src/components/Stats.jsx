@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import './Stats.css'
 
 function Stats({ contractInfo, isLoading }) {
@@ -6,10 +7,34 @@ function Stats({ contractInfo, isLoading }) {
     return (parseFloat(microstx) / 1e6).toString()
   }
 
+  const [displayPercentage, setDisplayPercentage] = useState(0)
+
   const calculateProgress = () => {
     if (!contractInfo?.maxSupply || contractInfo.maxSupply === 0) return 0
     return (contractInfo.totalSupply / contractInfo.maxSupply) * 100
   }
+
+  useEffect(() => {
+    const target = calculateProgress()
+    const duration = 1500
+    const start = displayPercentage
+    const startTime = performance.now()
+
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const easeOutExpo = 1 - Math.pow(2, -10 * progress)
+
+      const nextValue = start + (target - start) * easeOutExpo
+      setDisplayPercentage(nextValue)
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }, [contractInfo?.totalSupply, contractInfo?.maxSupply])
 
   const stats = [
     {
@@ -58,23 +83,23 @@ function Stats({ contractInfo, isLoading }) {
   return (
     <section className="stats">
       <h2 className="stats__title">Collection Stats</h2>
-      
+
       <div className="stats__progress">
         <div className="progress-bar">
-          <div 
-            className="progress-bar__fill" 
-            style={{ width: `${calculateProgress()}%` }}
+          <div
+            className="progress-bar__fill"
+            style={{ width: `${displayPercentage}%` }}
           />
         </div>
         <span className="progress-text">
-          {calculateProgress().toFixed(1)}% minted
+          {displayPercentage.toFixed(1)}% minted
         </span>
       </div>
 
       <div className="stats__grid">
         {stats.map((stat, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="stat-card"
             style={{ '--accent-color': stat.color }}
           >
