@@ -1,8 +1,18 @@
+import { useState } from 'react'
 import './Header.css'
 
 import logo from '../assets/logo.png'
 
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
+  const [showCopied, setShowCopied] = useState(false)
+
+  const handleCopy = () => {
+    if (!account) return
+    navigator.clipboard.writeText(account)
+    setShowCopied(true)
+    setTimeout(() => setShowCopied(false), 2000)
+  }
+
   const formatAddress = (addr) => {
     if (!addr) return ''
     return `${addr.slice(0, 5)}...${addr.slice(-5)}`
@@ -23,7 +33,10 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
         {account ? (
           <>
             <span className="header__chain">{getChainName()}</span>
-            <span className="header__address">{formatAddress(account)}</span>
+            <div className="header__address-wrapper" onClick={handleCopy} title="Copy Address">
+              <span className="header__address">{formatAddress(account)}</span>
+              {showCopied && <span className="header__copied-toast">Copied!</span>}
+            </div>
             <button
               className="header__btn header__btn--disconnect"
               onClick={onDisconnect}
