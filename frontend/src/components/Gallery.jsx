@@ -218,11 +218,11 @@ function Gallery() {
               <div className="modal__details">
                 <div className="detail-row">
                   <span className="detail-label">Token ID</span>
-                  <span className="detail-value">#{selectedNft.id}</span>
+                  <span className="detail-pill detail-pill--id">#{selectedNft.id}</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Owner</span>
-                  <span className="detail-value">{selectedNft.owner}</span>
+                  <span className="detail-pill detail-pill--owner">{selectedNft.owner}</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Token URI</span>
