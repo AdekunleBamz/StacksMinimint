@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './MintCard.css'
 
-function MintCard({ 
-  contractInfo, 
-  onMint, 
-  account, 
+function MintCard({
+  contractInfo,
+  onMint,
+  account,
   isConnected,
-  onConnect 
+  onConnect
 }) {
   const [tokenURI, setTokenURI] = useState('')
   const [isMinting, setIsMinting] = useState(false)
@@ -14,7 +14,7 @@ function MintCard({
 
   const handleMint = async (e) => {
     e.preventDefault()
-    
+
     if (!tokenURI.trim()) {
       setMintStatus({ type: 'error', message: 'Please enter a valid token URI' })
       return
@@ -25,16 +25,16 @@ function MintCard({
 
     try {
       const result = await onMint(tokenURI)
-      setMintStatus({ 
-        type: 'success', 
+      setMintStatus({
+        type: 'success',
         message: `NFT minted! Token ID: ${result.tokenId}`,
         txHash: result.txHash
       })
       setTokenURI('')
     } catch (error) {
-      setMintStatus({ 
-        type: 'error', 
-        message: error.message || 'Failed to mint NFT' 
+      setMintStatus({
+        type: 'error',
+        message: error.message || 'Failed to mint NFT'
       })
     } finally {
       setIsMinting(false)
@@ -118,9 +118,9 @@ function MintCard({
             type="submit"
             className="mint-card__btn mint-card__btn--primary"
             disabled={
-              isMinting || 
-              isSoldOut || 
-              walletLimitReached || 
+              isMinting ||
+              isSoldOut ||
+              walletLimitReached ||
               contractInfo?.isPaused
             }
           >
@@ -139,7 +139,8 @@ function MintCard({
           </button>
 
           {mintStatus && (
-            <div className={`mint-card__status mint-card__status--${mintStatus.type}`}>
+            <div className={`mint-card__status mint-card__status--${mintStatus.type} ${mintStatus.type === 'success' ? 'animate-bounce-in' : ''}`}>
+              {mintStatus.type === 'success' && <div className="sparkles"></div>}
               <span>{mintStatus.message}</span>
               {mintStatus.txId && (
                 <a
