@@ -6,7 +6,17 @@ function Gallery() {
   const [isLoading, setIsLoading] = useState(true)
   const [selectedNft, setSelectedNft] = useState(null)
   const [viewMode, setViewMode] = useState('grid')
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
+
+  const handleViewModeChange = (mode) => {
+    if (mode === viewMode) return
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setViewMode(mode)
+      setIsTransitioning(false)
+    }, 300)
+  }
 
   // Sample NFT data for demonstration
   useEffect(() => {
@@ -33,7 +43,7 @@ function Gallery() {
         tokenURI: 'ipfs://QmExample3'
       }
     ]
-    
+
     setTimeout(() => {
       setNfts(mockNfts)
       setIsLoading(false)
@@ -110,7 +120,7 @@ function Gallery() {
               aria-label="Grid view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
               </svg>
             </button>
             <button
@@ -119,7 +129,7 @@ function Gallery() {
               aria-label="List view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
               </svg>
             </button>
           </div>
@@ -153,7 +163,7 @@ function Gallery() {
             aria-label="Grid view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
             </svg>
           </button>
           <button
@@ -162,7 +172,7 @@ function Gallery() {
             aria-label="List view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
             </svg>
           </button>
         </div>
