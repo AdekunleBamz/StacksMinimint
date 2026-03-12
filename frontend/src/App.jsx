@@ -6,8 +6,8 @@ import MintCard from './components/MintCard'
 import Stats from './components/Stats'
 import RecentMints from './components/RecentMints'
 import Gallery from './components/Gallery'
+import Features from './components/Features'
 import Footer from './components/Footer'
-import { getExplorerUrl } from './contract'
 import './App.css'
 
 function App() {
@@ -138,6 +138,7 @@ function App() {
         </div>
 
         <Gallery />
+        <Features />
       </main>
 
       <button
