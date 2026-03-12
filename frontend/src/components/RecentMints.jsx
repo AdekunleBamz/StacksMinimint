@@ -81,6 +81,9 @@ function RecentMints() {
         <div className="recent-mints__empty">
           <span className="recent-mints__empty-icon">🎨</span>
           <p>No mints yet. Be the first!</p>
+          <a className="recent-mints__cta" href="#mint-section">
+            Start the first mint
+          </a>
         </div>
       </section>
     )
