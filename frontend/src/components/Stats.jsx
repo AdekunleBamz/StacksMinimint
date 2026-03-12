@@ -48,9 +48,9 @@ function Stats({ contractInfo, isLoading }) {
       <section className="stats">
         <h2 className="stats__title">Collection Stats</h2>
         <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
-        <div className="stats__grid">
+        <div className="stats__grid" role="list" aria-label="Loading collection stats">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="stat-card stat-card--skeleton">
+            <div key={i} className="stat-card stat-card--skeleton" role="listitem">
               <div className="skeleton skeleton--icon"></div>
               <div className="skeleton skeleton--value"></div>
               <div className="skeleton skeleton--label"></div>
@@ -79,9 +79,9 @@ function Stats({ contractInfo, isLoading }) {
         </div>
       </div>
 
-      <div className="stats__grid">
+      <ul className="stats__grid" aria-label="Collection metrics">
         {stats.map((stat, index) => (
-          <div
+          <li
             key={index}
             className="stat-card"
             style={{ '--accent-color': stat.color }}
@@ -90,9 +90,9 @@ function Stats({ contractInfo, isLoading }) {
             <span className="stat-card__icon">{stat.icon}</span>
             <span className="stat-card__value">{stat.value}</span>
             <span className="stat-card__label">{stat.label}</span>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {contractInfo?.isPaused && (
         <div className="stats__paused">
