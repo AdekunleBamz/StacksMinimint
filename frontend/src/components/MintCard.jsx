@@ -56,6 +56,13 @@ function MintCard({
       : trimmedTokenURI
         ? 'Use an ipfs:// or https:// metadata URL'
         : 'Paste the final metadata URL for your NFT JSON'
+  const disabledReason = contractInfo?.isPaused
+    ? 'Minting is paused by the contract owner.'
+    : isSoldOut
+      ? 'This collection has sold out.'
+      : walletLimitReached
+        ? 'This wallet has reached its mint limit.'
+        : null
 
   return (
     <div className="mint-card">
@@ -161,6 +168,9 @@ function MintCard({
               `Mint for ${formatSTX(contractInfo?.mintFee)} STX`
             )}
           </button>
+          {disabledReason && (
+            <p className="mint-card__reason">{disabledReason}</p>
+          )}
 
           {mintStatus && (
             <div className={`mint-card__status mint-card__status--${mintStatus.type}`}>
