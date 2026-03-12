@@ -54,6 +54,11 @@ function MintCard({
       <div className="mint-card__header">
         <h2 className="mint-card__title">Mint Your NFT</h2>
         <p className="mint-card__subtitle">Create unique digital collectibles</p>
+        <ol className="mint-card__steps" aria-label="Minting steps">
+          <li>Connect a Stacks wallet</li>
+          <li>Paste your metadata URI</li>
+          <li>Confirm the transaction</li>
+        </ol>
       </div>
 
       <div className="mint-card__stats">
