@@ -231,6 +231,9 @@ function Gallery() {
                 <span className="label">Owner:</span>
                 <span className="value">{nft.owner}</span>
               </p>
+              {viewMode === 'list' && (
+                <p className="nft-card__token-uri">{nft.tokenURI}</p>
+              )}
             </div>
           </article>
         ))}
