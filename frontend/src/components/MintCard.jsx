@@ -150,6 +150,13 @@ function MintCard({
             <span className="form-source">{uriSource}</span>
           </div>
 
+          <div className="mint-card__preview">
+            <span className="mint-card__preview-label">Ready to submit</span>
+            <strong className="mint-card__preview-value">
+              {trimmedTokenURI || 'Paste a metadata URI to preview the submission'}
+            </strong>
+          </div>
+
           <button
             type="submit"
             className="mint-card__btn mint-card__btn--primary"
