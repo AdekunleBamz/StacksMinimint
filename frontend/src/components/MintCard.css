@@ -247,6 +247,20 @@
   word-break: break-all;
 }
 
+.mint-card__expectations {
+  display: grid;
+  gap: 0.55rem;
+  text-align: left;
+}
+
+.mint-card__expectations span {
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid rgba(96, 165, 250, 0.55);
+  background: rgba(30, 41, 59, 0.35);
+  color: #dbeafe;
+  font-size: 0.82rem;
+}
+
 .mint-card__btn {
   padding: 1rem 1.5rem;
   border: none;
