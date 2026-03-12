@@ -55,6 +55,8 @@
   gap: 1.75rem;
   max-width: 900px;
   margin: 0 auto;
+  list-style: none;
+  padding: 0;
 }
 
 .stat-card {
