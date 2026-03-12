@@ -127,12 +127,10 @@ button:active {
   color: #fff;
 }
 
-/* Focus styles for accessibility */
-/* Focus styles for accessibility */
-:focus-visible {
+:is(a, button, input, textarea, select, [role='button']):focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px #0f0f1a, 0 0 0 4px #8b5cf6;
-  border-radius: inherit;
+  border-radius: 0.75rem;
   transition: box-shadow 0.2s ease;
 }
 
