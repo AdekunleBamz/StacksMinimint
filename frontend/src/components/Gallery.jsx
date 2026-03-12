@@ -1,73 +1,55 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import './Gallery.css'
+import { getExplorerUrl } from '../contract'
+import {
+  formatAddress,
+  formatExactTime,
+  formatRelativeTime,
+  getCardAccent,
+  getMetadataGatewayUrl
+} from '../utils/collection'
 
-function Gallery() {
-  const [nfts, setNfts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [selectedNft, setSelectedNft] = useState(null)
-  const [viewMode, setViewMode] = useState('grid')
+function Gallery({
+  items = [],
+  viewMode = 'grid',
+  onViewModeChange = () => {},
+  onCopyValue = () => {},
+  prefersReducedMotion = false
+}) {
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedItem, setSelectedItem] = useState(null)
+  const closeButtonRef = useRef(null)
+  const selectedAccent = selectedItem ? getCardAccent(selectedItem.txId) : null
 
-  // Sample NFT data for demonstration
-  useEffect(() => {
-    const mockNfts = [
-      {
-        id: 1,
-        name: 'Genesis #1',
-        image: 'https://picsum.photos/seed/nft1/400/400',
-        owner: 'SP3H9...ABCDE',
-        tokenURI: 'ipfs://QmExample1'
-      },
-      {
-        id: 2,
-        name: 'Genesis #2',
-        image: 'https://picsum.photos/seed/nft2/400/400',
-        owner: 'SP2JA...XYZ12',
-        tokenURI: 'ipfs://QmExample2'
-      },
-      {
-        id: 3,
-        name: 'Genesis #3',
-        image: 'https://picsum.photos/seed/nft3/400/400',
-        owner: 'SP1P7...QWERT',
-        tokenURI: 'ipfs://QmExample3'
-      }
-    ]
+  const filteredItems = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase()
 
-    setTimeout(() => {
-      setNfts(mockNfts)
-      setIsLoading(false)
-    }, 500)
-  }, [])
+    if (!query) {
+      return items
+    }
 
-  const handleNftClick = (nft) => {
-    setSelectedNft(nft)
-  }
-
-  const closeModal = () => {
-    setSelectedNft(null)
-  }
-
-  const filteredNfts = nfts.filter(nft =>
-    nft.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    nft.owner.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+    return items.filter((item) =>
+      [item.metadataLabel, item.tokenURI, item.txId, item.address]
+        .filter(Boolean)
+        .some((value) => value.toLowerCase().includes(query))
+    )
+  }, [items, searchTerm])
 
   useEffect(() => {
-    if (!selectedNft) return undefined
+    if (!selectedItem) return undefined
 
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
-        closeModal()
+        setSelectedItem(null)
       }
     }
 
     window.addEventListener('keydown', handleEscape)
     return () => window.removeEventListener('keydown', handleEscape)
-  }, [selectedNft])
+  }, [selectedItem])
 
   useEffect(() => {
-    if (!selectedNft) return undefined
+    if (!selectedItem) return undefined
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -75,102 +57,31 @@ function Gallery() {
     return () => {
       document.body.style.overflow = previousOverflow
     }
-  }, [selectedNft])
+  }, [selectedItem])
 
-  if (isLoading) {
+  useEffect(() => {
+    if (selectedItem) {
+      closeButtonRef.current?.focus()
+    }
+  }, [selectedItem])
+
+  if (!items.length) {
     return (
       <section className="gallery">
         <div className="gallery__header">
           <div className="gallery__heading">
-            <h2 className="gallery__title">Collection Gallery</h2>
-            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+            <h2 className="gallery__title">Submission Gallery</h2>
+            <p className="gallery__subtitle">Every locally submitted mint receipt can be reviewed here with its metadata URI.</p>
           </div>
         </div>
-        <div className={`gallery__grid gallery__grid--${viewMode}`}>
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="nft-card nft-card--skeleton">
-              <div className="skeleton skeleton--image"></div>
-              <div className="nft-card__info">
-                <div className="skeleton skeleton--title"></div>
-                <div className="skeleton skeleton--owner"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    )
-  }
 
-  if (nfts.length === 0) {
-    return (
-      <section className="gallery">
-        <div className="gallery__header">
-          <div className="gallery__heading">
-            <h2 className="gallery__title">Collection Gallery</h2>
-            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
-          </div>
-        </div>
         <div className="gallery__empty">
-          <span className="gallery__empty-icon">🖼️</span>
-          <h3>No NFTs Yet</h3>
-          <p>Be the first to mint an NFT from this collection!</p>
-        </div>
-      </section>
-    )
-  }
-
-  if (filteredNfts.length === 0 && searchTerm) {
-    return (
-      <section className="gallery">
-        <div className="gallery__header">
-          <div className="gallery__heading">
-            <h2 className="gallery__title">Collection Gallery</h2>
-            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
-          </div>
-          <div className="gallery__search">
-            <div className="gallery__search-field">
-              <input
-                type="text"
-                placeholder="Search NFTs by name or owner..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-              />
-              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
-                Clear
-              </button>
-            </div>
-          </div>
-          <div className="gallery__controls">
-            <button
-              className={`view-btn ${viewMode === 'grid' ? 'view-btn--active' : ''}`}
-              onClick={() => setViewMode('grid')}
-              aria-label="Grid view"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
-              </svg>
-              <span>Grid</span>
-            </button>
-            <button
-              className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
-              onClick={() => setViewMode('list')}
-              aria-label="List view"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
-              </svg>
-              <span>List</span>
-            </button>
-          </div>
-        </div>
-        <div className="gallery__empty gallery__empty--search">
-          <div className="gallery__empty-icon">🔍</div>
-          <h3>No matching NFTs</h3>
-          <p>We couldn't find anything matching "{searchTerm}"</p>
-          <button className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
-            Clear Search
-          </button>
+          <span className="gallery__empty-icon">URI</span>
+          <h3>No submissions yet</h3>
+          <p>Once a mint is submitted, its metadata URL, wallet, and explorer receipt will appear here automatically.</p>
+          <a className="gallery__clear-btn" href="#mint-section">
+            Start a mint
+          </a>
         </div>
       </section>
     )
@@ -180,135 +91,203 @@ function Gallery() {
     <section className="gallery">
       <div className="gallery__header">
         <div className="gallery__heading">
-          <h2 className="gallery__title">Collection Gallery</h2>
-          <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+          <h2 className="gallery__title">Submission Gallery</h2>
+          <p className="gallery__subtitle">Every locally submitted mint receipt can be reviewed here with its metadata URI.</p>
         </div>
-        <div className="gallery__search">
-          <div className="gallery__search-field">
-            <input
-              type="text"
-              placeholder="Search NFTs by name or owner..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
-            {searchTerm && (
-              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
-                Clear
-              </button>
-            )}
-          </div>
-        </div>
-        <div className="gallery__controls">
-          <button
-            className={`view-btn ${viewMode === 'grid' ? 'view-btn--active' : ''}`}
-            onClick={() => setViewMode('grid')}
-            aria-label="Grid view"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
-            </svg>
-            <span>Grid</span>
-          </button>
-          <button
-            className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
-            onClick={() => setViewMode('list')}
-            aria-label="List view"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
-            </svg>
-            <span>List</span>
-          </button>
-        </div>
-      </div>
-      <div className="gallery__meta">
-        <span>{filteredNfts.length} NFTs shown</span>
-        <span>{viewMode === 'grid' ? 'Grid layout' : 'List layout'}</span>
-      </div>
 
-      <div className={`gallery__grid gallery__grid--${viewMode}`}>
-        {filteredNfts.map((nft, index) => (
-          <article
-            key={nft.id}
-            className="nft-card"
-            style={{ '--index': index }}
-            onClick={() => handleNftClick(nft)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleNftClick(nft)}
-          >
-            <div className="nft-card__image-wrapper">
-              <img
-                src={nft.image}
-                alt={nft.name}
-                className="nft-card__image"
-                loading="lazy"
+        <div className="gallery__toolbar">
+          <div className="gallery__search">
+            <label className="gallery__search-label" htmlFor="gallery-search">
+              Search submissions
+            </label>
+            <div className="gallery__search-field">
+              <input
+                id="gallery-search"
+                type="text"
+                className="search-input"
+                placeholder="Search by wallet, tx id, or metadata URI..."
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
               />
-              <div className="nft-card__overlay">
-                <span>View Details</span>
-              </div>
-            </div>
-            <div className="nft-card__info">
-              <h3 className="nft-card__name">{nft.name}</h3>
-              <div className="nft-card__meta">
-                <span className="nft-card__pill">Token #{nft.id}</span>
-                <span className="nft-card__pill nft-card__pill--owner">{nft.owner}</span>
-              </div>
-              <p className="nft-card__owner">
-                <span className="label">Owner:</span>
-                <span className="value">{nft.owner}</span>
-              </p>
-              {viewMode === 'list' && (
-                <p className="nft-card__token-uri">{nft.tokenURI}</p>
+              {searchTerm && (
+                <button
+                  type="button"
+                  className="search-clear-btn"
+                  onClick={() => setSearchTerm('')}
+                >
+                  Clear
+                </button>
               )}
             </div>
-          </article>
-        ))}
+          </div>
+
+          <div className="gallery__controls" aria-label="Gallery layout">
+            <button
+              type="button"
+              className={`view-btn ${viewMode === 'grid' ? 'view-btn--active' : ''}`}
+              onClick={() => onViewModeChange('grid')}
+            >
+              Grid
+            </button>
+            <button
+              type="button"
+              className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
+              onClick={() => onViewModeChange('list')}
+            >
+              List
+            </button>
+          </div>
+        </div>
       </div>
 
-      {selectedNft && (
-        <div className="modal-overlay" onClick={closeModal}>
+      <div className="gallery__meta">
+        <span>{filteredItems.length} submissions shown</span>
+        <span>{viewMode === 'grid' ? 'Grid layout saved locally' : 'List layout saved locally'}</span>
+      </div>
+
+      {filteredItems.length === 0 ? (
+        <div className="gallery__empty gallery__empty--search">
+          <span className="gallery__empty-icon">Search</span>
+          <h3>No matching submissions</h3>
+          <p>Try a wallet fragment, tx id, or metadata host instead.</p>
+          <button type="button" className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
+            Clear search
+          </button>
+        </div>
+      ) : (
+        <div className={`gallery__grid gallery__grid--${viewMode}`}>
+          {filteredItems.map((item, index) => {
+            const accent = getCardAccent(item.txId)
+
+            return (
+              <button
+                key={item.id}
+                type="button"
+                className="nft-card"
+                onClick={() => setSelectedItem(item)}
+                style={{
+                  '--card-primary': accent.primary,
+                  '--card-secondary': accent.secondary,
+                  '--card-glow': accent.glow,
+                  '--motion-delay': prefersReducedMotion ? '0ms' : `${index * 60}ms`
+                }}
+              >
+                <div className="nft-card__image-wrapper">
+                  <div className="nft-card__art">
+                    <span className="nft-card__art-chip">{item.metadataKind.toUpperCase()}</span>
+                    <span className="nft-card__art-label">{item.metadataLabel}</span>
+                    <span className="nft-card__art-copy">{formatRelativeTime(item.createdAt)}</span>
+                  </div>
+                </div>
+
+                <div className="nft-card__info">
+                  <h3 className="nft-card__name">{item.metadataLabel}</h3>
+                  <div className="nft-card__meta">
+                    <span className="nft-card__pill">Tx {item.txId.slice(0, 8)}</span>
+                    <span className="nft-card__pill nft-card__pill--owner">{formatAddress(item.address, 6, 4)}</span>
+                  </div>
+                  <p className="nft-card__owner">
+                    <span className="label">Metadata</span>
+                    <span className="value">{item.tokenURI}</span>
+                  </p>
+                </div>
+              </button>
+            )
+          })}
+        </div>
+      )}
+
+      {selectedItem && (
+        <div className="modal-overlay" onClick={() => setSelectedItem(null)}>
           <div
             className="modal"
             role="dialog"
             aria-modal="true"
             aria-labelledby="gallery-modal-title"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           >
-            <button className="modal__close" onClick={closeModal} aria-label="Close NFT details">
+            <button
+              ref={closeButtonRef}
+              className="modal__close"
+              onClick={() => setSelectedItem(null)}
+              aria-label="Close submission details"
+              type="button"
+            >
               ×
             </button>
+
             <div className="modal__image">
-              <img src={selectedNft.image} alt={selectedNft.name} />
+              <div
+                className="modal__art"
+                style={{
+                  '--card-primary': selectedAccent?.primary,
+                  '--card-secondary': selectedAccent?.secondary,
+                  '--card-glow': selectedAccent?.glow
+                }}
+              >
+                <span>{selectedItem.metadataKind.toUpperCase()}</span>
+                <strong>{selectedItem.metadataLabel}</strong>
+                <small>{formatRelativeTime(selectedItem.createdAt)}</small>
+              </div>
             </div>
+
             <div className="modal__content">
-              <h2 className="modal__title" id="gallery-modal-title">{selectedNft.name}</h2>
+              <h2 className="modal__title" id="gallery-modal-title">
+                Submission details
+              </h2>
+
               <div className="modal__details">
                 <div className="detail-row">
-                  <span className="detail-label">Token ID</span>
-                  <span className="detail-pill detail-pill--id">#{selectedNft.id}</span>
+                  <span className="detail-label">Wallet</span>
+                  <span className="detail-pill detail-pill--owner">{selectedItem.address}</span>
                 </div>
                 <div className="detail-row">
-                  <span className="detail-label">Owner</span>
-                  <span className="detail-pill detail-pill--owner">{selectedNft.owner}</span>
+                  <span className="detail-label">Transaction</span>
+                  <span className="detail-value detail-value--mono">{selectedItem.txId}</span>
                 </div>
                 <div className="detail-row">
-                  <span className="detail-label">Token URI</span>
-                  <span className="detail-value detail-value--mono">
-                    {selectedNft.tokenURI}
-                  </span>
+                  <span className="detail-label">Submitted</span>
+                  <span className="detail-value">{formatExactTime(selectedItem.createdAt)}</span>
+                </div>
+                <div className="detail-row">
+                  <span className="detail-label">Metadata URI</span>
+                  <span className="detail-value detail-value--mono">{selectedItem.tokenURI}</span>
                 </div>
               </div>
+
               <div className="modal__actions">
                 <a
-                  href={`https://explorer.hiro.so/token/${selectedNft.id}?chain=mainnet`}
+                  href={getExplorerUrl(selectedItem.txId)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="modal__btn"
+                  className="modal__btn modal__btn--primary"
                 >
-                  View on Explorer
+                  View explorer receipt
                 </a>
+                <button
+                  type="button"
+                  className="modal__btn modal__btn--secondary"
+                  onClick={() => onCopyValue(selectedItem.txId, 'Transaction id copied from the gallery.')}
+                >
+                  Copy tx id
+                </button>
+                <button
+                  type="button"
+                  className="modal__btn modal__btn--secondary"
+                  onClick={() => onCopyValue(selectedItem.tokenURI, 'Metadata URI copied from the gallery.')}
+                >
+                  Copy metadata URI
+                </button>
+                {getMetadataGatewayUrl(selectedItem.tokenURI) && (
+                  <a
+                    href={getMetadataGatewayUrl(selectedItem.tokenURI)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="modal__btn modal__btn--secondary"
+                  >
+                    Open metadata
+                  </a>
+                )}
               </div>
             </div>
           </div>
