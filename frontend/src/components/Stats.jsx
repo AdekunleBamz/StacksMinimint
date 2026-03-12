@@ -46,6 +46,7 @@ function Stats({ contractInfo, isLoading }) {
     return (
       <section className="stats">
         <h2 className="stats__title">Collection Stats</h2>
+        <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
         <div className="stats__grid">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="stat-card stat-card--skeleton">
@@ -62,6 +63,7 @@ function Stats({ contractInfo, isLoading }) {
   return (
     <section className="stats">
       <h2 className="stats__title">Collection Stats</h2>
+      <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
 
       <div className="stats__progress">
         <div className="progress-bar">
