@@ -5,9 +5,9 @@ function Footer() {
 
   const links = {
     project: [
-      { label: 'GitHub Repo', href: 'https://github.com/AdekunleBamz/StacksMinimint' },
-      { label: 'Mainnet Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
-      { label: 'Stacks Home', href: 'https://www.stacks.co/' }
+      { label: 'Mint Workspace', href: '#mint-section' },
+      { label: 'Recent Activity', href: '#activity-section' },
+      { label: 'Submission Gallery', href: '#gallery-section' }
     ],
     community: [
       { label: 'Stacks Discord', href: 'https://discord.gg/stacks' },
@@ -22,23 +22,30 @@ function Footer() {
   }
 
   return (
-    <footer className="footer">
+    <footer className="footer" id="footer">
       <div className="footer__content">
         <div className="footer__brand">
           <span className="footer__logo">◆</span>
           <span className="footer__title">NFTminimint</span>
           <p className="footer__description">
-            A focused Stacks NFT minting demo with live supply feedback, collection browsing, and wallet-aware mint limits.
+            A focused Stacks minting interface with persistent drafts, truthful local receipts, and cleaner wallet handoffs.
           </p>
         </div>
 
         <div className="footer__links">
           <div className="footer__column">
-            <h4 className="footer__heading">Project</h4>
+            <h4 className="footer__heading">Navigate</h4>
             <ul className="footer__list">
               {links.project.map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="footer__link">{link.label}</a>
+                  <a
+                    href={link.href}
+                    className="footer__link"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -49,7 +56,14 @@ function Footer() {
             <ul className="footer__list">
               {links.community.map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="footer__link">{link.label}</a>
+                  <a
+                    href={link.href}
+                    className="footer__link"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -80,7 +94,7 @@ function Footer() {
           © {currentYear} NFTminimint. Built for Stacks mainnet demos.
         </p>
         <p className="footer__credit">
-          Mint flow, gallery, and activity UI tuned for collectors.
+          Mint flow, gallery, and activity surfaces tuned for lower-friction submissions.
         </p>
       </div>
     </footer>
