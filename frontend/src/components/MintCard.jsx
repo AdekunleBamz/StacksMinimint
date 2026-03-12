@@ -1,83 +1,131 @@
 import { useState } from 'react'
 import './MintCard.css'
 import { getExplorerUrl } from '../contract'
+import {
+  formatLimit,
+  formatSTX,
+  MAX_TOKEN_URI_LENGTH,
+  validateTokenURI
+} from '../utils/collection'
 
-function MintCard({ 
-  contractInfo, 
-  onMint, 
-  account, 
+function MintCard({
+  contractInfo,
+  onMint,
   isConnected,
-  onConnect 
+  onConnect,
+  tokenURI = '',
+  onTokenURIChange = () => {},
+  onClearDraft = () => {}
 }) {
-  const [tokenURI, setTokenURI] = useState('')
   const [isMinting, setIsMinting] = useState(false)
   const [mintStatus, setMintStatus] = useState(null)
 
-  const handleMint = async (e) => {
-    e.preventDefault()
-    
-    if (!tokenURI.trim()) {
-      setMintStatus({ type: 'error', message: 'Please enter a valid token URI' })
+  const validation = validateTokenURI(tokenURI)
+  const maxSupply = contractInfo?.maxSupply ?? null
+  const mintedCount = contractInfo?.totalSupply || 0
+  const maxPerWallet = contractInfo?.maxPerWallet ?? null
+  const walletMinted = contractInfo?.walletMinted || 0
+  const isPaused = contractInfo?.isPaused === true
+  const isSoldOut = typeof maxSupply === 'number' && mintedCount >= maxSupply
+  const walletLimitReached = typeof maxPerWallet === 'number' && walletMinted >= maxPerWallet
+  const hasDraft = Boolean(tokenURI.trim())
+  const isPrimaryActionDisabled =
+    isMinting ||
+    isPaused ||
+    isSoldOut ||
+    walletLimitReached ||
+    (isConnected && !validation.isValid)
+
+  const disabledReason = isPaused
+    ? 'Minting is paused by the contract owner.'
+    : isSoldOut
+      ? 'This collection has sold out.'
+      : walletLimitReached
+        ? 'This wallet has reached its configured mint cap.'
+        : isConnected && !validation.isValid
+          ? validation.helper
+          : !isConnected
+            ? 'You can keep editing the URI now. The button will ask for a wallet connection before minting.'
+            : null
+
+  const checklist = [
+    {
+      label: 'Metadata URI passes local checks',
+      active: validation.isValid
+    },
+    {
+      label: 'Stacks wallet connected',
+      active: isConnected
+    },
+    {
+      label: 'Collection available for minting',
+      active: !isPaused && !isSoldOut && !walletLimitReached
+    }
+  ]
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    if (!isConnected) {
+      setMintStatus({
+        type: 'pending',
+        message: 'Connect a Stacks wallet to continue. Your draft will stay in place.'
+      })
+      onConnect()
+      return
+    }
+
+    if (!validation.isValid) {
+      setMintStatus({
+        type: 'error',
+        message: validation.helper
+      })
       return
     }
 
     setIsMinting(true)
-    setMintStatus({ type: 'pending', message: 'Confirm transaction in wallet...' })
+    setMintStatus({
+      type: 'pending',
+      message: 'Wallet prompt opened. Review the post-condition and submit when ready.'
+    })
 
     try {
-      const result = await onMint(tokenURI)
+      const result = await onMint(tokenURI.trim())
+
       if (!result) {
-        setMintStatus(null)
+        setMintStatus({
+          type: 'warning',
+          message: 'Mint request closed before a transaction was submitted.'
+        })
         return
       }
-      setMintStatus({ 
-        type: 'success', 
-        message: 'Mint submitted successfully. Track confirmation in the explorer.',
+
+      setMintStatus({
+        type: 'success',
+        message: 'Mint submitted successfully. Track the receipt from Recent Activity or the explorer.',
         txId: result.txId
       })
-      setTokenURI('')
     } catch (error) {
-      setMintStatus({ 
-        type: 'error', 
-        message: error.message || 'Failed to mint NFT' 
+      setMintStatus({
+        type: 'error',
+        message: error.message || 'Failed to mint NFT.'
       })
     } finally {
       setIsMinting(false)
     }
   }
 
-  const formatSTX = (microstx) => {
-    if (!microstx) return '0'
-    return (parseFloat(microstx) / 1e6).toString()
-  }
-
-  const isSoldOut = contractInfo?.totalSupply >= contractInfo?.maxSupply
-  const walletLimitReached = contractInfo?.walletMinted >= contractInfo?.maxPerWallet
-  const trimmedTokenURI = tokenURI.trim()
-  const uriSource = trimmedTokenURI.startsWith('ipfs://')
-    ? 'IPFS metadata detected'
-    : trimmedTokenURI.startsWith('https://')
-      ? 'Secure HTTPS metadata detected'
-      : trimmedTokenURI
-        ? 'Use an ipfs:// or https:// metadata URL'
-        : 'Paste the final metadata URL for your NFT JSON'
-  const disabledReason = contractInfo?.isPaused
-    ? 'Minting is paused by the contract owner.'
-    : isSoldOut
-      ? 'This collection has sold out.'
-      : walletLimitReached
-        ? 'This wallet has reached its mint limit.'
-        : null
-
   return (
     <div className="mint-card">
       <div className="mint-card__header">
-        <h2 className="mint-card__title">Mint Your NFT</h2>
-        <p className="mint-card__subtitle">Create unique digital collectibles</p>
+        <h2 className="mint-card__title">Mint Workspace</h2>
+        <p className="mint-card__subtitle">
+          Draft the metadata URL first, then connect a wallet only when the URI is ready to sign.
+        </p>
         <ol className="mint-card__steps" aria-label="Minting steps">
-          <li>Connect a Stacks wallet</li>
-          <li>Paste your metadata URI</li>
-          <li>Confirm the transaction</li>
+          <li>Paste an IPFS or HTTPS metadata URI</li>
+          <li>Review the live checks and wallet status</li>
+          <li>Submit and keep the receipt in Recent Activity</li>
         </ol>
       </div>
 
@@ -87,140 +135,172 @@ function MintCard({
           <span className="stat__value">{formatSTX(contractInfo?.mintFee)} STX</span>
         </div>
         <div className="stat">
-          <span className="stat__label">Minted</span>
+          <span className="stat__label">Supply</span>
           <span className="stat__value">
-            {contractInfo?.totalSupply || 0} / {contractInfo?.maxSupply || '∞'}
+            {mintedCount} / {formatLimit(maxSupply, 'Open')}
           </span>
         </div>
         <div className="stat">
-          <span className="stat__label">Your Mints</span>
-          <span className="stat__value">
-            {contractInfo?.walletMinted || 0} / {contractInfo?.maxPerWallet || '∞'}
-          </span>
+          <span className="stat__label">Wallet Cap</span>
+          <span className="stat__value">{formatLimit(maxPerWallet, 'Not set')}</span>
         </div>
       </div>
 
       <div className="mint-card__availability">
-        <span>{Math.max((contractInfo?.maxSupply || 0) - (contractInfo?.totalSupply || 0), 0)} items remaining</span>
-        <span>{Math.max((contractInfo?.maxPerWallet || 0) - (contractInfo?.walletMinted || 0), 0)} mint slots left for this wallet</span>
+        <span>
+          {typeof maxSupply === 'number'
+            ? `${Math.max(maxSupply - mintedCount, 0)} items remaining`
+            : 'Open supply configuration'}
+        </span>
+        <span>
+          {typeof maxPerWallet === 'number'
+            ? `${Math.max(maxPerWallet - walletMinted, 0)} wallet slots left`
+            : 'Wallet cap not configured'}
+        </span>
       </div>
 
-      {contractInfo?.isPaused && (
+      {!isConnected && (
+        <div className="mint-card__connect-note">
+          <strong>Wallet not connected.</strong> Drafting is enabled now, and the submit button will switch to wallet connect mode.
+        </div>
+      )}
+
+      {isPaused && (
         <div className="mint-card__alert mint-card__alert--warning">
-          ⚠️ Minting is currently paused
+          Minting is currently paused.
         </div>
       )}
 
       {isSoldOut && (
         <div className="mint-card__alert mint-card__alert--error">
-          🔥 Sold out! All NFTs have been minted
+          This collection has sold out.
         </div>
       )}
 
-      {!isConnected ? (
-        <div className="mint-card__connect">
-          <p>Connect your wallet to unlock the mint form and confirm transactions securely.</p>
-          <ul className="mint-card__connect-list" aria-label="Wallet connection benefits">
-            <li>See your wallet-specific mint limit</li>
-            <li>Review the live mint price before signing</li>
-            <li>Receive a transaction receipt after submission</li>
-          </ul>
-          <button className="mint-card__btn" onClick={onConnect}>
-            Connect Wallet
-          </button>
-        </div>
-      ) : (
-        <form className="mint-card__form" onSubmit={handleMint}>
-          <div className="form-group">
-            <div className="form-label-row">
-              <label htmlFor="tokenURI" className="form-label">
-                Token URI (Metadata URL)
-              </label>
-              {trimmedTokenURI && (
+      <form className="mint-card__form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <div className="form-label-row">
+            <label htmlFor="tokenURI" className="form-label">
+              Token URI (Metadata URL)
+            </label>
+            <div className="form-actions">
+              {hasDraft && (
+                <span className="form-draft-pill" aria-live="polite">
+                  Saved locally
+                </span>
+              )}
+              {hasDraft && (
                 <button
                   type="button"
                   className="form-clear-btn"
-                  onClick={() => setTokenURI('')}
+                  onClick={() => {
+                    onClearDraft()
+                    setMintStatus(null)
+                  }}
                 >
                   Clear
                 </button>
               )}
             </div>
-            <input
-              type="url"
-              id="tokenURI"
-              className="form-input"
-              placeholder="ipfs://... or https://..."
-              value={tokenURI}
-              onChange={(e) => setTokenURI(e.target.value)}
-              disabled={isMinting || isSoldOut || contractInfo?.isPaused}
-            />
-            <span className="form-hint">
-              IPFS or HTTP link to your NFT metadata JSON
-            </span>
-            <span className="form-source">{uriSource}</span>
           </div>
 
-          <div className="mint-card__preview">
-            <span className="mint-card__preview-label">Ready to submit</span>
-            <strong className="mint-card__preview-value">
-              {trimmedTokenURI || 'Paste a metadata URI to preview the submission'}
-            </strong>
-          </div>
+          <input
+            type="url"
+            id="tokenURI"
+            className="form-input"
+            placeholder="ipfs://... or https://..."
+            value={tokenURI}
+            onChange={(event) => onTokenURIChange(event.target.value)}
+            disabled={isMinting || isSoldOut || isPaused}
+            autoComplete="off"
+            spellCheck="false"
+          />
 
-          <div className="mint-card__expectations" aria-label="What happens next">
-            <span>Wallet prompt will open for confirmation</span>
-            <span>You will approve a {formatSTX(contractInfo?.mintFee)} STX post-condition</span>
-          </div>
-
-          <button
-            type="submit"
-            className="mint-card__btn mint-card__btn--primary"
-            disabled={
-              isMinting || 
-              isSoldOut || 
-              walletLimitReached || 
-              contractInfo?.isPaused
-            }
-          >
-            {isMinting ? (
-              <>
-                <span className="spinner"></span>
-                Minting...
-              </>
-            ) : isSoldOut ? (
-              'Sold Out'
-            ) : walletLimitReached ? (
-              'Wallet Limit Reached'
-            ) : (
-              `Mint for ${formatSTX(contractInfo?.mintFee)} STX`
-            )}
-          </button>
-          {disabledReason && (
-            <p className="mint-card__reason">{disabledReason}</p>
-          )}
-
-          {mintStatus && (
-            <div
-              className={`mint-card__status mint-card__status--${mintStatus.type}`}
-              role="status"
-              aria-live="polite"
-            >
-              <span>{mintStatus.message}</span>
-              {mintStatus.txId && (
-                <a
-                  href={getExplorerUrl(mintStatus.txId)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mint-card__tx-link"
-                >
-                  View Transaction ↗
-                </a>
-              )}
+          <div className={`form-review form-review--${validation.tone}`}>
+            <div>
+              <strong className="form-review__label">{validation.label}</strong>
+              <p className="form-review__copy">{validation.helper}</p>
             </div>
-          )}
-        </form>
-      )}
+            <span className="form-review__count">
+              {validation.characterCount} / {MAX_TOKEN_URI_LENGTH}
+            </span>
+          </div>
+
+          <span className="form-hint">
+            ASCII only. Use an IPFS CID or secure HTTPS URL that points to the final NFT metadata JSON.
+          </span>
+        </div>
+
+        <div className="mint-card__preview">
+          <span className="mint-card__preview-label">Ready to submit</span>
+          <strong className="mint-card__preview-value">
+            {hasDraft ? tokenURI.trim() : 'Paste a metadata URI to preview the exact value sent on-chain.'}
+          </strong>
+        </div>
+
+        <ul className="mint-card__checklist" aria-label="Mint readiness">
+          {checklist.map((item) => (
+            <li
+              key={item.label}
+              className={`mint-card__checklist-item ${item.active ? 'mint-card__checklist-item--active' : ''}`}
+            >
+              <span className="mint-card__checklist-icon" aria-hidden="true">
+                {item.active ? '✓' : '•'}
+              </span>
+              <span>{item.label}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mint-card__expectations" aria-label="What happens next">
+          <span>
+            {isConnected
+              ? 'Wallet prompt opens with the contract call and post-condition.'
+              : 'Primary action opens the wallet connection flow before any transaction is attempted.'}
+          </span>
+          <span>You will approve a {formatSTX(contractInfo?.mintFee)} STX post-condition when minting.</span>
+        </div>
+
+        <button
+          type="submit"
+          className="mint-card__btn mint-card__btn--primary"
+          disabled={isPrimaryActionDisabled}
+        >
+          {isMinting
+            ? 'Awaiting wallet confirmation...'
+            : !isConnected
+              ? 'Connect wallet to continue'
+              : isSoldOut
+                ? 'Sold Out'
+                : walletLimitReached
+                  ? 'Wallet Limit Reached'
+                  : `Mint for ${formatSTX(contractInfo?.mintFee)} STX`}
+        </button>
+
+        {disabledReason && (
+          <p className="mint-card__reason">{disabledReason}</p>
+        )}
+
+        {mintStatus && (
+          <div
+            className={`mint-card__status mint-card__status--${mintStatus.type}`}
+            role="status"
+            aria-live="polite"
+          >
+            <span>{mintStatus.message}</span>
+            {mintStatus.txId && (
+              <a
+                href={getExplorerUrl(mintStatus.txId)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mint-card__tx-link"
+              >
+                View transaction in explorer
+              </a>
+            )}
+          </div>
+        )}
+      </form>
     </div>
   )
 }
