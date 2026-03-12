@@ -6,3 +6,4 @@ settings/Testnet.toml
 dist/
 .cache/
 test-wallets.json
+scripts/
