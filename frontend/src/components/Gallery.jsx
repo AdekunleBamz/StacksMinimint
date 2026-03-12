@@ -104,13 +104,18 @@ function Gallery() {
             <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
           </div>
           <div className="gallery__search">
-            <input
-              type="text"
-              placeholder="Search NFTs by name or owner..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
+            <div className="gallery__search-field">
+              <input
+                type="text"
+                placeholder="Search NFTs by name or owner..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
+                Clear
+              </button>
+            </div>
           </div>
           <div className="gallery__controls">
             <button
@@ -153,13 +158,20 @@ function Gallery() {
           <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
         </div>
         <div className="gallery__search">
-          <input
-            type="text"
-            placeholder="Search NFTs by name or owner..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
+          <div className="gallery__search-field">
+            <input
+              type="text"
+              placeholder="Search NFTs by name or owner..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
+            {searchTerm && (
+              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
+                Clear
+              </button>
+            )}
+          </div>
         </div>
         <div className="gallery__controls">
           <button
