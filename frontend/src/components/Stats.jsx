@@ -11,6 +11,11 @@ function Stats({ contractInfo, isLoading }) {
     return (contractInfo.totalSupply / contractInfo.maxSupply) * 100
   }
   const remainingSupply = Math.max((contractInfo?.maxSupply || 0) - (contractInfo?.totalSupply || 0), 0)
+  const collectionState = contractInfo?.isPaused
+    ? { label: 'Paused', tone: 'warning' }
+    : remainingSupply === 0
+      ? { label: 'Sold out', tone: 'critical' }
+      : { label: 'Live mint', tone: 'success' }
 
   const stats = [
     {
@@ -65,6 +70,9 @@ function Stats({ contractInfo, isLoading }) {
     <section className="stats">
       <h2 className="stats__title">Collection Stats</h2>
       <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
+      <div className={`stats__state stats__state--${collectionState.tone}`}>
+        {collectionState.label}
+      </div>
 
       <div className="stats__progress">
         <div className="progress-bar">
