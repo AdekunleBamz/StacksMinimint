@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './MintCard.css'
+import { getExplorerUrl } from '../contract'
 
 function MintCard({ 
   contractInfo, 
@@ -25,10 +26,14 @@ function MintCard({
 
     try {
       const result = await onMint(tokenURI)
+      if (!result) {
+        setMintStatus(null)
+        return
+      }
       setMintStatus({ 
         type: 'success', 
-        message: `NFT minted! Token ID: ${result.tokenId}`,
-        txHash: result.txHash
+        message: 'Mint submitted successfully. Track confirmation in the explorer.',
+        txId: result.txId
       })
       setTokenURI('')
     } catch (error) {
@@ -177,7 +182,7 @@ function MintCard({
               <span>{mintStatus.message}</span>
               {mintStatus.txId && (
                 <a
-                  href={`https://explorer.hiro.so/txid/${mintStatus.txId}?chain=mainnet`}
+                  href={getExplorerUrl(mintStatus.txId)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mint-card__tx-link"
