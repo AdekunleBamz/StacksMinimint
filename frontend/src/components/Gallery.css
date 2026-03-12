@@ -83,7 +83,7 @@
 }
 
 .view-btn {
-  padding: 0.5rem;
+  padding: 0.5rem 0.85rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
@@ -93,6 +93,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .view-btn:hover {
