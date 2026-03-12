@@ -19,6 +19,32 @@
   font-size: 0.95rem;
 }
 
+.stats__state {
+  width: fit-content;
+  margin: -0.75rem auto 1.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stats__state--success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+}
+
+.stats__state--warning {
+  background: rgba(234, 179, 8, 0.16);
+  color: #fde68a;
+}
+
+.stats__state--critical {
+  background: rgba(239, 68, 68, 0.16);
+  color: #fca5a5;
+}
+
 .stats__progress {
   max-width: 600px;
   margin: 0 auto 2rem;
