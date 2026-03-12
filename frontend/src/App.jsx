@@ -103,9 +103,12 @@ function App() {
         </section>
 
         {(contractError) && (
-          <div className="error-banner">
-            <span className="error-banner__icon">⚠️</span>
-            <span>{contractError}</span>
+          <div className="error-banner" role="alert" aria-live="assertive">
+            <span className="error-banner__icon" aria-hidden="true">⚠️</span>
+            <div className="error-banner__content">
+              <strong className="error-banner__title">Action needed</strong>
+              <span className="error-banner__message">{contractError}</span>
+            </div>
           </div>
         )}
 
