@@ -108,6 +108,10 @@ function Stats({ contractInfo, isLoading }) {
           <span>Contract is currently paused</span>
         </div>
       )}
+
+      <p className="stats__footnote">
+        Metrics refresh from the connected wallet context and current contract configuration.
+      </p>
     </section>
   )
 }
