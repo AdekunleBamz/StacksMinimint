@@ -1,64 +1,55 @@
 import './Stats.css'
+import { formatLimit, formatSTX } from '../utils/collection'
 
-function Stats({ contractInfo, isLoading }) {
-  const formatSTX = (microstx) => {
-    if (!microstx) return '0'
-    return (parseFloat(microstx) / 1e6).toString()
-  }
-
-  const calculateProgress = () => {
-    if (!contractInfo?.maxSupply || contractInfo.maxSupply === 0) return 0
-    return (contractInfo.totalSupply / contractInfo.maxSupply) * 100
-  }
-  const remainingSupply = Math.max((contractInfo?.maxSupply || 0) - (contractInfo?.totalSupply || 0), 0)
-  const collectionState = contractInfo?.isPaused
+function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
+  const totalSupply = contractInfo?.totalSupply || 0
+  const maxSupply = contractInfo?.maxSupply ?? null
+  const remainingSupply = typeof maxSupply === 'number'
+    ? Math.max(maxSupply - totalSupply, 0)
+    : null
+  const progress = typeof maxSupply === 'number' && maxSupply > 0
+    ? Math.min((totalSupply / maxSupply) * 100, 100)
+    : 0
+  const collectionState = contractInfo?.isPaused === true
     ? { label: 'Paused', tone: 'warning' }
-    : remainingSupply === 0
+    : remainingSupply === 0 && maxSupply !== null
       ? { label: 'Sold out', tone: 'critical' }
-      : { label: 'Live mint', tone: 'success' }
+      : { label: 'Ready', tone: 'success' }
 
   const stats = [
     {
-      label: 'Total Minted',
-      value: `${contractInfo?.totalSupply || 0}`,
-      icon: '🎨',
-      color: '#8b5cf6',
-      tooltip: 'Number of NFTs minted so far'
+      label: 'Minted',
+      value: `${totalSupply}`,
+      detail: 'Total submissions minted so far'
     },
     {
-      label: 'Max Supply',
-      value: `${contractInfo?.maxSupply || '∞'}`,
-      icon: '📦',
-      color: '#ec4899',
-      tooltip: 'Maximum number of NFTs allowed'
+      label: 'Remaining',
+      value: remainingSupply === null ? 'Open' : `${remainingSupply}`,
+      detail: remainingSupply === null ? 'Supply limit is not set in this UI' : 'Supply left before the collection sells out'
     },
     {
-      label: 'Mint Price',
+      label: 'Mint price',
       value: `${formatSTX(contractInfo?.mintFee)} STX`,
-      icon: '💎',
-      color: '#06b6d4',
-      tooltip: 'Cost to mint one NFT (in STX)'
+      detail: 'Post-condition amount per mint'
     },
     {
-      label: 'Per Wallet Limit',
-      value: `${contractInfo?.maxPerWallet || '∞'}`,
-      icon: '👛',
-      color: '#10b981',
-      tooltip: 'Maximum NFTs one wallet can mint'
+      label: 'Wallet cap',
+      value: formatLimit(contractInfo?.maxPerWallet, 'Not set'),
+      detail: isConnected ? 'Wallet connected and ready' : 'Connect to unlock the mint action'
     }
   ]
 
   if (isLoading) {
     return (
-      <section className="stats">
+      <section className="stats" aria-busy="true">
         <h2 className="stats__title">Collection Stats</h2>
-        <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
+        <p className="stats__subtitle">The mint rail keeps supply and session context visible while you work.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="stat-card stat-card--skeleton" role="listitem">
-              <div className="skeleton skeleton--icon"></div>
+          {[1, 2, 3, 4].map((item) => (
+            <div key={item} className="stat-card stat-card--skeleton" role="listitem">
               <div className="skeleton skeleton--value"></div>
               <div className="skeleton skeleton--label"></div>
+              <div className="skeleton skeleton--copy"></div>
             </div>
           ))}
         </div>
@@ -69,48 +60,50 @@ function Stats({ contractInfo, isLoading }) {
   return (
     <section className="stats">
       <h2 className="stats__title">Collection Stats</h2>
-      <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
-      <div className={`stats__state stats__state--${collectionState.tone}`}>
-        {collectionState.label}
+      <p className="stats__subtitle">The mint rail keeps supply and session context visible while you work.</p>
+
+      <div className="stats__headline">
+        <span className={`stats__state stats__state--${collectionState.tone}`}>
+          {collectionState.label}
+        </span>
+        <div className="stats__session">
+          <span>{isConnected ? 'Wallet connected' : 'Wallet required'}</span>
+          <span>{recentActivityCount} local receipts</span>
+        </div>
       </div>
 
       <div className="stats__progress">
-        <div className="progress-bar">
+        <div
+          className="progress-bar"
+          role="progressbar"
+          aria-valuenow={Number(progress.toFixed(1))}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Mint progress"
+        >
           <div
             className="progress-bar__fill"
-            style={{ width: `${calculateProgress()}%` }}
+            style={{ width: `${progress}%` }}
           />
         </div>
         <div className="progress-text">
-          <span>{calculateProgress().toFixed(1)}% minted</span>
-          <span>{remainingSupply} items remaining</span>
+          <span>{progress.toFixed(1)}% of configured supply minted</span>
+          <span>{remainingSupply === null ? 'Supply limit not configured' : `${remainingSupply} items remaining`}</span>
         </div>
       </div>
 
       <ul className="stats__grid" aria-label="Collection metrics">
-        {stats.map((stat, index) => (
-          <li
-            key={index}
-            className="stat-card"
-            style={{ '--accent-color': stat.color }}
-            data-tooltip={stat.tooltip}
-          >
-            <span className="stat-card__icon">{stat.icon}</span>
-            <span className="stat-card__value">{stat.value}</span>
+        {stats.map((stat) => (
+          <li key={stat.label} className="stat-card">
             <span className="stat-card__label">{stat.label}</span>
+            <span className="stat-card__value">{stat.value}</span>
+            <p className="stat-card__detail">{stat.detail}</p>
           </li>
         ))}
       </ul>
 
-      {contractInfo?.isPaused && (
-        <div className="stats__paused">
-          <span className="stats__paused-icon">⏸️</span>
-          <span>Contract is currently paused</span>
-        </div>
-      )}
-
       <p className="stats__footnote">
-        Metrics refresh from the connected wallet context and current contract configuration.
+        Wallet-specific caps and pause state appear only when that information is available from the connected contract context.
       </p>
     </section>
   )
