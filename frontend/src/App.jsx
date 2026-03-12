@@ -67,6 +67,19 @@ function App() {
               <span className="hero__highlight">Wallet-protected mint</span>
               <span className="hero__highlight">Explorer-linked receipts</span>
             </div>
+            <div className="hero__actions">
+              <a className="hero__action hero__action--primary" href="#mint-section">
+                Start minting
+              </a>
+              <a
+                className="hero__action hero__action--secondary"
+                href="https://explorer.hiro.so/?chain=mainnet"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Stacks explorer
+              </a>
+            </div>
           </div>
         </section>
 
