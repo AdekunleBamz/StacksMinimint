@@ -257,6 +257,14 @@
   color: #a78bfa;
 }
 
+.nft-card__token-uri {
+  margin-top: 0.75rem;
+  color: #94a3b8;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.78rem;
+  word-break: break-all;
+}
+
 /* Skeleton */
 .nft-card--skeleton {
   pointer-events: none;
