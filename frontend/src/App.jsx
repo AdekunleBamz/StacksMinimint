@@ -62,6 +62,11 @@ function App() {
             <p className="hero__subtitle">
               A minimal, gas-efficient NFT minting experience on Stacks
             </p>
+            <div className="hero__highlights" aria-label="Collection highlights">
+              <span className="hero__highlight">Mainnet ready</span>
+              <span className="hero__highlight">Wallet-protected mint</span>
+              <span className="hero__highlight">Explorer-linked receipts</span>
+            </div>
           </div>
         </section>
 
