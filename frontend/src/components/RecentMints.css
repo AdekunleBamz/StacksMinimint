@@ -32,6 +32,12 @@
   font-weight: 700;
 }
 
+.recent-mints__loading-copy {
+  margin: -1rem 0 1.5rem;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
 .recent-mints__list {
   display: flex;
   flex-direction: column;
