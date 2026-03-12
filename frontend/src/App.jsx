@@ -148,6 +148,7 @@ function App() {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
           <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
+        <span className="back-to-top__label">Top</span>
       </button>
 
       <Footer />
