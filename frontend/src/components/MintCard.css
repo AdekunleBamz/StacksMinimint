@@ -33,6 +33,45 @@
   font-size: 0.9375rem;
 }
 
+.mint-card__steps {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.mint-card__steps li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.9rem;
+  background: rgba(15, 23, 42, 0.45);
+  color: #cbd5e1;
+  font-size: 0.875rem;
+}
+
+.mint-card__steps li::before {
+  content: counter(step);
+  counter-increment: step;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.25);
+  color: #e9d5ff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.mint-card__steps {
+  counter-reset: step;
+}
+
 .mint-card__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
