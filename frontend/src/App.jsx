@@ -109,7 +109,15 @@ function App() {
           </div>
         )}
 
-        <div className="content-grid" id="mint-section">
+        <section className="section-heading" id="mint-section">
+          <span className="section-heading__eyebrow">Mint flow</span>
+          <h2 className="section-heading__title">Mint with clear limits and live feedback</h2>
+          <p className="section-heading__copy">
+            Review the live supply, confirm your wallet cap, and submit a metadata URI in one place.
+          </p>
+        </section>
+
+        <div className="content-grid">
           <div className="content-grid__main">
             <MintCard
               contractInfo={contractInfo}
