@@ -349,17 +349,19 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 3.5rem;
+  min-width: 3.5rem;
   height: 3.5rem;
   background: rgba(30, 30, 50, 0.8);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  border-radius: 999px;
   color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.35rem;
+  padding: 0 1rem;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
@@ -379,4 +381,9 @@
   border-color: rgba(139, 92, 246, 0.5);
   box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.5);
   transform: translateY(-5px);
+}
+
+.back-to-top__label {
+  font-size: 0.875rem;
+  font-weight: 700;
 }
