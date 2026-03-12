@@ -227,6 +227,13 @@
   font-size: 0.875rem;
 }
 
+.stats__footnote {
+  margin-top: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
 @media (max-width: 640px) {
   .stats {
     padding: 2rem 0;
