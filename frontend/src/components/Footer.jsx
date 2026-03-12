@@ -5,19 +5,19 @@ function Footer() {
 
   const links = {
     project: [
-      { label: 'OpenSea', href: '#' },
-      { label: 'Etherscan', href: '#' },
-      { label: 'IPFS Gateway', href: '#' }
+      { label: 'GitHub Repo', href: 'https://github.com/AdekunleBamz/StacksMinimint' },
+      { label: 'Mainnet Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
+      { label: 'Stacks Home', href: 'https://www.stacks.co/' }
     ],
     community: [
-      { label: 'Discord', href: '#' },
-      { label: 'Twitter', href: '#' },
-      { label: 'Telegram', href: '#' }
+      { label: 'Stacks Discord', href: 'https://discord.gg/stacks' },
+      { label: 'Stacks on X', href: 'https://x.com/Stacks' },
+      { label: 'Hiro on X', href: 'https://x.com/hirosystems' }
     ],
     resources: [
-      { label: 'Documentation', href: '#' },
-      { label: 'GitHub', href: 'https://github.com/AdekunleBamz/NFTminimint' },
-      { label: 'Smart Contract', href: '#' }
+      { label: 'Stacks Docs', href: 'https://docs.stacks.co/' },
+      { label: 'Hiro Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
+      { label: 'Clarity Reference', href: 'https://docs.stacks.co/reference/clarity' }
     ]
   }
 
@@ -28,8 +28,7 @@ function Footer() {
           <span className="footer__logo">◆</span>
           <span className="footer__title">NFTminimint</span>
           <p className="footer__description">
-            Create and collect unique digital art on the blockchain.
-            Simple, secure, and decentralized.
+            A focused Stacks NFT minting demo with live supply feedback, collection browsing, and wallet-aware mint limits.
           </p>
         </div>
 
@@ -78,10 +77,10 @@ function Footer() {
 
       <div className="footer__bottom">
         <p className="footer__copyright">
-          © {currentYear} NFTminimint. All rights reserved.
+          © {currentYear} NFTminimint. Built for Stacks mainnet demos.
         </p>
         <p className="footer__credit">
-          Built with ♥ on Stacks
+          Mint flow, gallery, and activity UI tuned for collectors.
         </p>
       </div>
     </footer>
