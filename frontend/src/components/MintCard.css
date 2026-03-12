@@ -252,6 +252,12 @@
   transform: none;
 }
 
+.mint-card__reason {
+  margin: -0.25rem 0 0;
+  font-size: 0.8rem;
+  color: #fca5a5;
+}
+
 .spinner {
   width: 18px;
   height: 18px;
