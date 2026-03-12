@@ -44,6 +44,9 @@ function App() {
   return (
     <div className="app">
       <div className="page-load-bar"></div>
+      <a className="skip-link" href="#main-content">
+        Skip to minting content
+      </a>
       <Header
         account={address}
         onConnect={connect}
@@ -51,8 +54,8 @@ function App() {
         isConnecting={isConnecting}
       />
 
-      <main className="main">
-        <section className="hero">
+      <main className="main" id="main-content">
+        <section className="hero" id="top">
           <div className="hero__content">
             <span className="hero__badge">SIP-009</span>
             <h1 className="hero__title">NFTminimint</h1>
@@ -69,7 +72,7 @@ function App() {
           </div>
         )}
 
-        <div className="content-grid">
+        <div className="content-grid" id="mint-section">
           <div className="content-grid__main">
             <MintCard
               contractInfo={contractInfo}
