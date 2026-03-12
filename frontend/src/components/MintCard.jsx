@@ -157,6 +157,11 @@ function MintCard({
             </strong>
           </div>
 
+          <div className="mint-card__expectations" aria-label="What happens next">
+            <span>Wallet prompt will open for confirmation</span>
+            <span>You will approve a {formatSTX(contractInfo?.mintFee)} STX post-condition</span>
+          </div>
+
           <button
             type="submit"
             className="mint-card__btn mint-card__btn--primary"
