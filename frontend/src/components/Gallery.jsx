@@ -53,6 +53,19 @@ function Gallery() {
     nft.owner.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
+  useEffect(() => {
+    if (!selectedNft) return undefined
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeModal()
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [selectedNft])
+
   if (isLoading) {
     return (
       <section className="gallery">
