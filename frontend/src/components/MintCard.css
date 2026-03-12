@@ -222,6 +222,31 @@
   min-height: 1.1rem;
 }
 
+.mint-card__preview {
+  padding: 0.95rem 1rem;
+  border-radius: 0.9rem;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  text-align: left;
+}
+
+.mint-card__preview-label {
+  display: block;
+  font-size: 0.76rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mint-card__preview-value {
+  display: block;
+  margin-top: 0.45rem;
+  color: #f8fafc;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
 .mint-card__btn {
   padding: 1rem 1.5rem;
   border: none;
