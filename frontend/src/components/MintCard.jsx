@@ -88,6 +88,11 @@ function MintCard({
         </div>
       </div>
 
+      <div className="mint-card__availability">
+        <span>{Math.max((contractInfo?.maxSupply || 0) - (contractInfo?.totalSupply || 0), 0)} items remaining</span>
+        <span>{Math.max((contractInfo?.maxPerWallet || 0) - (contractInfo?.walletMinted || 0), 0)} mint slots left for this wallet</span>
+      </div>
+
       {contractInfo?.isPaused && (
         <div className="mint-card__alert mint-card__alert--warning">
           ⚠️ Minting is currently paused

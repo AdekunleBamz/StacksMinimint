@@ -102,6 +102,22 @@
   color: #f3f4f6;
 }
 
+.mint-card__availability {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #cbd5e1;
+  font-size: 0.82rem;
+}
+
+.mint-card__availability span {
+  flex: 1;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.85rem;
+  background: rgba(15, 23, 42, 0.45);
+}
+
 .mint-card__alert {
   padding: 0.875rem 1.25rem;
   border-radius: 0.75rem;
@@ -282,6 +298,10 @@
   .mint-card__stats {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .mint-card__availability {
+    flex-direction: column;
   }
 
   .stat {
