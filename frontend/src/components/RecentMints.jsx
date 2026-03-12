@@ -39,7 +39,13 @@ function RecentMints() {
   if (isLoading) {
     return (
       <section className="recent-mints">
-        <h2 className="recent-mints__title">Recent Mints</h2>
+        <div className="recent-mints__header">
+          <div>
+            <h2 className="recent-mints__title">Recent Mints</h2>
+            <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
+          </div>
+          <span className="recent-mints__count">Loading</span>
+        </div>
         <div className="recent-mints__list">
           {[1, 2, 3].map((i) => (
             <div key={i} className="mint-item mint-item--skeleton">
@@ -58,7 +64,13 @@ function RecentMints() {
   if (recentMints.length === 0) {
     return (
       <section className="recent-mints">
-        <h2 className="recent-mints__title">Recent Mints</h2>
+        <div className="recent-mints__header">
+          <div>
+            <h2 className="recent-mints__title">Recent Mints</h2>
+            <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
+          </div>
+          <span className="recent-mints__count">0</span>
+        </div>
         <div className="recent-mints__empty">
           <span className="recent-mints__empty-icon">🎨</span>
           <p>No mints yet. Be the first!</p>
@@ -69,7 +81,13 @@ function RecentMints() {
 
   return (
     <section className="recent-mints">
-      <h2 className="recent-mints__title">Recent Mints</h2>
+      <div className="recent-mints__header">
+        <div>
+          <h2 className="recent-mints__title">Recent Mints</h2>
+          <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
+        </div>
+        <span className="recent-mints__count">{recentMints.length}</span>
+      </div>
       <div className="recent-mints__list">
         {recentMints.map((mint) => (
           <div key={mint.tokenId} className="mint-item">
