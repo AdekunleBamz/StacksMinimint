@@ -11,6 +11,14 @@
   letter-spacing: -0.02em;
 }
 
+.stats__subtitle {
+  max-width: 34rem;
+  margin: -1rem auto 2rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
 .stats__progress {
   max-width: 600px;
   margin: 0 auto 2rem;
