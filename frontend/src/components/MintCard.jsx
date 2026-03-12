@@ -132,9 +132,20 @@ function MintCard({
       ) : (
         <form className="mint-card__form" onSubmit={handleMint}>
           <div className="form-group">
-            <label htmlFor="tokenURI" className="form-label">
-              Token URI (Metadata URL)
-            </label>
+            <div className="form-label-row">
+              <label htmlFor="tokenURI" className="form-label">
+                Token URI (Metadata URL)
+              </label>
+              {trimmedTokenURI && (
+                <button
+                  type="button"
+                  className="form-clear-btn"
+                  onClick={() => setTokenURI('')}
+                >
+                  Clear
+                </button>
+              )}
+            </div>
             <input
               type="url"
               id="tokenURI"

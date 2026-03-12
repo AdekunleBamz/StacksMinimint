@@ -176,11 +176,27 @@
   gap: 0.5rem;
 }
 
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .form-label {
   font-size: 0.875rem;
   font-weight: 500;
   color: #f3f4f6;
   font-weight: 500;
+}
+
+.form-clear-btn {
+  border: 0;
+  background: transparent;
+  color: #c4b5fd;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .form-input {
