@@ -57,7 +57,10 @@ function Gallery() {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <h2 className="gallery__title">Collection Gallery</h2>
+          <div className="gallery__heading">
+            <h2 className="gallery__title">Collection Gallery</h2>
+            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+          </div>
         </div>
         <div className={`gallery__grid gallery__grid--${viewMode}`}>
           {[1, 2, 3, 4].map((i) => (
@@ -78,7 +81,10 @@ function Gallery() {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <h2 className="gallery__title">Collection Gallery</h2>
+          <div className="gallery__heading">
+            <h2 className="gallery__title">Collection Gallery</h2>
+            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+          </div>
         </div>
         <div className="gallery__empty">
           <span className="gallery__empty-icon">🖼️</span>
@@ -93,7 +99,10 @@ function Gallery() {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <h2 className="gallery__title">Collection Gallery</h2>
+          <div className="gallery__heading">
+            <h2 className="gallery__title">Collection Gallery</h2>
+            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+          </div>
           <div className="gallery__search">
             <input
               type="text"
@@ -139,7 +148,10 @@ function Gallery() {
   return (
     <section className="gallery">
       <div className="gallery__header">
-        <h2 className="gallery__title">Collection Gallery</h2>
+        <div className="gallery__heading">
+          <h2 className="gallery__title">Collection Gallery</h2>
+          <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+        </div>
         <div className="gallery__search">
           <input
             type="text"
@@ -169,6 +181,10 @@ function Gallery() {
             </svg>
           </button>
         </div>
+      </div>
+      <div className="gallery__meta">
+        <span>{filteredNfts.length} NFTs shown</span>
+        <span>{viewMode === 'grid' ? 'Grid layout' : 'List layout'}</span>
       </div>
 
       <div className={`gallery__grid gallery__grid--${viewMode}`}>
