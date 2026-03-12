@@ -10,6 +10,7 @@ function Stats({ contractInfo, isLoading }) {
     if (!contractInfo?.maxSupply || contractInfo.maxSupply === 0) return 0
     return (contractInfo.totalSupply / contractInfo.maxSupply) * 100
   }
+  const remainingSupply = Math.max((contractInfo?.maxSupply || 0) - (contractInfo?.totalSupply || 0), 0)
 
   const stats = [
     {
@@ -72,9 +73,10 @@ function Stats({ contractInfo, isLoading }) {
             style={{ width: `${calculateProgress()}%` }}
           />
         </div>
-        <span className="progress-text">
-          {calculateProgress().toFixed(1)}% minted
-        </span>
+        <div className="progress-text">
+          <span>{calculateProgress().toFixed(1)}% minted</span>
+          <span>{remainingSupply} items remaining</span>
+        </div>
       </div>
 
       <div className="stats__grid">
