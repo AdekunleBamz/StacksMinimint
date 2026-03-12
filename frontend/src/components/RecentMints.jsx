@@ -4,6 +4,7 @@ import './RecentMints.css'
 function RecentMints() {
   const [recentMints, setRecentMints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [copiedTokenId, setCopiedTokenId] = useState(null)
 
   const formatAddress = (addr) => {
     if (!addr) return ''
@@ -35,6 +36,12 @@ function RecentMints() {
     setRecentMints(mockMints)
     setIsLoading(false)
   }, [])
+
+  const handleCopy = async (mint) => {
+    await navigator.clipboard.writeText(mint.minter)
+    setCopiedTokenId(mint.tokenId)
+    window.setTimeout(() => setCopiedTokenId(null), 2000)
+  }
 
   if (isLoading) {
     return (
@@ -102,8 +109,13 @@ function RecentMints() {
                 {formatTime(mint.timestamp)}
               </span>
             </div>
-            <div className="mint-item__badge">
-              Minted
+            <div className="mint-item__actions">
+              <button className="mint-item__copy" onClick={() => handleCopy(mint)}>
+                {copiedTokenId === mint.tokenId ? 'Copied' : 'Copy'}
+              </button>
+              <div className="mint-item__badge">
+                Minted
+              </div>
             </div>
           </div>
         ))}
