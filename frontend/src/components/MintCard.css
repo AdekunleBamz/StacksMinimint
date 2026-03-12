@@ -148,6 +148,22 @@
   margin-bottom: 1rem;
 }
 
+.mint-card__connect-list {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.mint-card__connect-list li {
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.85rem;
+  background: rgba(15, 23, 42, 0.4);
+  color: #cbd5e1;
+  font-size: 0.85rem;
+}
+
 .mint-card__form {
   display: flex;
   flex-direction: column;

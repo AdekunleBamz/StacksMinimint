@@ -107,7 +107,12 @@ function MintCard({
 
       {!isConnected ? (
         <div className="mint-card__connect">
-          <p>Connect your wallet to mint</p>
+          <p>Connect your wallet to unlock the mint form and confirm transactions securely.</p>
+          <ul className="mint-card__connect-list" aria-label="Wallet connection benefits">
+            <li>See your wallet-specific mint limit</li>
+            <li>Review the live mint price before signing</li>
+            <li>Receive a transaction receipt after submission</li>
+          </ul>
           <button className="mint-card__btn" onClick={onConnect}>
             Connect Wallet
           </button>
