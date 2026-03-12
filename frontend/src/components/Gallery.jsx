@@ -66,6 +66,17 @@ function Gallery() {
     return () => window.removeEventListener('keydown', handleEscape)
   }, [selectedNft])
 
+  useEffect(() => {
+    if (!selectedNft) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [selectedNft])
+
   if (isLoading) {
     return (
       <section className="gallery">
