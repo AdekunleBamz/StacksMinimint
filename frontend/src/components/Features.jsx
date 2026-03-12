@@ -2,34 +2,34 @@ import './Features.css'
 
 const features = [
   {
-    icon: '⚡',
-    title: 'Lean Minting',
-    description: 'Minimal contract calls keep the Stacks mint flow focused and efficient.'
+    icon: 'Save',
+    title: 'Persistent Drafts',
+    description: 'Metadata URIs stay saved on the current device so a refresh or wallet detour does not wipe the form.'
   },
   {
-    icon: '🔒',
-    title: 'Wallet Confirmed',
-    description: 'Transactions are approved in-wallet with clear post-conditions before submission.'
+    icon: 'Scan',
+    title: 'Local Validation',
+    description: 'ASCII, length, and URI-scheme checks run before the wallet prompt opens, reducing avoidable failed submissions.'
   },
   {
-    icon: '🎨',
-    title: 'Metadata Ready',
-    description: 'Submit IPFS or HTTPS metadata links directly from the mint form.'
+    icon: 'Tx',
+    title: 'Receipt Tracking',
+    description: 'Every submitted mint keeps an explorer receipt in the Recent Activity rail for fast copy and review.'
   },
   {
-    icon: '⏸️',
-    title: 'Pausable',
-    description: 'Collection owners can pause minting cleanly when operations need to stop.'
+    icon: 'Grid',
+    title: 'Submission Gallery',
+    description: 'Recent metadata URIs can be searched, opened, and reviewed in both grid and list layouts.'
   },
   {
-    icon: '👛',
-    title: 'Wallet Limits',
-    description: 'Per-wallet limits keep distribution fair and reduce whale-heavy launches.'
+    icon: 'Live',
+    title: 'Live Mint Context',
+    description: 'The side rail keeps price, supply, availability, and wallet readiness visible while users stay on the form.'
   },
   {
-    icon: '💎',
-    title: 'Collector Feedback',
-    description: 'Live supply, recent activity, and gallery views keep collectors oriented while minting.'
+    icon: 'Keys',
+    title: 'Accessible Controls',
+    description: 'Keyboard-friendly navigation, clearer status messaging, and reduced-motion support make the mint flow easier to use.'
   }
 ]
 
@@ -38,9 +38,9 @@ function Features() {
     <section className="features">
       <div className="features__header">
         <span className="features__badge">Features</span>
-        <h2 className="features__title">Built for Stacks Creators</h2>
+        <h2 className="features__title">Built for Clear Minting Decisions</h2>
         <p className="features__subtitle">
-          The core UX pieces needed to launch and browse a simple Stacks NFT collection
+          The UI now focuses on reducing lost context during minting instead of relying on demo-only content.
         </p>
       </div>
 

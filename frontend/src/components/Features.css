@@ -1,10 +1,10 @@
 .features {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
 }
 
 .features__header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .features__badge {
@@ -39,14 +39,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .feature-card {
-  background: rgba(30, 30, 50, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1.25rem;
   padding: 2rem;
   transition: all 0.3s ease;
   position: relative;
@@ -76,14 +74,20 @@
 }
 
 .feature-card__icon {
-  width: 56px;
+  width: fit-content;
+  min-width: 56px;
   height: 56px;
+  padding: 0 1rem;
   background: rgba(139, 92, 246, 0.15);
-  border-radius: 1rem;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
 
