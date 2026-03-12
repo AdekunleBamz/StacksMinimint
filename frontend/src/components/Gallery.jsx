@@ -254,15 +254,21 @@ function Gallery() {
 
       {selectedNft && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal__close" onClick={closeModal}>
+          <div
+            className="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="gallery-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal__close" onClick={closeModal} aria-label="Close NFT details">
               ×
             </button>
             <div className="modal__image">
               <img src={selectedNft.image} alt={selectedNft.name} />
             </div>
             <div className="modal__content">
-              <h2 className="modal__title">{selectedNft.name}</h2>
+              <h2 className="modal__title" id="gallery-modal-title">{selectedNft.name}</h2>
               <div className="modal__details">
                 <div className="detail-row">
                   <span className="detail-label">Token ID</span>
