@@ -24,6 +24,9 @@ function RecentMints() {
     return `${days}d ago`
   }
 
+  const formatExactTime = (timestamp) =>
+    new Date(timestamp * 1000).toLocaleString()
+
   useEffect(() => {
     // Simulated recent mints for demo
     // In production, this would query Transfer events from the contract
@@ -110,7 +113,9 @@ function RecentMints() {
                 {formatAddress(mint.minter)}
               </span>
               <span className="mint-item__time">
-                {formatTime(mint.timestamp)}
+                <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp)}>
+                  {formatTime(mint.timestamp)}
+                </time>
               </span>
             </div>
             <div className="mint-item__actions">
