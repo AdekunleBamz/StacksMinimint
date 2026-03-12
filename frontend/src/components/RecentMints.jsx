@@ -45,7 +45,7 @@ function RecentMints() {
 
   if (isLoading) {
     return (
-      <section className="recent-mints">
+      <section className="recent-mints" aria-busy="true">
         <div className="recent-mints__header">
           <div>
             <h2 className="recent-mints__title">Recent Mints</h2>
@@ -53,6 +53,7 @@ function RecentMints() {
           </div>
           <span className="recent-mints__count">Loading</span>
         </div>
+        <p className="recent-mints__loading-copy">Fetching the latest mint activity...</p>
         <div className="recent-mints__list">
           {[1, 2, 3].map((i) => (
             <div key={i} className="mint-item mint-item--skeleton">
