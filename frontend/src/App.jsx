@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useCallback } from 'react'
+import { CONTRACT_ADDRESS, CONTRACT_NAME, NETWORK } from './contract'
+import { useLocalStorage, usePrefersReducedMotion, useToast } from './hooks'
 import { useStacksWallet } from './hooks/useStacksWallet'
 import { useStacksContract } from './hooks/useStacksContract'
 import Header from './components/Header'
@@ -8,103 +10,169 @@ import RecentMints from './components/RecentMints'
 import Gallery from './components/Gallery'
 import Features from './components/Features'
 import Footer from './components/Footer'
+import Toast from './components/Toast'
+import ScrollToTop from './components/ScrollToTop'
+import {
+  createSubmissionRecord,
+  formatAddress,
+  formatSTX
+} from './utils/collection'
 import './App.css'
 
 function App() {
-  const { address, isConnected, connect, disconnect, isConnecting, network } = useStacksWallet()
+  const { address, isConnected, connect, disconnect, isConnecting } = useStacksWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useStacksContract(address)
+  const { toasts, success, warning, removeToast } = useToast()
+  const prefersReducedMotion = usePrefersReducedMotion()
 
-  const [recentMints, setRecentMints] = useState([])
-  const [showScroll, setShowScroll] = useState(false)
+  const [mintDraft, setMintDraft, clearMintDraft] = useLocalStorage('minimint:mint-draft', '')
+  const [activityItems, setActivityItems] = useLocalStorage('minimint:activity', [])
+  const [galleryViewMode, setGalleryViewMode] = useLocalStorage('minimint:gallery-view', 'grid')
+  const safeMintDraft = typeof mintDraft === 'string' ? mintDraft : ''
+  const safeActivityItems = Array.isArray(activityItems) ? activityItems : []
+  const activeGalleryViewMode = galleryViewMode === 'list' ? 'list' : 'grid'
 
-  useEffect(() => {
-    const checkScrollTop = () => {
-      if (!showScroll && window.pageYOffset > 400) {
-        setShowScroll(true)
-      } else if (showScroll && window.pageYOffset <= 400) {
-        setShowScroll(false)
-      }
+  const networkLabel = NETWORK === 'mainnet' ? 'Mainnet' : 'Testnet'
+  const totalSupply = contractInfo?.totalSupply || 0
+  const maxSupply = contractInfo?.maxSupply ?? null
+  const mintFee = formatSTX(contractInfo?.mintFee)
+  const remainingSupply = typeof maxSupply === 'number'
+    ? Math.max(maxSupply - totalSupply, 0)
+    : null
+
+  const handleCopy = useCallback(async (value, successMessage) => {
+    if (!value) return false
+
+    try {
+      await navigator.clipboard.writeText(value)
+      success(successMessage, 2600)
+      return true
+    } catch (error) {
+      warning('Clipboard access failed in this browser.', 3600)
+      return false
     }
-    window.addEventListener('scroll', checkScrollTop)
-    return () => window.removeEventListener('scroll', checkScrollTop)
-  }, [showScroll])
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  }, [success, warning])
 
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
-    if (result) {
-      setRecentMints(prev => [result, ...prev].slice(0, 5))
+
+    if (!result) {
+      return null
     }
-    return result
+
+    const submission = createSubmissionRecord({
+      txId: result.txId,
+      tokenURI,
+      address
+    })
+
+    setActivityItems((currentItems) => {
+      const nextItems = [submission, ...(Array.isArray(currentItems) ? currentItems : []).filter((item) => item.txId !== result.txId)]
+      return nextItems.slice(0, 12)
+    })
+
+    clearMintDraft()
+    success('Mint transaction submitted. A receipt is now pinned in Recent Activity.', 4200)
+
+    return submission
   }
 
-  const formatSTX = (microstx) => {
-    if (!microstx) return '0'
-    return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
-  }
+  const heroPanels = [
+    {
+      label: 'Collector status',
+      value: isConnected ? 'Wallet connected' : 'Prepare before connect',
+      detail: isConnected
+        ? `${formatAddress(address)} is ready to approve the next mint.`
+        : 'You can paste a metadata URI now and connect only when you are ready to sign.'
+    },
+    {
+      label: 'Supply snapshot',
+      value: remainingSupply === null ? 'Open edition' : `${remainingSupply} left`,
+      detail: `Mint price is ${mintFee} STX and the configured supply is ${maxSupply ?? 'unbounded'}.`
+    },
+    {
+      label: 'Trust surface',
+      value: `${networkLabel} receipt links`,
+      detail: `${CONTRACT_NAME} lives at ${formatAddress(CONTRACT_ADDRESS, 6, 4)} and every submission links to the explorer.`
+    }
+  ]
 
   return (
     <div className="app">
-      <div className="page-load-bar"></div>
+      <div className="page-load-bar" aria-hidden="true"></div>
       <a className="skip-link" href="#main-content">
         Skip to minting content
       </a>
+
       <Header
         account={address}
         onConnect={connect}
         onDisconnect={disconnect}
         isConnecting={isConnecting}
+        networkLabel={networkLabel}
+        onCopyAddress={() => handleCopy(address, 'Wallet address copied.')}
+        activityCount={safeActivityItems.length}
       />
+
+      <div className="toast-stack" aria-live="polite" aria-atomic="false">
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            message={toast.message}
+            type={toast.type}
+            onClose={() => removeToast(toast.id)}
+          />
+        ))}
+      </div>
 
       <main className="main" id="main-content">
         <section className="hero" id="top">
           <div className="hero__content">
-            <span className="hero__badge">SIP-009</span>
+            <span className="hero__badge">{networkLabel} NFT mint</span>
             <h1 className="hero__title">NFTminimint</h1>
             <p className="hero__subtitle">
-              A minimal, gas-efficient NFT minting experience on Stacks
+              Prepare metadata, confirm live mint conditions, and keep your latest submissions visible while you work.
             </p>
+            <p className="hero__context">
+              The interface keeps the mint flow grounded: validate the URI locally, connect a Stacks wallet only when needed,
+              and retain recent submission receipts on this device.
+            </p>
+
+            {safeMintDraft && (
+              <div className="hero__draft-note" role="status">
+                Saved draft ready to resume from your last session.
+              </div>
+            )}
+
             <div className="hero__highlights" aria-label="Collection highlights">
-              <span className="hero__highlight">Mainnet ready</span>
-              <span className="hero__highlight">Wallet-protected mint</span>
-              <span className="hero__highlight">Explorer-linked receipts</span>
+              <span className="hero__highlight">ASCII-safe metadata validation</span>
+              <span className="hero__highlight">Persistent draft recovery</span>
+              <span className="hero__highlight">Explorer-linked submission history</span>
             </div>
+
             <div className="hero__actions">
               <a className="hero__action hero__action--primary" href="#mint-section">
                 Start minting
               </a>
-              <a
-                className="hero__action hero__action--secondary"
-                href="https://explorer.hiro.so/?chain=mainnet"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Stacks explorer
+              <a className="hero__action hero__action--secondary" href="#activity-section">
+                Review recent activity
               </a>
             </div>
-            <dl className="hero__stats" aria-label="Collection overview">
-              <div className="hero__stat">
-                <dt>Mint price</dt>
-                <dd>{formatSTX(contractInfo?.mintFee)} STX</dd>
-              </div>
-              <div className="hero__stat">
-                <dt>Supply</dt>
-                <dd>{contractInfo?.totalSupply || 0} / {contractInfo?.maxSupply || '∞'}</dd>
-              </div>
-              <div className="hero__stat">
-                <dt>Wallet cap</dt>
-                <dd>{contractInfo?.maxPerWallet || '∞'} per wallet</dd>
-              </div>
-            </dl>
+
+            <div className="hero__panels" aria-label="Quick collection facts">
+              {heroPanels.map((panel) => (
+                <article key={panel.label} className="hero-panel">
+                  <span className="hero-panel__label">{panel.label}</span>
+                  <strong className="hero-panel__value">{panel.value}</strong>
+                  <p className="hero-panel__detail">{panel.detail}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        {(contractError) && (
+        {contractError && (
           <div className="error-banner" role="alert" aria-live="assertive">
-            <span className="error-banner__icon" aria-hidden="true">⚠️</span>
             <div className="error-banner__content">
               <strong className="error-banner__title">Action needed</strong>
               <span className="error-banner__message">{contractError}</span>
@@ -114,9 +182,9 @@ function App() {
 
         <section className="section-heading" id="mint-section">
           <span className="section-heading__eyebrow">Mint flow</span>
-          <h2 className="section-heading__title">Mint with clear limits and live feedback</h2>
+          <h2 className="section-heading__title">Prepare once, then sign with confidence</h2>
           <p className="section-heading__copy">
-            Review the live supply, confirm your wallet cap, and submit a metadata URI in one place.
+            Draft the metadata URI, see exactly why the submit action is enabled or blocked, and keep every recent receipt close by.
           </p>
         </section>
 
@@ -125,33 +193,47 @@ function App() {
             <MintCard
               contractInfo={contractInfo}
               onMint={handleMint}
-              account={address}
               isConnected={isConnected}
               onConnect={connect}
+              tokenURI={safeMintDraft}
+              onTokenURIChange={setMintDraft}
+              onClearDraft={clearMintDraft}
             />
           </div>
 
           <aside className="content-grid__sidebar">
-            <Stats contractInfo={contractInfo} isLoading={isLoading} />
-            <RecentMints />
+            <Stats
+              contractInfo={contractInfo}
+              isLoading={isLoading}
+              isConnected={isConnected}
+              recentActivityCount={safeActivityItems.length}
+            />
+            <div id="activity-section">
+              <RecentMints
+                items={safeActivityItems}
+                onCopyAddress={(value) => handleCopy(value, 'Wallet address copied from recent activity.')}
+                onCopyTransaction={(value) => handleCopy(value, 'Transaction id copied.')}
+              />
+            </div>
           </aside>
         </div>
 
-        <Gallery />
-        <Features />
+        <section id="gallery-section">
+          <Gallery
+            items={safeActivityItems}
+            viewMode={activeGalleryViewMode}
+            onViewModeChange={setGalleryViewMode}
+            onCopyValue={(value, message) => handleCopy(value, message)}
+            prefersReducedMotion={prefersReducedMotion}
+          />
+        </section>
+
+        <section id="collection-section">
+          <Features />
+        </section>
       </main>
 
-      <button
-        className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
-        onClick={scrollToTop}
-        aria-label="Back to top"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-          <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-        <span className="back-to-top__label">Top</span>
-      </button>
-
+      <ScrollToTop />
       <Footer />
     </div>
   )
