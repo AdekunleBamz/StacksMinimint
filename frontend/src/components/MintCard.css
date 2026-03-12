@@ -184,6 +184,12 @@
   color: #6b7280;
 }
 
+.form-source {
+  font-size: 0.78rem;
+  color: #c4b5fd;
+  min-height: 1.1rem;
+}
+
 .mint-card__btn {
   padding: 1rem 1.5rem;
   border: none;

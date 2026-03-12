@@ -48,6 +48,14 @@ function MintCard({
 
   const isSoldOut = contractInfo?.totalSupply >= contractInfo?.maxSupply
   const walletLimitReached = contractInfo?.walletMinted >= contractInfo?.maxPerWallet
+  const trimmedTokenURI = tokenURI.trim()
+  const uriSource = trimmedTokenURI.startsWith('ipfs://')
+    ? 'IPFS metadata detected'
+    : trimmedTokenURI.startsWith('https://')
+      ? 'Secure HTTPS metadata detected'
+      : trimmedTokenURI
+        ? 'Use an ipfs:// or https:// metadata URL'
+        : 'Paste the final metadata URL for your NFT JSON'
 
   return (
     <div className="mint-card">
@@ -117,6 +125,7 @@ function MintCard({
             <span className="form-hint">
               IPFS or HTTP link to your NFT metadata JSON
             </span>
+            <span className="form-source">{uriSource}</span>
           </div>
 
           <button
