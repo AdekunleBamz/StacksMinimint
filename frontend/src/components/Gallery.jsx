@@ -223,6 +223,10 @@ function Gallery() {
             </div>
             <div className="nft-card__info">
               <h3 className="nft-card__name">{nft.name}</h3>
+              <div className="nft-card__meta">
+                <span className="nft-card__pill">Token #{nft.id}</span>
+                <span className="nft-card__pill nft-card__pill--owner">{nft.owner}</span>
+              </div>
               <p className="nft-card__owner">
                 <span className="label">Owner:</span>
                 <span className="value">{nft.owner}</span>
