@@ -41,6 +41,11 @@ function App() {
     return result
   }
 
+  const formatSTX = (microstx) => {
+    if (!microstx) return '0'
+    return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
+  }
+
   return (
     <div className="app">
       <div className="page-load-bar"></div>
@@ -80,6 +85,20 @@ function App() {
                 Open Stacks explorer
               </a>
             </div>
+            <dl className="hero__stats" aria-label="Collection overview">
+              <div className="hero__stat">
+                <dt>Mint price</dt>
+                <dd>{formatSTX(contractInfo?.mintFee)} STX</dd>
+              </div>
+              <div className="hero__stat">
+                <dt>Supply</dt>
+                <dd>{contractInfo?.totalSupply || 0} / {contractInfo?.maxSupply || '∞'}</dd>
+              </div>
+              <div className="hero__stat">
+                <dt>Wallet cap</dt>
+                <dd>{contractInfo?.maxPerWallet || '∞'} per wallet</dd>
+              </div>
+            </dl>
           </div>
         </section>
 

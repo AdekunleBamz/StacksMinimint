@@ -160,6 +160,35 @@
   border-color: rgba(196, 181, 253, 0.55);
 }
 
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero__stat {
+  padding: 1rem 1.1rem;
+  background: rgba(15, 23, 42, 0.52);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1rem;
+  text-align: left;
+}
+
+.hero__stat dt {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero__stat dd {
+  margin-top: 0.45rem;
+  color: #f8fafc;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
 /* Error Banner */
 .error-banner {
   display: flex;
@@ -245,6 +274,14 @@
   .hero__action {
     width: 100%;
     max-width: 22rem;
+  }
+
+  .hero__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__stat {
+    text-align: center;
   }
 }
 
