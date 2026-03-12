@@ -37,8 +37,7 @@
 }
 
 .footer__description {
-  color: #8b5cf6;
-  transform: translateX(4px);
+  color: #cbd5e1;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.7;
@@ -96,7 +95,7 @@
   margin: 0;
 }
 
-.footer__disclaimer {
+.footer__credit {
   color: #6b7280;
   font-size: 0.875rem;
   margin: 0;
