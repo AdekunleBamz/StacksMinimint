@@ -43,7 +43,6 @@ frontend/
 │   │   ├── MintCard.jsx # Minting interface
 │   │   ├── Stats.jsx    # Collection statistics
 │   │   ├── Gallery.jsx  # NFT gallery grid
-│   │   ├── Features.jsx # Platform features
 │   │   └── ...          # More UI components
 │   ├── hooks/           # Custom React hooks
 │   │   ├── useStacksWallet.js   # Wallet session connection
