@@ -17,7 +17,7 @@ function Toast({ message, type = 'info', onClose }) {
       <span className="toast__icon">{icons[type]}</span>
       <span className="toast__message">{message}</span>
       {onClose && (
-        <button className="toast__close" onClick={onClose} aria-label="Close">
+        <button type="button" className="toast__close" onClick={onClose} aria-label="Close">
           ×
         </button>
       )}
