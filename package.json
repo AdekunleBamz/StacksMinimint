@@ -11,7 +11,7 @@
     "deploy": "npx hardhat run scripts/deploy.js"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@nomicfoundation/hardhat-toolbox": "^7.0.0",
     "@openzeppelin/contracts": "^5.0.0",
     "dotenv": "^17.2.3",
     "hardhat": "^2.19.0"
