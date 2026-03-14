@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import './Tooltip.css'
 
 function Tooltip({ children, content, position = 'top' }) {
   const [isVisible, setIsVisible] = useState(false)
+  const tooltipId = useId()
 
   return (
     <div 
@@ -11,10 +12,11 @@ function Tooltip({ children, content, position = 'top' }) {
       onMouseLeave={() => setIsVisible(false)}
       onFocus={() => setIsVisible(true)}
       onBlur={() => setIsVisible(false)}
+      aria-describedby={isVisible && content ? tooltipId : undefined}
     >
       {children}
       {isVisible && content && (
-        <div className={`tooltip tooltip--${position}`} role="tooltip">
+        <div id={tooltipId} className={`tooltip tooltip--${position}`} role="tooltip">
           {content}
           <div className="tooltip__arrow"></div>
         </div>
