@@ -33,6 +33,8 @@ This project uses modern Stacks development tools:
 - **@stacks/transactions**: For Clarity value conversion (`cvToJSON`) and `callReadOnlyFunction` polling.
 - **Clarinet**: For local development, testing, and contract deployment.
 
+By default, the frontend contract configuration targets `mainnet` via `frontend/src/contract.js`.
+
 ## Installation
 
 ```bash
