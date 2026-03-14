@@ -18,9 +18,14 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
       }
     }
 
+    const { overflow } = document.body.style
+    document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
     modalRef.current?.focus()
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = overflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
   }, [onClose])
 
   return (
