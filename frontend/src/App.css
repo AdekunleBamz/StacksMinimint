@@ -4,6 +4,22 @@
   flex-direction: column;
 }
 
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 1000;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.6rem;
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
 .page-load-bar {
   position: fixed;
   top: 0;
