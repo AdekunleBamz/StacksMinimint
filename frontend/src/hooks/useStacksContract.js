@@ -60,6 +60,7 @@ export function useStacksContract(address) {
             setIsLoading(false);
             resolve({
               txId: data.txId,
+              tokenId: data?.tokenId ?? null,
               tokenURI: normalizedTokenURI,
               to: address
             });
