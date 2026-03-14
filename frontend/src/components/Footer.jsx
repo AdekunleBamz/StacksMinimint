@@ -50,7 +50,7 @@ function Footer() {
             <ul className="footer__list">
               {links.community.map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="footer__link">{link.label}</a>
+                  <a href={link.href} className="footer__link" target="_blank" rel="noopener noreferrer">{link.label}</a>
                 </li>
               ))}
             </ul>
