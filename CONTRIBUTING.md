@@ -23,3 +23,9 @@ clarinet check
 - Prefer small commits with one primary intent.
 - Use prefixes like `feat`, `fix`, `refactor`, `docs`, or `chore`.
 - Keep messages concrete enough to explain user impact.
+
+## Testing Expectations
+
+- Run `npm run frontend:check` for UI-impacting changes.
+- Run `clarinet check` for contract-impacting changes.
+- Mention any checks you could not run in your pull request description.
