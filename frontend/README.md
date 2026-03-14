@@ -28,7 +28,7 @@ Update `src/contract.js` with the deployment and network values you want to targ
 
 ```js
 export const CONTRACT_ADDRESS = 'SP...'
-export const CONTRACT_NAME = 'minimint-core'
+export const CONTRACT_NAME = 'minimint-core-v-i27'
 export const NETWORK = 'mainnet' // or 'testnet'
 ```
 
