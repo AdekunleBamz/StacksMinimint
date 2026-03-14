@@ -4,6 +4,7 @@ import './CopyButton.css'
 function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
   const [copied, setCopied] = useState(false)
   const timeoutRef = useRef(null)
+  const hasText = Boolean(text)
 
   useEffect(() => {
     return () => {
@@ -14,6 +15,8 @@ function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className 
   }, [])
 
   const handleCopy = async () => {
+    if (!hasText) return
+
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)
@@ -29,6 +32,7 @@ function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className 
       className={`copy-btn ${copied ? 'copy-btn--copied' : ''} ${className}`}
       onClick={handleCopy}
       aria-label={copied ? successLabel : label}
+      disabled={!hasText}
     >
       {copied ? (
         <>
