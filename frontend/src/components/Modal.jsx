@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './Modal.css'
 
 function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
@@ -9,17 +10,21 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
     }
   }
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      onClose()
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose()
+      }
     }
-  }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [onClose])
 
   return (
     <div 
       className="modal-overlay" 
       onClick={handleOverlayClick}
-      onKeyDown={handleKeyDown}
       role="dialog"
       aria-modal="true"
       aria-labelledby={title ? 'modal-title' : undefined}
