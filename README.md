@@ -11,7 +11,7 @@ A modular NFT minting platform built exclusively for the Stacks blockchain.
 
 - **Stacks Mainnet**: Fully compatible with the Stacks blockchain and Nakamoto fast blocks.
 - **Modular Clarity Architecture**: Highly optimized smart contracts.
-- **Low Minting Fee**: Fixed 0.02 STX deployment and interaction bounds.
+- **Low Minting Fee**: Frontend post-condition currently enforces a 0.001 STX mint fee.
 - **SIP-009 Standard**: Fully compliant with Stacks NFT standards.
 - **SIP-010 Standard**: Built-in reward tokenomics for staking.
 - **@stacks/connect**: Seamless wallet integration (Leather, Xverse, OKX).
