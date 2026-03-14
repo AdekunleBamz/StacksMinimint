@@ -105,7 +105,9 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
       </ul>
 
       <p className="stats__footnote">
-        Wallet-specific caps and pause state appear only when that information is available from the connected contract context.
+        {isConnected
+          ? 'Wallet-specific caps and pause state appear when available from the connected contract context.'
+          : 'Connect a wallet to load address-specific mint caps and account context.'}
       </p>
     </section>
   )
