@@ -12,7 +12,7 @@ function RecentMints({ items = [] }) {
 
   const formatTime = (timestamp) => {
     const now = Date.now()
-    const diff = now - timestamp * 1000
+    const diff = Math.max(now - timestamp * 1000, 0)
     const minutes = Math.floor(diff / 60000)
     const hours = Math.floor(diff / 3600000)
     const days = Math.floor(diff / 86400000)
