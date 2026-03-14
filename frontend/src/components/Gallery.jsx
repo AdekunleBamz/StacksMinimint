@@ -120,7 +120,7 @@ function Gallery() {
     )
   }
 
-  if (filteredNfts.length === 0 && searchTerm) {
+  if (filteredNfts.length === 0 && hasSearch) {
     return (
       <section className="gallery">
         <div className="gallery__header">
