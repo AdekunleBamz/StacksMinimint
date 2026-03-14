@@ -8,7 +8,7 @@ A React-based frontend for the NFTminimint smart contract, built with Vite and t
 
 - Node.js 18+ (recommend 22 LTS)
 - npm or yarn
-- MetaMask browser extension
+- A Stacks-compatible wallet (for example, Leather or Xverse)
 
 ### Installation
 
