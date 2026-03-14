@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Gallery.css'
+import { getTokenExplorerUrl } from '../contract'
 
 function Gallery() {
   const [nfts, setNfts] = useState([])
@@ -292,7 +293,7 @@ function Gallery() {
               </div>
               <div className="modal__actions">
                 <a
-                  href={`https://explorer.hiro.so/token/${selectedNft.id}?chain=mainnet`}
+                  href={getTokenExplorerUrl(selectedNft.id)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="modal__btn"
