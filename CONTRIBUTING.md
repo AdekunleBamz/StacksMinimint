@@ -47,3 +47,9 @@ clarinet check
 - Document any storage schema changes in the pull request body.
 - Call out post-condition or permission changes explicitly.
 - Prefer additive migrations over breaking state rewrites when possible.
+
+## Frontend Change Notes
+
+- Ensure loading, empty, and error states remain clear after UI updates.
+- Confirm external links use safe `rel=\"noopener noreferrer\"` settings.
+- Verify changes still work on mobile breakpoints.
