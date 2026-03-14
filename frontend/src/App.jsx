@@ -24,7 +24,7 @@ function App() {
         setShowScroll(false)
       }
     }
-    window.addEventListener('scroll', checkScrollTop)
+    window.addEventListener('scroll', checkScrollTop, { passive: true })
     return () => window.removeEventListener('scroll', checkScrollTop)
   }, [showScroll])
 
