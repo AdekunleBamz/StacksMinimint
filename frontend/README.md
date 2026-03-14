@@ -72,25 +72,24 @@ frontend/
 
 ## 🔗 Hooks
 
-### `useWallet`
-Manages wallet connection state.
+### `useStacksWallet`
+Manages wallet session state and account identity.
 
 ```jsx
-const { account, chainId, connect, disconnect, isConnecting } = useWallet()
+const { address, isConnected, connect, disconnect, isConnecting } = useStacksWallet()
 ```
 
-### `useNFTContract`
-Full NFT contract interface.
+### `useStacksContract`
+Mint entrypoint + contract state helpers.
 
 ```jsx
 const { 
-  totalSupply, 
-  maxSupply, 
-  mintFee,
-  canMint,
   mint,
-  refetch 
-} = useNFTContract(account)
+  contractInfo,
+  isLoading,
+  error,
+  refetch
+} = useStacksContract(address)
 ```
 
 ## 🛠️ Scripts
