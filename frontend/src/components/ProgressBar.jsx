@@ -2,6 +2,7 @@ import './ProgressBar.css'
 
 function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
   const safeMax = max > 0 ? max : 100
+  const boundedValue = Math.min(Math.max(value, 0), safeMax)
   const percentage = Math.min(Math.max((value / safeMax) * 100, 0), 100)
 
   return (
@@ -12,7 +13,7 @@ function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', colo
           style={{ width: `${percentage}%` }}
           role="progressbar"
           aria-label={ariaLabel}
-          aria-valuenow={value}
+          aria-valuenow={boundedValue}
           aria-valuemin={0}
           aria-valuemax={safeMax}
         />
