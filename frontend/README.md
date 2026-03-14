@@ -27,17 +27,12 @@ The app will be available at `http://localhost:5173` by default.
 
 ## 🔧 Configuration
 
-Create a `.env.local` file with your contract address:
+Update `src/contract.js` with the deployment and network values you want to target:
 
-```env
-VITE_CONTRACT_ADDRESS=0x5FbDB2315678afecb367f032d93F642f64180aa3
-```
-
-For multiple networks, set network-specific addresses:
-
-```env
-VITE_SEPOLIA_CONTRACT_ADDRESS=0x...
-VITE_MAINNET_CONTRACT_ADDRESS=0x...
+```js
+export const CONTRACT_ADDRESS = 'SP...'
+export const CONTRACT_NAME = 'minimint-core'
+export const NETWORK = 'mainnet' // or 'testnet'
 ```
 
 ## 📁 Project Structure
