@@ -117,6 +117,7 @@ function Gallery() {
           </div>
           <div className="gallery__controls">
             <button
+              type="button"
               className={`view-btn ${viewMode === 'grid' ? 'view-btn--active' : ''}`}
               onClick={() => setViewMode('grid')}
               aria-label="Grid view"
@@ -126,6 +127,7 @@ function Gallery() {
               </svg>
             </button>
             <button
+              type="button"
               className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
               onClick={() => setViewMode('list')}
               aria-label="List view"
@@ -140,7 +142,7 @@ function Gallery() {
           <div className="gallery__empty-icon">🔍</div>
           <h3>No matching NFTs</h3>
           <p>We couldn't find anything matching "{searchTerm}"</p>
-          <button className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
+          <button type="button" className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
             Clear Search
           </button>
         </div>
@@ -162,10 +164,10 @@ function Gallery() {
             className="search-input"
           />
           {hasSearch && (
-            <button
-              type="button"
-              className="gallery__clear-search"
-              onClick={() => setSearchTerm('')}
+          <button
+            type="button"
+            className="gallery__clear-search"
+            onClick={() => setSearchTerm('')}
             >
               Clear
             </button>
@@ -173,6 +175,7 @@ function Gallery() {
         </div>
         <div className="gallery__controls">
           <button
+            type="button"
             className={`view-btn ${viewMode === 'grid' ? 'view-btn--active' : ''}`}
             onClick={() => setViewMode('grid')}
             aria-label="Grid view"
@@ -182,6 +185,7 @@ function Gallery() {
             </svg>
           </button>
           <button
+            type="button"
             className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
             onClick={() => setViewMode('list')}
             aria-label="List view"
@@ -233,7 +237,7 @@ function Gallery() {
       {selectedNft && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal__close" onClick={closeModal}>
+            <button type="button" className="modal__close" onClick={closeModal}>
               ×
             </button>
             <div className="modal__image">
