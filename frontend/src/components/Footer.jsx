@@ -35,7 +35,7 @@ function Footer() {
 
         <div className="footer__links">
           <div className="footer__column">
-            <h4 className="footer__heading">Project</h4>
+            <h3 className="footer__heading">Project</h3>
             <ul className="footer__list">
               {links.project.map((link, i) => (
                 <li key={i}>
@@ -46,7 +46,7 @@ function Footer() {
           </div>
 
           <div className="footer__column">
-            <h4 className="footer__heading">Community</h4>
+            <h3 className="footer__heading">Community</h3>
             <ul className="footer__list">
               {links.community.map((link, i) => (
                 <li key={i}>
@@ -57,7 +57,7 @@ function Footer() {
           </div>
 
           <div className="footer__column">
-            <h4 className="footer__heading">Resources</h4>
+            <h3 className="footer__heading">Resources</h3>
             <ul className="footer__list">
               {links.resources.map((link, i) => (
                 <li key={i}>
