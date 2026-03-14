@@ -68,7 +68,7 @@ npm run build
 
 ## Frontend
 
-The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects securely natively to the Stacks network.
+The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects natively to the Stacks network with wallet confirmation flows.
 
 ## Contract Details
 
