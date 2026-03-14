@@ -8,3 +8,4 @@ dist/
 .cache/
 test-wallets.json
 scripts/
+frontend/build_output*.txt
