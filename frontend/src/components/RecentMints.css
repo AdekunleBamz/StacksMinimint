@@ -164,3 +164,13 @@
     height: 40px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .mint-item {
+    transition: none;
+  }
+
+  .mint-item:hover {
+    transform: none;
+  }
+}
