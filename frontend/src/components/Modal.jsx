@@ -28,6 +28,7 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
         <div className="modal__header">
           {title && <h2 id="modal-title" className="modal__title">{title}</h2>}
           <button 
+            type="button"
             className="modal__close" 
             onClick={onClose}
             aria-label="Close modal"
