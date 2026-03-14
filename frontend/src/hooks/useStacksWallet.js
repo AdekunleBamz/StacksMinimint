@@ -6,6 +6,14 @@ import { NETWORK } from '../contract';
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 export const userSession = new UserSession({ appConfig });
 
+function getStacksAddress(data) {
+  if (!data?.profile?.stxAddress) return null
+
+  return NETWORK === 'mainnet'
+    ? data.profile.stxAddress.mainnet || null
+    : data.profile.stxAddress.testnet || null
+}
+
 export function useStacksWallet() {
   const [userData, setUserData] = useState(null);
   const [address, setAddress] = useState(null);
@@ -22,10 +30,7 @@ export function useStacksWallet() {
       onFinish: () => {
         const data = userSession.loadUserData();
         setUserData(data);
-        const stxAddress = NETWORK === 'mainnet'
-          ? data.profile.stxAddress.mainnet
-          : data.profile.stxAddress.testnet;
-        setAddress(stxAddress);
+        setAddress(getStacksAddress(data));
         setIsConnecting(false);
       },
       onCancel: () => {
@@ -45,10 +50,7 @@ export function useStacksWallet() {
     if (userSession.isUserSignedIn()) {
       const data = userSession.loadUserData();
       setUserData(data);
-      const stxAddress = NETWORK === 'mainnet'
-        ? data.profile.stxAddress.mainnet
-        : data.profile.stxAddress.testnet;
-      setAddress(stxAddress);
+      setAddress(getStacksAddress(data));
     }
   }, []);
 
