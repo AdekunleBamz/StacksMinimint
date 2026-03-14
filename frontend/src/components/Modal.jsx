@@ -22,7 +22,8 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
       onKeyDown={handleKeyDown}
       role="dialog"
       aria-modal="true"
-      aria-labelledby="modal-title"
+      aria-labelledby={title ? 'modal-title' : undefined}
+      aria-label={title ? undefined : 'Dialog'}
     >
       <div className={`modal modal--${size}`}>
         <div className="modal__header">
