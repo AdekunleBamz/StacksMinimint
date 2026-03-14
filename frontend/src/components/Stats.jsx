@@ -10,6 +10,7 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
   const progress = typeof maxSupply === 'number' && maxSupply > 0
     ? Math.min((totalSupply / maxSupply) * 100, 100)
     : 0
+  const roundedProgress = Number(progress.toFixed(1))
   const collectionState = contractInfo?.isPaused === true
     ? { label: 'Paused', tone: 'warning' }
     : remainingSupply === 0 && maxSupply !== null
@@ -76,7 +77,7 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
         <div
           className="progress-bar"
           role="progressbar"
-          aria-valuenow={Number(progress.toFixed(1))}
+          aria-valuenow={roundedProgress}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-label="Mint progress"
@@ -87,7 +88,7 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
           />
         </div>
         <div className="progress-text">
-          <span>{progress.toFixed(1)}% of configured supply minted</span>
+          <span>{roundedProgress}% of configured supply minted</span>
           <span>{remainingSupply === null ? 'Supply limit not configured' : `${remainingSupply} items remaining`}</span>
         </div>
       </div>
