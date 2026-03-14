@@ -243,7 +243,7 @@ function Gallery() {
                 className="nft-card__image"
                 loading="lazy"
               />
-              <div className="nft-card__overlay">
+              <div className="nft-card__overlay" aria-hidden="true">
                 <span>View Details</span>
               </div>
             </div>
