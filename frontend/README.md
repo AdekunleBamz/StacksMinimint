@@ -96,6 +96,7 @@ const {
 npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
+npm run check    # Run production build check
 ```
 
 ## 📦 Dependencies
