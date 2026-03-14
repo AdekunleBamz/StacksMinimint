@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 import './App.css'
 
 function App() {
-  const { address, isConnected, connect, disconnect, isConnecting, network } = useStacksWallet()
+  const { address, isConnected, connect, disconnect, isConnecting } = useStacksWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useStacksContract(address)
 
   const [recentMints, setRecentMints] = useState([])
