@@ -11,7 +11,7 @@ A modular NFT minting platform built exclusively for the Stacks blockchain.
 
 - **Stacks Mainnet**: Fully compatible with the Stacks blockchain and Nakamoto fast blocks.
 - **Modular Clarity Architecture**: Highly optimized smart contracts.
-- **Low Minting Fee**: Fixed 0.02 STX deployment and interaction bounds.
+- **Low Minting Fee**: Frontend post-condition currently enforces a 0.001 STX mint fee.
 - **SIP-009 Standard**: Fully compliant with Stacks NFT standards.
 - **SIP-010 Standard**: Built-in reward tokenomics for staking.
 - **@stacks/connect**: Seamless wallet integration (Leather, Xverse, OKX).
@@ -25,6 +25,8 @@ A modular NFT minting platform built exclusively for the Stacks blockchain.
 | `minimint-token-v-i27` | SIP-010 token for holder rewards |
 | `minimint-hub-v-i27` | Escrow hub for staking and marketplace listings |
 
+The frontend currently calls a deployed contract name of `minimint-core` (configured in `frontend/src/contract.js`).
+
 ## 🌐 Stacks Integration
 
 This project uses modern Stacks development tools:
@@ -33,14 +35,19 @@ This project uses modern Stacks development tools:
 - **@stacks/transactions**: For Clarity value conversion (`cvToJSON`) and `callReadOnlyFunction` polling.
 - **Clarinet**: For local development, testing, and contract deployment.
 
+By default, the frontend contract configuration targets `mainnet` via `frontend/src/contract.js`.
+
 ## Installation
 
 ```bash
-# Install dependencies
+# Install root dependencies
 npm install
 
-# Start local frontend
-npm run dev
+# Install frontend dependencies from root
+npm run frontend:install
+
+# From project root, start local frontend
+npm run frontend:dev
 ```
 
 ## Quick Start
@@ -55,6 +62,11 @@ clarinet check
 clarinet console
 ```
 
+3. Build the frontend bundle:
+```bash
+npm run frontend:check
+```
+
 ## Developer Scripts
 
 From the repository root:
@@ -66,9 +78,18 @@ npm run frontend:check
 npm run frontend:preview
 ```
 
+For the operational automation scripts under `scripts/`:
+
+```bash
+npm run scripts:install
+npm run scripts:wallets
+```
+
+Note: `scripts:install` installs dependencies once at the repository root. A separate `scripts/node_modules` directory is not required.
+
 ## Frontend
 
-The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects securely natively to the Stacks network.
+The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects natively to the Stacks network with wallet confirmation flows.
 
 ## Contract Details
 
@@ -104,7 +125,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the preferred workflow, command che
 ### Code Standards
 
 - **Clarity**: Write readable, predictable, and fail-safe logic.
-- **JavaScript/React**: Use ESLint with configured rules.
+- **JavaScript/React**: Keep components readable, accessible, and consistently formatted.
 
 ---
 
