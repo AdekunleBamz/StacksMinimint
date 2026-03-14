@@ -26,6 +26,9 @@ function MintCard({
 
     try {
       const result = await onMint(normalizedTokenURI)
+      if (!result) {
+        return
+      }
       setMintStatus({ 
         type: 'success', 
         message: `NFT minted! Token ID: ${result.tokenId}`,
