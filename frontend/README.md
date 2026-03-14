@@ -1,6 +1,6 @@
 # NFTminimint Frontend
 
-A React-based frontend for the NFTminimint smart contract, built with Vite and ethers.js.
+A React-based frontend for the NFTminimint smart contract, built with Vite and the Stacks JS SDK.
 
 ## 🚀 Quick Start
 
