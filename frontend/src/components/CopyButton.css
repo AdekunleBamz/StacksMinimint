@@ -17,6 +17,11 @@
   color: #f3f4f6;
 }
 
+.copy-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 .copy-btn--copied {
   background: rgba(34, 197, 94, 0.15);
   border-color: rgba(34, 197, 94, 0.3);
