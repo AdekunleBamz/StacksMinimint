@@ -64,6 +64,7 @@ frontend/
 - **Collection Stats**: Real-time supply, price, and limit info
 - **NFT Gallery**: Grid view of minted NFTs
 - **Responsive Design**: Mobile-first dark theme
+- **Accessibility Focus**: Keyboard support, live regions, and reduced-motion handling
 - **Toast Notifications**: User feedback system
 - **Loading States**: Skeleton loading animations
 
