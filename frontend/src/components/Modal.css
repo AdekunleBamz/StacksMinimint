@@ -124,3 +124,14 @@
     padding: 1rem;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal {
+    animation: none;
+  }
+
+  .modal__close {
+    transition: none;
+  }
+}
