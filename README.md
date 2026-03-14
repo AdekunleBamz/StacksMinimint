@@ -41,11 +41,10 @@ By default, the frontend contract configuration targets `mainnet` via `frontend/
 # Install root dependencies
 npm install
 
-# Install frontend dependencies
-cd frontend && npm install
+# Install frontend dependencies from root
+npm run frontend:install
 
 # From project root, start local frontend
-cd ..
 npm run frontend:dev
 ```
 
