@@ -35,3 +35,9 @@ clarinet check
 - Verify keyboard navigation still works for interactive controls.
 - Use semantic roles/labels for dialogs, alerts, and live status text.
 - Respect `prefers-reduced-motion` when adding or changing animation.
+
+## Pull Request Checklist
+
+- Describe the user-visible behavior change.
+- List commands/checks run locally and their outcome.
+- Include screenshots or recordings for meaningful UI updates.
