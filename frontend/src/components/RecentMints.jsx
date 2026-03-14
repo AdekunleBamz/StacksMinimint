@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
 import './RecentMints.css'
+import { formatAddress } from '../utils/collection'
 
 function RecentMints({ items = [] }) {
   const [recentMints, setRecentMints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-
-  const formatAddress = (addr) => {
-    if (!addr) return ''
-    return `${addr.slice(0, 5)}...${addr.slice(-5)}`
-  }
 
   const formatTime = (timestamp) => {
     const now = Date.now()
