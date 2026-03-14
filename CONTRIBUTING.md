@@ -53,3 +53,9 @@ clarinet check
 - Ensure loading, empty, and error states remain clear after UI updates.
 - Confirm external links use safe `rel=\"noopener noreferrer\"` settings.
 - Verify changes still work on mobile breakpoints.
+
+## Issue Reporting
+
+- Include exact steps to reproduce the problem.
+- Share expected behavior vs. actual behavior.
+- Attach screenshots, logs, or transaction IDs when relevant.
