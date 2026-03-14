@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "contracts:check": "clarinet check",
+    "contracts:console": "clarinet console",
     "test": "vitest run",
     "test:watch": "vitest",
     "frontend:install": "npm --prefix frontend install",

@@ -54,12 +54,12 @@ npm run frontend:dev
 
 1. Compile contracts:
 ```bash
-clarinet check
+npm run contracts:check
 ```
 
 2. Run Clarinet console:
 ```bash
-clarinet console
+npm run contracts:console
 ```
 
 3. Build the frontend bundle:
@@ -72,6 +72,8 @@ npm run frontend:check
 From the repository root:
 
 ```bash
+npm run contracts:check
+npm run contracts:console
 npm run frontend:install
 npm run frontend:dev
 npm run frontend:check
