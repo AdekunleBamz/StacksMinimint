@@ -6,7 +6,8 @@ function Card({
   padding = 'medium',
   hover = false,
   className = '',
-  onClick
+  onClick,
+  ariaLabel
 }) {
   const handleKeyDown = (e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
@@ -22,6 +23,7 @@ function Card({
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
+      aria-label={onClick ? ariaLabel : undefined}
     >
       {children}
     </div>
