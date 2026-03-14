@@ -82,6 +82,8 @@ The UI includes a live minting dashboard, real-time supply polling, a unified ga
 
 We welcome contributions to the NFTminimint project! Here's how you can help:
 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the preferred workflow, command checklist, and review expectations.
+
 ### Ways to Contribute
 
 - **Smart Contracts**: Enhance contracts with new features, improve execution pathways.
