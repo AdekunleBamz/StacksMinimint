@@ -99,27 +99,6 @@
   margin: 0 auto;
 }
 
-/* Error Banner */
-.error-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: 0.75rem;
-  color: #fca5a5;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.error-banner__icon {
-  flex-shrink: 0;
-}
-
 /* Content Grid */
 .content-grid {
   display: grid;
