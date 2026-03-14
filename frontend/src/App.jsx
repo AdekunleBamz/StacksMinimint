@@ -94,6 +94,7 @@ function App() {
       </main>
 
       <button
+        type="button"
         className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
         onClick={scrollToTop}
         aria-label="Back to top"
