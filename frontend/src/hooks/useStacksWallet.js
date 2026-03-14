@@ -28,10 +28,13 @@ export function useStacksWallet() {
       },
       redirectTo: '/',
       onFinish: () => {
-        const data = userSession.loadUserData();
-        setUserData(data);
-        setAddress(getStacksAddress(data));
-        setIsConnecting(false);
+        try {
+          const data = userSession.loadUserData();
+          setUserData(data);
+          setAddress(getStacksAddress(data));
+        } finally {
+          setIsConnecting(false);
+        }
       },
       onCancel: () => {
         setIsConnecting(false);
