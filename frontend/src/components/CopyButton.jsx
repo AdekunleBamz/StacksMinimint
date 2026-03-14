@@ -1,14 +1,23 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './CopyButton.css'
 
 function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
   const [copied, setCopied] = useState(false)
+  const timeoutRef = useRef(null)
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      timeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch (err) {
       console.error('Failed to copy:', err)
     }
