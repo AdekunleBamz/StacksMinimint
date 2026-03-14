@@ -14,8 +14,9 @@ function MintCard({
 
   const handleMint = async (e) => {
     e.preventDefault()
+    const normalizedTokenURI = tokenURI.trim()
     
-    if (!tokenURI.trim()) {
+    if (!normalizedTokenURI) {
       setMintStatus({ type: 'error', message: 'Please enter a valid token URI' })
       return
     }
@@ -24,7 +25,7 @@ function MintCard({
     setMintStatus({ type: 'pending', message: 'Confirm transaction in wallet...' })
 
     try {
-      const result = await onMint(tokenURI)
+      const result = await onMint(normalizedTokenURI)
       setMintStatus({ 
         type: 'success', 
         message: `NFT minted! Token ID: ${result.tokenId}`,
