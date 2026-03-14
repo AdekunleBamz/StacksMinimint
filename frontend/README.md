@@ -32,6 +32,8 @@ export const CONTRACT_NAME = 'minimint-core'
 export const NETWORK = 'mainnet' // or 'testnet'
 ```
 
+The app reads contract settings from `src/contract.js` directly. `VITE_*` environment variables are not used for contract routing in this frontend.
+
 ## 📁 Project Structure
 
 ```
