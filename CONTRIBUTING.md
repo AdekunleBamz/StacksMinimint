@@ -59,3 +59,8 @@ clarinet check
 - Include exact steps to reproduce the problem.
 - Share expected behavior vs. actual behavior.
 - Attach screenshots, logs, or transaction IDs when relevant.
+
+## Branch Naming
+
+- Use clear branch prefixes such as `feat/`, `fix/`, `docs/`, or `chore/`.
+- Keep names short but descriptive, for example `fix/mint-status-fallback`.
