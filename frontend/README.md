@@ -16,9 +16,6 @@ A React-based frontend for the NFTminimint smart contract, built with Vite and t
 # Install dependencies
 npm install
 
-# Copy environment file
-cp .env.example .env.local
-
 # Start development server
 npm run dev
 ```
