@@ -44,8 +44,9 @@ npm install
 # Install frontend dependencies
 cd frontend && npm install
 
-# Start local frontend
-npm run dev
+# From project root, start local frontend
+cd ..
+npm run frontend:dev
 ```
 
 ## Quick Start
