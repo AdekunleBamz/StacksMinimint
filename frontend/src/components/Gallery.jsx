@@ -34,10 +34,12 @@ function Gallery() {
       }
     ]
 
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setNfts(mockNfts)
       setIsLoading(false)
     }, 500)
+
+    return () => clearTimeout(timeoutId)
   }, [])
 
   const handleNftClick = (nft) => {
