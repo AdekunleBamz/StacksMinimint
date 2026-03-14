@@ -62,7 +62,7 @@ frontend/
 
 ## 🎨 Features
 
-- **Wallet Connection**: MetaMask integration with chain switching
+- **Wallet Connection**: Stacks wallet integration via `@stacks/connect`
 - **Minting Interface**: Mint NFTs with custom token URIs
 - **Collection Stats**: Real-time supply, price, and limit info
 - **NFT Gallery**: Grid view of minted NFTs
