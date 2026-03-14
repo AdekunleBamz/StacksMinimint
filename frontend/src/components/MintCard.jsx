@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './MintCard.css'
+import { getExplorerUrl } from '../contract'
 
 function MintCard({ 
   contractInfo, 
@@ -162,7 +163,7 @@ function MintCard({
               <span>{mintStatus.message}</span>
               {txId && (
                 <a
-                  href={`https://explorer.hiro.so/txid/${txId}?chain=mainnet`}
+                  href={getExplorerUrl(txId)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mint-card__tx-link"
