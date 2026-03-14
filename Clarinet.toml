@@ -1,0 +1,46 @@
+[project]
+name = 'stacksminimint'
+description = 'A minimal NFT minting platform on Stacks'
+authors = []
+telemetry = false
+cache_dir = './.cache'
+requirements = []
+
+[contracts.sip-009-nft-trait-v-i27]
+path = 'contracts/archive/sip-009-nft-trait-v-i27.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.sip-010-trait-ft-standard-v-i27]
+path = 'contracts/archive/sip-010-trait-ft-standard-v-i27.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.minimint-core-v-i27]
+path = 'contracts/minimint-core-v-i27.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.minimint-token-v-i27]
+path = 'contracts/minimint-token-v-i27.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.minimint-hub-v-i27]
+path = 'contracts/minimint-hub-v-i27.clar'
+clarity_version = 2
+epoch = 2.4
+depends_on = ["minimint-core-v-i27", "minimint-token-v-i27"]
+
+[repl.analysis]
+passes = ['call_checker', 'check_checker']
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
+
+[repl.remote_data]
+enabled = true
+api_url = 'https://api.hiro.so'

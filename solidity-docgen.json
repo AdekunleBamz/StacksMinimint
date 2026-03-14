@@ -1,5 +1,0 @@
-{
-  "include": "./contracts",
-  "exclude": ["./contracts/mocks"],
-  "outdir": "./docs/natspec"
-}

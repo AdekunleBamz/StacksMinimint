@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import './RecentMints.css'
 
-function RecentMints({ provider, contractAddress, items = [] }) {
+function RecentMints() {
   const [recentMints, setRecentMints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [copiedTokenId, setCopiedTokenId] = useState(null)
 
   const formatAddress = (addr) => {
     if (!addr) return ''
-    return `${addr.slice(0, 6)}...${addr.slice(-4)}`
+    return `${addr.slice(0, 5)}...${addr.slice(-5)}`
   }
 
   const formatTime = (timestamp) => {
@@ -23,29 +24,39 @@ function RecentMints({ provider, contractAddress, items = [] }) {
     return `${days}d ago`
   }
 
-  useEffect(() => {
-    if (items.length > 0) {
-      setRecentMints(items)
-      setIsLoading(false)
-      return
-    }
+  const formatExactTime = (timestamp) =>
+    new Date(timestamp * 1000).toLocaleString()
 
+  useEffect(() => {
     // Simulated recent mints for demo
     // In production, this would query Transfer events from the contract
     const mockMints = [
-      { tokenId: 1, minter: '0x1234567890abcdef1234567890abcdef12345678', timestamp: Math.floor(Date.now()/1000) - 300 },
-      { tokenId: 2, minter: '0xabcdef1234567890abcdef1234567890abcdef12', timestamp: Math.floor(Date.now()/1000) - 1200 },
-      { tokenId: 3, minter: '0x9876543210fedcba9876543210fedcba98765432', timestamp: Math.floor(Date.now()/1000) - 3600 },
+      { tokenId: 1, minter: 'SP3H9XDH12...ABCDE', timestamp: Math.floor(Date.now() / 1000) - 300 },
+      { tokenId: 2, minter: 'SP2JAF9FG7...XYZ12', timestamp: Math.floor(Date.now() / 1000) - 1200 },
+      { tokenId: 3, minter: 'SP1P7WG5Z6...QWERT', timestamp: Math.floor(Date.now() / 1000) - 3600 },
     ]
 
     setRecentMints(mockMints)
     setIsLoading(false)
-  }, [provider, contractAddress, items])
+  }, [])
+
+  const handleCopy = async (mint) => {
+    await navigator.clipboard.writeText(mint.minter)
+    setCopiedTokenId(mint.tokenId)
+    window.setTimeout(() => setCopiedTokenId(null), 2000)
+  }
 
   if (isLoading) {
     return (
-      <section className="recent-mints">
-        <h2 className="recent-mints__title">Recent Mints</h2>
+      <section className="recent-mints" aria-busy="true">
+        <div className="recent-mints__header">
+          <div>
+            <h2 className="recent-mints__title">Recent Mints</h2>
+            <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
+          </div>
+          <span className="recent-mints__count">Loading</span>
+        </div>
+        <p className="recent-mints__loading-copy">Fetching the latest mint activity...</p>
         <div className="recent-mints__list">
           {[1, 2, 3].map((i) => (
             <div key={i} className="mint-item mint-item--skeleton">
@@ -64,10 +75,19 @@ function RecentMints({ provider, contractAddress, items = [] }) {
   if (recentMints.length === 0) {
     return (
       <section className="recent-mints">
-        <h2 className="recent-mints__title">Recent Mints</h2>
+        <div className="recent-mints__header">
+          <div>
+            <h2 className="recent-mints__title">Recent Mints</h2>
+            <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
+          </div>
+          <span className="recent-mints__count">0</span>
+        </div>
         <div className="recent-mints__empty">
           <span className="recent-mints__empty-icon">🎨</span>
           <p>No mints yet. Be the first!</p>
+          <a className="recent-mints__cta" href="#mint-section">
+            Start the first mint
+          </a>
         </div>
       </section>
     )
@@ -75,8 +95,13 @@ function RecentMints({ provider, contractAddress, items = [] }) {
 
   return (
     <section className="recent-mints">
-      <h2 className="recent-mints__title">Recent Mints</h2>
-      <p className="recent-mints__subtitle">New local mint receipts appear here right after a successful transaction.</p>
+      <div className="recent-mints__header">
+        <div>
+          <h2 className="recent-mints__title">Recent Mints</h2>
+          <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
+        </div>
+        <span className="recent-mints__count">{recentMints.length}</span>
+      </div>
       <div className="recent-mints__list">
         {recentMints.map((mint) => (
           <div key={mint.tokenId} className="mint-item">
@@ -88,11 +113,18 @@ function RecentMints({ provider, contractAddress, items = [] }) {
                 {formatAddress(mint.minter)}
               </span>
               <span className="mint-item__time">
-                {formatTime(mint.timestamp)}
+                <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp)}>
+                  {formatTime(mint.timestamp)}
+                </time>
               </span>
             </div>
-            <div className="mint-item__badge">
-              Minted
+            <div className="mint-item__actions">
+              <button className="mint-item__copy" onClick={() => handleCopy(mint)}>
+                {copiedTokenId === mint.tokenId ? 'Copied' : 'Copy'}
+              </button>
+              <div className="mint-item__badge">
+                Minted
+              </div>
             </div>
           </div>
         ))}

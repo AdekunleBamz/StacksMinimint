@@ -1,45 +1,50 @@
 import './Stats.css'
 
-function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
-  const formatEther = (wei) => {
-    if (!wei) return '0'
-    try {
-      const eth = parseFloat(wei) / 1e18
-      return eth.toFixed(4)
-    } catch {
-      return '0'
-    }
+function Stats({ contractInfo, isLoading }) {
+  const formatSTX = (microstx) => {
+    if (!microstx) return '0'
+    return (parseFloat(microstx) / 1e6).toString()
   }
 
   const calculateProgress = () => {
     if (!contractInfo?.maxSupply || contractInfo.maxSupply === 0) return 0
     return (contractInfo.totalSupply / contractInfo.maxSupply) * 100
   }
+  const remainingSupply = Math.max((contractInfo?.maxSupply || 0) - (contractInfo?.totalSupply || 0), 0)
+  const collectionState = contractInfo?.isPaused
+    ? { label: 'Paused', tone: 'warning' }
+    : remainingSupply === 0
+      ? { label: 'Sold out', tone: 'critical' }
+      : { label: 'Live mint', tone: 'success' }
 
   const stats = [
     {
       label: 'Total Minted',
       value: `${contractInfo?.totalSupply || 0}`,
       icon: '🎨',
-      color: '#8b5cf6'
+      color: '#8b5cf6',
+      tooltip: 'Number of NFTs minted so far'
     },
     {
       label: 'Max Supply',
       value: `${contractInfo?.maxSupply || '∞'}`,
       icon: '📦',
-      color: '#ec4899'
+      color: '#ec4899',
+      tooltip: 'Maximum number of NFTs allowed'
     },
     {
       label: 'Mint Price',
-      value: `${formatEther(contractInfo?.mintFee)} ETH`,
+      value: `${formatSTX(contractInfo?.mintFee)} STX`,
       icon: '💎',
-      color: '#06b6d4'
+      color: '#06b6d4',
+      tooltip: 'Cost to mint one NFT (in STX)'
     },
     {
       label: 'Per Wallet Limit',
       value: `${contractInfo?.maxPerWallet || '∞'}`,
       icon: '👛',
-      color: '#10b981'
+      color: '#10b981',
+      tooltip: 'Maximum NFTs one wallet can mint'
     }
   ]
 
@@ -47,9 +52,10 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
     return (
       <section className="stats">
         <h2 className="stats__title">Collection Stats</h2>
-        <div className="stats__grid">
+        <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
+        <div className="stats__grid" role="list" aria-label="Loading collection stats">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="stat-card stat-card--skeleton">
+            <div key={i} className="stat-card stat-card--skeleton" role="listitem">
               <div className="skeleton skeleton--icon"></div>
               <div className="skeleton skeleton--value"></div>
               <div className="skeleton skeleton--label"></div>
@@ -63,37 +69,38 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
   return (
     <section className="stats">
       <h2 className="stats__title">Collection Stats</h2>
-
-      <div className="stats__meta">
-        <span>{isConnected ? 'Wallet connected' : 'Wallet disconnected'}</span>
-        <span>{recentActivityCount} local receipts</span>
+      <p className="stats__subtitle">Track supply, pricing, and wallet limits at a glance.</p>
+      <div className={`stats__state stats__state--${collectionState.tone}`}>
+        {collectionState.label}
       </div>
-      
+
       <div className="stats__progress">
         <div className="progress-bar">
-          <div 
-            className="progress-bar__fill" 
+          <div
+            className="progress-bar__fill"
             style={{ width: `${calculateProgress()}%` }}
           />
         </div>
-        <span className="progress-text">
-          {calculateProgress().toFixed(1)}% minted
-        </span>
+        <div className="progress-text">
+          <span>{calculateProgress().toFixed(1)}% minted</span>
+          <span>{remainingSupply} items remaining</span>
+        </div>
       </div>
 
-      <div className="stats__grid">
+      <ul className="stats__grid" aria-label="Collection metrics">
         {stats.map((stat, index) => (
-          <div 
-            key={index} 
+          <li
+            key={index}
             className="stat-card"
             style={{ '--accent-color': stat.color }}
+            data-tooltip={stat.tooltip}
           >
             <span className="stat-card__icon">{stat.icon}</span>
             <span className="stat-card__value">{stat.value}</span>
             <span className="stat-card__label">{stat.label}</span>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {contractInfo?.isPaused && (
         <div className="stats__paused">
@@ -101,6 +108,10 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
           <span>Contract is currently paused</span>
         </div>
       )}
+
+      <p className="stats__footnote">
+        Metrics refresh from the connected wallet context and current contract configuration.
+      </p>
     </section>
   )
 }
