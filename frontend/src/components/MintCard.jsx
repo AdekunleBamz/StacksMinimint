@@ -122,6 +122,8 @@ function MintCard({
               placeholder="ipfs://... or https://..."
               value={tokenURI}
               onChange={(e) => setTokenURI(e.target.value)}
+              required
+              autoComplete="off"
               disabled={isMinting || isSoldOut || contractInfo?.isPaused}
             />
             <span className="form-hint">
