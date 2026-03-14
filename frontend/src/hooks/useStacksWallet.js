@@ -44,6 +44,7 @@ export function useStacksWallet() {
     userSession.signUserOut();
     setUserData(null);
     setAddress(null);
+    setIsConnecting(false);
   }, []);
 
   useEffect(() => {
