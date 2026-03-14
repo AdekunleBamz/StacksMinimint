@@ -64,6 +64,7 @@ frontend/
 - **NFT Gallery**: Grid view of minted NFTs
 - **Responsive Design**: Mobile-first dark theme
 - **Accessibility Focus**: Keyboard support, live regions, and reduced-motion handling
+- **Modal UX Safety**: Escape dismissal, focus restore, and body-scroll locking
 - **Toast Notifications**: User feedback system
 - **Loading States**: Skeleton loading animations
 
