@@ -17,3 +17,9 @@ npm run frontend:dev
 npm run frontend:check
 clarinet check
 ```
+
+## Commit Guidelines
+
+- Prefer small commits with one primary intent.
+- Use prefixes like `feat`, `fix`, `refactor`, `docs`, or `chore`.
+- Keep messages concrete enough to explain user impact.
