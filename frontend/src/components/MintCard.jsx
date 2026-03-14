@@ -7,7 +7,8 @@ function MintCard({
   onMint, 
   account, 
   isConnected,
-  onConnect 
+  onConnect,
+  contractError
 }) {
   const [tokenURI, setTokenURI] = useState('')
   const [isMinting, setIsMinting] = useState(false)
@@ -99,6 +100,12 @@ function MintCard({
       {isSoldOut && (
         <div className="mint-card__alert mint-card__alert--error">
           🔥 Sold out! All NFTs have been minted
+        </div>
+      )}
+
+      {contractError && (
+        <div className="mint-card__alert mint-card__alert--error" role="alert">
+          {contractError}
         </div>
       )}
 

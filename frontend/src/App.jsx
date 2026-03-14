@@ -79,6 +79,7 @@ function App() {
               account={address}
               isConnected={isConnected}
               onConnect={connect}
+              contractError={contractError}
             />
           </div>
 
