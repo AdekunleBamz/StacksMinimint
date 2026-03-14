@@ -68,7 +68,7 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
         <span className={`stats__state stats__state--${collectionState.tone}`}>
           {collectionState.label}
         </span>
-        <div className="stats__session">
+        <div className="stats__session" aria-live="polite">
           <span>{isConnected ? 'Wallet connected' : 'Wallet required'}</span>
           <span>{recentActivityCount} {receiptLabel}</span>
         </div>
