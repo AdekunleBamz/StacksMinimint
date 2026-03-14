@@ -70,3 +70,9 @@ clarinet check
 - Highlight breaking changes in pull request summaries.
 - Note user-facing behavior changes in plain language.
 - Include migration steps when config or workflow changes are introduced.
+
+## Documentation Ownership
+
+- Update relevant README/docs whenever behavior or setup changes.
+- Prefer concise, copy-paste-safe commands in documentation examples.
+- Avoid leaving outdated references to removed components or scripts.
