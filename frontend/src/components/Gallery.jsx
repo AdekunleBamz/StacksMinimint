@@ -7,6 +7,7 @@ function Gallery() {
   const [selectedNft, setSelectedNft] = useState(null)
   const [viewMode, setViewMode] = useState('grid')
   const [searchTerm, setSearchTerm] = useState('')
+  const normalizedSearchTerm = searchTerm.toLowerCase().trim()
 
   // Sample NFT data for demonstration
   useEffect(() => {
@@ -51,8 +52,8 @@ function Gallery() {
   }
 
   const filteredNfts = nfts.filter(nft =>
-    nft.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    nft.owner.toLowerCase().includes(searchTerm.toLowerCase())
+    nft.name.toLowerCase().includes(normalizedSearchTerm) ||
+    nft.owner.toLowerCase().includes(normalizedSearchTerm)
   )
   const hasSearch = searchTerm.trim().length > 0
 
