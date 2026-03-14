@@ -157,6 +157,11 @@
   gap: 0.5rem;
 }
 
+.mint-card__btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.28);
+}
+
 .mint-card__btn--primary {
   background: linear-gradient(135deg, #8b5cf6, #6366f1);
   color: white;
