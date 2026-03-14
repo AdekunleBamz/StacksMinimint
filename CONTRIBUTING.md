@@ -41,3 +41,9 @@ clarinet check
 - Describe the user-visible behavior change.
 - List commands/checks run locally and their outcome.
 - Include screenshots or recordings for meaningful UI updates.
+
+## Contract Change Notes
+
+- Document any storage schema changes in the pull request body.
+- Call out post-condition or permission changes explicitly.
+- Prefer additive migrations over breaking state rewrites when possible.
