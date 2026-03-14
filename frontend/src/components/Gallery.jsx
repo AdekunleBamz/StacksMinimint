@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import './Gallery.css'
 
-function Gallery({ provider, contractAddress }) {
+function Gallery() {
   const [nfts, setNfts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [selectedNft, setSelectedNft] = useState(null)
   const [viewMode, setViewMode] = useState('grid')
   const [searchTerm, setSearchTerm] = useState('')
-  const quickFilters = ['Genesis', '0x1234', '0xabcd']
 
   // Sample NFT data for demonstration
   useEffect(() => {
@@ -16,32 +15,25 @@ function Gallery({ provider, contractAddress }) {
         id: 1,
         name: 'Genesis #1',
         image: 'https://picsum.photos/seed/nft1/400/400',
-        owner: '0x1234...5678',
+        owner: 'SP3H9...ABCDE',
         tokenURI: 'ipfs://QmExample1'
       },
       {
         id: 2,
         name: 'Genesis #2',
         image: 'https://picsum.photos/seed/nft2/400/400',
-        owner: '0xabcd...ef12',
+        owner: 'SP2JA...XYZ12',
         tokenURI: 'ipfs://QmExample2'
       },
       {
         id: 3,
         name: 'Genesis #3',
         image: 'https://picsum.photos/seed/nft3/400/400',
-        owner: '0x9876...4321',
+        owner: 'SP1P7...QWERT',
         tokenURI: 'ipfs://QmExample3'
-      },
-      {
-        id: 4,
-        name: 'Genesis #4',
-        image: 'https://picsum.photos/seed/nft4/400/400',
-        owner: '0xfedc...ba98',
-        tokenURI: 'ipfs://QmExample4'
       }
     ]
-    
+
     setTimeout(() => {
       setNfts(mockNfts)
       setIsLoading(false)
@@ -60,20 +52,39 @@ function Gallery({ provider, contractAddress }) {
     nft.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     nft.owner.toLowerCase().includes(searchTerm.toLowerCase())
   )
-  const hasSearch = searchTerm.trim().length > 0
 
-  const handleCardKeyDown = (event, nft) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      handleNftClick(nft)
+  useEffect(() => {
+    if (!selectedNft) return undefined
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeModal()
+      }
     }
-  }
+
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [selectedNft])
+
+  useEffect(() => {
+    if (!selectedNft) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [selectedNft])
 
   if (isLoading) {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <h2 className="gallery__title">Collection Gallery</h2>
+          <div className="gallery__heading">
+            <h2 className="gallery__title">Collection Gallery</h2>
+            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+          </div>
         </div>
         <div className={`gallery__grid gallery__grid--${viewMode}`}>
           {[1, 2, 3, 4].map((i) => (
@@ -94,7 +105,10 @@ function Gallery({ provider, contractAddress }) {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <h2 className="gallery__title">Collection Gallery</h2>
+          <div className="gallery__heading">
+            <h2 className="gallery__title">Collection Gallery</h2>
+            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+          </div>
         </div>
         <div className="gallery__empty">
           <span className="gallery__empty-icon">🖼️</span>
@@ -109,20 +123,23 @@ function Gallery({ provider, contractAddress }) {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <h2 className="gallery__title">Collection Gallery</h2>
+          <div className="gallery__heading">
+            <h2 className="gallery__title">Collection Gallery</h2>
+            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+          </div>
           <div className="gallery__search">
-            <input
-              type="text"
-              placeholder="Search NFTs by name or owner..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === 'Escape') {
-                  setSearchTerm('')
-                }
-              }}
-              className="search-input"
-            />
+            <div className="gallery__search-field">
+              <input
+                type="text"
+                placeholder="Search NFTs by name or owner..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
+                Clear
+              </button>
+            </div>
           </div>
           <div className="gallery__controls">
             <button
@@ -131,8 +148,9 @@ function Gallery({ provider, contractAddress }) {
               aria-label="Grid view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
               </svg>
+              <span>Grid</span>
             </button>
             <button
               className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
@@ -140,28 +158,17 @@ function Gallery({ provider, contractAddress }) {
               aria-label="List view"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
               </svg>
+              <span>List</span>
             </button>
           </div>
         </div>
-        <div className="gallery__chips" aria-label="Quick search filters">
-          {quickFilters.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              className="gallery__chip"
-              onClick={() => setSearchTerm(filter)}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
         <div className="gallery__empty gallery__empty--search">
-          <span className="gallery__empty-icon">🔍</span>
-          <h3>No NFTs Found</h3>
-          <p>We could not find anything matching "{searchTerm}".</p>
-          <button className="gallery__clear-btn" onClick={() => setSearchTerm('')} aria-label="Clear NFT search">
+          <div className="gallery__empty-icon">🔍</div>
+          <h3>No matching NFTs</h3>
+          <p>We couldn't find anything matching "{searchTerm}"</p>
+          <button className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
             Clear Search
           </button>
         </div>
@@ -172,30 +179,25 @@ function Gallery({ provider, contractAddress }) {
   return (
     <section className="gallery">
       <div className="gallery__header">
-        <h2 className="gallery__title">Collection Gallery</h2>
+        <div className="gallery__heading">
+          <h2 className="gallery__title">Collection Gallery</h2>
+          <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
+        </div>
         <div className="gallery__search">
-          <input
-            type="text"
-            placeholder="Search NFTs by name or owner..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Escape') {
-                setSearchTerm('')
-              }
-            }}
-            className="search-input"
-          />
-          {hasSearch && (
-            <button
-              type="button"
-              className="gallery__clear-search"
-              onClick={() => setSearchTerm('')}
-              aria-label="Clear NFT search"
-            >
-              Clear
-            </button>
-          )}
+          <div className="gallery__search-field">
+            <input
+              type="text"
+              placeholder="Search NFTs by name or owner..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
+            {searchTerm && (
+              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
+                Clear
+              </button>
+            )}
+          </div>
         </div>
         <div className="gallery__controls">
           <button
@@ -204,8 +206,9 @@ function Gallery({ provider, contractAddress }) {
             aria-label="Grid view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+              <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
             </svg>
+            <span>Grid</span>
           </button>
           <button
             className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
@@ -213,38 +216,27 @@ function Gallery({ provider, contractAddress }) {
             aria-label="List view"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
+              <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
             </svg>
+            <span>List</span>
           </button>
         </div>
       </div>
-
-      <div className="gallery__chips" aria-label="Quick search filters">
-        {quickFilters.map((filter) => (
-          <button
-            key={filter}
-            type="button"
-            className="gallery__chip"
-            onClick={() => setSearchTerm(filter)}
-          >
-            {filter}
-          </button>
-        ))}
+      <div className="gallery__meta">
+        <span>{filteredNfts.length} NFTs shown</span>
+        <span>{viewMode === 'grid' ? 'Grid layout' : 'List layout'}</span>
       </div>
 
-      <p className="gallery__results" aria-live="polite">
-        Showing {filteredNfts.length} of {nfts.length} items in {viewMode} view{hasSearch ? ` for "${searchTerm}"` : ''}.
-      </p>
-
       <div className={`gallery__grid gallery__grid--${viewMode}`}>
-        {filteredNfts.map((nft) => (
+        {filteredNfts.map((nft, index) => (
           <article
             key={nft.id}
             className="nft-card"
+            style={{ '--index': index }}
             onClick={() => handleNftClick(nft)}
             role="button"
             tabIndex={0}
-            onKeyDown={(event) => handleCardKeyDown(event, nft)}
+            onKeyDown={(e) => e.key === 'Enter' && handleNftClick(nft)}
           >
             <div className="nft-card__image-wrapper">
               <img
@@ -259,10 +251,17 @@ function Gallery({ provider, contractAddress }) {
             </div>
             <div className="nft-card__info">
               <h3 className="nft-card__name">{nft.name}</h3>
+              <div className="nft-card__meta">
+                <span className="nft-card__pill">Token #{nft.id}</span>
+                <span className="nft-card__pill nft-card__pill--owner">{nft.owner}</span>
+              </div>
               <p className="nft-card__owner">
                 <span className="label">Owner:</span>
                 <span className="value">{nft.owner}</span>
               </p>
+              {viewMode === 'list' && (
+                <p className="nft-card__token-uri">{nft.tokenURI}</p>
+              )}
             </div>
           </article>
         ))}
@@ -270,23 +269,29 @@ function Gallery({ provider, contractAddress }) {
 
       {selectedNft && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal__close" onClick={closeModal}>
+          <div
+            className="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="gallery-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal__close" onClick={closeModal} aria-label="Close NFT details">
               ×
             </button>
             <div className="modal__image">
               <img src={selectedNft.image} alt={selectedNft.name} />
             </div>
             <div className="modal__content">
-              <h2 className="modal__title">{selectedNft.name}</h2>
+              <h2 className="modal__title" id="gallery-modal-title">{selectedNft.name}</h2>
               <div className="modal__details">
                 <div className="detail-row">
                   <span className="detail-label">Token ID</span>
-                  <span className="detail-value">#{selectedNft.id}</span>
+                  <span className="detail-pill detail-pill--id">#{selectedNft.id}</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Owner</span>
-                  <span className="detail-value">{selectedNft.owner}</span>
+                  <span className="detail-pill detail-pill--owner">{selectedNft.owner}</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Token URI</span>
@@ -297,12 +302,12 @@ function Gallery({ provider, contractAddress }) {
               </div>
               <div className="modal__actions">
                 <a
-                  href={`https://opensea.io/assets/${contractAddress}/${selectedNft.id}`}
+                  href={`https://explorer.hiro.so/token/${selectedNft.id}?chain=mainnet`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="modal__btn"
                 >
-                  View on OpenSea
+                  View on Explorer
                 </a>
               </div>
             </div>

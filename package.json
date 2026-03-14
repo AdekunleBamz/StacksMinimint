@@ -1,38 +1,38 @@
 {
-  "name": "nftminimint",
-  "version": "3.0.0",
-  "description": "A comprehensive NFT minting platform with advanced features - FREE MINTING!",
-  "author": "Adekunle Bamz",
+  "name": "stacksminimint",
+  "version": "1.0.0",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Clarity](https://img.shields.io/badge/Clarity-v2.0-blue.svg)](https://clarity-lang.org/) [![Stacks](https://img.shields.io/badge/Built%20with-Stacks-purple.svg)](https://stacks.co/) [![Hiro](https://img.shields.io/badge/Tools-Clarinet-orange.svg)](https://hiro.so/)",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "compile": "npx hardhat compile",
-    "test": "npx hardhat test",
-    "coverage": "npx hardhat coverage",
-    "deploy": "npx hardhat run scripts/deploy.js"
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@stacks/network": "^7.3.1",
+    "@stacks/transactions": "^7.3.1",
+    "@stacks/wallet-sdk": "^7.2.0"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
-    "@openzeppelin/contracts": "^5.0.0",
-    "dotenv": "^17.2.3",
-    "hardhat": "^2.19.0"
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0",
+    "vitest-environment-clarinet": "^3.0.2"
   },
-  "license": "MIT",
-  "keywords": [
-    "nft",
-    "ethereum",
-    "solidity",
-    "erc721",
-    "minting",
-    "free",
-    "hardhat",
-    "openzeppelin",
-    "web3",
-    "blockchain",
-    "smart-contracts",
-    "base"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdekunleBamz/NFTminimint"
-  }
+    "url": "git+https://github.com/AdekunleBamz/StacksMinimint.git"
+  },
+  "keywords": [
+    "stacks",
+    "clarity",
+    "smart-contracts"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AdekunleBamz/StacksMinimint/issues"
+  },
+  "homepage": "https://github.com/AdekunleBamz/StacksMinimint#readme"
 }

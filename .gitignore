@@ -1,55 +1,9 @@
-# Dependencies
 node_modules/
-.pnp
-.pnp.js
-
-# Build outputs
-artifacts/
-cache/
-.cache/
-typechain-types/
-out/
-dist/
-build/
-
-# Coverage
-coverage/
-coverage.json
-lcov.info
-
-# Environment files
+settings/Mainnet.toml
+settings/Testnet.toml
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Deployment files (contain sensitive info)
-deployments/
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Frontend specific
-frontend/node_modules/
-frontend/dist/
-
-# Testing
-.nyc_output/
-
-# personal tools
-function/
+dist/
+.cache/
+test-wallets.json
+scripts/

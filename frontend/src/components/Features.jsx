@@ -3,33 +3,33 @@ import './Features.css'
 const features = [
   {
     icon: '⚡',
-    title: 'Gas Efficient',
-    description: 'Optimized smart contract design minimizes gas costs for minting your NFTs.'
+    title: 'Lean Minting',
+    description: 'Minimal contract calls keep the Stacks mint flow focused and efficient.'
   },
   {
     icon: '🔒',
-    title: 'Secure',
-    description: 'Built with OpenZeppelin security standards and best practices.'
+    title: 'Wallet Confirmed',
+    description: 'Transactions are approved in-wallet with clear post-conditions before submission.'
   },
   {
     icon: '🎨',
-    title: 'Custom Metadata',
-    description: 'Full ERC-721 compliance with customizable token URIs for your artwork.'
+    title: 'Metadata Ready',
+    description: 'Submit IPFS or HTTPS metadata links directly from the mint form.'
   },
   {
     icon: '⏸️',
     title: 'Pausable',
-    description: 'Contract owner can pause minting when needed for emergency situations.'
+    description: 'Collection owners can pause minting cleanly when operations need to stop.'
   },
   {
     icon: '👛',
     title: 'Wallet Limits',
-    description: 'Built-in per-wallet minting limits to ensure fair distribution.'
+    description: 'Per-wallet limits keep distribution fair and reduce whale-heavy launches.'
   },
   {
     icon: '💎',
-    title: 'Configurable',
-    description: 'Adjustable mint price, max supply, and other parameters post-deployment.'
+    title: 'Collector Feedback',
+    description: 'Live supply, recent activity, and gallery views keep collectors oriented while minting.'
   }
 ]
 
@@ -38,9 +38,9 @@ function Features() {
     <section className="features">
       <div className="features__header">
         <span className="features__badge">Features</span>
-        <h2 className="features__title">Built for Creators</h2>
+        <h2 className="features__title">Built for Stacks Creators</h2>
         <p className="features__subtitle">
-          Everything you need to launch your NFT collection with confidence
+          The core UX pieces needed to launch and browse a simple Stacks NFT collection
         </p>
       </div>
 

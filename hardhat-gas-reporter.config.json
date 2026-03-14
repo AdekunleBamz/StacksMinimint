@@ -1,7 +1,0 @@
-{
-  "enabled": true,
-  "currency": "USD",
-  "outputFile": "gas-report.txt",
-  "noColors": false,
-  "excludeContracts": ["mocks/"]
-}

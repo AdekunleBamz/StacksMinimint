@@ -5,19 +5,19 @@ function Footer() {
 
   const links = {
     project: [
-      { label: 'Ethereum', href: 'https://ethereum.org/' },
-      { label: 'Etherscan', href: 'https://etherscan.io/' },
-      { label: 'IPFS Docs', href: 'https://docs.ipfs.tech/' }
+      { label: 'GitHub Repo', href: 'https://github.com/AdekunleBamz/StacksMinimint' },
+      { label: 'Mainnet Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
+      { label: 'Stacks Home', href: 'https://www.stacks.co/' }
     ],
     community: [
-      { label: 'OpenSea', href: 'https://opensea.io/' },
-      { label: 'X', href: 'https://x.com/ethereum' },
-      { label: 'MetaMask', href: 'https://metamask.io/' }
+      { label: 'Stacks Discord', href: 'https://discord.gg/stacks' },
+      { label: 'Stacks on X', href: 'https://x.com/Stacks' },
+      { label: 'Hiro on X', href: 'https://x.com/hirosystems' }
     ],
     resources: [
-      { label: 'ERC-721 Docs', href: 'https://eips.ethereum.org/EIPS/eip-721' },
-      { label: 'GitHub', href: 'https://github.com/AdekunleBamz/NFTminimint' },
-      { label: 'OpenZeppelin', href: 'https://docs.openzeppelin.com/contracts/' }
+      { label: 'Stacks Docs', href: 'https://docs.stacks.co/' },
+      { label: 'Hiro Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
+      { label: 'Clarity Reference', href: 'https://docs.stacks.co/reference/clarity' }
     ]
   }
 
@@ -28,8 +28,7 @@ function Footer() {
           <span className="footer__logo">◆</span>
           <span className="footer__title">NFTminimint</span>
           <p className="footer__description">
-            Mint ERC-721 collectibles with a cleaner wallet flow,
-            clearer status feedback, and a gallery built for quick browsing.
+            A focused Stacks NFT minting demo with live supply feedback, collection browsing, and wallet-aware mint limits.
           </p>
         </div>
 
@@ -39,7 +38,7 @@ function Footer() {
             <ul className="footer__list">
               {links.project.map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="footer__link" target="_blank" rel="noopener noreferrer">{link.label}</a>
+                  <a href={link.href} className="footer__link">{link.label}</a>
                 </li>
               ))}
             </ul>
@@ -61,8 +60,8 @@ function Footer() {
             <ul className="footer__list">
               {links.resources.map((link, i) => (
                 <li key={i}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="footer__link"
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -78,10 +77,10 @@ function Footer() {
 
       <div className="footer__bottom">
         <p className="footer__copyright">
-          © {currentYear} NFTminimint. All rights reserved.
+          © {currentYear} NFTminimint. Built for Stacks mainnet demos.
         </p>
-        <p className="footer__disclaimer">
-          Built for Ethereum NFT drops
+        <p className="footer__credit">
+          Mint flow, gallery, and activity UI tuned for collectors.
         </p>
       </div>
     </footer>

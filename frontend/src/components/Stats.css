@@ -1,30 +1,48 @@
 .stats {
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 .stats__title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 0.75rem;
-  color: #f3f4f6;
+  margin-bottom: 2rem;
+  color: #fff;
+  letter-spacing: -0.02em;
 }
 
-.stats__meta {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+.stats__subtitle {
+  max-width: 34rem;
+  margin: -1rem auto 2rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.95rem;
 }
 
-.stats__meta span {
-  padding: 0.4rem 0.75rem;
+.stats__state {
+  width: fit-content;
+  margin: -0.75rem auto 1.5rem;
+  padding: 0.55rem 0.95rem;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.62);
-  border: 1px solid rgba(148, 163, 184, 0.1);
-  color: #cbd5e1;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stats__state--success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+}
+
+.stats__state--warning {
+  background: rgba(234, 179, 8, 0.16);
+  color: #fde68a;
+}
+
+.stats__state--critical {
+  background: rgba(239, 68, 68, 0.16);
+  color: #fca5a5;
 }
 
 .stats__progress {
@@ -34,8 +52,9 @@
 }
 
 .progress-bar {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 9999px;
   overflow: hidden;
   margin-bottom: 0.5rem;
@@ -49,6 +68,9 @@
 }
 
 .progress-text {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   font-size: 0.875rem;
   color: #9ca3af;
 }
@@ -56,20 +78,49 @@
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  gap: 1.75rem;
   max-width: 900px;
   margin: 0 auto;
+  list-style: none;
+  padding: 0;
 }
 
 .stat-card {
   background: rgba(30, 30, 50, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+}
+
+/* Custom Tooltip */
+.stat-card[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(15, 15, 26, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.stat-card[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
 }
 
 .stat-card::before {
@@ -85,9 +136,9 @@
 }
 
 .stat-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.4);
 }
 
 .stat-card:hover::before {
@@ -121,11 +172,10 @@
 }
 
 .skeleton {
-  background: linear-gradient(90deg, 
-    rgba(255,255,255,0.05) 25%, 
-    rgba(255,255,255,0.1) 50%, 
-    rgba(255,255,255,0.05) 75%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 0.5rem;
@@ -151,8 +201,13 @@
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .stats__paused {
@@ -170,6 +225,13 @@
   margin-right: auto;
   color: #fcd34d;
   font-size: 0.875rem;
+}
+
+.stats__footnote {
+  margin-top: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 640px) {
