@@ -111,6 +111,7 @@ function Gallery() {
               placeholder="Search NFTs by name or owner..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              aria-label="Search collection items"
               className="search-input"
             />
           </div>
@@ -157,6 +158,7 @@ function Gallery() {
             placeholder="Search NFTs by name or owner..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            aria-label="Search collection items"
             className="search-input"
           />
           {hasSearch && (
