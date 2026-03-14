@@ -1,6 +1,6 @@
 # NFTminimint Frontend
 
-A React-based frontend for the NFTminimint smart contract, built with Vite and ethers.js.
+A React-based frontend for the NFTminimint smart contract, built with Vite and the Stacks JS SDK.
 
 ## 🚀 Quick Start
 
@@ -8,7 +8,7 @@ A React-based frontend for the NFTminimint smart contract, built with Vite and e
 
 - Node.js 18+ (recommend 22 LTS)
 - npm or yarn
-- MetaMask browser extension
+- A Stacks-compatible wallet (for example, Leather or Xverse)
 
 ### Installation
 
@@ -16,28 +16,20 @@ A React-based frontend for the NFTminimint smart contract, built with Vite and e
 # Install dependencies
 npm install
 
-# Copy environment file
-cp .env.example .env.local
-
 # Start development server
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`.
+The app will be available at `http://localhost:5173` by default.
 
 ## 🔧 Configuration
 
-Create a `.env.local` file with your contract address:
+Update `src/contract.js` with the deployment and network values you want to target:
 
-```env
-VITE_CONTRACT_ADDRESS=0x5FbDB2315678afecb367f032d93F642f64180aa3
-```
-
-For multiple networks, set network-specific addresses:
-
-```env
-VITE_SEPOLIA_CONTRACT_ADDRESS=0x...
-VITE_MAINNET_CONTRACT_ADDRESS=0x...
+```js
+export const CONTRACT_ADDRESS = 'SP...'
+export const CONTRACT_NAME = 'minimint-core'
+export const NETWORK = 'mainnet' // or 'testnet'
 ```
 
 ## 📁 Project Structure
@@ -51,14 +43,12 @@ frontend/
 │   │   ├── MintCard.jsx # Minting interface
 │   │   ├── Stats.jsx    # Collection statistics
 │   │   ├── Gallery.jsx  # NFT gallery grid
-│   │   ├── Features.jsx # Platform features
 │   │   └── ...          # More UI components
 │   ├── hooks/           # Custom React hooks
-│   │   ├── useWallet.js      # Wallet connection
-│   │   ├── useContract.js    # Basic contract interaction
-│   │   ├── useNFTContract.js # Full NFT contract interface
+│   │   ├── useStacksWallet.js   # Wallet session connection
+│   │   ├── useStacksContract.js # Mint call + contract context
 │   │   └── ...               # Utility hooks
-│   ├── contract.js      # ABI & network config
+│   ├── contract.js      # Contract + network config helpers
 │   ├── App.jsx          # Main app component
 │   └── main.jsx         # Entry point
 ├── index.html
@@ -68,35 +58,35 @@ frontend/
 
 ## 🎨 Features
 
-- **Wallet Connection**: MetaMask integration with chain switching
+- **Wallet Connection**: Stacks wallet integration via `@stacks/connect`
 - **Minting Interface**: Mint NFTs with custom token URIs
 - **Collection Stats**: Real-time supply, price, and limit info
 - **NFT Gallery**: Grid view of minted NFTs
 - **Responsive Design**: Mobile-first dark theme
+- **Accessibility Focus**: Keyboard support, live regions, and reduced-motion handling
 - **Toast Notifications**: User feedback system
 - **Loading States**: Skeleton loading animations
 
 ## 🔗 Hooks
 
-### `useWallet`
-Manages wallet connection state.
+### `useStacksWallet`
+Manages wallet session state and account identity.
 
 ```jsx
-const { account, chainId, connect, disconnect, isConnecting } = useWallet()
+const { address, isConnected, connect, disconnect, isConnecting } = useStacksWallet()
 ```
 
-### `useNFTContract`
-Full NFT contract interface.
+### `useStacksContract`
+Mint entrypoint + contract state helpers.
 
 ```jsx
 const { 
-  totalSupply, 
-  maxSupply, 
-  mintFee,
-  canMint,
   mint,
-  refetch 
-} = useNFTContract(account)
+  contractInfo,
+  isLoading,
+  error,
+  refetch
+} = useStacksContract(address)
 ```
 
 ## 🛠️ Scripts
@@ -105,21 +95,28 @@ const {
 npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
+npm run check    # Run production build check
 ```
 
 ## 📦 Dependencies
 
 - **React 18** - UI library
 - **Vite** - Build tool
-- **ethers.js** - Ethereum library
-- **CSS Modules** - Component styling
+- **@stacks/connect** - Wallet connection and auth
+- **@stacks/transactions** - Clarity values and post-conditions
+- **CSS** - Component styling
 
 ## 🔒 Security
 
 - Never commit `.env.local` files
 - Validate all user inputs
-- Use environment variables for sensitive data
-- Test on testnets before mainnet deployment
+- Keep contract addresses/network values explicit in `src/contract.js`
+- Test on Stacks testnet before mainnet deployment
+
+## 🧭 Troubleshooting
+
+- If wallet prompts do not appear, ensure pop-ups are allowed for `localhost`.
+- If transactions open on the wrong chain, confirm `NETWORK` in `src/contract.js`.
 
 ## 📄 License
 
