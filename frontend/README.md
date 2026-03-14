@@ -72,6 +72,12 @@ frontend/
 - Verify mint form states and modal interactions at widths below `640px`.
 - Confirm wallet connect/disconnect controls remain reachable without horizontal scrolling.
 
+## ♿ Accessibility QA Notes
+
+- Validate tab order through wallet actions, mint form, and gallery controls.
+- Check that status updates are announced for minting, errors, and copy actions.
+- Use reduced-motion OS settings to confirm animation fallbacks remain usable.
+
 ## 🔗 Hooks
 
 ### `useStacksWallet`
