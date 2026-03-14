@@ -47,8 +47,8 @@ function MintCard({
   }
 
   const formatSTX = (microstx) => {
-    if (!microstx) return '0'
-    return (parseFloat(microstx) / 1e6).toString()
+    if (microstx === null || microstx === undefined || Number.isNaN(Number(microstx))) return '0'
+    return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
   }
 
   const isSoldOut = contractInfo?.totalSupply >= contractInfo?.maxSupply
