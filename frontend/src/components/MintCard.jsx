@@ -162,7 +162,11 @@ function MintCard({
           </p>
 
           {mintStatus && (
-            <div className={`mint-card__status mint-card__status--${mintStatus.type}`}>
+            <div
+              className={`mint-card__status mint-card__status--${mintStatus.type}`}
+              role={mintStatus.type === 'error' ? 'alert' : 'status'}
+              aria-live={mintStatus.type === 'error' ? 'assertive' : 'polite'}
+            >
               <span>{mintStatus.message}</span>
               {txId && (
                 <a
