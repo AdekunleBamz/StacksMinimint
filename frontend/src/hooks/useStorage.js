@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 
 export function useLocalStorage(key, initialValue) {
   // Get stored value or use initial
@@ -15,13 +15,15 @@ export function useLocalStorage(key, initialValue) {
   // Update localStorage when value changes
   const setValue = useCallback((value) => {
     try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value
-      setStoredValue(valueToStore)
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      setStoredValue((currentValue) => {
+        const valueToStore = value instanceof Function ? value(currentValue) : value
+        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+        return valueToStore
+      })
     } catch (error) {
       console.warn(`Error setting localStorage key "${key}":`, error)
     }
-  }, [key, storedValue])
+  }, [key])
 
   // Remove from localStorage
   const removeValue = useCallback(() => {
@@ -49,13 +51,15 @@ export function useSessionStorage(key, initialValue) {
 
   const setValue = useCallback((value) => {
     try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value
-      setStoredValue(valueToStore)
-      window.sessionStorage.setItem(key, JSON.stringify(valueToStore))
+      setStoredValue((currentValue) => {
+        const valueToStore = value instanceof Function ? value(currentValue) : value
+        window.sessionStorage.setItem(key, JSON.stringify(valueToStore))
+        return valueToStore
+      })
     } catch (error) {
       console.warn(`Error setting sessionStorage key "${key}":`, error)
     }
-  }, [key, storedValue])
+  }, [key])
 
   return [storedValue, setValue]
 }

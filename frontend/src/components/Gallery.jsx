@@ -52,39 +52,20 @@ function Gallery() {
     nft.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     nft.owner.toLowerCase().includes(searchTerm.toLowerCase())
   )
+  const hasSearch = searchTerm.trim().length > 0
 
-  useEffect(() => {
-    if (!selectedNft) return undefined
-
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') {
-        closeModal()
-      }
+  const handleCardKeyDown = (event, nft) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      handleNftClick(nft)
     }
-
-    window.addEventListener('keydown', handleEscape)
-    return () => window.removeEventListener('keydown', handleEscape)
-  }, [selectedNft])
-
-  useEffect(() => {
-    if (!selectedNft) return undefined
-
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-
-    return () => {
-      document.body.style.overflow = previousOverflow
-    }
-  }, [selectedNft])
+  }
 
   if (isLoading) {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <div className="gallery__heading">
-            <h2 className="gallery__title">Collection Gallery</h2>
-            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
-          </div>
+          <h2 className="gallery__title">Collection Gallery</h2>
         </div>
         <div className={`gallery__grid gallery__grid--${viewMode}`}>
           {[1, 2, 3, 4].map((i) => (
@@ -105,10 +86,7 @@ function Gallery() {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <div className="gallery__heading">
-            <h2 className="gallery__title">Collection Gallery</h2>
-            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
-          </div>
+          <h2 className="gallery__title">Collection Gallery</h2>
         </div>
         <div className="gallery__empty">
           <span className="gallery__empty-icon">🖼️</span>
@@ -123,23 +101,15 @@ function Gallery() {
     return (
       <section className="gallery">
         <div className="gallery__header">
-          <div className="gallery__heading">
-            <h2 className="gallery__title">Collection Gallery</h2>
-            <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
-          </div>
+          <h2 className="gallery__title">Collection Gallery</h2>
           <div className="gallery__search">
-            <div className="gallery__search-field">
-              <input
-                type="text"
-                placeholder="Search NFTs by name or owner..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-              />
-              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
-                Clear
-              </button>
-            </div>
+            <input
+              type="text"
+              placeholder="Search NFTs by name or owner..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
           </div>
           <div className="gallery__controls">
             <button
@@ -150,7 +120,6 @@ function Gallery() {
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                 <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
               </svg>
-              <span>Grid</span>
             </button>
             <button
               className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
@@ -160,7 +129,6 @@ function Gallery() {
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                 <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
               </svg>
-              <span>List</span>
             </button>
           </div>
         </div>
@@ -179,25 +147,24 @@ function Gallery() {
   return (
     <section className="gallery">
       <div className="gallery__header">
-        <div className="gallery__heading">
-          <h2 className="gallery__title">Collection Gallery</h2>
-          <p className="gallery__subtitle">Browse minted pieces and switch between compact or detailed views.</p>
-        </div>
+        <h2 className="gallery__title">Collection Gallery</h2>
         <div className="gallery__search">
-          <div className="gallery__search-field">
-            <input
-              type="text"
-              placeholder="Search NFTs by name or owner..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
-            {searchTerm && (
-              <button className="search-clear-btn" onClick={() => setSearchTerm('')}>
-                Clear
-              </button>
-            )}
-          </div>
+          <input
+            type="text"
+            placeholder="Search NFTs by name or owner..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+          {hasSearch && (
+            <button
+              type="button"
+              className="gallery__clear-search"
+              onClick={() => setSearchTerm('')}
+            >
+              Clear
+            </button>
+          )}
         </div>
         <div className="gallery__controls">
           <button
@@ -208,7 +175,6 @@ function Gallery() {
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
             </svg>
-            <span>Grid</span>
           </button>
           <button
             className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
@@ -218,14 +184,13 @@ function Gallery() {
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
             </svg>
-            <span>List</span>
           </button>
         </div>
       </div>
-      <div className="gallery__meta">
-        <span>{filteredNfts.length} NFTs shown</span>
-        <span>{viewMode === 'grid' ? 'Grid layout' : 'List layout'}</span>
-      </div>
+
+      <p className="gallery__results" aria-live="polite">
+        Showing {filteredNfts.length} of {nfts.length} items{hasSearch ? ` for "${searchTerm}"` : ''}.
+      </p>
 
       <div className={`gallery__grid gallery__grid--${viewMode}`}>
         {filteredNfts.map((nft, index) => (
@@ -236,7 +201,7 @@ function Gallery() {
             onClick={() => handleNftClick(nft)}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleNftClick(nft)}
+            onKeyDown={(event) => handleCardKeyDown(event, nft)}
           >
             <div className="nft-card__image-wrapper">
               <img
@@ -251,17 +216,10 @@ function Gallery() {
             </div>
             <div className="nft-card__info">
               <h3 className="nft-card__name">{nft.name}</h3>
-              <div className="nft-card__meta">
-                <span className="nft-card__pill">Token #{nft.id}</span>
-                <span className="nft-card__pill nft-card__pill--owner">{nft.owner}</span>
-              </div>
               <p className="nft-card__owner">
                 <span className="label">Owner:</span>
                 <span className="value">{nft.owner}</span>
               </p>
-              {viewMode === 'list' && (
-                <p className="nft-card__token-uri">{nft.tokenURI}</p>
-              )}
             </div>
           </article>
         ))}
@@ -269,21 +227,15 @@ function Gallery() {
 
       {selectedNft && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div
-            className="modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="gallery-modal-title"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button className="modal__close" onClick={closeModal} aria-label="Close NFT details">
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal__close" onClick={closeModal}>
               ×
             </button>
             <div className="modal__image">
               <img src={selectedNft.image} alt={selectedNft.name} />
             </div>
             <div className="modal__content">
-              <h2 className="modal__title" id="gallery-modal-title">{selectedNft.name}</h2>
+              <h2 className="modal__title">{selectedNft.name}</h2>
               <div className="modal__details">
                 <div className="detail-row">
                   <span className="detail-label">Token ID</span>

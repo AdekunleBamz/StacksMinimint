@@ -1,4 +1,19 @@
 /* Global Reset & Base Styles */
+:root {
+  color-scheme: dark;
+  --bg: #060816;
+  --bg-soft: #0f172a;
+  --surface: rgba(15, 23, 42, 0.72);
+  --surface-strong: rgba(8, 11, 23, 0.92);
+  --border: rgba(148, 163, 184, 0.14);
+  --text: #f8fafc;
+  --text-soft: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent: #8b5cf6;
+  --accent-strong: #6366f1;
+  --accent-warm: #ec4899;
+}
+
 *,
 *::before,
 *::after {
@@ -14,10 +29,12 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  background: #0f0f1a;
-  color: #f3f4f6;
+  font-family: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.14), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.12), transparent 26%),
+    linear-gradient(180deg, #060816, #090d1d 36%, #060816);
+  color: var(--text);
   letter-spacing: -0.015em;
   min-height: 100vh;
   overflow-x: hidden;
@@ -31,37 +48,22 @@ body::before,
 body::after {
   content: '';
   position: fixed;
-  width: 50vw;
-  height: 50vw;
-  border-radius: 50%;
-  filter: blur(120px);
+  inset: 0;
   z-index: -1;
-  opacity: 0.15;
   pointer-events: none;
 }
 
 body::before {
-  top: -10%;
-  left: -10%;
-  background: radial-gradient(circle, #8b5cf6, transparent 70%);
-  animation: float-slow 20s infinite alternate ease-in-out;
+  background:
+    linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 90%);
 }
 
 body::after {
-  bottom: -10%;
-  right: -10%;
-  background: radial-gradient(circle, #ec4899, transparent 70%);
-  animation: float-slow 25s infinite alternate-reverse ease-in-out;
-}
-
-@keyframes float-slow {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(10%, 10%) scale(1.1);
-  }
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 58%);
+  opacity: 0.35;
 }
 
 #root {
@@ -80,7 +82,7 @@ h6 {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: var(--text);
 }
 
 a {
@@ -129,7 +131,7 @@ button:active {
 
 :is(a, button, input, textarea, select, [role='button']):focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px #0f0f1a, 0 0 0 4px #8b5cf6;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
   border-radius: 0.75rem;
   transition: box-shadow 0.2s ease;
 }

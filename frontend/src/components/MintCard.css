@@ -33,45 +33,6 @@
   font-size: 0.9375rem;
 }
 
-.mint-card__steps {
-  margin: 1.25rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.65rem;
-}
-
-.mint-card__steps li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: 0.9rem;
-  background: rgba(15, 23, 42, 0.45);
-  color: #cbd5e1;
-  font-size: 0.875rem;
-}
-
-.mint-card__steps li::before {
-  content: counter(step);
-  counter-increment: step;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 999px;
-  background: rgba(139, 92, 246, 0.25);
-  color: #e9d5ff;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.mint-card__steps {
-  counter-reset: step;
-}
-
 .mint-card__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -100,22 +61,6 @@
   font-size: 1.125rem;
   font-weight: 600;
   color: #f3f4f6;
-}
-
-.mint-card__availability {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-  color: #cbd5e1;
-  font-size: 0.82rem;
-}
-
-.mint-card__availability span {
-  flex: 1;
-  padding: 0.8rem 0.9rem;
-  border-radius: 0.85rem;
-  background: rgba(15, 23, 42, 0.45);
 }
 
 .mint-card__alert {
@@ -148,22 +93,6 @@
   margin-bottom: 1rem;
 }
 
-.mint-card__connect-list {
-  list-style: none;
-  display: grid;
-  gap: 0.7rem;
-  margin: 0 0 1.25rem;
-  padding: 0;
-}
-
-.mint-card__connect-list li {
-  padding: 0.8rem 0.9rem;
-  border-radius: 0.85rem;
-  background: rgba(15, 23, 42, 0.4);
-  color: #cbd5e1;
-  font-size: 0.85rem;
-}
-
 .mint-card__form {
   display: flex;
   flex-direction: column;
@@ -176,27 +105,11 @@
   gap: 0.5rem;
 }
 
-.form-label-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 .form-label {
   font-size: 0.875rem;
   font-weight: 500;
   color: #f3f4f6;
   font-weight: 500;
-}
-
-.form-clear-btn {
-  border: 0;
-  background: transparent;
-  color: #c4b5fd;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
 }
 
 .form-input {
@@ -232,51 +145,6 @@
   color: #6b7280;
 }
 
-.form-source {
-  font-size: 0.78rem;
-  color: #c4b5fd;
-  min-height: 1.1rem;
-}
-
-.mint-card__preview {
-  padding: 0.95rem 1rem;
-  border-radius: 0.9rem;
-  background: rgba(15, 23, 42, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  text-align: left;
-}
-
-.mint-card__preview-label {
-  display: block;
-  font-size: 0.76rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.mint-card__preview-value {
-  display: block;
-  margin-top: 0.45rem;
-  color: #f8fafc;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  word-break: break-all;
-}
-
-.mint-card__expectations {
-  display: grid;
-  gap: 0.55rem;
-  text-align: left;
-}
-
-.mint-card__expectations span {
-  padding: 0.75rem 0.9rem;
-  border-left: 3px solid rgba(96, 165, 250, 0.55);
-  background: rgba(30, 41, 59, 0.35);
-  color: #dbeafe;
-  font-size: 0.82rem;
-}
-
 .mint-card__btn {
   padding: 1rem 1.5rem;
   border: none;
@@ -307,10 +175,11 @@
   transform: none;
 }
 
-.mint-card__reason {
-  margin: -0.25rem 0 0;
-  font-size: 0.8rem;
-  color: #fca5a5;
+.mint-card__helper {
+  margin: -0.35rem 0 0;
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  line-height: 1.5;
 }
 
 .spinner {
@@ -375,10 +244,6 @@
   .mint-card__stats {
     grid-template-columns: 1fr;
     gap: 0.75rem;
-  }
-
-  .mint-card__availability {
-    flex-direction: column;
   }
 
   .stat {

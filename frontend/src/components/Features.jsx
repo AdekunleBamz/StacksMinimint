@@ -3,33 +3,33 @@ import './Features.css'
 const features = [
   {
     icon: '⚡',
-    title: 'Lean Minting',
-    description: 'Minimal contract calls keep the Stacks mint flow focused and efficient.'
+    title: 'Gas Efficient',
+    description: 'Optimized smart contract design minimizes gas costs for minting your NFTs.'
   },
   {
     icon: '🔒',
-    title: 'Wallet Confirmed',
-    description: 'Transactions are approved in-wallet with clear post-conditions before submission.'
+    title: 'Secure',
+    description: 'Built with OpenZeppelin security standards and best practices.'
   },
   {
     icon: '🎨',
-    title: 'Metadata Ready',
-    description: 'Submit IPFS or HTTPS metadata links directly from the mint form.'
+    title: 'Custom Metadata',
+    description: 'Full ERC-721 compliance with customizable token URIs for your artwork.'
   },
   {
     icon: '⏸️',
     title: 'Pausable',
-    description: 'Collection owners can pause minting cleanly when operations need to stop.'
+    description: 'Contract owner can pause minting when needed for emergency situations.'
   },
   {
     icon: '👛',
     title: 'Wallet Limits',
-    description: 'Per-wallet limits keep distribution fair and reduce whale-heavy launches.'
+    description: 'Built-in per-wallet minting limits to ensure fair distribution.'
   },
   {
     icon: '💎',
-    title: 'Collector Feedback',
-    description: 'Live supply, recent activity, and gallery views keep collectors oriented while minting.'
+    title: 'Configurable',
+    description: 'Adjustable mint price, max supply, and other parameters post-deployment.'
   }
 ]
 
@@ -38,9 +38,9 @@ function Features() {
     <section className="features">
       <div className="features__header">
         <span className="features__badge">Features</span>
-        <h2 className="features__title">Built for Stacks Creators</h2>
+        <h2 className="features__title">Built for Creators</h2>
         <p className="features__subtitle">
-          The core UX pieces needed to launch and browse a simple Stacks NFT collection
+          Everything you need to launch your NFT collection with confidence
         </p>
       </div>
 
