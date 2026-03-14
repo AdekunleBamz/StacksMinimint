@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import './Header.css'
 
 import logo from '../assets/logo.png'
+import { formatAddress } from '../utils/collection'
 
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const [showCopied, setShowCopied] = useState(false)
@@ -25,11 +26,6 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
     } catch (error) {
       console.error('Failed to copy wallet address:', error)
     }
-  }
-
-  const formatAddress = (addr) => {
-    if (!addr) return ''
-    return `${addr.slice(0, 5)}...${addr.slice(-5)}`
   }
 
   return (
