@@ -62,8 +62,7 @@ clarinet console
 
 3. Build the frontend bundle:
 ```bash
-cd frontend
-npm run build
+npm run frontend:check
 ```
 
 ## Frontend
