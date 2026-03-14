@@ -234,6 +234,7 @@ function Gallery() {
             onClick={() => handleNftClick(nft)}
             role="button"
             tabIndex={0}
+            aria-label={`View details for ${nft.name}`}
             onKeyDown={(event) => handleCardKeyDown(event, nft)}
           >
             <div className="nft-card__image-wrapper">
