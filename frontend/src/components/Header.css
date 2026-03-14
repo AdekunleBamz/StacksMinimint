@@ -21,6 +21,9 @@
 }
 
 .header__logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   font-size: 1.5rem;
   color: #8b5cf6;
   animation: pulse 2s ease-in-out infinite;
