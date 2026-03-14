@@ -217,3 +217,18 @@
   box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.5);
   transform: translateY(-5px);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-load-bar {
+    animation: none;
+    opacity: 0;
+  }
+
+  .back-to-top {
+    transition: none;
+  }
+
+  .back-to-top:hover {
+    transform: none;
+  }
+}
