@@ -2,9 +2,6 @@ import { useState, useCallback, useEffect } from 'react';
 import { openContractCall } from '@stacks/connect';
 import {
   stringAsciiCV,
-  uintCV,
-  noneCV,
-  standardPrincipalCV,
   PostConditionMode,
   Pc
 } from '@stacks/transactions';
