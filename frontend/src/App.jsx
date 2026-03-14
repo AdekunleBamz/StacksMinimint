@@ -61,9 +61,9 @@ function App() {
           </div>
         </section>
 
-        {(contractError) && (
-          <div className="error-banner">
-            <span className="error-banner__icon">⚠️</span>
+        {contractError && (
+          <div className="error-banner" role="alert" aria-live="assertive">
+            <span className="error-banner__icon" aria-hidden="true">⚠️</span>
             <span>{contractError}</span>
           </div>
         )}
