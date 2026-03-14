@@ -100,3 +100,13 @@
   outline: none;
   box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.35);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+
+  .toast__close {
+    transition: none;
+  }
+}
