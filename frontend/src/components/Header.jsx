@@ -44,7 +44,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
               <span className="header__address-label">Wallet</span>
               <span className="header__address" aria-hidden="true">{formatAddress(account)}</span>
               <span className="header__copy-hint" aria-hidden="true">Copy</span>
-              {showCopied && <span className="header__copied-toast">Copied!</span>}
+              {showCopied && <span className="header__copied-toast" role="status" aria-live="polite">Copied!</span>}
             </button>
             <button
               type="button"
