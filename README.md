@@ -102,7 +102,7 @@ We welcome contributions to the NFTminimint project! Here's how you can help:
 ### Code Standards
 
 - **Clarity**: Write readable, predictable, and fail-safe logic.
-- **JavaScript/React**: Use ESLint with configured rules.
+- **JavaScript/React**: Keep components readable, accessible, and consistently formatted.
 
 ---
 
