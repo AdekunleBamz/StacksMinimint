@@ -4,6 +4,7 @@ export function useLocalStorage(key, initialValue) {
   // Get stored value or use initial
   const [storedValue, setStoredValue] = useState(() => {
     try {
+      if (typeof window === 'undefined') return initialValue
       const item = window.localStorage.getItem(key)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
@@ -15,6 +16,7 @@ export function useLocalStorage(key, initialValue) {
   // Update localStorage when value changes
   const setValue = useCallback((value) => {
     try {
+      if (typeof window === 'undefined') return
       setStoredValue((currentValue) => {
         const valueToStore = value instanceof Function ? value(currentValue) : value
         window.localStorage.setItem(key, JSON.stringify(valueToStore))
@@ -28,6 +30,7 @@ export function useLocalStorage(key, initialValue) {
   // Remove from localStorage
   const removeValue = useCallback(() => {
     try {
+      if (typeof window === 'undefined') return
       window.localStorage.removeItem(key)
       setStoredValue(initialValue)
     } catch (error) {
@@ -41,6 +44,7 @@ export function useLocalStorage(key, initialValue) {
 export function useSessionStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
     try {
+      if (typeof window === 'undefined') return initialValue
       const item = window.sessionStorage.getItem(key)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
@@ -51,6 +55,7 @@ export function useSessionStorage(key, initialValue) {
 
   const setValue = useCallback((value) => {
     try {
+      if (typeof window === 'undefined') return
       setStoredValue((currentValue) => {
         const valueToStore = value instanceof Function ? value(currentValue) : value
         window.sessionStorage.setItem(key, JSON.stringify(valueToStore))
