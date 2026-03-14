@@ -113,6 +113,11 @@ npm run check    # Run production build check
 - Keep contract addresses/network values explicit in `src/contract.js`
 - Test on Stacks testnet before mainnet deployment
 
+## 🧭 Troubleshooting
+
+- If wallet prompts do not appear, ensure pop-ups are allowed for `localhost`.
+- If transactions open on the wrong chain, confirm `NETWORK` in `src/contract.js`.
+
 ## 📄 License
 
 MIT
