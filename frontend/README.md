@@ -104,8 +104,9 @@ npm run preview  # Preview production build
 
 - **React 18** - UI library
 - **Vite** - Build tool
-- **ethers.js** - Ethereum library
-- **CSS Modules** - Component styling
+- **@stacks/connect** - Wallet connection and auth
+- **@stacks/transactions** - Clarity values and post-conditions
+- **CSS** - Component styling
 
 ## 🔒 Security
 
