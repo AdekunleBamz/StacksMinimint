@@ -51,6 +51,19 @@ function Gallery() {
     setSelectedNft(null)
   }
 
+  useEffect(() => {
+    if (!selectedNft) return
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeModal()
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [selectedNft])
+
   const filteredNfts = nfts.filter(nft =>
     nft.name.toLowerCase().includes(normalizedSearchTerm) ||
     nft.owner.toLowerCase().includes(normalizedSearchTerm)
