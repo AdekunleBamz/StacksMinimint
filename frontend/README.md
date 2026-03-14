@@ -112,8 +112,8 @@ npm run preview  # Preview production build
 
 - Never commit `.env.local` files
 - Validate all user inputs
-- Use environment variables for sensitive data
-- Test on testnets before mainnet deployment
+- Keep contract addresses/network values explicit in `src/contract.js`
+- Test on Stacks testnet before mainnet deployment
 
 ## 📄 License
 
