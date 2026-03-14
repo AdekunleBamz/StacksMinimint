@@ -67,6 +67,11 @@ frontend/
 - **Toast Notifications**: User feedback system
 - **Loading States**: Skeleton loading animations
 
+## 📱 Mobile QA Notes
+
+- Verify mint form states and modal interactions at widths below `640px`.
+- Confirm wallet connect/disconnect controls remain reachable without horizontal scrolling.
+
 ## 🔗 Hooks
 
 ### `useStacksWallet`
