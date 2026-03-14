@@ -5,6 +5,7 @@ import logo from '../assets/logo.png'
 
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const [showCopied, setShowCopied] = useState(false)
+  const chainName = 'Stacks'
 
   const handleCopy = async () => {
     if (!account) return
@@ -22,10 +23,6 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
     return `${addr.slice(0, 5)}...${addr.slice(-5)}`
   }
 
-  const getChainName = () => {
-    return 'Stacks'
-  }
-
   return (
     <header className="header">
       <div className="header__brand">
@@ -36,7 +33,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
       <div className="header__wallet">
         {account ? (
           <>
-            <span className="header__chain">{getChainName()}</span>
+            <span className="header__chain">{chainName}</span>
             <button
               type="button"
               className="header__address-wrapper"
