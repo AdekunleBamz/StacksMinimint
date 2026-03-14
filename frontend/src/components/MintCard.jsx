@@ -122,11 +122,12 @@ function MintCard({
               placeholder="ipfs://... or https://..."
               value={tokenURI}
               onChange={(e) => setTokenURI(e.target.value)}
+              aria-describedby="tokenURIHint mintActionMessage"
               required
               autoComplete="off"
               disabled={isMinting || isSoldOut || contractInfo?.isPaused}
             />
-            <span className="form-hint">
+            <span id="tokenURIHint" className="form-hint">
               IPFS or HTTP link to your NFT metadata JSON
             </span>
           </div>
@@ -156,7 +157,7 @@ function MintCard({
             )}
           </button>
 
-          <p className="mint-card__helper" aria-live="polite">
+          <p id="mintActionMessage" className="mint-card__helper" aria-live="polite">
             {mintActionMessage}
           </p>
 
