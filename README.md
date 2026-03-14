@@ -36,8 +36,11 @@ This project uses modern Stacks development tools:
 ## Installation
 
 ```bash
-# Install dependencies
+# Install root dependencies
 npm install
+
+# Install frontend dependencies
+cd frontend && npm install
 
 # Start local frontend
 npm run dev
