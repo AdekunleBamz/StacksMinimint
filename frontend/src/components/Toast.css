@@ -95,3 +95,8 @@
 .toast__close:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+.toast__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.35);
+}
