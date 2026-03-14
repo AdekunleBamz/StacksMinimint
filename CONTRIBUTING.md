@@ -64,3 +64,9 @@ clarinet check
 
 - Use clear branch prefixes such as `feat/`, `fix/`, `docs/`, or `chore/`.
 - Keep names short but descriptive, for example `fix/mint-status-fallback`.
+
+## Release Notes Hygiene
+
+- Highlight breaking changes in pull request summaries.
+- Note user-facing behavior changes in plain language.
+- Include migration steps when config or workflow changes are introduced.
