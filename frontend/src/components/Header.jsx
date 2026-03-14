@@ -33,10 +33,18 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
         {account ? (
           <>
             <span className="header__chain">{getChainName()}</span>
-            <div className="header__address-wrapper" onClick={handleCopy} title="Copy Address">
-              <span className="header__address">{formatAddress(account)}</span>
+            <button
+              type="button"
+              className="header__address-wrapper"
+              onClick={handleCopy}
+              title="Copy wallet address"
+              aria-label={`Copy wallet address ${account}`}
+            >
+              <span className="header__address-label">Wallet</span>
+              <span className="header__address" aria-hidden="true">{formatAddress(account)}</span>
+              <span className="header__copy-hint" aria-hidden="true">Copy</span>
               {showCopied && <span className="header__copied-toast">Copied!</span>}
-            </div>
+            </button>
             <button
               className="header__btn header__btn--disconnect"
               onClick={onDisconnect}

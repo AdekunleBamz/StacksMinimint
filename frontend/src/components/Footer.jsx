@@ -5,19 +5,19 @@ function Footer() {
 
   const links = {
     project: [
-      { label: 'GitHub Repo', href: 'https://github.com/AdekunleBamz/StacksMinimint' },
-      { label: 'Mainnet Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
-      { label: 'Stacks Home', href: 'https://www.stacks.co/' }
+      { label: 'Stacks', href: 'https://www.stacks.co/' },
+      { label: 'Hiro Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
+      { label: 'IPFS Docs', href: 'https://docs.ipfs.tech/' }
     ],
     community: [
       { label: 'Stacks Discord', href: 'https://discord.gg/stacks' },
       { label: 'Stacks on X', href: 'https://x.com/Stacks' },
-      { label: 'Hiro on X', href: 'https://x.com/hirosystems' }
+      { label: 'Leather Wallet', href: 'https://leather.io/' }
     ],
     resources: [
       { label: 'Stacks Docs', href: 'https://docs.stacks.co/' },
-      { label: 'Hiro Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
-      { label: 'Clarity Reference', href: 'https://docs.stacks.co/reference/clarity' }
+      { label: 'GitHub', href: 'https://github.com/AdekunleBamz/NFTminimint' },
+      { label: 'SIP-009 NFT Standard', href: 'https://docs.stacks.co/reference/sips/sip009' }
     ]
   }
 
@@ -28,7 +28,8 @@ function Footer() {
           <span className="footer__logo">◆</span>
           <span className="footer__title">NFTminimint</span>
           <p className="footer__description">
-            A focused Stacks NFT minting demo with live supply feedback, collection browsing, and wallet-aware mint limits.
+            Mint lightweight NFTs on Stacks with a wallet-first flow,
+            clear on-chain feedback, and collection context that stays visible.
           </p>
         </div>
 
@@ -38,7 +39,7 @@ function Footer() {
             <ul className="footer__list">
               {links.project.map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="footer__link">{link.label}</a>
+                  <a href={link.href} className="footer__link" target="_blank" rel="noopener noreferrer">{link.label}</a>
                 </li>
               ))}
             </ul>
@@ -77,10 +78,10 @@ function Footer() {
 
       <div className="footer__bottom">
         <p className="footer__copyright">
-          © {currentYear} NFTminimint. Built for Stacks mainnet demos.
+          © {currentYear} NFTminimint. All rights reserved.
         </p>
         <p className="footer__credit">
-          Mint flow, gallery, and activity UI tuned for collectors.
+          Built for Stacks NFT drops
         </p>
       </div>
     </footer>

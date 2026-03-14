@@ -9,7 +9,11 @@ function Toast({ message, type = 'info', onClose }) {
   }
 
   return (
-    <div className={`toast toast--${type}`} role="alert">
+    <div
+      className={`toast toast--${type}`}
+      role={type === 'error' ? 'alert' : 'status'}
+      aria-live={type === 'error' ? 'assertive' : 'polite'}
+    >
       <span className="toast__icon">{icons[type]}</span>
       <span className="toast__message">{message}</span>
       {onClose && (

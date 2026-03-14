@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import './RecentMints.css'
 
-function RecentMints() {
+function RecentMints({ items = [] }) {
   const [recentMints, setRecentMints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [copiedTokenId, setCopiedTokenId] = useState(null)
 
   const formatAddress = (addr) => {
     if (!addr) return ''
@@ -24,10 +23,13 @@ function RecentMints() {
     return `${days}d ago`
   }
 
-  const formatExactTime = (timestamp) =>
-    new Date(timestamp * 1000).toLocaleString()
-
   useEffect(() => {
+    if (items.length > 0) {
+      setRecentMints(items)
+      setIsLoading(false)
+      return
+    }
+
     // Simulated recent mints for demo
     // In production, this would query Transfer events from the contract
     const mockMints = [
@@ -38,25 +40,12 @@ function RecentMints() {
 
     setRecentMints(mockMints)
     setIsLoading(false)
-  }, [])
-
-  const handleCopy = async (mint) => {
-    await navigator.clipboard.writeText(mint.minter)
-    setCopiedTokenId(mint.tokenId)
-    window.setTimeout(() => setCopiedTokenId(null), 2000)
-  }
+  }, [items])
 
   if (isLoading) {
     return (
-      <section className="recent-mints" aria-busy="true">
-        <div className="recent-mints__header">
-          <div>
-            <h2 className="recent-mints__title">Recent Mints</h2>
-            <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
-          </div>
-          <span className="recent-mints__count">Loading</span>
-        </div>
-        <p className="recent-mints__loading-copy">Fetching the latest mint activity...</p>
+      <section className="recent-mints">
+        <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__list">
           {[1, 2, 3].map((i) => (
             <div key={i} className="mint-item mint-item--skeleton">
@@ -75,19 +64,10 @@ function RecentMints() {
   if (recentMints.length === 0) {
     return (
       <section className="recent-mints">
-        <div className="recent-mints__header">
-          <div>
-            <h2 className="recent-mints__title">Recent Mints</h2>
-            <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
-          </div>
-          <span className="recent-mints__count">0</span>
-        </div>
+        <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__empty">
           <span className="recent-mints__empty-icon">🎨</span>
           <p>No mints yet. Be the first!</p>
-          <a className="recent-mints__cta" href="#mint-section">
-            Start the first mint
-          </a>
         </div>
       </section>
     )
@@ -95,13 +75,8 @@ function RecentMints() {
 
   return (
     <section className="recent-mints">
-      <div className="recent-mints__header">
-        <div>
-          <h2 className="recent-mints__title">Recent Mints</h2>
-          <p className="recent-mints__subtitle">Latest wallets interacting with this collection.</p>
-        </div>
-        <span className="recent-mints__count">{recentMints.length}</span>
-      </div>
+      <h2 className="recent-mints__title">Recent Mints</h2>
+      <p className="recent-mints__subtitle">Fresh activity appears here after each mint confirmation.</p>
       <div className="recent-mints__list">
         {recentMints.map((mint) => (
           <div key={mint.tokenId} className="mint-item">
@@ -113,18 +88,11 @@ function RecentMints() {
                 {formatAddress(mint.minter)}
               </span>
               <span className="mint-item__time">
-                <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp)}>
-                  {formatTime(mint.timestamp)}
-                </time>
+                {formatTime(mint.timestamp)}
               </span>
             </div>
-            <div className="mint-item__actions">
-              <button className="mint-item__copy" onClick={() => handleCopy(mint)}>
-                {copiedTokenId === mint.tokenId ? 'Copied' : 'Copy'}
-              </button>
-              <div className="mint-item__badge">
-                Minted
-              </div>
+            <div className="mint-item__badge">
+              Minted
             </div>
           </div>
         ))}
