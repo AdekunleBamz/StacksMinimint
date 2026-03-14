@@ -515,3 +515,17 @@
     gap: 1.5rem;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .nft-card {
+    animation: none;
+    opacity: 1;
+  }
+
+  .nft-card,
+  .nft-card__image,
+  .view-btn,
+  .modal__btn {
+    transition: none;
+  }
+}
