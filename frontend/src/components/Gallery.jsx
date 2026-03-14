@@ -61,7 +61,13 @@ function Gallery() {
     }
 
     window.addEventListener('keydown', handleEscape)
-    return () => window.removeEventListener('keydown', handleEscape)
+    const { overflow } = document.body.style
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = overflow
+      window.removeEventListener('keydown', handleEscape)
+    }
   }, [selectedNft])
 
   const filteredNfts = nfts.filter(nft =>
