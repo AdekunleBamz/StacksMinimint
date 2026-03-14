@@ -13,6 +13,7 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   useEffect(() => {
     if (!isOpen) return
 
+    const previousActiveElement = document.activeElement
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         onClose()
@@ -26,6 +27,9 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
     return () => {
       document.body.style.overflow = overflow
       window.removeEventListener('keydown', handleKeyDown)
+      if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+        previousActiveElement.focus()
+      }
     }
   }, [isOpen, onClose])
 
