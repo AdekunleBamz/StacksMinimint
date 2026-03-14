@@ -7,7 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "frontend:preview": "npm --prefix frontend run preview"
   },
   "dependencies": {
     "@stacks/network": "^7.3.1",
