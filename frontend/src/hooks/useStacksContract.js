@@ -43,6 +43,7 @@ export function useStacksContract(address) {
     setError(null);
 
     try {
+      const normalizedTokenURI = String(tokenURI || '').trim();
       // Post-condition: User transfers 0.001 STX
       const postCondition = Pc.principal(address).willSendEq(MINT_FEE);
 
@@ -51,7 +52,7 @@ export function useStacksContract(address) {
           contractAddress: CONTRACT_ADDRESS,
           contractName: CONTRACT_NAME,
           functionName: FUNCTIONS.MINT,
-          functionArgs: [stringAsciiCV(tokenURI)],
+          functionArgs: [stringAsciiCV(normalizedTokenURI)],
           postConditions: [postCondition],
           postConditionMode: PostConditionMode.Deny,
           network: NETWORK === 'mainnet' ? 'mainnet' : 'testnet',
@@ -59,7 +60,7 @@ export function useStacksContract(address) {
             setIsLoading(false);
             resolve({
               txId: data.txId,
-              tokenURI,
+              tokenURI: normalizedTokenURI,
               to: address
             });
           },
