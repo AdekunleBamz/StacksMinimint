@@ -105,7 +105,7 @@ function MintCard({
       {!isConnected ? (
         <div className="mint-card__connect">
           <p>Connect your wallet to mint</p>
-          <button className="mint-card__btn" onClick={onConnect}>
+          <button type="button" className="mint-card__btn" onClick={onConnect}>
             Connect Wallet
           </button>
         </div>
