@@ -107,7 +107,6 @@
 /* Content Grid */
 .content-grid {
   display: grid;
-  align-items: start;
   grid-template-columns: 1fr 380px;
   gap: 3rem;
   align-items: start;
