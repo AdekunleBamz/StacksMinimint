@@ -121,7 +121,12 @@ function MintCard({
               className="form-input"
               placeholder="ipfs://... or https://..."
               value={tokenURI}
-              onChange={(e) => setTokenURI(e.target.value)}
+              onChange={(e) => {
+                setTokenURI(e.target.value)
+                if (mintStatus?.type === 'error') {
+                  setMintStatus(null)
+                }
+              }}
               aria-describedby="tokenURIHint mintActionMessage"
               required
               autoComplete="off"
