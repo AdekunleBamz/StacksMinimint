@@ -67,6 +67,17 @@ clarinet console
 npm run frontend:check
 ```
 
+## Developer Scripts
+
+From the repository root:
+
+```bash
+npm run frontend:install
+npm run frontend:dev
+npm run frontend:check
+npm run frontend:preview
+```
+
 ## Frontend
 
 The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects natively to the Stacks network with wallet confirmation flows.
