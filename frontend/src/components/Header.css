@@ -196,3 +196,9 @@
     justify-content: flex-start;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .header__logo {
+    animation: none;
+  }
+}
