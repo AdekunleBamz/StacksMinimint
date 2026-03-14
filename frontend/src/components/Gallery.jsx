@@ -186,10 +186,11 @@ function Gallery() {
             className="search-input"
           />
           {hasSearch && (
-          <button
-            type="button"
-            className="gallery__clear-search"
-            onClick={() => setSearchTerm('')}
+            <button
+              type="button"
+              className="gallery__clear-search"
+              onClick={() => setSearchTerm('')}
+              aria-label="Clear search query"
             >
               Clear
             </button>
