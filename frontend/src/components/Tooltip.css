@@ -97,3 +97,9 @@
   border-right: none;
   border-top: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .tooltip {
+    animation: none;
+  }
+}
