@@ -80,7 +80,7 @@ function RecentMints({ items = [] }) {
       <p className="recent-mints__subtitle">Fresh activity appears here after each mint confirmation.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => (
-          <div key={mint.tokenId} className="mint-item" role="listitem">
+          <div key={`${mint.tokenId}-${mint.timestamp}`} className="mint-item" role="listitem">
             <div className="mint-item__avatar">
               <span>#{mint.tokenId}</span>
             </div>
