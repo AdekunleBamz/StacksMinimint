@@ -49,7 +49,7 @@ frontend/
 │   │   ├── useStacksWallet.js   # Wallet session connection
 │   │   ├── useStacksContract.js # Mint call + contract context
 │   │   └── ...               # Utility hooks
-│   ├── contract.js      # ABI & network config
+│   ├── contract.js      # Contract + network config helpers
 │   ├── App.jsx          # Main app component
 │   └── main.jsx         # Entry point
 ├── index.html
