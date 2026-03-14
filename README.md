@@ -78,6 +78,13 @@ npm run frontend:check
 npm run frontend:preview
 ```
 
+For the operational automation scripts under `scripts/`:
+
+```bash
+npm run scripts:install
+npm run scripts:wallets
+```
+
 ## Frontend
 
 The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects natively to the Stacks network with wallet confirmation flows.
