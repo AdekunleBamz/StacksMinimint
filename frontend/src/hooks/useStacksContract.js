@@ -39,6 +39,11 @@ export function useStacksContract(address) {
       return null;
     }
 
+    if (!address) {
+      setError('Wallet address is unavailable. Reconnect and try again.');
+      return null;
+    }
+
     setIsLoading(true);
     setError(null);
 
