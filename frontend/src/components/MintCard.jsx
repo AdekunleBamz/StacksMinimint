@@ -5,7 +5,6 @@ import { getExplorerUrl } from '../contract'
 function MintCard({ 
   contractInfo, 
   onMint, 
-  account, 
   isConnected,
   onConnect,
   contractError

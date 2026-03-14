@@ -69,7 +69,6 @@ function App() {
             <MintCard
               contractInfo={contractInfo}
               onMint={handleMint}
-              account={address}
               isConnected={isConnected}
               onConnect={connect}
               contractError={contractError}
