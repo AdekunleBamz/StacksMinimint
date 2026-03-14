@@ -50,6 +50,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
               {showCopied && <span className="header__copied-toast">Copied!</span>}
             </button>
             <button
+              type="button"
               className="header__btn header__btn--disconnect"
               onClick={onDisconnect}
             >
@@ -58,6 +59,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
           </>
         ) : (
           <button
+            type="button"
             className="header__btn header__btn--connect"
             onClick={onConnect}
             disabled={isConnecting}
