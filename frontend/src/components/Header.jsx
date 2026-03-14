@@ -6,11 +6,15 @@ import logo from '../assets/logo.png'
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const [showCopied, setShowCopied] = useState(false)
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     if (!account) return
-    navigator.clipboard.writeText(account)
-    setShowCopied(true)
-    setTimeout(() => setShowCopied(false), 2000)
+    try {
+      await navigator.clipboard.writeText(account)
+      setShowCopied(true)
+      setTimeout(() => setShowCopied(false), 2000)
+    } catch (error) {
+      console.error('Failed to copy wallet address:', error)
+    }
   }
 
   const formatAddress = (addr) => {
