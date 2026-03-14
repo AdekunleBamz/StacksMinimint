@@ -49,9 +49,8 @@ frontend/
 │   │   ├── Features.jsx # Platform features
 │   │   └── ...          # More UI components
 │   ├── hooks/           # Custom React hooks
-│   │   ├── useWallet.js      # Wallet connection
-│   │   ├── useContract.js    # Basic contract interaction
-│   │   ├── useNFTContract.js # Full NFT contract interface
+│   │   ├── useStacksWallet.js   # Wallet session connection
+│   │   ├── useStacksContract.js # Mint call + contract context
 │   │   └── ...               # Utility hooks
 │   ├── contract.js      # ABI & network config
 │   ├── App.jsx          # Main app component
