@@ -3,7 +3,6 @@ import './Modal.css'
 
 function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const modalRef = useRef(null)
-  if (!isOpen) return null
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -12,6 +11,8 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   }
 
   useEffect(() => {
+    if (!isOpen) return
+
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         onClose()
@@ -26,7 +27,9 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
       document.body.style.overflow = overflow
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [onClose])
+  }, [isOpen, onClose])
+
+  if (!isOpen) return null
 
   return (
     <div 
