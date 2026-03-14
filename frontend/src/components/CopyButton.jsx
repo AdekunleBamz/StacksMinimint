@@ -16,6 +16,7 @@ function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className 
 
   return (
     <button
+      type="button"
       className={`copy-btn ${copied ? 'copy-btn--copied' : ''} ${className}`}
       onClick={handleCopy}
       aria-label={copied ? successLabel : label}
