@@ -145,3 +145,9 @@
     text-align: center;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__link {
+    transition: none;
+  }
+}
