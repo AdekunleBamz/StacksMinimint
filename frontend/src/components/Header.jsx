@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './Header.css'
 
 import logo from '../assets/logo.png'
@@ -6,13 +6,22 @@ import logo from '../assets/logo.png'
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const [showCopied, setShowCopied] = useState(false)
   const chainName = 'Stacks'
+  const copyTimeoutRef = useRef(null)
+
+  useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current)
+      }
+    }
+  }, [])
 
   const handleCopy = async () => {
     if (!account) return
     try {
       await navigator.clipboard.writeText(account)
       setShowCopied(true)
-      setTimeout(() => setShowCopied(false), 2000)
+      copyTimeoutRef.current = setTimeout(() => setShowCopied(false), 2000)
     } catch (error) {
       console.error('Failed to copy wallet address:', error)
     }
