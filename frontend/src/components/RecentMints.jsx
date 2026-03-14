@@ -23,6 +23,15 @@ function RecentMints({ items = [] }) {
     return `${days}d ago`
   }
 
+  const formatExactTime = (timestamp) => {
+    if (!timestamp) return 'Unknown time'
+
+    return new Intl.DateTimeFormat(undefined, {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    }).format(new Date(timestamp * 1000))
+  }
+
   useEffect(() => {
     if (items.length > 0) {
       setRecentMints(items)
@@ -88,7 +97,9 @@ function RecentMints({ items = [] }) {
                 {formatAddress(mint.minter)}
               </span>
               <span className="mint-item__time">
-                {formatTime(mint.timestamp)}
+                <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp)}>
+                  {formatTime(mint.timestamp)}
+                </time>
               </span>
             </div>
             <div className="mint-item__badge">
