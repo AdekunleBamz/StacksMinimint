@@ -16,6 +16,7 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
     : remainingSupply === 0 && maxSupply !== null
       ? { label: 'Sold out', tone: 'critical' }
       : { label: 'Ready', tone: 'success' }
+  const receiptLabel = recentActivityCount === 1 ? 'local receipt' : 'local receipts'
 
   const stats = [
     {
@@ -69,7 +70,7 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
         </span>
         <div className="stats__session">
           <span>{isConnected ? 'Wallet connected' : 'Wallet required'}</span>
-          <span>{recentActivityCount} local receipts</span>
+          <span>{recentActivityCount} {receiptLabel}</span>
         </div>
       </div>
 
