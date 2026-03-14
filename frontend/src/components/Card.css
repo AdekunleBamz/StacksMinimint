@@ -96,3 +96,13 @@
 .card--padding-none .card__footer {
   padding-bottom: 1.5rem;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card--hover:hover {
+    transform: none;
+  }
+}
