@@ -32,3 +32,8 @@ export function getExplorerUrl(txId) {
   const baseUrl = STACKS_NETWORK_CONFIG[NETWORK].explorerUrl;
   return `${baseUrl}/txid/${txId}?chain=${NETWORK}`;
 }
+
+export function getTokenExplorerUrl(tokenId) {
+  const baseUrl = STACKS_NETWORK_CONFIG[NETWORK].explorerUrl;
+  return `${baseUrl}/token/${tokenId}?chain=${NETWORK}`;
+}
