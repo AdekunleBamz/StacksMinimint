@@ -44,6 +44,17 @@ export function useStacksContract(address) {
 
     try {
       const normalizedTokenURI = String(tokenURI || '').trim();
+      if (!normalizedTokenURI) {
+        setError('Metadata URI is required');
+        setIsLoading(false);
+        return null;
+      }
+
+      if (normalizedTokenURI.length > 256) {
+        setError('Metadata URI must be 256 characters or fewer');
+        setIsLoading(false);
+        return null;
+      }
       // Post-condition: User transfers 0.001 STX
       const postCondition = Pc.principal(address).willSendEq(MINT_FEE);
 
