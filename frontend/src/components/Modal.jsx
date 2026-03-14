@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import './Modal.css'
 
 function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
+  const modalRef = useRef(null)
   if (!isOpen) return null
 
   const handleOverlayClick = (e) => {
@@ -18,6 +19,7 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
     }
 
     window.addEventListener('keydown', handleKeyDown)
+    modalRef.current?.focus()
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [onClose])
 
@@ -30,7 +32,7 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
       aria-labelledby={title ? 'modal-title' : undefined}
       aria-label={title ? undefined : 'Dialog'}
     >
-      <div className={`modal modal--${size}`}>
+      <div ref={modalRef} className={`modal modal--${size}`} tabIndex={-1}>
         <div className="modal__header">
           {title && <h2 id="modal-title" className="modal__title">{title}</h2>}
           <button 
