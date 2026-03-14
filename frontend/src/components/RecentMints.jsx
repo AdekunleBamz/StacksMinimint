@@ -55,9 +55,9 @@ function RecentMints({ items = [] }) {
     return (
       <section className="recent-mints">
         <h2 className="recent-mints__title">Recent Mints</h2>
-        <div className="recent-mints__list">
+        <div className="recent-mints__list" role="list" aria-label="Loading recent mint activity">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="mint-item mint-item--skeleton">
+            <div key={i} className="mint-item mint-item--skeleton" role="listitem">
               <div className="skeleton skeleton--avatar"></div>
               <div className="mint-item__info">
                 <div className="skeleton skeleton--text"></div>
@@ -83,12 +83,12 @@ function RecentMints({ items = [] }) {
   }
 
   return (
-    <section className="recent-mints">
+      <section className="recent-mints">
       <h2 className="recent-mints__title">Recent Mints</h2>
       <p className="recent-mints__subtitle">Fresh activity appears here after each mint confirmation.</p>
-      <div className="recent-mints__list">
+      <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => (
-          <div key={mint.tokenId} className="mint-item">
+          <div key={mint.tokenId} className="mint-item" role="listitem">
             <div className="mint-item__avatar">
               <span>#{mint.tokenId}</span>
             </div>
