@@ -29,3 +29,9 @@ clarinet check
 - Run `npm run frontend:check` for UI-impacting changes.
 - Run `clarinet check` for contract-impacting changes.
 - Mention any checks you could not run in your pull request description.
+
+## Accessibility Checklist
+
+- Verify keyboard navigation still works for interactive controls.
+- Use semantic roles/labels for dialogs, alerts, and live status text.
+- Respect `prefers-reduced-motion` when adding or changing animation.
