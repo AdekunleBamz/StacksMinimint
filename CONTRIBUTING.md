@@ -1,78 +1,71 @@
-# Contributing
+# Contributing to NFTminimint
 
-Thanks for helping improve NFTminimint.
+Thanks for helping improve the NFTminimint experience. We appreciate your time and expertise!
 
-## Workflow
+---
 
-1. Create a branch from `main`.
-2. Make focused changes with clear commit messages.
-3. Run relevant checks before opening a pull request.
-4. Include context about what changed and why.
+## 🚀 Workflow
 
-## Useful Commands
+1. **Branch**: Create a descriptive branch from `main`.
+2. **Focus**: Make atomic changes with clear commit messages.
+3. **Verify**: Run relevant checks before opening a pull request.
+4. **Context**: Include details about *what* changed and *why*.
+
+## 🛠 Useful Commands
 
 ```bash
+# Setup
 npm run frontend:install
+
+# Development
 npm run frontend:dev
+
+# Verification
 npm run frontend:check
 clarinet check
 ```
 
-## Commit Guidelines
+## 📝 Commit Guidelines
+
+> [!TIP]
+> Use prefixes like `feat`, `fix`, `refactor`, `docs`, or `chore`.
 
 - Prefer small commits with one primary intent.
-- Use prefixes like `feat`, `fix`, `refactor`, `docs`, or `chore`.
 - Keep messages concrete enough to explain user impact.
+- Use the imperative mood (e.g., "Add feature" not "Added feature").
 
-## Testing Expectations
+---
 
+## ✅ Quality Standards
+
+### Testing Expectations
 - Run `npm run frontend:check` for UI-impacting changes.
 - Run `clarinet check` for contract-impacting changes.
-- Mention any checks you could not run in your pull request description.
+- **Note**: Mention any checks you could not run in your PR description.
 
-## Accessibility Checklist
+### Accessibility Checklist
+- [ ] Verify keyboard navigation for interactive controls.
+- [ ] Use semantic roles/labels for dialogs and status text.
+- [ ] Respect `prefers-reduced-motion` settings.
 
-- Verify keyboard navigation still works for interactive controls.
-- Use semantic roles/labels for dialogs, alerts, and live status text.
-- Respect `prefers-reduced-motion` when adding or changing animation.
+### Frontend Change Notes
+- Ensure loading, empty, and error states remain clear.
+- Confirm external links use `rel="noopener noreferrer"`.
+- **Verify changes on mobile breakpoints.**
 
-## Pull Request Checklist
+---
 
-- Describe the user-visible behavior change.
-- List commands/checks run locally and their outcome.
-- Include screenshots or recordings for meaningful UI updates.
+## 📮 Pull Requests & Issues
 
-## Contract Change Notes
+### Pull Request Checklist
+- [ ] Describe the user-visible behavior change.
+- [ ] List commands/checks run locally.
+- [ ] Include screenshots or recordings for UI updates.
 
-- Document any storage schema changes in the pull request body.
-- Call out post-condition or permission changes explicitly.
-- Prefer additive migrations over breaking state rewrites when possible.
+### Issue Reporting
+- Include exact steps to reproduce.
+- Share expected vs. actual behavior.
+- Attach screenshots, logs, or transaction IDs.
 
-## Frontend Change Notes
-
-- Ensure loading, empty, and error states remain clear after UI updates.
-- Confirm external links use safe `rel=\"noopener noreferrer\"` settings.
-- Verify changes still work on mobile breakpoints.
-
-## Issue Reporting
-
-- Include exact steps to reproduce the problem.
-- Share expected behavior vs. actual behavior.
-- Attach screenshots, logs, or transaction IDs when relevant.
-
-## Branch Naming
-
-- Use clear branch prefixes such as `feat/`, `fix/`, `docs/`, or `chore/`.
-- Keep names short but descriptive, for example `fix/mint-status-fallback`.
-
-## Release Notes Hygiene
-
-- Highlight breaking changes in pull request summaries.
-- Note user-facing behavior changes in plain language.
-- Include migration steps when config or workflow changes are introduced.
-
-## Documentation Ownership
-
-- Update relevant README/docs whenever behavior or setup changes.
-- Prefer concise, copy-paste-safe commands in documentation examples.
-- Avoid leaving outdated references to removed components or scripts.
+> [!IMPORTANT]
+> Always update relevant README/docs whenever behavior or setup changes.
