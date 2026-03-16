@@ -1,6 +1,14 @@
+/**
+ * Maximum character length for a token URI accepted by the contract.
+ */
 export const MAX_TOKEN_URI_LENGTH = 256
 const ASCII_PATTERN = /^[\x20-\x7E]*$/
 
+/**
+ * Formats a micro-STX amount into a human-readable STX string.
+ * @param {string|number} microstx - The amount in micro-STX.
+ * @returns {string} The formatted STX amount.
+ */
 export function formatSTX(microstx) {
   const amount = Number(microstx)
   if (microstx === null || microstx === undefined || Number.isNaN(amount)) {
@@ -13,17 +21,35 @@ export function formatSTX(microstx) {
   }).format(amount / 1e6)
 }
 
+/**
+ * Formats a Stacks address for display by truncating the middle.
+ * @param {string} address - The full Stacks address.
+ * @param {number} [start=5] - Number of characters to show at the start.
+ * @param {number} [end=5] - Number of characters to show at the end.
+ * @returns {string} The truncated address.
+ */
 export function formatAddress(address, start = 5, end = 5) {
   if (!address) return ''
   if (address.length <= start + end + 3) return address
   return `${address.slice(0, start)}...${address.slice(-end)}`
 }
 
+/**
+ * Formats a limit value with a fallback label.
+ * @param {any} value - The limit value.
+ * @param {string} [fallback='Not set'] - The fallback string.
+ * @returns {string} The formatted limit.
+ */
 export function formatLimit(value, fallback = 'Not set') {
   if (value === null || value === undefined) return fallback
   return `${value}`
 }
 
+/**
+ * Formats a timestamp into a relative time string (e.g., "5m ago").
+ * @param {number} timestamp - The Unix timestamp in milliseconds.
+ * @returns {string} The relative time string.
+ */
 export function formatRelativeTime(timestamp) {
   if (!timestamp) return 'Just now'
 
@@ -39,6 +65,11 @@ export function formatRelativeTime(timestamp) {
   return `${days}d ago`
 }
 
+/**
+ * Formats a timestamp into a human-readable date and time string.
+ * @param {number} timestamp - The Unix timestamp in milliseconds.
+ * @returns {string} The exact time string.
+ */
 export function formatExactTime(timestamp) {
   if (!timestamp) return 'Unknown time'
 
@@ -48,6 +79,11 @@ export function formatExactTime(timestamp) {
   }).format(new Date(timestamp))
 }
 
+/**
+ * Determines the kind of metadata from a URI scheme.
+ * @param {string} uri - The metadata URI.
+ * @returns {'ipfs'|'https'|'http'|'empty'|'unknown'} The metadata kind.
+ */
 export function getMetadataKind(uri) {
   if (!uri) return 'empty'
 
@@ -57,6 +93,11 @@ export function getMetadataKind(uri) {
   return 'unknown'
 }
 
+/**
+ * Generates a human-friendly label for a metadata URI.
+ * @param {string} uri - The metadata URI.
+ * @returns {string} The metadata label.
+ */
 export function getMetadataLabel(uri) {
   const kind = getMetadataKind(uri)
 
@@ -75,6 +116,11 @@ export function getMetadataLabel(uri) {
   return 'Metadata URI'
 }
 
+/**
+ * Converts a URI to a gateway-accessible URL if applicable.
+ * @param {string} uri - The original metadata URI.
+ * @returns {string|null} The accessible URL or null.
+ */
 export function getMetadataGatewayUrl(uri) {
   if (!uri) return null
 
@@ -89,6 +135,11 @@ export function getMetadataGatewayUrl(uri) {
   return null
 }
 
+/**
+ * Validates a token URI against contract and UI constraints.
+ * @param {string} value - The URI to validate.
+ * @returns {Object} The validation result object.
+ */
 export function validateTokenURI(value) {
   const normalized = value.trim()
   const kind = getMetadataKind(normalized)
@@ -162,6 +213,11 @@ export function validateTokenURI(value) {
   }
 }
 
+/**
+ * Creates a record for a pending or complete submission.
+ * @param {Object} params - The submission parameters.
+ * @returns {Object} The submission record.
+ */
 export function createSubmissionRecord({ txId, tokenURI, address }) {
   return {
     id: txId,
@@ -174,6 +230,11 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
   }
 }
 
+/**
+ * Generates a deterministic color palette based on a seed string.
+ * @param {string} seed - The seed string for hashing.
+ * @returns {Object} The accent color object.
+ */
 export function getCardAccent(seed) {
   const input = seed || 'minimint'
   let hash = 0
