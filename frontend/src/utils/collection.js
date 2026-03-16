@@ -2,11 +2,15 @@ export const MAX_TOKEN_URI_LENGTH = 256
 const ASCII_PATTERN = /^[\x20-\x7E]*$/
 
 export function formatSTX(microstx) {
-  if (microstx === null || microstx === undefined || Number.isNaN(Number(microstx))) {
+  const amount = Number(microstx)
+  if (microstx === null || microstx === undefined || Number.isNaN(amount)) {
     return '0'
   }
 
-  return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
+  return new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 6,
+  }).format(amount / 1e6)
 }
 
 export function formatAddress(address, start = 5, end = 5) {
