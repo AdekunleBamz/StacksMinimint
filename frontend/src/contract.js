@@ -2,7 +2,7 @@
 // Using @stacks/connect and @stacks/transactions
 
 export const CONTRACT_ADDRESS = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT'; // Current deployer address
-export const CONTRACT_NAME = 'minimint-core';
+export const CONTRACT_NAME = 'minimint-core-v-i27';
 
 export const NETWORK = 'mainnet'; // 'mainnet' or 'testnet'
 

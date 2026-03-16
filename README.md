@@ -25,7 +25,7 @@ A modular NFT minting platform built exclusively for the Stacks blockchain.
 | `minimint-token-v-i27` | SIP-010 token for holder rewards |
 | `minimint-hub-v-i27` | Escrow hub for staking and marketplace listings |
 
-The frontend currently calls a deployed contract name of `minimint-core` (configured in `frontend/src/contract.js`).
+The frontend calls the deployed `minimint-core-v-i27` contract (configured in `frontend/src/contract.js`).
 
 ## 🌐 Stacks Integration
 
