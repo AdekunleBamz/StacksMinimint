@@ -81,8 +81,7 @@ npm run frontend:preview
 For the operational automation scripts under `scripts/`:
 
 ```bash
-npm run scripts:install
-npm run scripts:wallets
+npm run scripts:interact:token
 ```
 
 ## Frontend
