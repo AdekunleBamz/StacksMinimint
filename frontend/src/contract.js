@@ -28,12 +28,25 @@ export const STACKS_NETWORK_CONFIG = {
   }
 }
 
-export function getExplorerUrl(txId) {
+/**
+ * Generates an explorer URL for a given type (txid, token, address).
+ * @param {string} type - The type of link ('txid', 'token', 'address').
+ * @param {string} identifier - The identifier to link to.
+ * @returns {string} The full explorer URL.
+ */
+function getBaseExplorerUrl(type, identifier) {
   const baseUrl = STACKS_NETWORK_CONFIG[NETWORK].explorerUrl;
-  return `${baseUrl}/txid/${txId}?chain=${NETWORK}`;
+  return `${baseUrl}/${type}/${identifier}?chain=${NETWORK}`;
+}
+
+export function getExplorerUrl(txId) {
+  return getBaseExplorerUrl('txid', txId);
 }
 
 export function getTokenExplorerUrl(tokenId) {
-  const baseUrl = STACKS_NETWORK_CONFIG[NETWORK].explorerUrl;
-  return `${baseUrl}/token/${tokenId}?chain=${NETWORK}`;
+  return getBaseExplorerUrl('token', tokenId);
+}
+
+export function getAddressExplorerUrl(address) {
+  return getBaseExplorerUrl('address', address);
 }
