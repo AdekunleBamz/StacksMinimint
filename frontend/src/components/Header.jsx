@@ -1,32 +1,17 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useId } from 'react'
 import PropTypes from 'prop-types'
+import { useClipboard } from '../hooks'
 import './Header.css'
 
 import logo from '../assets/logo.png'
 import { formatAddress } from '../utils/collection'
 
 function Header({ account, onConnect, onDisconnect, isConnecting }) {
-  const [showCopied, setShowCopied] = useState(false)
+  const { copied, copy } = useClipboard()
   const chainName = 'Stacks'
-  const copyTimeoutRef = useRef(null)
 
-  useEffect(() => {
-    return () => {
-      if (copyTimeoutRef.current) {
-        clearTimeout(copyTimeoutRef.current)
-      }
-    }
-  }, [])
-
-  const handleCopy = async () => {
-    if (!account) return
-    try {
-      await navigator.clipboard.writeText(account)
-      setShowCopied(true)
-      copyTimeoutRef.current = setTimeout(() => setShowCopied(false), 2000)
-    } catch (error) {
-      console.error('Failed to copy wallet address:', error)
-    }
+  const handleCopy = () => {
+    if (account) copy(account)
   }
 
   return (
@@ -50,7 +35,7 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
               <span className="header__address-label">Wallet</span>
               <span className="header__address" aria-hidden="true">{formatAddress(account)}</span>
               <span className="header__copy-hint" aria-hidden="true">Copy</span>
-              {showCopied && <span className="header__copied-toast" role="status" aria-live="polite">Copied!</span>}
+              {copied && <span className="header__copied-toast" role="status" aria-live="polite">Copied!</span>}
             </button>
             <button
               type="button"
