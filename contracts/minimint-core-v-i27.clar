@@ -1,6 +1,12 @@
-;; minimint-core
-;; Core NFT hub combining minting, metadata, and standard SIP-009 trait
-;; Utilizes local trait renamed to avoid collisions
+;; StacksMinimint - Core NFT Contract
+;; --------------------------------------------------------
+;; This contract implements the SIP-009 NFT standard with 
+;; built-in minting logic, fee collection, and owner management.
+;; It serves as the primary asset for the StacksMinimint ecosystem.
+
+;; @title StacksMinimint Core
+;; @version 1.0.0
+;; @notice This contract is SIP-009 compliant.
 
 (impl-trait .sip-009-nft-trait-v-i27.sip-009-nft-trait)
 

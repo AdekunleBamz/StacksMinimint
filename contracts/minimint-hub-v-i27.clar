@@ -1,8 +1,14 @@
-;; minimint-hub
-;; Unified escrow contract for Staking and Marketplace
-;; Interacts natively with minimint-core and minimint-token
+;; StacksMinimint - Ecosystem Hub
+;; --------------------------------------------------------
+;; This contract acts as a unified escrow for NFT staking and 
+;; marketplace listings. It manages reward distribution via 
+;; the minimint-token and interacts natively with minimint-core.
 
-(use-trait nft-trait SP2PABVDXFNZ651AM11M9FE58F5KCXCE80FA019P1.nft-trait.nft-trait)
+;; @title StacksMinimint Hub
+;; @version 1.0.0
+;; @notice Manages staking, marketplace, and reward logic.
+
+(use-trait nft-trait .sip-009-nft-trait-v-i27.sip-009-nft-trait)
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 (define-constant ERR-NOT-OWNER (err u101))
