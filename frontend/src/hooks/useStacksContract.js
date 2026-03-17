@@ -11,7 +11,7 @@ import {
   FUNCTIONS,
   MINT_FEE,
   NETWORK
-} from '../contract';
+} from '../constants';
 import { userSession } from './useStacksWallet';
 
 export function useStacksContract(address) {
