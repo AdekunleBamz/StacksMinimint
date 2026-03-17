@@ -13,6 +13,7 @@
 (define-constant ERR-NOT-AUTHORIZED (err u100))
 (define-constant ERR-NOT-OWNER (err u101))
 (define-constant ERR-SOLD-OUT (err u102))
+(define-constant ERR-PAUSED (err u103))
 
 (define-constant MINT-FEE u1000) ;; 0.001 STX
 (define-constant MAX-SUPPLY u10000)
@@ -22,6 +23,7 @@
 ;; Data vars
 (define-data-var last-token-id uint u0)
 (define-data-var contract-owner principal tx-sender)
+(define-data-var is-paused bool false)
 
 ;; Maps for metadata
 (define-map token-uris uint (string-ascii 256))
@@ -42,6 +44,7 @@
 
 (define-public (transfer (token-id uint) (sender principal) (recipient principal))
   (begin
+    (asserts! (not (var-get is-paused)) ERR-PAUSED)
     (asserts! (or 
                 (is-eq tx-sender sender)
                 ;; Whitelist the Hub contract so it can move NFTs in escrow natively
@@ -58,6 +61,7 @@
     (
       (token-id (+ (var-get last-token-id) u1))
     )
+    (asserts! (not (var-get is-paused)) ERR-PAUSED)
     (asserts! (<= token-id MAX-SUPPLY) ERR-SOLD-OUT)
     
     ;; Fee collection
@@ -73,6 +77,15 @@
     (var-set last-token-id token-id)
     (print { event: "mint", recipient: tx-sender, token-id: token-id, fee: MINT-FEE })
     (ok token-id)
+  )
+)
+
+(define-public (burn (token-id uint))
+  (begin
+    (asserts! (is-eq (some tx-sender) (nft-get-owner? minimint token-id)) ERR-NOT-OWNER)
+    (try! (nft-burn? minimint token-id tx-sender))
+    (print { event: "burn", owner: tx-sender, token-id: token-id })
+    (ok true)
   )
 )
 
