@@ -1,136 +1,123 @@
-# NFTminimint (Stacks Edition)
+# 🪙 StacksMinimint
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Clarity](https://img.shields.io/badge/Clarity-v2.0-blue.svg)](https://clarity-lang.org/)
 [![Stacks](https://img.shields.io/badge/Built%20with-Stacks-purple.svg)](https://stacks.co/)
 [![Hiro](https://img.shields.io/badge/Tools-Clarinet-orange.svg)](https://hiro.so/)
 
-A modular NFT minting platform built exclusively for the Stacks blockchain.
+**StacksMinimint** is a high-performance, modular NFT minting and rewards ecosystem built specifically for the Stacks blockchain. Leveraging Clarity smart contracts and the Nakamoto release capabilities, it provides a seamless experience for both collectors and developers.
 
-## 🚀 Features
+---
 
-- **Stacks Mainnet**: Fully compatible with the Stacks blockchain and Nakamoto fast blocks.
-- **Modular Clarity Architecture**: Highly optimized smart contracts.
-- **Low Minting Fee**: Frontend post-condition currently enforces a 0.001 STX mint fee.
-- **SIP-009 Standard**: Fully compliant with Stacks NFT standards.
-- **SIP-010 Standard**: Built-in reward tokenomics for staking.
-- **@stacks/connect**: Seamless wallet integration (Leather, Xverse, OKX).
-- **@stacks/transactions**: Secure on-chain interactions and real-time state polling.
+## ✨ Key Features
 
-## 📦 Contract Architecture
+- **🚀 Nakamoto Ready**: Fully compatible with the latest Stacks blockchain updates and fast block confirmations.
+- **🏗️ Modular Architecture**: Highly optimized smart contracts separated by concern (Core, Token, Hub).
+- **💸 Low-Friction Minting**: Optimized execution costs and user-friendly post-conditions.
+- **💎 SIP-009 Standard**: Fully compliant Non-Fungible Token implementation.
+- **💰 SIP-010 Integration**: Native reward tokenomics with built-in staking capabilities.
+- **🔌 Universal Wallet Support**: Seamless integration with Leather, Xverse, and OKX via `@stacks/connect`.
 
-| Contract | Purpose |
-|----------|---------|
-| `minimint-core-v-i27` | Base SIP-009 implementation and mint controller |
-| `minimint-token-v-i27` | SIP-010 token for holder rewards |
-| `minimint-hub-v-i27` | Escrow hub for staking and marketplace listings |
+---
 
-The frontend currently calls a deployed contract name of `minimint-core` (configured in `frontend/src/contract.js`).
+## 📐 System Architecture
 
-## 🌐 Stacks Integration
+Stored in the `contracts/` directory, the ecosystem consists of three main components:
 
-This project uses modern Stacks development tools:
+| Contract | Purpose | Standard |
+|----------|---------|----------|
+| `minimint-core` | Base implementation, mint controller, and metadata management | SIP-009 |
+| `minimint-token` | Governance and utility token used for ecosystem rewards | SIP-010 |
+| `minimint-hub` | Central escrow for staking, marketplace logic, and distribution | Custom |
 
-- **@stacks/connect**: For connecting to Stacks wallets and broadcasting transactions.
-- **@stacks/transactions**: For Clarity value conversion (`cvToJSON`) and `callReadOnlyFunction` polling.
-- **Clarinet**: For local development, testing, and contract deployment.
+> [!NOTE]
+> The frontend is configured to target the `minimint-core` contract by default. See `frontend/src/contract.js` for configuration options.
 
-By default, the frontend contract configuration targets `mainnet` via `frontend/src/contract.js`.
+---
 
-## Installation
+## 🛠️ Development Setup
 
-```bash
-# Install root dependencies
-npm install
+### Prerequisites
 
-# Install frontend dependencies from root
-npm run frontend:install
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [Clarinet](https://github.com/hirosystems/clarinet) for smart contract development
+- A Stacks Wallet (Leather or Xverse)
 
-# From project root, start local frontend
-npm run frontend:dev
-```
+### Installation
 
-## Quick Start
+1. **Clone and Install Root Dependencies:**
+   ```bash
+   git clone https://github.com/AdekunleBamz/StacksMinimint.git
+   cd StacksMinimint
+   npm install
+   ```
 
-1. Compile contracts:
+2. **Frontend Setup:**
+   ```bash
+   npm run frontend:install
+   ```
+
+3. **Automation Scripts Setup:**
+   ```bash
+   npm run scripts:install
+   ```
+
+---
+
+## 🚀 Getting Started
+
+### Smart Contract Development
+
+Check contract integrity:
 ```bash
 clarinet check
 ```
 
-2. Run Clarinet console:
+Run interactive console:
 ```bash
 clarinet console
 ```
 
-3. Build the frontend bundle:
+Execute contract tests:
 ```bash
-npm run frontend:check
+npm test
 ```
 
-## Developer Scripts
+### Frontend Development
 
-From the repository root:
-
+Start the local development server:
 ```bash
-npm run frontend:install
 npm run frontend:dev
-npm run frontend:check
-npm run frontend:preview
 ```
 
-For the operational automation scripts under `scripts/`:
-
+Build for production:
 ```bash
-npm run scripts:install
-npm run scripts:wallets
+npm run frontend:build
 ```
 
-## Frontend
+---
 
-The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects natively to the Stacks network with wallet confirmation flows.
+## 📜 Contract Details
 
-## Contract Details
+- **Blockchain**: Stacks (Layer 2 for Bitcoin)
+- **Language**: Clarity (Decidable, interpreted language)
+- **Security**: Strict post-condition enforcement and zero-balance checks.
 
-- **Blockchain**: Stacks 
-- **Language**: Clarity
-- **Standards**: SIP-009 (NFT) & SIP-010 (Fungible Token)
-- **Features**: Minting, Staking Escrow, and Automated Rewards.
+---
 
 ## 🤝 Contributing
 
-We welcome contributions to the NFTminimint project! Here's how you can help:
+We welcome contributions! Please see our [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines on our workflow and code standards.
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for the preferred workflow, command checklist, and review expectations.
-
-### Ways to Contribute
-
-- **Smart Contracts**: Enhance contracts with new features, improve execution pathways.
-- **Testing**: Add comprehensive testing with Clarinet.
-- **Documentation**: Improve docs, add tutorials.
-- **Frontend**: Polish user experience using React and Vite.
-
-### Development Guidelines
-
-#### Smart Contracts (Clarity)
-- Utilize functional programming concepts natively in Clarity.
-- Ensure strict zero-balance and post-condition checks.
-- Keep data representation concise.
-
-#### Frontend
-- Ensure all calls use `@stacks/connect` and `@stacks/transactions`.
-- Gracefully handle pending states during block confirmations.
-
-### Code Standards
-
-- **Clarity**: Write readable, predictable, and fail-safe logic.
-- **JavaScript/React**: Keep components readable, accessible, and consistently formatted.
+### Focus Areas
+- **Optimization**: Reducing gas costs in Clarity functions.
+- **UX**: Enhancing the dashboard with better real-time data visualization.
+- **Testing**: Expanding the Vitest and Clarinet test suites.
 
 ---
 
 ## 📄 License
 
-MIT
+This project is licensed under the [MIT License](./LICENSE).
 
----
-
-Built with ❤️ for the NFT community on the Stacks blockchain.
+Built with ❤️ for the Bitcoin ecosystem on Stacks.
