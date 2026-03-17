@@ -1,8 +1,16 @@
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './Stats.css'
 import { formatLimit, formatSTX } from '../utils/collection'
 
 function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
+  const [lastUpdated, setLastUpdated] = useState(new Date())
+
+  useEffect(() => {
+    if (contractInfo) {
+      setLastUpdated(new Date())
+    }
+  }, [contractInfo])
   const totalSupply = contractInfo?.totalSupply || 0
   const maxSupply = contractInfo?.maxSupply ?? null
   const remainingSupply = typeof maxSupply === 'number'
@@ -72,6 +80,9 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
         <div className="stats__session" aria-live="polite">
           <span>{isConnected ? 'Wallet connected' : 'Wallet required'}</span>
           <span>{recentActivityCount} {receiptLabel}</span>
+        </div>
+        <div className="stats__timestamp" aria-live="polite">
+          Last updated: {lastUpdated.toLocaleTimeString()}
         </div>
       </div>
 

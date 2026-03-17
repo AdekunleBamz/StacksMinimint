@@ -11,3 +11,4 @@ export {
   usePrefersReducedMotion
 } from './useMediaQuery'
 export { useTransactionStatus } from './useTransaction'
+export { useClipboard } from './useClipboard'
