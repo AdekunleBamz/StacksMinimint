@@ -72,10 +72,14 @@ function Gallery() {
     }
   }, [selectedNft])
 
-  const filteredNfts = nfts.filter(nft =>
-    nft.name.toLowerCase().includes(normalizedSearchTerm) ||
-    nft.owner.toLowerCase().includes(normalizedSearchTerm)
-  )
+  const filteredNfts = nfts.filter(nft => {
+    if (normalizedSearchTerm.startsWith('#')) {
+      const idSearch = normalizedSearchTerm.slice(1)
+      return nft.id.toString() === idSearch
+    }
+    return nft.name.toLowerCase().includes(normalizedSearchTerm) ||
+           nft.owner.toLowerCase().includes(normalizedSearchTerm)
+  })
   const hasSearch = searchTerm.trim().length > 0
 
   const handleCardKeyDown = (event, nft) => {
