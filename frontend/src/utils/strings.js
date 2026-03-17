@@ -20,3 +20,15 @@ export function capitalize(str) {
   if (!str || typeof str !== 'string') return '';
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+/**
+ * Validates if a string is a properly formatted Stacks address.
+ * Matches both Mainnet (SP...) and Testnet (ST...) addresses.
+ * @param {string} address 
+ * @returns {boolean}
+ */
+export function isValidStacksAddress(address) {
+  if (!address || typeof address !== 'string') return false;
+  // Stacks addresses start with SP or ST and are 39-41 characters long
+  const stacksAddressRegex = /^(S[PT])[0-9A-Z]{37,39}$/;
+  return stacksAddressRegex.test(address);
+}
