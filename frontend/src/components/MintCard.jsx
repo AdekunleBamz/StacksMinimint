@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import './MintCard.css'
 import { getExplorerUrl } from '../contract'
 
@@ -195,6 +196,21 @@ function MintCard({
       )}
     </div>
   )
+}
+
+MintCard.propTypes = {
+  contractInfo: PropTypes.shape({
+    mintFee: PropTypes.number,
+    totalSupply: PropTypes.number,
+    maxSupply: PropTypes.number,
+    walletMinted: PropTypes.number,
+    maxPerWallet: PropTypes.number,
+    isPaused: PropTypes.bool
+  }),
+  onMint: PropTypes.func.isRequired,
+  isConnected: PropTypes.bool,
+  onConnect: PropTypes.func.isRequired,
+  contractError: PropTypes.string
 }
 
 export default MintCard
