@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 import './Modal.css'
 
 function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
@@ -64,6 +65,14 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
       </div>
     </div>
   )
+}
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  children: PropTypes.node,
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'full'])
 }
 
 export default Modal

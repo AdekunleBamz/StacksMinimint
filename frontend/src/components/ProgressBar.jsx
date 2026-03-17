@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './ProgressBar.css'
 
 function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
@@ -25,6 +26,15 @@ function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', colo
       )}
     </div>
   )
+}
+
+ProgressBar.propTypes = {
+  value: PropTypes.number.isRequired,
+  max: PropTypes.number,
+  showLabel: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'danger']),
+  ariaLabel: PropTypes.string
 }
 
 export default ProgressBar

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './Footer.css'
 
 function Footer() {
@@ -87,5 +88,7 @@ function Footer() {
     </footer>
   )
 }
+
+Footer.propTypes = {}
 
 export default Footer
