@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './Card.css'
 
 function Card({ 
@@ -52,6 +53,31 @@ function CardFooter({ children, className = '' }) {
       {children}
     </div>
   )
+}
+
+Card.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['default', 'flat', 'outline', 'elevated']),
+  padding: PropTypes.oneOf(['none', 'small', 'medium', 'large']),
+  hover: PropTypes.bool,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  ariaLabel: PropTypes.string
+}
+
+CardHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
+}
+
+CardBody.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
+}
+
+CardFooter.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
 }
 
 export { Card, CardHeader, CardBody, CardFooter }
