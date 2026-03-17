@@ -142,6 +142,9 @@ function MintCard({
             <span id="tokenURIHint" className="form-hint">
               IPFS or HTTP link to your NFT metadata JSON
             </span>
+            <div className="form-counter" aria-live="polite">
+              {tokenURI.length} / 256 characters
+            </div>
           </div>
 
           <button
