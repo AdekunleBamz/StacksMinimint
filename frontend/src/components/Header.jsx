@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import './Header.css'
 
 import logo from '../assets/logo.png'
@@ -72,6 +73,13 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  account: PropTypes.string,
+  onConnect: PropTypes.func.isRequired,
+  onDisconnect: PropTypes.func.isRequired,
+  isConnecting: PropTypes.bool
 }
 
 export default Header
