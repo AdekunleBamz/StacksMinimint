@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './Stats.css'
 import { formatLimit, formatSTX } from '../utils/collection'
 
@@ -111,6 +112,19 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
       </p>
     </section>
   )
+}
+
+Stats.propTypes = {
+  contractInfo: PropTypes.shape({
+    totalSupply: PropTypes.number,
+    maxSupply: PropTypes.number,
+    mintFee: PropTypes.number,
+    maxPerWallet: PropTypes.number,
+    isPaused: PropTypes.bool
+  }),
+  isLoading: PropTypes.bool.isRequired,
+  isConnected: PropTypes.bool,
+  recentActivityCount: PropTypes.number
 }
 
 export default Stats

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './Toast.css'
 
 function Toast({ message, type = 'info', onClose }) {
@@ -23,6 +24,12 @@ function Toast({ message, type = 'info', onClose }) {
       )}
     </div>
   )
+}
+
+Toast.propTypes = {
+  message: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['success', 'error', 'warning', 'info']),
+  onClose: PropTypes.func
 }
 
 export default Toast

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import './RecentMints.css'
 import { formatAddress } from '../utils/collection'
 
@@ -98,6 +99,14 @@ function RecentMints({ items = [] }) {
       </div>
     </section>
   )
+}
+
+RecentMints.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    tokenId: PropTypes.number.isRequired,
+    timestamp: PropTypes.number.isRequired,
+    minter: PropTypes.string.isRequired
+  }))
 }
 
 export default RecentMints
