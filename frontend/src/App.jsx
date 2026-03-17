@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
-import { useStacksWallet } from './hooks/useStacksWallet'
-import { useStacksContract } from './hooks/useStacksContract'
+import { useWallet, useContract, useToast } from './hooks'
 import Header from './components/Header'
 import MintCard from './components/MintCard'
 import Stats from './components/Stats'
@@ -10,11 +8,13 @@ import Footer from './components/Footer'
 import './App.css'
 
 function App() {
-  const { address, isConnected, connect, disconnect, isConnecting } = useStacksWallet()
-  const { contractInfo, mint, isLoading, error: contractError } = useStacksContract(address)
+  const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
+  const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
+  const { showToast } = useToast()
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
+  const [lastTxId, setLastTxId] = useState(null)
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -35,6 +35,8 @@ function App() {
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
     if (result) {
+      setLastTxId(result.txId)
+      showToast('Transaction Broadcasted!', 'success')
       setRecentMints(prev => [result, ...prev].slice(0, 5))
     }
     return result
