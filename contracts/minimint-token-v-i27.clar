@@ -1,6 +1,12 @@
-;; minimint-token
-;; SIP-010 Fungible Token for minimint rewards (MMT)
-;; Utilizes local trait renamed to avoid collisions
+;; StacksMinimint - Reward Token (MMT)
+;; --------------------------------------------------------
+;; This contract implements the SIP-010 Fungible Token standard.
+;; It is used for ecosystem rewards and is minted exclusively 
+;; by the minimint-hub contract.
+
+;; @title StacksMinimint Token
+;; @version 1.0.0
+;; @notice SIP-010 compliant reward token.
 
 (impl-trait .sip-010-trait-ft-standard-v-i27.sip-010-trait)
 
