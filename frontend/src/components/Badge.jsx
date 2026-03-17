@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './Badge.css'
 
 function Badge({ 
@@ -13,6 +14,14 @@ function Badge({
       {children}
     </span>
   )
+}
+
+Badge.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['default', 'outline', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  dot: PropTypes.bool,
+  className: PropTypes.string
 }
 
 export default Badge
