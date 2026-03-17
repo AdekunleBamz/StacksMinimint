@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
 
@@ -310,5 +311,7 @@ function Gallery() {
     </section>
   )
 }
+
+Gallery.propTypes = {}
 
 export default Gallery

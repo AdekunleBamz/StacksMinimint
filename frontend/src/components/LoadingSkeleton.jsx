@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './LoadingSkeleton.css'
 
 function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
@@ -49,6 +50,17 @@ function ListItemSkeleton() {
     </div>
   )
 }
+
+LoadingSkeleton.propTypes = {
+  variant: PropTypes.oneOf(['text', 'title', 'image', 'avatar']),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  count: PropTypes.number,
+  className: PropTypes.string
+}
+
+CardSkeleton.propTypes = {}
+ListItemSkeleton.propTypes = {}
 
 export { LoadingSkeleton, CardSkeleton, ListItemSkeleton }
 export default LoadingSkeleton
