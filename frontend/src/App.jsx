@@ -1,10 +1,14 @@
+import { useState, useEffect } from 'react'
 import { useWallet, useContract, useToast } from './hooks'
-import Header from './components/Header'
-import MintCard from './components/MintCard'
-import Stats from './components/Stats'
-import RecentMints from './components/RecentMints'
-import Gallery from './components/Gallery'
-import Footer from './components/Footer'
+import { 
+  Header, 
+  MintCard, 
+  Stats, 
+  RecentMints, 
+  Gallery, 
+  Footer, 
+  ErrorBoundary 
+} from './components'
 import './App.css'
 
 function App() {
@@ -43,67 +47,69 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="page-load-bar"></div>
-      <a className="skip-link" href="#main-content">
-        Skip to main content
-      </a>
-      <Header
-        account={address}
-        onConnect={connect}
-        onDisconnect={disconnect}
-        isConnecting={isConnecting}
-      />
+    <ErrorBoundary>
+      <div className="app">
+        <div className="page-load-bar"></div>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
+        <Header
+          account={address}
+          onConnect={connect}
+          onDisconnect={disconnect}
+          isConnecting={isConnecting}
+        />
 
-      <main className="main" id="main-content">
-        <section className="hero">
-          <div className="hero__content">
-            <span className="hero__badge">SIP-009</span>
-            <h1 className="hero__title">NFTminimint</h1>
-            <p className="hero__subtitle">
-              A minimal, gas-efficient NFT minting experience on Stacks
-            </p>
+        <main className="main" id="main-content">
+          <section className="hero">
+            <div className="hero__content">
+              <span className="hero__badge">SIP-009</span>
+              <h1 className="hero__title">NFTminimint</h1>
+              <p className="hero__subtitle">
+                A minimal, gas-efficient NFT minting experience on Stacks
+              </p>
+            </div>
+          </section>
+
+          <div className="content-grid">
+            <div className="content-grid__main">
+              <MintCard
+                contractInfo={contractInfo}
+                onMint={handleMint}
+                isConnected={isConnected}
+                onConnect={connect}
+                contractError={contractError}
+              />
+            </div>
+
+            <aside className="content-grid__sidebar">
+              <Stats
+                contractInfo={contractInfo}
+                isLoading={isLoading}
+                isConnected={isConnected}
+                recentActivityCount={recentMints.length}
+              />
+              <RecentMints items={recentMints} />
+            </aside>
           </div>
-        </section>
 
-        <div className="content-grid">
-          <div className="content-grid__main">
-            <MintCard
-              contractInfo={contractInfo}
-              onMint={handleMint}
-              isConnected={isConnected}
-              onConnect={connect}
-              contractError={contractError}
-            />
-          </div>
+          <Gallery />
+        </main>
 
-          <aside className="content-grid__sidebar">
-            <Stats
-              contractInfo={contractInfo}
-              isLoading={isLoading}
-              isConnected={isConnected}
-              recentActivityCount={recentMints.length}
-            />
-            <RecentMints items={recentMints} />
-          </aside>
-        </div>
+        <button
+          type="button"
+          className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
+          onClick={scrollToTop}
+          aria-label="Back to top"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
 
-        <Gallery />
-      </main>
-
-      <button
-        type="button"
-        className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
-        onClick={scrollToTop}
-        aria-label="Back to top"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-          <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-      </button>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </ErrorBoundary>
   )
 }
 
