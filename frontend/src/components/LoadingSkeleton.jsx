@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import './LoadingSkeleton.css'
 
-function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
+export function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
   const skeletons = Array.from({ length: count }, (_, i) => i)
 
   const getStyle = () => {
@@ -64,4 +64,3 @@ CardSkeleton.propTypes = {}
 ListItemSkeleton.propTypes = {}
 
 export { LoadingSkeleton, CardSkeleton, ListItemSkeleton }
-export default LoadingSkeleton
