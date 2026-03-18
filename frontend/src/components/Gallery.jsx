@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
@@ -72,14 +72,14 @@ function Gallery() {
     }
   }, [selectedNft])
 
-  const filteredNfts = nfts.filter(nft => {
+  const filteredNfts = useMemo(() => nfts.filter(nft => {
     if (normalizedSearchTerm.startsWith('#')) {
       const idSearch = normalizedSearchTerm.slice(1)
       return nft.id.toString() === idSearch
     }
     return nft.name.toLowerCase().includes(normalizedSearchTerm) ||
            nft.owner.toLowerCase().includes(normalizedSearchTerm)
-  })
+  }), [nfts, normalizedSearchTerm])
   const hasSearch = searchTerm.trim().length > 0
 
   const handleCardKeyDown = (event, nft) => {
