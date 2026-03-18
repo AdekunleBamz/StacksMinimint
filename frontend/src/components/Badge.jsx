@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import './Badge.css'
 
-function Badge({ 
+export function Badge({ 
   children, 
   variant = 'default', 
   size = 'medium',
@@ -24,4 +24,3 @@ Badge.propTypes = {
   className: PropTypes.string
 }
 
-export default Badge
