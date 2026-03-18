@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './CopyButton.css'
 
@@ -15,7 +15,7 @@ function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className 
     }
   }, [])
 
-  const handleCopy = async () => {
+  const handleCopy = useCallback(async () => {
     if (!hasText) return
 
     try {
@@ -25,7 +25,7 @@ function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className 
     } catch (err) {
       console.error('Failed to copy:', err)
     }
-  }
+  }, [text, hasText])
 
   return (
     <button

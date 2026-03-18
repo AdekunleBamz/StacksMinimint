@@ -26,7 +26,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__brand">
-          <span className="footer__logo">◆</span>
+          <span className="footer__logo" aria-label="NFTminimint logo">◆</span>
           <span className="footer__title">NFTminimint</span>
           <p className="footer__description">
             Mint lightweight NFTs on Stacks with a wallet-first flow,
