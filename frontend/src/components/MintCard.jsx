@@ -1,7 +1,12 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './MintCard.css'
 import { getExplorerUrl } from '../contract'
+
+const formatSTX = (microstx) => {
+  if (microstx === null || microstx === undefined || Number.isNaN(Number(microstx))) return '0'
+  return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
+}
 
 function MintCard({ 
   contractInfo, 
@@ -14,7 +19,7 @@ function MintCard({
   const [isMinting, setIsMinting] = useState(false)
   const [mintStatus, setMintStatus] = useState(null)
 
-  const handleMint = async (e) => {
+  const handleMint = useCallback(async (e) => {
     e.preventDefault()
     const normalizedTokenURI = tokenURI.trim()
     
@@ -45,12 +50,7 @@ function MintCard({
     } finally {
       setIsMinting(false)
     }
-  }
-
-  const formatSTX = (microstx) => {
-    if (microstx === null || microstx === undefined || Number.isNaN(Number(microstx))) return '0'
-    return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
-  }
+  }, [tokenURI, onMint])
 
   const isSoldOut = contractInfo?.totalSupply >= contractInfo?.maxSupply
   const walletLimitReached = contractInfo?.walletMinted >= contractInfo?.maxPerWallet
