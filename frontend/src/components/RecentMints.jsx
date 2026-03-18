@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './RecentMints.css'
 import { formatAddress } from '../utils/collection'
+import { getExplorerUrl } from '../contract'
 
 function RecentMints({ items = [] }) {
   const [recentMints, setRecentMints] = useState([])
@@ -92,7 +93,14 @@ function RecentMints({ items = [] }) {
               </span>
             </div>
             <div className="mint-item__badge">
-              Minted
+              <a
+                href={getExplorerUrl(mint.txId || mint.txHash)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View transaction for token #${mint.tokenId} on Explorer`}
+              >
+                Minted ↗
+              </a>
             </div>
           </div>
         ))}
