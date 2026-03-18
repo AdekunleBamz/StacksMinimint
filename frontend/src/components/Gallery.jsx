@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
 
-function Gallery() {
+export function Gallery() {
   const [nfts, setNfts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [selectedNft, setSelectedNft] = useState(null)
@@ -318,4 +318,3 @@ function Gallery() {
 
 Gallery.propTypes = {}
 
-export default Gallery
