@@ -2,17 +2,28 @@ import { useId, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Tooltip.css'
 
-function Tooltip({ children, content, position = 'top' }) {
+function Tooltip({ children, content, position = 'top', delay = 300 }) {
   const [isVisible, setIsVisible] = useState(false)
+  const [timer, setTimer] = useState(null)
   const tooltipId = useId()
+
+  const showTooltip = () => {
+    const newTimer = setTimeout(() => setIsVisible(true), delay)
+    setTimer(newTimer)
+  }
+
+  const hideTooltip = () => {
+    if (timer) clearTimeout(timer)
+    setIsVisible(false)
+  }
 
   return (
     <div 
       className="tooltip-wrapper"
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-      onFocus={() => setIsVisible(true)}
-      onBlur={() => setIsVisible(false)}
+      onMouseEnter={showTooltip}
+      onMouseLeave={hideTooltip}
+      onFocus={showTooltip}
+      onBlur={hideTooltip}
       aria-describedby={isVisible && content ? tooltipId : undefined}
     >
       {children}
@@ -29,7 +40,8 @@ function Tooltip({ children, content, position = 'top' }) {
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
-  position: PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
+  position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+  delay: PropTypes.number
 }
 
 export default Tooltip
