@@ -4,7 +4,7 @@ import './RecentMints.css'
 import { formatAddress } from '../utils/collection'
 import { getExplorerUrl } from '../contract'
 
-function RecentMints({ items = [] }) {
+export function RecentMints({ items = [] }) {
   const [recentMints, setRecentMints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -117,4 +117,3 @@ RecentMints.propTypes = {
   }))
 }
 
-export default RecentMints
