@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './Stats.css'
 import { formatLimit, formatSTX } from '../utils/collection'
 
-function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
+export function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
   const [lastUpdated, setLastUpdated] = useState(new Date())
 
   useEffect(() => {
@@ -142,4 +142,3 @@ Stats.propTypes = {
   recentActivityCount: PropTypes.number
 }
 
-export default Stats
