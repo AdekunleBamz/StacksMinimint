@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './CopyButton.css'
 
-function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
+export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
   const [copied, setCopied] = useState(false)
   const timeoutRef = useRef(null)
   const hasText = Boolean(text)
@@ -62,4 +62,3 @@ CopyButton.propTypes = {
   className: PropTypes.string
 }
 
-export default CopyButton
