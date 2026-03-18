@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import './Toast.css'
 
-function Toast({ message, type = 'info', onClose }) {
+export function Toast({ message, type = 'info', onClose }) {
   const icons = {
     success: '✓',
     error: '✕',
@@ -33,4 +33,3 @@ Toast.propTypes = {
   onClose: PropTypes.func
 }
 
-export default Toast
