@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import './Stats.css'
 import { formatLimit, formatSTX } from '../utils/collection'
@@ -11,44 +11,48 @@ function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCou
       setLastUpdated(new Date())
     }
   }, [contractInfo])
-  const totalSupply = contractInfo?.totalSupply || 0
-  const maxSupply = contractInfo?.maxSupply ?? null
-  const remainingSupply = typeof maxSupply === 'number'
-    ? Math.max(maxSupply - totalSupply, 0)
-    : null
-  const progress = typeof maxSupply === 'number' && maxSupply > 0
-    ? Math.min((totalSupply / maxSupply) * 100, 100)
-    : 0
-  const roundedProgress = Number(progress.toFixed(1))
-  const collectionState = contractInfo?.isPaused === true
-    ? { label: 'Paused', tone: 'warning' }
-    : remainingSupply === 0 && maxSupply !== null
-      ? { label: 'Sold out', tone: 'critical' }
-      : { label: 'Ready', tone: 'success' }
-  const receiptLabel = recentActivityCount === 1 ? 'local receipt' : 'local receipts'
+  const { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel } = useMemo(() => {
+    const totalSupply = contractInfo?.totalSupply || 0
+    const maxSupply = contractInfo?.maxSupply ?? null
+    const remainingSupply = typeof maxSupply === 'number'
+      ? Math.max(maxSupply - totalSupply, 0)
+      : null
+    const progress = typeof maxSupply === 'number' && maxSupply > 0
+      ? Math.min((totalSupply / maxSupply) * 100, 100)
+      : 0
+    const roundedProgress = Number(progress.toFixed(1))
+    const collectionState = contractInfo?.isPaused === true
+      ? { label: 'Paused', tone: 'warning' }
+      : remainingSupply === 0 && maxSupply !== null
+        ? { label: 'Sold out', tone: 'critical' }
+        : { label: 'Ready', tone: 'success' }
+    const receiptLabel = recentActivityCount === 1 ? 'local receipt' : 'local receipts'
 
-  const stats = [
-    {
-      label: 'Minted',
-      value: `${totalSupply}`,
-      detail: 'Total submissions minted so far'
-    },
-    {
-      label: 'Remaining',
-      value: remainingSupply === null ? 'Open' : `${remainingSupply}`,
-      detail: remainingSupply === null ? 'Supply limit is not set in this UI' : 'Supply left before the collection sells out'
-    },
-    {
-      label: 'Mint price',
-      value: `${formatSTX(contractInfo?.mintFee)} STX`,
-      detail: 'Post-condition amount per mint'
-    },
-    {
-      label: 'Wallet cap',
-      value: formatLimit(contractInfo?.maxPerWallet, 'Not set'),
-      detail: isConnected ? 'Wallet connected and ready' : 'Connect to unlock the mint action'
-    }
-  ]
+    const stats = [
+      {
+        label: 'Minted',
+        value: `${totalSupply}`,
+        detail: 'Total submissions minted so far'
+      },
+      {
+        label: 'Remaining',
+        value: remainingSupply === null ? 'Open' : `${remainingSupply}`,
+        detail: remainingSupply === null ? 'Supply limit is not set in this UI' : 'Supply left before the collection sells out'
+      },
+      {
+        label: 'Mint price',
+        value: `${formatSTX(contractInfo?.mintFee)} STX`,
+        detail: 'Post-condition amount per mint'
+      },
+      {
+        label: 'Wallet cap',
+        value: formatLimit(contractInfo?.maxPerWallet, 'Not set'),
+        detail: isConnected ? 'Wallet connected and ready' : 'Connect to unlock the mint action'
+      }
+    ]
+
+    return { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel }
+  }, [contractInfo, isConnected, recentActivityCount])
 
   if (isLoading) {
     return (
