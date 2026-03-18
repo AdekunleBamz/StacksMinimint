@@ -8,7 +8,7 @@ const formatSTX = (microstx) => {
   return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
 }
 
-function MintCard({ 
+export function MintCard({ 
   contractInfo, 
   onMint, 
   isConnected,
@@ -216,4 +216,3 @@ MintCard.propTypes = {
   contractError: PropTypes.string
 }
 
-export default MintCard
