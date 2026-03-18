@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import './Modal.css'
 
-function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
+export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const modalRef = useRef(null)
 
   const handleOverlayClick = (e) => {
@@ -75,4 +75,3 @@ Modal.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large', 'full'])
 }
 
-export default Modal
