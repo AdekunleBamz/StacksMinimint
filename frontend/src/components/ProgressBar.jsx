@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import './ProgressBar.css'
 
-function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
+export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
   const safeMax = max > 0 ? max : 100
   const boundedValue = Math.min(Math.max(value, 0), safeMax)
   const percentage = Math.min(Math.max((value / safeMax) * 100, 0), 100)
@@ -37,4 +37,3 @@ ProgressBar.propTypes = {
   ariaLabel: PropTypes.string
 }
 
-export default ProgressBar
