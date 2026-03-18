@@ -80,5 +80,3 @@ CardFooter.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string
 }
-
-export { Card, CardHeader, CardBody, CardFooter }

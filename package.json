@@ -14,12 +14,7 @@
     "frontend:build": "npm --prefix frontend run build",
     "frontend:preview": "npm --prefix frontend run preview",
     "frontend:check": "npm --prefix frontend run check",
-    "scripts:install": "npm --prefix scripts install",
-    "scripts:wallets": "npm --prefix scripts run generate:wallets",
-    "scripts:distribute": "npm --prefix scripts run distribute:stx",
-    "scripts:interact": "npm --prefix scripts run interact:core",
-    "scripts:interact:token": "npm --prefix scripts run interact:token",
-    "scripts:consolidate": "npm --prefix scripts run consolidate"
+    "scripts:interact:token": "node scripts/4-token-interact.js"
   },
   "dependencies": {
     "@stacks/network": "^7.3.1",

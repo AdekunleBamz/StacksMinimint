@@ -1,7 +1,12 @@
-const { makeContractCall, broadcastTransaction, PostConditionMode, makeStandardSTXPostCondition, FungibleConditionCode, uintCV, principalCV, someCV, noneCV, bufferCVFromString, contractPrincipalCV, stringAsciiCV } = require('@stacks/transactions');
-const { STACKS_MAINNET } = require('@stacks/network');
-const fs = require('fs');
-const fetch = require('cross-fetch');
+import { makeContractCall, broadcastTransaction, PostConditionMode, makeStandardSTXPostCondition, FungibleConditionCode, uintCV, principalCV, someCV, noneCV, bufferCVFromString, contractPrincipalCV, stringAsciiCV } from '@stacks/transactions';
+import { STACKS_MAINNET } from '@stacks/network';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fetch from 'cross-fetch';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const NETWORK = STACKS_MAINNET;
 const BURN_ADDRESS = 'SP000000000000000000002Q6VF78';
