@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useId } from 'react'
+import { useState, useRef, useEffect, useId, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { useClipboard } from '../hooks'
 import './Header.css'
@@ -10,9 +10,9 @@ function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const chainName = 'Stacks'
 
-  const handleCopy = () => {
+  const handleCopy = useCallback(() => {
     if (account) copy(account)
-  }
+  }, [account, copy])
 
   return (
     <header className="header">
