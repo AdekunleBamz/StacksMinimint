@@ -6,7 +6,7 @@ import './Header.css'
 import logo from '../assets/logo.png'
 import { formatAddress } from '../utils/collection'
 
-function Header({ account, onConnect, onDisconnect, isConnecting }) {
+export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const chainName = 'Stacks'
 
@@ -67,4 +67,3 @@ Header.propTypes = {
   isConnecting: PropTypes.bool
 }
 
-export default Header
