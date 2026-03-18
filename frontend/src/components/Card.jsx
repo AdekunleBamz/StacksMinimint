@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import './Card.css'
 
-function Card({ 
+export function Card({ 
   children, 
   variant = 'default',
   padding = 'medium',
@@ -32,7 +32,7 @@ function Card({
   )
 }
 
-function CardHeader({ children, className = '' }) {
+export function CardHeader({ children, className = '' }) {
   return (
     <div className={`card__header ${className}`}>
       {children}
@@ -40,7 +40,7 @@ function CardHeader({ children, className = '' }) {
   )
 }
 
-function CardBody({ children, className = '' }) {
+export function CardBody({ children, className = '' }) {
   return (
     <div className={`card__body ${className}`}>
       {children}
@@ -48,7 +48,7 @@ function CardBody({ children, className = '' }) {
   )
 }
 
-function CardFooter({ children, className = '' }) {
+export function CardFooter({ children, className = '' }) {
   return (
     <div className={`card__footer ${className}`}>
       {children}
@@ -82,4 +82,3 @@ CardFooter.propTypes = {
 }
 
 export { Card, CardHeader, CardBody, CardFooter }
-export default Card
