@@ -2,7 +2,7 @@ import { useId, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Tooltip.css'
 
-function Tooltip({ children, content, position = 'top', delay = 300 }) {
+export function Tooltip({ children, content, position = 'top', delay = 300 }) {
   const [isVisible, setIsVisible] = useState(false)
   const [timer, setTimer] = useState(null)
   const tooltipId = useId()
@@ -44,4 +44,3 @@ Tooltip.propTypes = {
   delay: PropTypes.number
 }
 
-export default Tooltip
