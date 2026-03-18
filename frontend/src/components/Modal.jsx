@@ -59,7 +59,7 @@ function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
             </svg>
           </button>
         </div>
-        <div className="modal__body">
+        <div className="modal__body" aria-live="polite">
           {children}
         </div>
       </div>
