@@ -25,6 +25,7 @@ function Card({
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
       aria-label={onClick ? ariaLabel : undefined}
+      aria-describedby={onClick ? `${ariaLabel}-desc` : undefined}
     >
       {children}
     </div>
