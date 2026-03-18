@@ -14,6 +14,7 @@ function Toast({ message, type = 'info', onClose }) {
       className={`toast toast--${type}`}
       role={type === 'error' ? 'alert' : 'status'}
       aria-live={type === 'error' ? 'assertive' : 'polite'}
+      aria-atomic="true"
     >
       <span className="toast__icon" aria-hidden="true">{icons[type]}</span>
       <span className="toast__message">{message}</span>
