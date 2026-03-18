@@ -19,6 +19,7 @@ function LoadingSkeleton({ variant = 'text', width, height, count = 1, className
           className={`skeleton skeleton--${variant} ${className}`}
           style={getStyle()}
           aria-hidden="true"
+          aria-label="Loading..."
         />
       ))}
     </>
