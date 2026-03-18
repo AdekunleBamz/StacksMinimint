@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import './Footer.css'
 
-function Footer() {
+export function Footer() {
   const currentYear = new Date().getFullYear()
 
   const links = {
@@ -91,4 +91,3 @@ function Footer() {
 
 Footer.propTypes = {}
 
-export default Footer
