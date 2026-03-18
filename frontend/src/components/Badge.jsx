@@ -10,7 +10,7 @@ function Badge({
 }) {
   return (
     <span className={`badge badge--${variant} badge--${size} ${className}`}>
-      {dot && <span className="badge__dot" aria-hidden="true" />}
+      {dot && <span className="badge__dot" aria-hidden="true" aria-label="Status dot" />}
       {children}
     </span>
   )
