@@ -20,7 +20,7 @@ function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', colo
         />
       </div>
       {showLabel && (
-        <span className="progress__label">
+        <span className="progress__label" aria-live="polite">
           {percentage.toFixed(1)}%
         </span>
       )}
