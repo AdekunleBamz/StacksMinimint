@@ -1,3 +1,6 @@
+;; Note: Nft Metadata contract
+;; Scope: minimal reference note.
+
 ;; NFT Metadata Contract v-i3
 ;; Stores extended attributes and traits with restricted neutralized
 
