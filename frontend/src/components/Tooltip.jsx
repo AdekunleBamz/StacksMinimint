@@ -1,3 +1,6 @@
+// Note: Tooltip module
+// Scope: keep Tooltip concerns isolated.
+
 import { useId, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Tooltip.css'
