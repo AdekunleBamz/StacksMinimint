@@ -1,3 +1,6 @@
+/* Note: Progressbar styles */
+/* Scope: keep ProgressBar rules localized. */
+
 .progress {
   display: flex;
   align-items: center;
