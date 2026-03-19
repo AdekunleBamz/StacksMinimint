@@ -1,3 +1,6 @@
+// Note: Progressbar module
+// Scope: keep ProgressBar concerns isolated.
+
 import PropTypes from 'prop-types'
 import './ProgressBar.css'
 
