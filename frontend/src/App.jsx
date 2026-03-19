@@ -1,3 +1,6 @@
+// Note: App module
+// Scope: keep App concerns isolated.
+
 import { useState, useEffect } from 'react'
 import { useWallet, useContract, useToast } from './hooks'
 import { 
