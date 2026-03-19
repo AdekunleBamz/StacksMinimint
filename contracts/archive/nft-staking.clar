@@ -1,3 +1,6 @@
+;; Note: Nft Staking contract
+;; Scope: minimal reference note.
+
 ;; nft-staking-v-i3
 ;; Staking contract for minimint NFTs
 ;; Users stake their NFTs to earn minimint-token (MMT) rewards
