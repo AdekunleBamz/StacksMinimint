@@ -1,3 +1,6 @@
+// Note: Recentmints module
+// Scope: keep RecentMints concerns isolated.
+
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './RecentMints.css'
