@@ -1,3 +1,6 @@
+// Note: Errorboundary module
+// Scope: keep ErrorBoundary concerns isolated.
+
 import React from 'react';
 
 /**
