@@ -1,3 +1,6 @@
+// Note: Copybutton module
+// Scope: keep CopyButton concerns isolated.
+
 import { useState, useRef, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './CopyButton.css'
