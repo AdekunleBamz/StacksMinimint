@@ -1,3 +1,6 @@
+;; Note: Sip 009 Nft Trait V I27 contract
+;; Scope: minimal reference note.
+
 ;; SIP-009 NFT trait used by minimint-core-v-i27
 
 (define-trait sip-009-nft-trait
