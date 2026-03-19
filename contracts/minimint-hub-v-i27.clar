@@ -1,3 +1,6 @@
+;; Note: Minimint Hub V I27 contract
+;; Scope: minimal reference note.
+
 ;; StacksMinimint - Ecosystem Hub
 ;; --------------------------------------------------------
 ;; This contract acts as a unified escrow for NFT staking and 
