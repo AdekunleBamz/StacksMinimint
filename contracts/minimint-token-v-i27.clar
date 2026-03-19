@@ -1,3 +1,6 @@
+;; Note: Minimint Token V I27 contract
+;; Scope: minimal reference note.
+
 ;; StacksMinimint - Reward Token (MMT)
 ;; --------------------------------------------------------
 ;; This contract implements the SIP-010 Fungible Token standard.
