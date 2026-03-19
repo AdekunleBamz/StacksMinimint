@@ -1,3 +1,6 @@
+/* Note: App styles */
+/* Scope: keep App rules localized. */
+
 .app {
   min-height: 100vh;
   display: flex;
