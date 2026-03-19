@@ -1,3 +1,6 @@
+// Note: Generate Wallets module
+// Scope: keep generate wallets concerns isolated.
+
 import pkg from '@stacks/transactions';
 const { getAddressFromPrivateKey, AddressVersion } = pkg;
 import crypto from 'crypto';
