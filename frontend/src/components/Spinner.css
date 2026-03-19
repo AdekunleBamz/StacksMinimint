@@ -1,3 +1,6 @@
+/* Note: Spinner styles */
+/* Scope: keep Spinner rules localized. */
+
 .spinner {
   display: inline-flex;
   align-items: center;
