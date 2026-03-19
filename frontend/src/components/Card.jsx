@@ -1,3 +1,6 @@
+// Note: Card module
+// Scope: keep Card concerns isolated.
+
 import PropTypes from 'prop-types'
 import './Card.css'
 
