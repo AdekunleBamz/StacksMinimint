@@ -1,3 +1,6 @@
+// Note: Loadingskeleton module
+// Scope: keep LoadingSkeleton concerns isolated.
+
 import PropTypes from 'prop-types'
 import './LoadingSkeleton.css'
 
