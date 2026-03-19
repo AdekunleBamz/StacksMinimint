@@ -1,3 +1,6 @@
+;; Note: Nft Core contract
+;; Scope: minimal reference note.
+
 ;; NFT Core Contract v-i3
 ;; Base SIP-009 implementation
 
