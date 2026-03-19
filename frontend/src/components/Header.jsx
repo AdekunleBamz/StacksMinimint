@@ -1,3 +1,6 @@
+// Note: Header module
+// Scope: keep Header concerns isolated.
+
 import { useState, useRef, useEffect, useId, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { useClipboard } from '../hooks'
