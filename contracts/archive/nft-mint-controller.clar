@@ -1,3 +1,6 @@
+;; Note: Nft Mint Controller contract
+;; Scope: minimal reference note.
+
 ;; NFT Mint Controller v-i3
 ;; Handles minting logic and fees
 
