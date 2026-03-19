@@ -1,3 +1,6 @@
+// Note: Modal module
+// Scope: keep Modal concerns isolated.
+
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import './Modal.css'
