@@ -1,3 +1,6 @@
+;; Note: Sip 010 Trait Ft Standard V I27 contract
+;; Scope: minimal reference note.
+
 ;; SIP-010 FT trait used by minimint-token-v-i27
 
 (define-trait sip-010-trait
