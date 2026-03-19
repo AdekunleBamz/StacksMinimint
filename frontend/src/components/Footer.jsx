@@ -1,3 +1,6 @@
+// Note: Footer module
+// Scope: keep Footer concerns isolated.
+
 import PropTypes from 'prop-types'
 import './Footer.css'
 
