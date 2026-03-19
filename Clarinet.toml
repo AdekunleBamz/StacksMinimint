@@ -1,3 +1,6 @@
+# Note: Clarinet config
+# Scope: minimal clarity note.
+
 [project]
 name = 'stacksminimint'
 description = 'A minimal NFT minting platform on Stacks'
