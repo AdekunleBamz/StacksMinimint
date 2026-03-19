@@ -1,3 +1,6 @@
+// Note: Commitlint.Config module
+// Scope: keep commitlint.config concerns isolated.
+
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
