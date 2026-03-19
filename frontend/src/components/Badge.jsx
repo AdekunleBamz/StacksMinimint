@@ -1,3 +1,6 @@
+// Note: Badge module
+// Scope: keep Badge concerns isolated.
+
 import PropTypes from 'prop-types'
 import './Badge.css'
 
