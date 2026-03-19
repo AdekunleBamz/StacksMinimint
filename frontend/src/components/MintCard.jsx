@@ -1,3 +1,6 @@
+// Note: Mintcard module
+// Scope: keep MintCard concerns isolated.
+
 import { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './MintCard.css'
