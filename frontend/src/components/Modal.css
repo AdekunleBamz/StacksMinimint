@@ -1,3 +1,6 @@
+/* Note: Modal styles */
+/* Scope: keep Modal rules localized. */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
