@@ -1,3 +1,6 @@
+;; Note: Nft Marketplace contract
+;; Scope: minimal reference note.
+
 ;; NFT Marketplace v-i21
 ;; Allows users to list, unlist, and buy NFTs
 ;; NOTE: No as-contract usage. The nft-core-v-i21 contract whitelists
