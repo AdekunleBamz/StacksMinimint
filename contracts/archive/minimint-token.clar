@@ -1,3 +1,6 @@
+;; Note: Minimint Token contract
+;; Scope: minimal reference note.
+
 ;; minimint-token-v-i3
 ;; SIP-010 Fungible Token for minimizing rewards
 
