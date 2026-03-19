@@ -1,3 +1,6 @@
+;; Note: Minimint Core V I27 contract
+;; Scope: minimal reference note.
+
 ;; StacksMinimint - Core NFT Contract
 ;; --------------------------------------------------------
 ;; This contract implements the SIP-009 NFT standard with 
