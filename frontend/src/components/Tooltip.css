@@ -1,3 +1,6 @@
+/* Note: Tooltip styles */
+/* Scope: keep Tooltip rules localized. */
+
 .tooltip-wrapper {
   position: relative;
   display: inline-flex;
