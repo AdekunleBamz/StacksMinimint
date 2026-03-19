@@ -1,3 +1,6 @@
+/* Note: Loadingskeleton styles */
+/* Scope: keep LoadingSkeleton rules localized. */
+
 .skeleton {
   background: linear-gradient(
     90deg,
