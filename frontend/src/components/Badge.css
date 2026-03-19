@@ -1,3 +1,6 @@
+/* Note: Badge styles */
+/* Scope: keep Badge rules localized. */
+
 .badge {
   display: inline-flex;
   align-items: center;
