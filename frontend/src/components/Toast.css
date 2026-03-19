@@ -1,3 +1,6 @@
+/* Note: Toast styles */
+/* Scope: keep Toast rules localized. */
+
 .toast {
   display: flex;
   align-items: center;
