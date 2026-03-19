@@ -1,3 +1,6 @@
+// Note: Gallery module
+// Scope: keep Gallery concerns isolated.
+
 import { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import './Gallery.css'
