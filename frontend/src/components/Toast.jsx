@@ -1,3 +1,6 @@
+// Note: Toast module
+// Scope: keep Toast concerns isolated.
+
 import PropTypes from 'prop-types'
 import './Toast.css'
 
