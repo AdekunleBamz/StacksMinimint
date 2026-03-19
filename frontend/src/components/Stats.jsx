@@ -1,3 +1,6 @@
+// Note: Stats module
+// Scope: keep Stats concerns isolated.
+
 import { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import './Stats.css'
