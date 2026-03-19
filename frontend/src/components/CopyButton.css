@@ -1,3 +1,6 @@
+/* Note: Copybutton styles */
+/* Scope: keep CopyButton rules localized. */
+
 .copy-btn {
   display: inline-flex;
   align-items: center;
