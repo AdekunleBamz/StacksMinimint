@@ -1,5 +1,9 @@
 # Contributing to NFTminimint
 
+> Note: Contributing documentation
+> Scope: minimal clarity note.
+
+
 Thanks for helping improve the NFTminimint experience. We appreciate your time and expertise!
 
 ---
