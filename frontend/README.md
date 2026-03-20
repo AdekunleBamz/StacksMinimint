@@ -28,7 +28,7 @@ The app will be available at `http://localhost:5173` by default.
 
 ## 🔧 Configuration
 
-Update `src/contract.js` with the deployment and network values you want to target:
+Update `src/constants/index.js` with the deployment and network values you want to target:
 
 ```js
 export const CONTRACT_ADDRESS = 'SP...'
