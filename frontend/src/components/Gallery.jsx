@@ -259,6 +259,7 @@ export function Gallery() {
                 alt={nft.name}
                 className="nft-card__image"
                 loading="lazy"
+                decoding="async"
               />
               <div className="nft-card__overlay" aria-hidden="true">
                 <span>View Details</span>
@@ -288,7 +289,7 @@ export function Gallery() {
               ×
             </button>
             <div className="modal__image">
-              <img src={selectedNft.image} alt={selectedNft.name} />
+              <img src={selectedNft.image} alt={selectedNft.name} decoding="async" />
             </div>
             <div className="modal__content">
               <h2 id="gallery-modal-title" className="modal__title">{selectedNft.name}</h2>
