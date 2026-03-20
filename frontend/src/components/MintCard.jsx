@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import './MintCard.css'
 import { Spinner } from './Spinner'
 import { getExplorerUrl } from '../contract'
-import { formatSTX } from '../utils/collection'
+import { formatSTX, validateTokenURI } from '../utils/collection'
 
 export function MintCard({ 
   contractInfo, 
@@ -18,13 +18,16 @@ export function MintCard({
   const [tokenURI, setTokenURI] = useState('')
   const [isMinting, setIsMinting] = useState(false)
   const [mintStatus, setMintStatus] = useState(null)
+  const tokenUriValidation = validateTokenURI(tokenURI)
+  const isTokenUriValid = tokenUriValidation.isValid
 
   const handleMint = useCallback(async (e) => {
     e.preventDefault()
     const normalizedTokenURI = tokenURI.trim()
+    const validation = validateTokenURI(normalizedTokenURI)
     
-    if (!normalizedTokenURI) {
-      setMintStatus({ type: 'error', message: 'Please enter a valid token URI' })
+    if (!validation.isValid) {
+      setMintStatus({ type: 'error', message: validation.helper })
       return
     }
 
@@ -60,8 +63,8 @@ export function MintCard({
       ? 'The collection has sold out.'
       : walletLimitReached
         ? 'This wallet has reached the configured mint limit.'
-        : !tokenURI.trim()
-          ? 'Enter a metadata URL to enable minting.'
+        : !isTokenUriValid
+          ? tokenUriValidation.helper
           : 'Ready to mint on Stacks.'
   const txId = mintStatus?.txId || mintStatus?.txHash
 
@@ -135,6 +138,7 @@ export function MintCard({
                 }
               }}
               aria-describedby="tokenURIHint mintActionMessage"
+              aria-invalid={!isTokenUriValid}
               required
               autoComplete="off"
               disabled={isMinting || isSoldOut || contractInfo?.isPaused}
@@ -143,7 +147,7 @@ export function MintCard({
               IPFS or HTTP link to your NFT metadata JSON
             </span>
             <div className="form-counter" aria-live="polite">
-              {tokenURI.length} / 256 characters
+              {tokenUriValidation.characterCount} / 256 characters
             </div>
           </div>
 
@@ -151,7 +155,7 @@ export function MintCard({
             type="submit"
             className="mint-card__btn mint-card__btn--primary"
             disabled={
-              !tokenURI.trim() ||
+              !isTokenUriValid ||
               isMinting || 
               isSoldOut || 
               walletLimitReached || 
