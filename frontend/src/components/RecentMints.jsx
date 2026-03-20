@@ -74,14 +74,18 @@ export function RecentMints({ items = [] }) {
               </span>
             </div>
             <div className="mint-item__badge">
-              <a
-                href={getExplorerUrl(mint.txId || mint.txHash)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`View transaction for token #${mint.tokenId} on Explorer`}
-              >
-                Minted ↗
-              </a>
+              {mint.txId || mint.txHash ? (
+                <a
+                  href={getExplorerUrl(mint.txId || mint.txHash)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View transaction for token #${mint.tokenId} on Explorer`}
+                >
+                  Minted ↗
+                </a>
+              ) : (
+                <span className="mint-item__badge--pending" aria-live="polite">Pending</span>
+              )}
             </div>
           </div>
         ))}
