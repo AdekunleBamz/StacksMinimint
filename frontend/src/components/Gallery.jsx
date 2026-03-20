@@ -1,7 +1,7 @@
 // Note: Gallery module
 // Scope: keep Gallery concerns isolated.
 
-import { useState, useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
@@ -13,6 +13,7 @@ export function Gallery() {
   const [selectedNft, setSelectedNft] = useState(null)
   const [viewMode, setViewMode] = useState('grid')
   const [searchTerm, setSearchTerm] = useState('')
+  const closeButtonRef = useRef(null)
   const normalizedSearchTerm = searchTerm.toLowerCase().trim()
 
   // Sample NFT data for demonstration
@@ -66,13 +67,18 @@ export function Gallery() {
       }
     }
 
+    const previousActiveElement = document.activeElement
     window.addEventListener('keydown', handleEscape)
     const { overflow } = document.body.style
     document.body.style.overflow = 'hidden'
+    closeButtonRef.current?.focus()
 
     return () => {
       document.body.style.overflow = overflow
       window.removeEventListener('keydown', handleEscape)
+      if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+        previousActiveElement.focus()
+      }
     }
   }, [selectedNft])
 
@@ -285,7 +291,13 @@ export function Gallery() {
             aria-modal="true"
             aria-labelledby="gallery-modal-title"
           >
-            <button type="button" className="modal__close" onClick={closeModal} aria-label="Close NFT details">
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="modal__close"
+              onClick={closeModal}
+              aria-label="Close NFT details"
+            >
               ×
             </button>
             <div className="modal__image">
