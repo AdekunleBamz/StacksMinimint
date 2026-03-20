@@ -11,7 +11,8 @@ export function Card({
   hover = false,
   className = '',
   onClick,
-  ariaLabel
+  ariaLabel,
+  ariaDescriptionId
 }) {
   const handleKeyDown = (e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
@@ -28,7 +29,7 @@ export function Card({
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
       aria-label={onClick ? ariaLabel : undefined}
-      aria-describedby={onClick ? `${ariaLabel}-desc` : undefined}
+      aria-describedby={ariaDescriptionId}
     >
       {children}
     </div>
@@ -66,7 +67,8 @@ Card.propTypes = {
   hover: PropTypes.bool,
   className: PropTypes.string,
   onClick: PropTypes.func,
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  ariaDescriptionId: PropTypes.string
 }
 
 CardHeader.propTypes = {
