@@ -7,7 +7,7 @@ import './ProgressBar.css'
 export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
   const safeMax = max > 0 ? max : 100
   const boundedValue = Math.min(Math.max(value, 0), safeMax)
-  const percentage = Math.min(Math.max((value / safeMax) * 100, 0), 100)
+  const percentage = Math.min(Math.max((boundedValue / safeMax) * 100, 0), 100)
 
   return (
     <div className={`progress progress--${size}`}>
@@ -39,4 +39,3 @@ ProgressBar.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'danger']),
   ariaLabel: PropTypes.string
 }
-
