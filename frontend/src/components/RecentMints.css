@@ -93,6 +93,12 @@
   flex-shrink: 0;
 }
 
+.mint-item__badge--pending {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: rgba(234, 179, 8, 0.35);
+  color: #fcd34d;
+}
+
 .mint-item--skeleton {
   pointer-events: none;
 }
