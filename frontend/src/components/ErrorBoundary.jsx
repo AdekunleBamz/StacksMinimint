@@ -2,6 +2,7 @@
 // Scope: keep ErrorBoundary concerns isolated.
 
 import React from 'react';
+import './ErrorBoundary.css';
 
 /**
  * A standard React Error Boundary component to catch JavaScript errors
@@ -27,43 +28,19 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <div style={{
-          padding: '2rem',
-          textAlign: 'center',
-          backgroundColor: '#fff1f0',
-          border: '1px solid #ffa39e',
-          borderRadius: '8px',
-          margin: '2rem auto',
-          maxWidth: '600px',
-          fontFamily: 'system-ui, -apple-system, sans-serif'
-        }}>
-          <h2 style={{ color: '#cf1322', marginTop: 0 }}>Something went wrong.</h2>
-          <p style={{ color: '#434343' }}>
+        <div className="error-boundary">
+          <h2 className="error-boundary__title">Something went wrong.</h2>
+          <p className="error-boundary__message">
             The application encountered an unexpected error. Please try refreshing the page.
           </p>
           {this.state.error && (
-            <pre style={{
-              textAlign: 'left',
-              padding: '1rem',
-              backgroundColor: '#fafafa',
-              borderRadius: '4px',
-              overflowX: 'auto',
-              fontSize: '0.85rem'
-            }}>
+            <pre className="error-boundary__details">
               {this.state.error.toString()}
             </pre>
           )}
           <button
             onClick={() => window.location.reload()}
-            style={{
-              padding: '0.5rem 1.5rem',
-              backgroundColor: '#1890ff',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontWeight: '500'
-            }}
+            className="error-boundary__button"
           >
             Refresh Page
           </button>
