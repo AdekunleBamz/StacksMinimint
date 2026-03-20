@@ -4,34 +4,12 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './RecentMints.css'
-import { formatAddress } from '../utils/collection'
+import { formatAddress, formatExactTime, formatRelativeTime } from '../utils/collection'
 import { getExplorerUrl } from '../contract'
 
 export function RecentMints({ items = [] }) {
   const [recentMints, setRecentMints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-
-  const formatTime = (timestamp) => {
-    const now = Date.now()
-    const diff = Math.max(now - timestamp * 1000, 0)
-    const minutes = Math.floor(diff / 60000)
-    const hours = Math.floor(diff / 3600000)
-    const days = Math.floor(diff / 86400000)
-
-    if (minutes < 1) return 'Just now'
-    if (minutes < 60) return `${minutes}m ago`
-    if (hours < 24) return `${hours}h ago`
-    return `${days}d ago`
-  }
-
-  const formatExactTime = (timestamp) => {
-    if (!timestamp) return 'Unknown time'
-
-    return new Intl.DateTimeFormat(undefined, {
-      dateStyle: 'medium',
-      timeStyle: 'short'
-    }).format(new Date(timestamp * 1000))
-  }
 
   useEffect(() => {
     if (items.length > 0) {
@@ -76,7 +54,7 @@ export function RecentMints({ items = [] }) {
   }
 
   return (
-      <section className="recent-mints">
+    <section className="recent-mints">
       <h2 className="recent-mints__title">Recent Mints</h2>
       <p className="recent-mints__subtitle">Fresh activity appears here after each mint confirmation.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
@@ -90,8 +68,8 @@ export function RecentMints({ items = [] }) {
                 {formatAddress(mint.minter)}
               </span>
               <span className="mint-item__time">
-                <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp)}>
-                  {formatTime(mint.timestamp)}
+                <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp * 1000)}>
+                  {formatRelativeTime(mint.timestamp * 1000)}
                 </time>
               </span>
             </div>
@@ -119,4 +97,3 @@ RecentMints.propTypes = {
     minter: PropTypes.string.isRequired
   }))
 }
-
