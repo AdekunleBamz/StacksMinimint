@@ -56,6 +56,14 @@ export function Gallery() {
     setSelectedNft(nft)
   }
 
+  const handleSearchKeyDown = (event) => {
+    if (event.key === 'Escape' && searchTerm) {
+      event.preventDefault()
+      setSearchTerm('')
+      event.currentTarget.blur()
+    }
+  }
+
   const closeModal = () => {
     setSelectedNft(null)
   }
@@ -151,6 +159,7 @@ export function Gallery() {
               autoComplete="off"
               spellCheck={false}
               onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleSearchKeyDown}
               aria-label="Search collection items"
               className="search-input"
             />
@@ -207,6 +216,7 @@ export function Gallery() {
             autoComplete="off"
             spellCheck={false}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleSearchKeyDown}
             aria-label="Search collection items"
             className="search-input"
           />
