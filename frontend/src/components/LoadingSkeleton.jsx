@@ -22,7 +22,6 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
           className={`skeleton skeleton--${variant} ${className}`}
           style={getStyle()}
           aria-hidden="true"
-          aria-label="Loading..."
         />
       ))}
     </>
