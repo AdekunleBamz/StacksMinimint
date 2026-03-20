@@ -2,6 +2,7 @@
 // Scope: keep ErrorBoundary concerns isolated.
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ErrorBoundary.css';
 
 /**
@@ -53,3 +54,7 @@ class ErrorBoundary extends React.Component {
 }
 
 export default ErrorBoundary;
+
+ErrorBoundary.propTypes = {
+  children: PropTypes.node
+};
