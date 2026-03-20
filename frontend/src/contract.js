@@ -23,7 +23,7 @@ export {
  */
 function getBaseExplorerUrl(type, identifier) {
   const baseUrl = STACKS_NETWORK_CONFIG[NETWORK].explorerUrl;
-  return `${baseUrl}/${type}/${identifier}?chain=${NETWORK}`;
+  return `${baseUrl}/${type}/${encodeURIComponent(identifier)}?chain=${NETWORK}`;
 }
 
 export function getExplorerUrl(txId) {
