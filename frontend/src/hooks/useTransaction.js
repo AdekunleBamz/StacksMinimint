@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { STACKS_NETWORK_CONFIG, NETWORK } from '../constants';
 
 /**
@@ -10,14 +10,22 @@ export function useTransactionStatus(txId) {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const controllerRef = useRef(null);
 
   const checkStatus = useCallback(async () => {
     if (!txId) return;
 
+    if (controllerRef.current) {
+      controllerRef.current.abort();
+    }
+    const controller = new AbortController();
+    controllerRef.current = controller;
     setIsLoading(true);
     try {
       const apiUrl = STACKS_NETWORK_CONFIG[NETWORK].apiUrl;
-      const response = await fetch(`${apiUrl}/extended/v1/tx/${txId}`);
+      const response = await fetch(`${apiUrl}/extended/v1/tx/${txId}`, {
+        signal: controller.signal
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch transaction status');
       }
@@ -25,10 +33,15 @@ export function useTransactionStatus(txId) {
       setStatus(data.tx_status);
       setError(null);
     } catch (err) {
+      if (err.name === 'AbortError') {
+        return;
+      }
       console.error('Error fetching transaction status:', err);
       setError(err.message);
     } finally {
-      setIsLoading(false);
+      if (!controller.signal.aborted) {
+        setIsLoading(false);
+      }
     }
   }, [txId]);
 
@@ -39,6 +52,14 @@ export function useTransactionStatus(txId) {
       return () => clearInterval(interval);
     }
   }, [txId, checkStatus]);
+
+  useEffect(() => {
+    return () => {
+      if (controllerRef.current) {
+        controllerRef.current.abort();
+      }
+    };
+  }, []);
 
   return { status, error, isLoading, refetch: checkStatus };
 }
