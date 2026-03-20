@@ -1,7 +1,7 @@
 // Note: Gallery module
 // Scope: keep Gallery concerns isolated.
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
@@ -15,6 +15,7 @@ export function Gallery() {
   const [viewMode, setViewMode] = useLocalStorage('gallery-view-mode', 'grid')
   const [searchTerm, setSearchTerm] = useState('')
   const closeButtonRef = useRef(null)
+  const gridId = useId()
   const normalizedSearchTerm = searchTerm.toLowerCase().trim()
 
   // Sample NFT data for demonstration
@@ -161,6 +162,7 @@ export function Gallery() {
               onClick={() => setViewMode('grid')}
               aria-label="Grid view"
               aria-pressed={viewMode === 'grid'}
+              aria-controls={gridId}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                 <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
@@ -172,6 +174,7 @@ export function Gallery() {
               onClick={() => setViewMode('list')}
               aria-label="List view"
               aria-pressed={viewMode === 'list'}
+              aria-controls={gridId}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                 <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
@@ -225,6 +228,7 @@ export function Gallery() {
             onClick={() => setViewMode('grid')}
             aria-label="Grid view"
             aria-pressed={viewMode === 'grid'}
+            aria-controls={gridId}
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
@@ -236,6 +240,7 @@ export function Gallery() {
             onClick={() => setViewMode('list')}
             aria-label="List view"
             aria-pressed={viewMode === 'list'}
+            aria-controls={gridId}
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
@@ -248,7 +253,7 @@ export function Gallery() {
         Showing {filteredNfts.length} of {nfts.length} items{hasSearch ? ` for "${searchTerm}"` : ''}.
       </p>
 
-      <div className={`gallery__grid gallery__grid--${viewMode}`}>
+      <div id={gridId} className={`gallery__grid gallery__grid--${viewMode}`}>
         {filteredNfts.map((nft, index) => (
           <article
             key={nft.id}
