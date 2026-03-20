@@ -30,12 +30,12 @@ Stored in the `contracts/` directory, the ecosystem consists of three main compo
 
 | Contract | Purpose | Standard |
 |----------|---------|----------|
-| `minimint-core` | Base implementation, mint controller, and metadata management | SIP-009 |
-| `minimint-token` | Governance and utility token used for ecosystem rewards | SIP-010 |
-| `minimint-hub` | Central escrow for staking, marketplace logic, and distribution | Custom |
+| `minimint-core-v-i27` | Base implementation, mint controller, and metadata management | SIP-009 |
+| `minimint-token-v-i27` | Governance and utility token used for ecosystem rewards | SIP-010 |
+| `minimint-hub-v-i27` | Central escrow for staking, marketplace logic, and distribution | Custom |
 
 > [!NOTE]
-> The frontend is configured to target the `minimint-core` contract by default. See `frontend/src/contract.js` for configuration options.
+> The frontend is configured to target the `minimint-core` deployment by default. Update `frontend/src/constants/index.js` if you are pointing at a versioned Clarinet contract such as `minimint-core-v-i27`.
 
 ---
 
