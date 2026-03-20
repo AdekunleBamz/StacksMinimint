@@ -58,37 +58,40 @@ export function RecentMints({ items = [] }) {
       <h2 className="recent-mints__title">Recent Mints</h2>
       <p className="recent-mints__subtitle">Fresh activity appears here after each mint confirmation.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
-        {recentMints.map((mint) => (
-          <div key={`${mint.tokenId}-${mint.timestamp}`} className="mint-item" role="listitem">
-            <div className="mint-item__avatar">
-              <span>#{mint.tokenId}</span>
+        {recentMints.map((mint) => {
+          const txId = mint.txId || mint.txHash
+          return (
+            <div key={`${mint.tokenId}-${mint.timestamp}`} className="mint-item" role="listitem">
+              <div className="mint-item__avatar">
+                <span>#{mint.tokenId}</span>
+              </div>
+              <div className="mint-item__info">
+                <span className="mint-item__address">
+                  {formatAddress(mint.minter)}
+                </span>
+                <span className="mint-item__time">
+                  <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp * 1000)}>
+                    {formatRelativeTime(mint.timestamp * 1000)}
+                  </time>
+                </span>
+              </div>
+              <div className={`mint-item__badge ${txId ? '' : 'mint-item__badge--pending'}`}>
+                {txId ? (
+                  <a
+                    href={getExplorerUrl(txId)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View transaction for token #${mint.tokenId} on Explorer`}
+                  >
+                    Minted ↗
+                  </a>
+                ) : (
+                  <span aria-live="polite">Pending</span>
+                )}
+              </div>
             </div>
-            <div className="mint-item__info">
-              <span className="mint-item__address">
-                {formatAddress(mint.minter)}
-              </span>
-              <span className="mint-item__time">
-                <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp * 1000)}>
-                  {formatRelativeTime(mint.timestamp * 1000)}
-                </time>
-              </span>
-            </div>
-            <div className="mint-item__badge">
-              {mint.txId || mint.txHash ? (
-                <a
-                  href={getExplorerUrl(mint.txId || mint.txHash)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View transaction for token #${mint.tokenId} on Explorer`}
-                >
-                  Minted ↗
-                </a>
-              ) : (
-                <span className="mint-item__badge--pending" aria-live="polite">Pending</span>
-              )}
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )
