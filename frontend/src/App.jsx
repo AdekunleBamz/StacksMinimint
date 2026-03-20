@@ -26,15 +26,13 @@ function App() {
 
   useEffect(() => {
     const checkScrollTop = () => {
-      if (!showScroll && window.pageYOffset > 400) {
-        setShowScroll(true)
-      } else if (showScroll && window.pageYOffset <= 400) {
-        setShowScroll(false)
-      }
+      const shouldShow = window.pageYOffset > 400
+      setShowScroll(prev => (prev === shouldShow ? prev : shouldShow))
     }
+    checkScrollTop()
     window.addEventListener('scroll', checkScrollTop, { passive: true })
     return () => window.removeEventListener('scroll', checkScrollTop)
-  }, [showScroll])
+  }, [])
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
