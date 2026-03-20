@@ -71,6 +71,7 @@
   font-size: 0.75rem;
   font-weight: 500;
   color: #a78bfa;
+  white-space: nowrap;
 }
 
 .header__address-wrapper {
