@@ -4,6 +4,7 @@
 import { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './MintCard.css'
+import { Spinner } from './Spinner'
 import { getExplorerUrl } from '../contract'
 
 const formatSTX = (microstx) => {
@@ -163,7 +164,7 @@ export function MintCard({
           >
             {isMinting ? (
               <>
-                <span className="spinner"></span>
+                <Spinner size="small" tone="white" className="mint-card__spinner" />
                 Minting...
               </>
             ) : isSoldOut ? (
@@ -218,4 +219,3 @@ MintCard.propTypes = {
   onConnect: PropTypes.func.isRequired,
   contractError: PropTypes.string
 }
-
