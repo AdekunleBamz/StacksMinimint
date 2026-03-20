@@ -135,9 +135,12 @@ export function Gallery() {
           <h2 className="gallery__title">Collection Gallery</h2>
           <div className="gallery__search">
             <input
-              type="text"
+              type="search"
               placeholder="Search NFTs by name or owner..."
               value={searchTerm}
+              inputMode="search"
+              autoComplete="off"
+              spellCheck={false}
               onChange={(e) => setSearchTerm(e.target.value)}
               aria-label="Search collection items"
               className="search-input"
@@ -186,9 +189,12 @@ export function Gallery() {
         <h2 className="gallery__title">Collection Gallery</h2>
         <div className="gallery__search">
           <input
-            type="text"
+            type="search"
             placeholder="Search NFTs by name or owner..."
             value={searchTerm}
+            inputMode="search"
+            autoComplete="off"
+            spellCheck={false}
             onChange={(e) => setSearchTerm(e.target.value)}
             aria-label="Search collection items"
             className="search-input"
@@ -320,4 +326,3 @@ export function Gallery() {
 }
 
 Gallery.propTypes = {}
-
