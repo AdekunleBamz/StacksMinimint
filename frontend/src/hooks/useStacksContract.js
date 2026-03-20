@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { openContractCall } from '@stacks/connect';
+import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import {
   stringAsciiCV,
   PostConditionMode,
@@ -23,6 +24,7 @@ export function useStacksContract(address) {
     maxSupply: 10000,
     mintFee: MINT_FEE
   });
+  const stacksNetwork = NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET;
 
   // Mock fetch for now, as we'd need read-only calls
   const fetchContractInfo = useCallback(async () => {
@@ -67,7 +69,7 @@ export function useStacksContract(address) {
           functionArgs: [stringAsciiCV(normalizedTokenURI)],
           postConditions: [postCondition],
           postConditionMode: PostConditionMode.Deny,
-          network: NETWORK === 'mainnet' ? 'mainnet' : 'testnet',
+          network: stacksNetwork,
           onFinish: (data) => {
             setIsLoading(false);
             resolve({
