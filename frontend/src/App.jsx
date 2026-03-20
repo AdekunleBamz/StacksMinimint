@@ -10,14 +10,15 @@ import {
   RecentMints, 
   Gallery, 
   Footer, 
-  ErrorBoundary 
+  ErrorBoundary,
+  Toast
 } from './components'
 import './App.css'
 
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
-  const { showToast } = useToast()
+  const { showToast, toasts, removeToast } = useToast()
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
@@ -111,6 +112,17 @@ function App() {
         </button>
 
         <Footer />
+
+        <div className="toast-stack" aria-live="polite">
+          {toasts.map((toast) => (
+            <Toast
+              key={toast.id}
+              message={toast.message}
+              type={toast.type}
+              onClose={() => removeToast(toast.id)}
+            />
+          ))}
+        </div>
       </div>
     </ErrorBoundary>
   )
