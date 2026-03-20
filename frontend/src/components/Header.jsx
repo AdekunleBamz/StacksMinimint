@@ -8,10 +8,11 @@ import './Header.css'
 
 import logo from '../assets/logo.png'
 import { formatAddress } from '../utils/collection'
+import { NETWORK } from '../constants'
 
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
-  const chainName = 'Stacks'
+  const chainName = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
 
   const handleCopy = useCallback(() => {
     if (account) copy(account)
