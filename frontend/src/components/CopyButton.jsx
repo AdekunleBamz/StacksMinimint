@@ -1,34 +1,24 @@
 // Note: Copybutton module
 // Scope: keep CopyButton concerns isolated.
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './CopyButton.css'
+import { useClipboard } from '../hooks'
 
 export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
-  const [copied, setCopied] = useState(false)
-  const timeoutRef = useRef(null)
+  const { copied, copy } = useClipboard()
   const hasText = Boolean(text)
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [])
 
   const handleCopy = useCallback(async () => {
     if (!hasText) return
 
     try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      timeoutRef.current = setTimeout(() => setCopied(false), 2000)
+      await copy(text)
     } catch (err) {
       console.error('Failed to copy:', err)
     }
-  }, [text, hasText])
+  }, [text, hasText, copy])
 
   return (
     <button
@@ -64,4 +54,3 @@ CopyButton.propTypes = {
   successLabel: PropTypes.string,
   className: PropTypes.string
 }
-
