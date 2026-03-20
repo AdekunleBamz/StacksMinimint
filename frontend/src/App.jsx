@@ -103,6 +103,8 @@ function App() {
           className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
           onClick={scrollToTop}
           aria-label="Back to top"
+          aria-hidden={!showScroll}
+          tabIndex={showScroll ? 0 : -1}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
             <polyline points="18 15 12 9 6 15"></polyline>
