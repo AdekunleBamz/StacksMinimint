@@ -4,7 +4,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import './Stats.css'
-import { formatLimit, formatSTX } from '../utils/collection'
+import { formatExactTime, formatLimit, formatSTX } from '../utils/collection'
 
 export function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
   const [lastUpdated, setLastUpdated] = useState(new Date())
@@ -89,7 +89,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           <span>{recentActivityCount} {receiptLabel}</span>
         </div>
         <div className="stats__timestamp" aria-live="polite">
-          Last updated: {lastUpdated.toLocaleTimeString()}
+          Last updated: {formatExactTime(lastUpdated.getTime())}
         </div>
       </div>
 
@@ -144,4 +144,3 @@ Stats.propTypes = {
   isConnected: PropTypes.bool,
   recentActivityCount: PropTypes.number
 }
-
