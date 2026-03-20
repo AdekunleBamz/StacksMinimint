@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export function useLocalStorage(key, initialValue) {
   // Get stored value or use initial
@@ -36,6 +36,22 @@ export function useLocalStorage(key, initialValue) {
     } catch (error) {
       console.warn(`Error removing localStorage key "${key}":`, error)
     }
+  }, [key, initialValue])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const handleStorage = (event) => {
+      if (event.key !== key) return
+      try {
+        setStoredValue(event.newValue ? JSON.parse(event.newValue) : initialValue)
+      } catch (error) {
+        console.warn(`Error syncing localStorage key "${key}":`, error)
+      }
+    }
+
+    window.addEventListener('storage', handleStorage)
+    return () => window.removeEventListener('storage', handleStorage)
   }, [key, initialValue])
 
   return [storedValue, setValue, removeValue]
