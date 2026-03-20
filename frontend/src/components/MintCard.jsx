@@ -131,6 +131,9 @@ export function MintCard({
               className="form-input"
               placeholder="ipfs://... or https://..."
               value={tokenURI}
+              maxLength={256}
+              inputMode="url"
+              spellCheck={false}
               onChange={(e) => {
                 setTokenURI(e.target.value)
                 if (mintStatus?.type === 'error') {
