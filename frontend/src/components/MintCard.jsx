@@ -55,8 +55,12 @@ export function MintCard({
     }
   }, [tokenURI, onMint])
 
-  const isSoldOut = contractInfo?.totalSupply >= contractInfo?.maxSupply
-  const walletLimitReached = contractInfo?.walletMinted >= contractInfo?.maxPerWallet
+  const totalSupply = contractInfo?.totalSupply ?? 0
+  const maxSupply = Number.isFinite(contractInfo?.maxSupply) ? contractInfo.maxSupply : null
+  const walletMinted = contractInfo?.walletMinted ?? 0
+  const maxPerWallet = Number.isFinite(contractInfo?.maxPerWallet) ? contractInfo.maxPerWallet : null
+  const isSoldOut = maxSupply !== null && totalSupply >= maxSupply
+  const walletLimitReached = maxPerWallet !== null && walletMinted >= maxPerWallet
   const mintActionMessage = contractInfo?.isPaused
     ? 'Minting is paused by the collection owner.'
     : isSoldOut
@@ -83,13 +87,13 @@ export function MintCard({
         <div className="stat">
           <span className="stat__label">Minted</span>
           <span className="stat__value">
-            {contractInfo?.totalSupply || 0} / {contractInfo?.maxSupply || '∞'}
+            {totalSupply} / {maxSupply ?? '∞'}
           </span>
         </div>
         <div className="stat">
           <span className="stat__label">Your Mints</span>
           <span className="stat__value">
-            {contractInfo?.walletMinted || 0} / {contractInfo?.maxPerWallet || '∞'}
+            {walletMinted} / {maxPerWallet ?? '∞'}
           </span>
         </div>
       </div>
