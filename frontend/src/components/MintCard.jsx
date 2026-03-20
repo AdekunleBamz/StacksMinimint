@@ -6,11 +6,7 @@ import PropTypes from 'prop-types'
 import './MintCard.css'
 import { Spinner } from './Spinner'
 import { getExplorerUrl } from '../contract'
-
-const formatSTX = (microstx) => {
-  if (microstx === null || microstx === undefined || Number.isNaN(Number(microstx))) return '0'
-  return (Number(microstx) / 1e6).toFixed(3).replace(/\.?0+$/, '')
-}
+import { formatSTX } from '../utils/collection'
 
 export function MintCard({ 
   contractInfo, 
