@@ -1,24 +1,34 @@
 // Note: Tooltip module
 // Scope: keep Tooltip concerns isolated.
 
-import { useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Tooltip.css'
 
 export function Tooltip({ children, content, position = 'top', delay = 300 }) {
   const [isVisible, setIsVisible] = useState(false)
-  const [timer, setTimer] = useState(null)
+  const timerRef = useRef(null)
   const tooltipId = useId()
 
   const showTooltip = () => {
-    const newTimer = setTimeout(() => setIsVisible(true), delay)
-    setTimer(newTimer)
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+    }
+    timerRef.current = setTimeout(() => setIsVisible(true), delay)
   }
 
   const hideTooltip = () => {
-    if (timer) clearTimeout(timer)
+    if (timerRef.current) clearTimeout(timerRef.current)
     setIsVisible(false)
   }
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
+  }, [])
 
   return (
     <div 
@@ -46,4 +56,3 @@ Tooltip.propTypes = {
   position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
   delay: PropTypes.number
 }
-
