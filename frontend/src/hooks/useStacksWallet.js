@@ -24,7 +24,7 @@ export function useStacksWallet() {
     showConnect({
       appDetails: {
         name: 'NFTminimint',
-        icon: window.location.origin + '/favicon.ico',
+        icon: typeof window !== 'undefined' ? window.location.origin + '/favicon.ico' : '',
       },
       redirectTo: '/',
       onFinish: () => {
