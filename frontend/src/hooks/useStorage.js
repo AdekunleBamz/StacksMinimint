@@ -66,5 +66,15 @@ export function useSessionStorage(key, initialValue) {
     }
   }, [key])
 
-  return [storedValue, setValue]
+  const removeValue = useCallback(() => {
+    try {
+      if (typeof window === 'undefined') return
+      window.sessionStorage.removeItem(key)
+      setStoredValue(initialValue)
+    } catch (error) {
+      console.warn(`Error removing sessionStorage key "${key}":`, error)
+    }
+  }, [key, initialValue])
+
+  return [storedValue, setValue, removeValue]
 }
