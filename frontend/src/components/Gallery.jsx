@@ -126,7 +126,7 @@ export function Gallery() {
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
-        <div className="gallery__empty">
+        <div className="gallery__empty" role="status" aria-live="polite">
           <span className="gallery__empty-icon">🖼️</span>
           <h3>No NFTs Yet</h3>
           <p>Be the first to mint an NFT from this collection!</p>
@@ -178,7 +178,7 @@ export function Gallery() {
             </button>
           </div>
         </div>
-        <div className="gallery__empty gallery__empty--search">
+        <div className="gallery__empty gallery__empty--search" role="status" aria-live="polite">
           <div className="gallery__empty-icon">🔍</div>
           <h3>No matching NFTs</h3>
           <p>We couldn't find anything matching "{searchTerm}"</p>
