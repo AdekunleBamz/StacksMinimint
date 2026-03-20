@@ -6,12 +6,13 @@ import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
 import { formatAddress } from '../utils/collection'
+import { useLocalStorage } from '../hooks'
 
 export function Gallery() {
   const [nfts, setNfts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [selectedNft, setSelectedNft] = useState(null)
-  const [viewMode, setViewMode] = useState('grid')
+  const [viewMode, setViewMode] = useLocalStorage('gallery-view-mode', 'grid')
   const [searchTerm, setSearchTerm] = useState('')
   const closeButtonRef = useRef(null)
   const normalizedSearchTerm = searchTerm.toLowerCase().trim()
