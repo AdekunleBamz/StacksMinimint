@@ -1,7 +1,7 @@
 // Note: Header module
 // Scope: keep Header concerns isolated.
 
-import { useState, useRef, useEffect, useId, useCallback } from 'react'
+import { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { useClipboard } from '../hooks'
 import './Header.css'
@@ -69,4 +69,3 @@ Header.propTypes = {
   onDisconnect: PropTypes.func.isRequired,
   isConnecting: PropTypes.bool
 }
-
