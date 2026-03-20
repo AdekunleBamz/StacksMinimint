@@ -13,6 +13,7 @@ import {
   NETWORK
 } from '../constants';
 import { userSession } from './useStacksWallet';
+import { validateTokenURI } from '../utils/collection';
 
 export function useStacksContract(address) {
   const [isLoading, setIsLoading] = useState(false);
@@ -49,14 +50,9 @@ export function useStacksContract(address) {
 
     try {
       const normalizedTokenURI = String(tokenURI || '').trim();
-      if (!normalizedTokenURI) {
-        setError('Metadata URI is required');
-        setIsLoading(false);
-        return null;
-      }
-
-      if (normalizedTokenURI.length > 256) {
-        setError('Metadata URI must be 256 characters or fewer');
+      const validation = validateTokenURI(normalizedTokenURI);
+      if (!validation.isValid) {
+        setError(validation.helper);
         setIsLoading(false);
         return null;
       }
