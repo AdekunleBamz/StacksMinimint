@@ -5,6 +5,7 @@ import { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
+import { formatAddress } from '../utils/collection'
 
 export function Gallery() {
   const [nfts, setNfts] = useState([])
@@ -267,7 +268,7 @@ export function Gallery() {
               <h3 className="nft-card__name">{nft.name}</h3>
               <p className="nft-card__owner">
                 <span className="label">Owner:</span>
-                <span className="value">{nft.owner}</span>
+                <span className="value">{formatAddress(nft.owner)}</span>
               </p>
             </div>
           </article>
@@ -298,7 +299,7 @@ export function Gallery() {
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Owner</span>
-                  <span className="detail-pill detail-pill--owner">{selectedNft.owner}</span>
+                  <span className="detail-pill detail-pill--owner">{formatAddress(selectedNft.owner)}</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Token URI</span>
