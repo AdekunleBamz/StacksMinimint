@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatSTX, getMetadataKind, validateTokenURI } from './collection'
+import { formatExactTime, formatRelativeTime, formatSTX, getMetadataKind, validateTokenURI } from './collection'
 
 describe('collection utility', () => {
   describe('formatSTX', () => {
@@ -29,6 +29,20 @@ describe('collection utility', () => {
       const result = validateTokenURI('ftp://example.com')
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Unsupported scheme')
+    })
+  })
+
+  describe('formatRelativeTime', () => {
+    it('returns Just now for fresh timestamps', () => {
+      expect(formatRelativeTime(Date.now())).toBe('Just now')
+    })
+  })
+
+  describe('formatExactTime', () => {
+    it('formats to a readable string', () => {
+      const formatted = formatExactTime(Date.now())
+      expect(typeof formatted).toBe('string')
+      expect(formatted.length).toBeGreaterThan(0)
     })
   })
 })
