@@ -16,6 +16,7 @@
   color: #94a3b8;
   font-size: 0.92rem;
   line-height: 1.7;
+  max-width: 32rem;
 }
 
 .stats__headline {
