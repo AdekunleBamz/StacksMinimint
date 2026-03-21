@@ -41,6 +41,7 @@
 
 .error-boundary__button {
   padding: 0.5rem 1.5rem;
+  min-height: 2.5rem;
   background: linear-gradient(135deg, #8b5cf6, #6366f1);
   color: #ffffff;
   border: none;
