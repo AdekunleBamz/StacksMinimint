@@ -40,6 +40,7 @@ class ErrorBoundary extends React.Component {
             </pre>
           )}
           <button
+            type="button"
             onClick={() => window.location.reload()}
             className="error-boundary__button"
           >
