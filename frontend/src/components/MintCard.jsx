@@ -140,7 +140,7 @@ export function MintCard({
               spellCheck={false}
               onChange={(e) => {
                 setTokenURI(e.target.value)
-                if (mintStatus?.type === 'error') {
+                if (mintStatus) {
                   setMintStatus(null)
                 }
               }}
