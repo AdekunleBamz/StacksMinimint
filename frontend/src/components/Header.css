@@ -129,6 +129,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: #c4b5fd;
+  white-space: nowrap;
 }
 
 .header__copied-toast {
