@@ -60,6 +60,7 @@
   top: 50%;
   right: 0.5rem;
   transform: translateY(-50%);
+  min-height: 2rem;
   padding: 0.35rem 0.55rem;
   border: none;
   border-radius: 999px;
