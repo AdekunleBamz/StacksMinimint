@@ -121,7 +121,7 @@ export function MintCard({
       {!isConnected ? (
         <div className="mint-card__connect">
           <p>Connect a Stacks wallet to start minting</p>
-          <button type="button" className="mint-card__btn" onClick={onConnect}>
+          <button type="button" className="mint-card__btn" onClick={onConnect} aria-label="Connect wallet to mint">
             Connect Wallet
           </button>
         </div>
