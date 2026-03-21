@@ -48,6 +48,7 @@ export function RecentMints({ items = [] }) {
         <div className="recent-mints__empty" role="status" aria-live="polite">
           <span className="recent-mints__empty-icon" aria-hidden="true">🎨</span>
           <p>No local mint receipts yet.</p>
+          <p className="recent-mints__empty-copy">Your next wallet submission will appear here.</p>
         </div>
       </section>
     )
