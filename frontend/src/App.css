@@ -214,6 +214,11 @@
   transform: translateY(-5px);
 }
 
+.back-to-top:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.45), 0 10px 25px -5px rgba(139, 92, 246, 0.5);
+}
+
 /* Toast stack */
 .toast-stack {
   position: fixed;
