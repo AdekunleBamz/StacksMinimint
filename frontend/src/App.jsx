@@ -42,7 +42,7 @@ function App() {
     const result = await mint(tokenURI)
     if (result) {
       setLastTxId(result.txId)
-      showToast('Transaction Broadcasted!', 'success')
+      showToast('Transaction submitted to Stacks.', 'success')
       setRecentMints(prev => [result, ...prev].slice(0, 5))
     }
     return result
