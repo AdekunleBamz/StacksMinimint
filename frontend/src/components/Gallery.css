@@ -68,6 +68,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .gallery__results {
