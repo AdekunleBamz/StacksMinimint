@@ -52,6 +52,7 @@
 
 .skeleton--button {
   height: 44px;
+  min-height: 44px;
   border-radius: 8px;
 }
 
