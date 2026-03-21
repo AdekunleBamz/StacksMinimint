@@ -19,6 +19,7 @@
 
 .error-boundary__message {
   color: #e2e8f0;
+  line-height: 1.6;
 }
 
 .error-boundary__details {
