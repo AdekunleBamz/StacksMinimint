@@ -70,6 +70,8 @@
 .hero__content {
   position: relative;
   z-index: 1;
+  max-width: 42rem;
+  margin: 0 auto;
 }
 
 .hero__badge {
