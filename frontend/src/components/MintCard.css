@@ -151,6 +151,13 @@
   color: #6b7280;
 }
 
+.form-counter {
+  margin-top: -0.1rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: right;
+}
+
 .mint-card__btn {
   padding: 1rem 1.5rem;
   border: none;
