@@ -69,6 +69,10 @@
   border: 1px solid rgba(148, 163, 184, 0.1);
 }
 
+.stats__timestamp {
+  font-variant-numeric: tabular-nums;
+}
+
 .stats__progress {
   margin-bottom: 1.5rem;
 }
