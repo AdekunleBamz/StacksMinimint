@@ -345,7 +345,7 @@ export function Gallery() {
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Token URI</span>
-                  <span className="detail-value detail-value--mono">
+                  <span className="detail-value detail-value--mono" title={selectedNft.tokenURI}>
                     {selectedNft.tokenURI}
                   </span>
                 </div>
