@@ -153,7 +153,7 @@ export function Gallery() {
           <div className="gallery__search">
             <input
               type="search"
-              placeholder="Search NFTs by name or owner..."
+              placeholder="Search by name, owner, or #123..."
               value={searchTerm}
               inputMode="search"
               autoComplete="off"
@@ -214,7 +214,7 @@ export function Gallery() {
         <div className="gallery__search">
           <input
             type="search"
-            placeholder="Search NFTs by name or owner..."
+            placeholder="Search by name, owner, or #123..."
             value={searchTerm}
             inputMode="search"
             autoComplete="off"
