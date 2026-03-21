@@ -36,6 +36,7 @@
   color: #f8fafc;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+  line-height: 1.6;
 }
 
 .error-boundary__button {
