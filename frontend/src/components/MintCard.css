@@ -249,6 +249,7 @@
 .mint-card__tx-link {
   color: #a78bfa;
   text-decoration: none;
+  text-underline-offset: 0.2em;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
