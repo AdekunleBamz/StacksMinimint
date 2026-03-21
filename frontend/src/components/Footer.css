@@ -92,10 +92,9 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 2.5rem;
-  margin-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1rem auto 0;
 }
 
 .footer__copyright {
