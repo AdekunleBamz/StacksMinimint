@@ -90,6 +90,7 @@ export function RecentMints({ items = [] }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={explorerLabel}
+                    title={txId}
                   >
                     {receiptLabel}
                   </a>
