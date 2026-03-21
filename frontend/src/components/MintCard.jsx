@@ -43,7 +43,7 @@ export function MintCard({
       }
       setMintStatus({ 
         type: 'success', 
-        message: result.tokenId ? `NFT minted! Token ID: ${result.tokenId}` : 'NFT mint submitted successfully.',
+        message: result.tokenId ? `NFT minted! Token ID: ${result.tokenId}` : 'Mint submitted. Track the transaction below.',
         txHash: result.txHash || result.txId
       })
       setTokenURI('')
