@@ -70,6 +70,11 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.gallery__clear-search:hover {
+  background: rgba(139, 92, 246, 0.22);
 }
 
 .gallery__results {
