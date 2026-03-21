@@ -62,7 +62,7 @@ export function CardFooter({ children, className = '' }) {
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['default', 'flat', 'outline', 'elevated']),
+  variant: PropTypes.oneOf(['default', 'elevated', 'outlined', 'glass', 'gradient']),
   padding: PropTypes.oneOf(['none', 'small', 'medium', 'large']),
   hover: PropTypes.bool,
   className: PropTypes.string,
