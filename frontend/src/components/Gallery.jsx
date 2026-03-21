@@ -191,6 +191,9 @@ export function Gallery() {
             </button>
           </div>
         </div>
+        <p className="gallery__search-hint">
+          Search by name, owner, or <span>#token</span>. Press Escape to clear.
+        </p>
         <div className="gallery__empty gallery__empty--search" role="status" aria-live="polite">
           <div className="gallery__empty-icon">🔍</div>
           <h3>No matching NFTs</h3>
@@ -255,9 +258,13 @@ export function Gallery() {
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
             </svg>
-          </button>
+            </button>
+          </div>
         </div>
-      </div>
+
+        <p className="gallery__search-hint">
+          Search by name, owner, or <span>#token</span>. Press Escape to clear.
+        </p>
 
       <p className="gallery__results" aria-live="polite">
         Showing {filteredNfts.length} of {nfts.length} items{hasSearch ? ` for "${searchTerm}"` : ''}.
