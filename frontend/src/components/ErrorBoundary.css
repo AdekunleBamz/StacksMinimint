@@ -1,12 +1,14 @@
 .error-boundary {
   padding: 2rem;
   text-align: center;
-  background-color: #fff1f0;
-  border: 1px solid #ffa39e;
-  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(58, 10, 18, 0.92), rgba(23, 8, 18, 0.98));
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  border-radius: 1rem;
   margin: 2rem auto;
   max-width: 600px;
   font-family: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
+  color: #f8fafc;
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.45);
 }
 
 .error-boundary__title {
