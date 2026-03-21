@@ -17,6 +17,7 @@
   background: #f8fafc;
   color: #0f172a;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .skip-link:focus,
