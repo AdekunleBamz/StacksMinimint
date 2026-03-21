@@ -222,6 +222,13 @@
   .header__copy-hint {
     display: none;
   }
+
+  .header__copied-toast {
+    top: auto;
+    bottom: -2.15rem;
+    left: 0;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
