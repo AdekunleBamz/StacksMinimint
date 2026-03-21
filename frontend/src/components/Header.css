@@ -114,6 +114,9 @@
   font-size: 0.875rem;
   color: #e5e7eb;
   transition: all 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header__copy-hint {
