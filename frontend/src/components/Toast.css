@@ -83,8 +83,8 @@
 }
 
 .toast__close {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   margin-top: 0.125rem;
   border: none;
   background: rgba(255, 255, 255, 0.1);
