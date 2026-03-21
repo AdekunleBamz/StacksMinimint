@@ -21,7 +21,17 @@ export function Badge({
 
 Badge.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['default', 'outline', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+  variant: PropTypes.oneOf([
+    'default',
+    'primary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'primary-solid',
+    'success-solid',
+    'danger-solid'
+  ]),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   dot: PropTypes.bool,
   className: PropTypes.string
