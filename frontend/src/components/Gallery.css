@@ -490,6 +490,7 @@
 .modal__btn {
   flex: 1;
   padding: 1rem 1.5rem;
+  min-height: 3rem;
   background: linear-gradient(135deg, #8b5cf6, #6366f1);
   border: none;
   border-radius: 0.75rem;
