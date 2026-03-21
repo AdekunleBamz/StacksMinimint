@@ -432,6 +432,12 @@
   color: #9ca3af;
 }
 
+.detail-value {
+  max-width: 60%;
+  text-align: right;
+  color: #f3f4f6;
+}
+
 .detail-pill {
   font-size: 0.8125rem;
   font-weight: 600;
