@@ -60,10 +60,11 @@ export function RecentMints({ items = [] }) {
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
           const txId = mint.txId || mint.txHash
+          const tokenLabel = mint.tokenId == null ? 'Pending' : `#${mint.tokenId}`
           return (
             <div key={`${mint.tokenId}-${mint.timestamp}`} className="mint-item" role="listitem">
               <div className="mint-item__avatar">
-                <span>#{mint.tokenId}</span>
+                <span>{tokenLabel}</span>
               </div>
               <div className="mint-item__info">
                 <span className="mint-item__address">
