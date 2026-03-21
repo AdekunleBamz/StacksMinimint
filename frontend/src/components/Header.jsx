@@ -33,7 +33,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               type="button"
               className="header__address-wrapper"
               onClick={handleCopy}
-              title="Copy wallet address"
+              title={account}
               aria-label={`Copy wallet address ${account}`}
             >
               <span className="header__address-label">Wallet</span>
