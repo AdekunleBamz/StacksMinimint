@@ -141,6 +141,7 @@
   color: white;
   padding: 0.25rem 0.625rem;
   border-radius: 4px;
+  box-shadow: 0 10px 24px -16px rgba(16, 185, 129, 0.9);
   font-size: 0.7rem;
   font-weight: 600;
   white-space: nowrap;
