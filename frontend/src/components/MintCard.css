@@ -249,6 +249,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  align-self: flex-start;
 }
 
 .mint-card__tx-link:hover {
