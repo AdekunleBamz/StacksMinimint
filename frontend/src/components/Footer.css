@@ -37,6 +37,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 1.25rem;
+  text-wrap: balance;
 }
 
 .footer__description {
