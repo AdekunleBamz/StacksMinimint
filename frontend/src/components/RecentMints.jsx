@@ -65,8 +65,9 @@ export function RecentMints({ items = [] }) {
           const explorerLabel = mint.tokenId == null
             ? 'View submitted transaction on Explorer'
             : `View transaction for token #${mint.tokenId} on Explorer`
+          const mintKey = txId || `${mint.tokenId ?? 'pending'}-${mint.timestamp}`
           return (
-            <div key={`${mint.tokenId}-${mint.timestamp}`} className="mint-item" role="listitem">
+            <div key={mintKey} className="mint-item" role="listitem">
               <div className="mint-item__avatar">
                 <span>{tokenLabel}</span>
               </div>
