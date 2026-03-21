@@ -135,7 +135,7 @@ export function MintCard({
               type="url"
               id="tokenURI"
               className="form-input"
-              placeholder="ipfs://... or https://..."
+              placeholder="ipfs://metadata.json or https://example.com/metadata.json"
               value={tokenURI}
               maxLength={256}
               inputMode="url"
