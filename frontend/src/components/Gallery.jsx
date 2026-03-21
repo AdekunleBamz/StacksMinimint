@@ -341,7 +341,7 @@ export function Gallery() {
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Owner</span>
-                  <span className="detail-pill detail-pill--owner">{formatAddress(selectedNft.owner)}</span>
+                  <span className="detail-pill detail-pill--owner" title={selectedNft.owner}>{formatAddress(selectedNft.owner)}</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Token URI</span>
