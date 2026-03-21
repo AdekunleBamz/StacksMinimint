@@ -47,7 +47,7 @@ export function RecentMints({ items = [] }) {
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__empty" role="status" aria-live="polite">
           <span className="recent-mints__empty-icon" aria-hidden="true">🎨</span>
-          <p>No mints yet. Be the first!</p>
+          <p>No local mint receipts yet.</p>
         </div>
       </section>
     )
