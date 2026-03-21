@@ -128,6 +128,7 @@
   color: #f8fafc;
   font-size: 1.25rem;
   font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-card__detail {
