@@ -14,6 +14,7 @@
 .error-boundary__title {
   color: #fca5a5;
   margin-top: 0;
+  line-height: 1.2;
 }
 
 .error-boundary__message {
