@@ -19,6 +19,7 @@ export function MintCard({
   const [isMinting, setIsMinting] = useState(false)
   const [mintStatus, setMintStatus] = useState(null)
   const tokenUriValidation = validateTokenURI(tokenURI)
+  const hasTokenURI = tokenURI.trim().length > 0
   const isTokenUriValid = tokenUriValidation.isValid
 
   const handleMint = useCallback(async (e) => {
@@ -145,7 +146,7 @@ export function MintCard({
                 }
               }}
               aria-describedby="tokenURIHint mintActionMessage"
-              aria-invalid={!isTokenUriValid}
+              aria-invalid={hasTokenURI && !isTokenUriValid}
               required
               autoComplete="off"
               disabled={isMinting || isSoldOut || contractInfo?.isPaused}
