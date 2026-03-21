@@ -321,6 +321,9 @@
 .gallery__empty p {
   color: #9ca3af;
   margin: 0 0 1.5rem 0;
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gallery__empty--search {
