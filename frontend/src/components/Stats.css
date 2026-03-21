@@ -100,6 +100,7 @@
   margin-top: 0.55rem;
   color: #94a3b8;
   font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .stats__grid {
