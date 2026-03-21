@@ -68,7 +68,7 @@ function App() {
               <span className="hero__badge">SIP-009</span>
               <h1 className="hero__title">NFTminimint</h1>
               <p className="hero__subtitle">
-                A minimal, gas-efficient NFT minting experience on Stacks
+                A wallet-first, gas-efficient NFT minting experience on Stacks
               </p>
             </div>
           </section>
