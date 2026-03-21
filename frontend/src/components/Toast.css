@@ -99,6 +99,7 @@
   justify-content: center;
   transition: background 0.2s ease;
   flex-shrink: 0;
+  touch-action: manipulation;
 }
 
 .toast__close:hover {
