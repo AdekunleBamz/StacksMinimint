@@ -74,6 +74,7 @@
   margin: 0 0 1.25rem;
   color: #94a3b8;
   font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .gallery__search-hint {
