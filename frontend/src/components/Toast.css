@@ -91,6 +91,7 @@
   border-radius: 50%;
   color: inherit;
   font-size: 1.125rem;
+  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
