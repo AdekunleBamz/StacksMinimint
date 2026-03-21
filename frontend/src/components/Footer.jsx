@@ -98,7 +98,7 @@ export function Footer() {
 
       <div className="footer__bottom">
         <p className="footer__copyright">
-          © {currentYear} NFTminimint. All rights reserved.
+          © {currentYear} NFTminimint. Open source under MIT.
         </p>
         <p className="footer__credit">
           Built for Stacks NFT drops
