@@ -22,7 +22,7 @@ export function Toast({ message, type = 'info', onClose }) {
       <span className="toast__icon" aria-hidden="true">{icons[type]}</span>
       <span className="toast__message">{message}</span>
       {onClose && (
-        <button type="button" className="toast__close" onClick={onClose} aria-label={`Close ${type} notification`}>
+        <button type="button" className="toast__close" onClick={onClose} aria-label={`Dismiss ${type} notification`}>
           ×
         </button>
       )}
