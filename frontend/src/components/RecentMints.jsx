@@ -61,6 +61,10 @@ export function RecentMints({ items = [] }) {
         {recentMints.map((mint) => {
           const txId = mint.txId || mint.txHash
           const tokenLabel = mint.tokenId == null ? 'Pending' : `#${mint.tokenId}`
+          const receiptLabel = mint.tokenId == null ? 'Submitted ↗' : 'Minted ↗'
+          const explorerLabel = mint.tokenId == null
+            ? 'View submitted transaction on Explorer'
+            : `View transaction for token #${mint.tokenId} on Explorer`
           return (
             <div key={`${mint.tokenId}-${mint.timestamp}`} className="mint-item" role="listitem">
               <div className="mint-item__avatar">
@@ -82,9 +86,9 @@ export function RecentMints({ items = [] }) {
                     href={getExplorerUrl(txId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`View transaction for token #${mint.tokenId} on Explorer`}
+                    aria-label={explorerLabel}
                   >
-                    Minted ↗
+                    {receiptLabel}
                   </a>
                 ) : (
                   <span aria-live="polite">Pending</span>
