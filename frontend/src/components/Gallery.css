@@ -316,6 +316,7 @@
   font-size: 1.25rem;
   color: #f3f4f6;
   margin: 0 0 0.5rem 0;
+  text-wrap: balance;
 }
 
 .gallery__empty p {
