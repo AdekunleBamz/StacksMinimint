@@ -45,7 +45,7 @@ export function RecentMints({ items = [] }) {
     return (
       <section className="recent-mints">
         <h2 className="recent-mints__title">Recent Mints</h2>
-        <div className="recent-mints__empty">
+        <div className="recent-mints__empty" role="status" aria-live="polite">
           <span className="recent-mints__empty-icon">🎨</span>
           <p>No mints yet. Be the first!</p>
         </div>
