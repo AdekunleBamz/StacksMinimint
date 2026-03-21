@@ -85,6 +85,7 @@
 
 .toast__close {
   width: 26px;
+  min-width: 26px;
   height: 26px;
   margin-top: 0.125rem;
   border: none;
