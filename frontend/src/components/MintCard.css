@@ -155,6 +155,7 @@
 .form-hint {
   font-size: 0.75rem;
   color: #6b7280;
+  line-height: 1.5;
 }
 
 .form-counter {
