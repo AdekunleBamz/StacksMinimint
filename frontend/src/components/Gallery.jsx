@@ -60,7 +60,6 @@ export function Gallery() {
     if (event.key === 'Escape' && searchTerm) {
       event.preventDefault()
       setSearchTerm('')
-      event.currentTarget.blur()
     }
   }
 
