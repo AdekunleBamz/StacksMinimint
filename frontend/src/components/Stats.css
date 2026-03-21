@@ -76,6 +76,7 @@
 
 .stats__timestamp {
   font-variant-numeric: tabular-nums;
+  line-height: 1.5;
 }
 
 .stats__progress {
