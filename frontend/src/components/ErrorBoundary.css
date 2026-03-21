@@ -29,6 +29,8 @@
   overflow-x: auto;
   font-size: 0.85rem;
   color: #f8fafc;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .error-boundary__button {
