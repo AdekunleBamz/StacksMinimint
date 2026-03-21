@@ -36,6 +36,7 @@
   border-radius: 0.875rem;
   color: #f3f4f6;
   font-size: 0.875rem;
+  line-height: 1.4;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
