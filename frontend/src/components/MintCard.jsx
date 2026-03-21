@@ -154,7 +154,7 @@ export function MintCard({
               disabled={isMinting || isSoldOut || contractInfo?.isPaused}
             />
             <span id="tokenURIHint" className="form-hint">
-              IPFS or HTTP link to your NFT metadata JSON
+              Paste an ipfs:// CID or secure https:// link to your metadata JSON
             </span>
             <div className="form-counter" aria-live="polite">
               {tokenUriValidation.characterCount} / 256 characters
