@@ -211,6 +211,10 @@
     width: 100%;
     justify-content: space-between;
   }
+
+  .header__copy-hint {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
