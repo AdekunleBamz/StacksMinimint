@@ -11,6 +11,7 @@
   border-radius: 50%;
   border-style: solid;
   border-color: transparent;
+  will-change: transform;
   animation: spin 0.8s linear infinite;
 }
 
