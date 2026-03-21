@@ -33,7 +33,7 @@ export function MintCard({
     }
 
     setIsMinting(true)
-    setMintStatus({ type: 'pending', message: 'Confirm transaction in wallet...' })
+    setMintStatus({ type: 'pending', message: 'Confirm this mint in your wallet to continue.' })
 
     try {
       const result = await onMint(normalizedTokenURI)
