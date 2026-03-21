@@ -192,6 +192,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  touch-action: manipulation;
   transform: translateY(20px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 99;
