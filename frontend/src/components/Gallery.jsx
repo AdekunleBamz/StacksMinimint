@@ -101,6 +101,8 @@ export function Gallery() {
            nft.owner.toLowerCase().includes(normalizedSearchTerm)
   }), [nfts, normalizedSearchTerm])
   const hasSearch = searchTerm.trim().length > 0
+  const filteredLabel = filteredNfts.length === 1 ? 'item' : 'items'
+  const totalLabel = nfts.length === 1 ? 'item' : 'items'
 
   const handleCardKeyDown = (event, nft) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -269,7 +271,8 @@ export function Gallery() {
         </p>
 
       <p className="gallery__results" aria-live="polite">
-        Showing {filteredNfts.length} of {nfts.length} items{hasSearch ? ` for "${searchTerm}"` : ''}.
+        Showing {filteredNfts.length} {filteredLabel}
+        {hasSearch ? ` matching "${searchTerm}"` : ''} out of {nfts.length} {totalLabel}.
       </p>
 
       <div id={gridId} className={`gallery__grid gallery__grid--${viewMode}`}>
