@@ -156,6 +156,7 @@
   font-size: 0.75rem;
   color: #9ca3af;
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .mint-card__btn {
