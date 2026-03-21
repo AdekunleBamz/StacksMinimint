@@ -156,7 +156,7 @@ export function MintCard({
             <span id="tokenURIHint" className="form-hint">
               Paste an ipfs:// CID or secure https:// link to your metadata JSON
             </span>
-            <div className="form-counter" aria-live="polite">
+            <div className="form-counter" aria-live="polite" aria-atomic="true">
               {tokenUriValidation.characterCount} / 256 characters
             </div>
           </div>
