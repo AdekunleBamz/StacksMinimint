@@ -18,7 +18,7 @@
   font-size: 0.92rem;
   line-height: 1.7;
   max-width: 32rem;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .stats__headline {
