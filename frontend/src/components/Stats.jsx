@@ -89,7 +89,10 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           <span>{recentActivityCount} {receiptLabel}</span>
         </div>
         <div className="stats__timestamp" aria-live="polite">
-          Last updated: {formatExactTime(lastUpdated.getTime())}
+          Last updated:{' '}
+          <time dateTime={lastUpdated.toISOString()}>
+            {formatExactTime(lastUpdated.getTime())}
+          </time>
         </div>
       </div>
 
