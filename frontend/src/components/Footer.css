@@ -105,6 +105,7 @@
   color: #6b7280;
   font-size: 0.875rem;
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;
   margin: 0;
 }
 
