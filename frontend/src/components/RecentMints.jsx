@@ -54,9 +54,9 @@ export function RecentMints({ items = [] }) {
   }
 
   return (
-    <section className="recent-mints">
-      <h2 className="recent-mints__title">Recent Mints</h2>
-      <p className="recent-mints__subtitle">Fresh activity appears here after each mint confirmation.</p>
+      <section className="recent-mints">
+        <h2 className="recent-mints__title">Recent Mints</h2>
+      <p className="recent-mints__subtitle">Fresh activity appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
           const txId = mint.txId || mint.txHash
