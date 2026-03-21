@@ -120,7 +120,7 @@ export function MintCard({
 
       {!isConnected ? (
         <div className="mint-card__connect">
-          <p>Connect your wallet to mint</p>
+          <p>Connect a Stacks wallet to start minting</p>
           <button type="button" className="mint-card__btn" onClick={onConnect}>
             Connect Wallet
           </button>
