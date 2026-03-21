@@ -31,7 +31,7 @@
 }
 
 .card--elevated {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.45);
 }
 
 .card--outlined {
