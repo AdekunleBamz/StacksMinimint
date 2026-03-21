@@ -76,7 +76,9 @@ export function useStacksContract(address) {
               txId: data.txId,
               tokenId: data?.tokenId ?? null,
               tokenURI: normalizedTokenURI,
-              to: address
+              to: address,
+              minter: address,
+              timestamp: Math.floor(Date.now() / 1000)
             });
           },
           onCancel: () => {
