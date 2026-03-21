@@ -193,6 +193,7 @@
   color: #64748b;
   font-size: 0.76rem;
   line-height: 1.6;
+  max-width: 32rem;
 }
 
 @media (max-width: 640px) {
