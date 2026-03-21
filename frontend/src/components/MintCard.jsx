@@ -203,6 +203,7 @@ export function MintCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mint-card__tx-link"
+                  title={txId}
                 >
                   View Transaction ↗
                 </a>
