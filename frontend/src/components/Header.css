@@ -169,6 +169,7 @@
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 0.875rem;
+  line-height: 1.25;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
