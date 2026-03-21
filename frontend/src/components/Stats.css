@@ -151,6 +151,7 @@
   color: #cbd5e1;
   font-size: 0.8rem;
   line-height: 1.6;
+  text-wrap: pretty;
 }
 
 .stat-card--skeleton {
