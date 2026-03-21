@@ -57,6 +57,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             onClick={onConnect}
             disabled={isConnecting}
             aria-busy={isConnecting}
+            title={isConnecting ? 'Connecting wallet' : 'Connect wallet'}
             aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet'}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
