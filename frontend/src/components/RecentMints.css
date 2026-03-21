@@ -87,6 +87,7 @@
   font-size: 0.8125rem;
   color: #9ca3af;
   font-variant-numeric: tabular-nums;
+  line-height: 1.4;
 }
 
 .mint-item__badge {
