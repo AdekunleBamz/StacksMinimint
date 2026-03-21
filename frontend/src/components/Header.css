@@ -54,6 +54,7 @@
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.025em;
   background-clip: text;
+  white-space: nowrap;
 }
 
 .header__wallet {
