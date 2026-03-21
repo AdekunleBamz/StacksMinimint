@@ -36,6 +36,7 @@
   color: #f8fafc;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+  max-height: 16rem;
   line-height: 1.6;
 }
 
