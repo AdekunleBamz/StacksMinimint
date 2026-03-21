@@ -112,6 +112,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #9ca3af;
+  white-space: nowrap;
 }
 
 .header__address {
