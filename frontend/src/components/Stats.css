@@ -68,6 +68,7 @@
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.62);
   border: 1px solid rgba(148, 163, 184, 0.1);
+  font-variant-numeric: tabular-nums;
 }
 
 .stats__timestamp {
