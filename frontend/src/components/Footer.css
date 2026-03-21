@@ -75,6 +75,7 @@
 .footer__link {
   color: #9ca3af;
   text-decoration: none;
+  text-underline-offset: 0.18em;
   font-size: 0.875rem;
   line-height: 1.5;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
