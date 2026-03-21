@@ -42,7 +42,15 @@ export function Footer() {
             <ul className="footer__list">
               {FOOTER_LINKS.project.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="footer__link" target="_blank" rel="noopener noreferrer">{link.label}</a>
+                  <a
+                    href={link.href}
+                    className="footer__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${link.label} (opens in a new tab)`}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -53,7 +61,15 @@ export function Footer() {
             <ul className="footer__list">
               {FOOTER_LINKS.community.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="footer__link" target="_blank" rel="noopener noreferrer">{link.label}</a>
+                  <a
+                    href={link.href}
+                    className="footer__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${link.label} (opens in a new tab)`}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -69,6 +85,7 @@ export function Footer() {
                     className="footer__link"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${link.label} (opens in a new tab)`}
                   >
                     {link.label}
                   </a>
