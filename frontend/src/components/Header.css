@@ -160,6 +160,7 @@
 
 .header__btn {
   padding: 0.625rem 1.25rem;
+  min-height: 2.5rem;
   border: none;
   border-radius: 0.5rem;
   font-weight: 600;
