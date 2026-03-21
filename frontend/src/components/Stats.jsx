@@ -14,7 +14,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       setLastUpdated(new Date())
     }
   }, [contractInfo])
-  const { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel } = useMemo(() => {
+  const { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel, totalSupply } = useMemo(() => {
     const totalSupply = contractInfo?.totalSupply || 0
     const maxSupply = contractInfo?.maxSupply ?? null
     const remainingSupply = typeof maxSupply === 'number'
@@ -54,7 +54,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       }
     ]
 
-    return { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel }
+    return { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel, totalSupply }
   }, [contractInfo, isConnected, recentActivityCount])
 
   if (isLoading) {
@@ -104,6 +104,11 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           aria-valuemin={0}
           aria-valuemax={100}
           aria-label="Mint progress"
+          aria-valuetext={
+            remainingSupply === null
+              ? `${roundedProgress}% of the configured supply minted`
+              : `${totalSupply} minted, ${remainingSupply} remaining`
+          }
         >
           <div
             className="progress-bar__fill"
