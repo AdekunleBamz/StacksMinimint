@@ -16,6 +16,7 @@ export function Gallery() {
   const [searchTerm, setSearchTerm] = useState('')
   const closeButtonRef = useRef(null)
   const gridId = useId()
+  const searchHintId = `${gridId}-search-hint`
   const normalizedSearchTerm = searchTerm.toLowerCase().trim()
 
   // Sample NFT data for demonstration
@@ -160,6 +161,7 @@ export function Gallery() {
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={handleSearchKeyDown}
               aria-label="Search collection items"
+              aria-describedby={searchHintId}
               className="search-input"
             />
           </div>
@@ -190,7 +192,7 @@ export function Gallery() {
             </button>
           </div>
         </div>
-        <p className="gallery__search-hint">
+        <p className="gallery__search-hint" id={searchHintId}>
           Search by name, owner, or <span>#token</span>. Press Escape to clear.
         </p>
         <div className="gallery__empty gallery__empty--search" role="status" aria-live="polite">
@@ -220,6 +222,7 @@ export function Gallery() {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleSearchKeyDown}
             aria-label="Search collection items"
+            aria-describedby={searchHintId}
             className="search-input"
           />
           {hasSearch && (
@@ -261,7 +264,7 @@ export function Gallery() {
           </div>
         </div>
 
-        <p className="gallery__search-hint">
+        <p className="gallery__search-hint" id={searchHintId}>
           Search by name, owner, or <span>#token</span>. Press Escape to clear.
         </p>
 
