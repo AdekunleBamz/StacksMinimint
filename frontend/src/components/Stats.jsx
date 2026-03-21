@@ -61,7 +61,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
     return (
       <section className="stats" aria-busy="true">
         <h2 className="stats__title">Collection Stats</h2>
-        <p className="stats__subtitle">The mint rail keeps supply and session context visible while you work.</p>
+        <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
           {[1, 2, 3, 4].map((item) => (
             <div key={item} className="stat-card stat-card--skeleton" role="listitem">
@@ -78,7 +78,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
   return (
     <section className="stats">
       <h2 className="stats__title">Collection Stats</h2>
-      <p className="stats__subtitle">The mint rail keeps supply and session context visible while you work.</p>
+      <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
 
       <div className="stats__headline">
         <span className={`stats__state stats__state--${collectionState.tone}`}>
