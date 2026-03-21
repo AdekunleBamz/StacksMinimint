@@ -79,6 +79,7 @@
   font-size: 0.9375rem;
   color: #f3f4f6;
   margin-bottom: 0.25rem;
+  overflow-wrap: anywhere;
 }
 
 .mint-item__time {
