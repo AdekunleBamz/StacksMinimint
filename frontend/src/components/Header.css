@@ -20,7 +20,7 @@
 .header__brand {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   min-width: 0;
 }
 
