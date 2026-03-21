@@ -173,6 +173,9 @@
 .recent-mints__empty-copy {
   margin-top: 0.5rem;
   font-size: 0.875rem;
+  max-width: 18rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 640px) {
