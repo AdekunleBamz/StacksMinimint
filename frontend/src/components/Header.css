@@ -21,6 +21,7 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  min-width: 0;
 }
 
 .header__logo {
