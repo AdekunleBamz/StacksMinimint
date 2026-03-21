@@ -119,6 +119,7 @@
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 0.875rem;
   color: #e5e7eb;
+  line-height: 1.4;
   transition: all 0.2s ease;
   overflow: hidden;
   text-overflow: ellipsis;
