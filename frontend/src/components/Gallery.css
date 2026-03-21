@@ -453,6 +453,7 @@
 .detail-label {
   font-size: 0.875rem;
   color: #9ca3af;
+  line-height: 1.4;
 }
 
 .detail-value {
