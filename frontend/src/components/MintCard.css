@@ -201,6 +201,7 @@
   font-size: 0.8125rem;
   color: #9ca3af;
   line-height: 1.5;
+  max-width: 32ch;
 }
 
 .mint-card__spinner {
