@@ -47,3 +47,8 @@
 .error-boundary__button:hover {
   background: linear-gradient(135deg, #7c3aed, #4f46e5);
 }
+
+.error-boundary__button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.95), 0 0 0 4px rgba(167, 139, 250, 0.65);
+}
