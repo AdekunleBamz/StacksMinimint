@@ -12,12 +12,12 @@
 }
 
 .error-boundary__title {
-  color: #cf1322;
+  color: #fca5a5;
   margin-top: 0;
 }
 
 .error-boundary__message {
-  color: #434343;
+  color: #e2e8f0;
 }
 
 .error-boundary__details {
