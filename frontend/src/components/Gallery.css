@@ -525,6 +525,16 @@
   .modal-overlay {
     padding: 1rem;
   }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .detail-value {
+    max-width: 100%;
+    text-align: left;
+  }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
