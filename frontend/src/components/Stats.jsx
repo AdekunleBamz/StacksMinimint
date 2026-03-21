@@ -85,7 +85,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           {collectionState.label}
         </span>
         <div className="stats__session" aria-live="polite">
-          <span>{isConnected ? 'Wallet connected' : 'Wallet required'}</span>
+          <span>{isConnected ? 'Wallet connected' : 'Connect wallet to mint'}</span>
           <span>{recentActivityCount} {receiptLabel}</span>
         </div>
         <div className="stats__timestamp" aria-live="polite">
