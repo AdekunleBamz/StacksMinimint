@@ -251,6 +251,7 @@
   align-items: center;
   gap: 0.25rem;
   align-self: flex-start;
+  overflow-wrap: anywhere;
 }
 
 .mint-card__tx-link:hover {
