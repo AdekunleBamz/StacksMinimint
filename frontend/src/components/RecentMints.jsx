@@ -109,8 +109,10 @@ export function RecentMints({ items = [] }) {
 
 RecentMints.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
-    tokenId: PropTypes.number.isRequired,
+    tokenId: PropTypes.number,
     timestamp: PropTypes.number.isRequired,
-    minter: PropTypes.string.isRequired
+    minter: PropTypes.string.isRequired,
+    txId: PropTypes.string,
+    txHash: PropTypes.string
   }))
 }
