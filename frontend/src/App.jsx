@@ -102,6 +102,7 @@ function App() {
           className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
           onClick={scrollToTop}
           aria-label="Back to top"
+          title="Back to top"
           aria-hidden={!showScroll}
           tabIndex={showScroll ? 0 : -1}
           disabled={!showScroll}
