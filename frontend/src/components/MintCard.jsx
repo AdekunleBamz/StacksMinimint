@@ -38,6 +38,7 @@ export function MintCard({
     try {
       const result = await onMint(normalizedTokenURI)
       if (!result) {
+        setMintStatus(null)
         return
       }
       setMintStatus({ 
