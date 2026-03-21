@@ -137,7 +137,7 @@ export function Gallery() {
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
         <div className="gallery__empty" role="status" aria-live="polite">
-          <span className="gallery__empty-icon">🖼️</span>
+          <span className="gallery__empty-icon" aria-hidden="true">🖼️</span>
           <h3>No NFTs Yet</h3>
           <p>Be the first to mint an NFT from this collection!</p>
         </div>
@@ -196,7 +196,7 @@ export function Gallery() {
           Search by name, owner, or <span>#token</span>. Press Escape to clear.
         </p>
         <div className="gallery__empty gallery__empty--search" role="status" aria-live="polite">
-          <div className="gallery__empty-icon">🔍</div>
+          <div className="gallery__empty-icon" aria-hidden="true">🔍</div>
           <h3>No matching NFTs</h3>
           <p>We couldn't find anything matching "{searchTerm}"</p>
           <button type="button" className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
