@@ -71,6 +71,7 @@
 .modal__title {
   font-size: 1.25rem;
   font-weight: 600;
+  line-height: 1.3;
   color: #f3f4f6;
   margin: 0;
 }
