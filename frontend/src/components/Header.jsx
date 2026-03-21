@@ -45,6 +45,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               type="button"
               className="header__btn header__btn--disconnect"
               onClick={onDisconnect}
+              aria-label="Disconnect wallet"
             >
               Disconnect
             </button>
@@ -56,6 +57,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             onClick={onConnect}
             disabled={isConnecting}
             aria-busy={isConnecting}
+            aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet'}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
