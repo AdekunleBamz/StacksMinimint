@@ -103,6 +103,7 @@
   color: #94a3b8;
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
+  line-height: 1.5;
 }
 
 .stats__grid {
