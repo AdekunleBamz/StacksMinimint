@@ -51,7 +51,7 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="app">
-        <div className="page-load-bar"></div>
+        <div className="page-load-bar" aria-hidden="true"></div>
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
