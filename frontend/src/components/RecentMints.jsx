@@ -72,7 +72,9 @@ export function RecentMints({ items = [] }) {
               </div>
               <div className="mint-item__info">
                 <span className="mint-item__address">
-                  {formatAddress(mint.minter)}
+                  <span title={mint.minter}>
+                    {formatAddress(mint.minter)}
+                  </span>
                 </span>
                 <span className="mint-item__time">
                   <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp * 1000)}>
