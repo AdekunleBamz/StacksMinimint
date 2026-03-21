@@ -55,6 +55,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             className="header__btn header__btn--connect"
             onClick={onConnect}
             disabled={isConnecting}
+            aria-busy={isConnecting}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
