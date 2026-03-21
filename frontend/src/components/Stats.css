@@ -78,6 +78,7 @@
 
 .stats__timestamp {
   font-variant-numeric: tabular-nums;
+  color: #cbd5e1;
   line-height: 1.5;
 }
 
