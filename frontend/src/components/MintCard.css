@@ -64,6 +64,7 @@
   font-size: 1.125rem;
   font-weight: 600;
   color: #f3f4f6;
+  font-variant-numeric: tabular-nums;
 }
 
 .mint-card__alert {
