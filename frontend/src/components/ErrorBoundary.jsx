@@ -29,7 +29,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <div className="error-boundary">
+        <div className="error-boundary" role="alert" aria-live="assertive">
           <h2 className="error-boundary__title">Something went wrong.</h2>
           <p className="error-boundary__message">
             The application encountered an unexpected error. Please try refreshing the page.
