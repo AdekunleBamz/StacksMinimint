@@ -202,7 +202,12 @@ export function Gallery() {
           <div className="gallery__empty-icon" aria-hidden="true">🔍</div>
           <h3>No matching NFTs</h3>
           <p>We couldn't find anything matching "{searchTerm}"</p>
-          <button type="button" className="gallery__clear-btn" onClick={() => setSearchTerm('')}>
+          <button
+            type="button"
+            className="gallery__clear-btn"
+            onClick={() => setSearchTerm('')}
+            aria-label={`Clear search query ${searchTerm}`}
+          >
             Clear Search
           </button>
         </div>
@@ -234,7 +239,7 @@ export function Gallery() {
               type="button"
               className="gallery__clear-search"
               onClick={() => setSearchTerm('')}
-              aria-label="Clear search query"
+              aria-label={`Clear search query ${searchTerm}`}
             >
               Clear
             </button>
