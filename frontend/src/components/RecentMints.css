@@ -164,6 +164,11 @@
   margin: 0;
 }
 
+.recent-mints__empty-copy {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
 @media (max-width: 640px) {
   .recent-mints {
     padding: 2rem 0;
