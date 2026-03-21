@@ -8,6 +8,7 @@
   padding: 1rem 1.25rem;
   border-radius: 0.75rem;
   font-size: 0.9375rem;
+  line-height: 1.45;
   animation: slideIn 0.3s ease;
   max-width: min(400px, calc(100vw - 2rem));
 }
