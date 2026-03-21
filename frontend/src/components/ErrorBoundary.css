@@ -23,10 +23,12 @@
 .error-boundary__details {
   text-align: left;
   padding: 1rem;
-  background-color: #fafafa;
-  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 0.75rem;
   overflow-x: auto;
   font-size: 0.85rem;
+  color: #f8fafc;
 }
 
 .error-boundary__button {
