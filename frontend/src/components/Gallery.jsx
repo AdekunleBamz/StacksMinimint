@@ -158,6 +158,7 @@ export function Gallery() {
               placeholder="Search by name, owner, or #123..."
               value={searchTerm}
               inputMode="search"
+              enterKeyHint="search"
               autoComplete="off"
               spellCheck={false}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -219,6 +220,7 @@ export function Gallery() {
             placeholder="Search by name, owner, or #123..."
             value={searchTerm}
             inputMode="search"
+            enterKeyHint="search"
             autoComplete="off"
             spellCheck={false}
             onChange={(e) => setSearchTerm(e.target.value)}
