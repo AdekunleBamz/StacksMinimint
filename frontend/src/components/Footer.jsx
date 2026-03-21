@@ -16,7 +16,7 @@ const FOOTER_LINKS = {
   ],
   resources: [
     { label: 'Stacks Docs', href: 'https://docs.stacks.co/' },
-    { label: 'GitHub', href: 'https://github.com/AdekunleBamz/NFTminimint' },
+    { label: 'GitHub', href: 'https://github.com/AdekunleBamz/StacksMinimint' },
     { label: 'SIP-009 NFT Standard', href: 'https://docs.stacks.co/reference/sips/sip009' }
   ]
 }
