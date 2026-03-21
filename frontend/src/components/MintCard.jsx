@@ -139,6 +139,7 @@ export function MintCard({
               value={tokenURI}
               maxLength={256}
               inputMode="url"
+              enterKeyHint="go"
               spellCheck={false}
               onChange={(e) => {
                 setTokenURI(e.target.value)
