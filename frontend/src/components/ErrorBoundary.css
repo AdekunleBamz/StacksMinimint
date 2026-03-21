@@ -20,6 +20,9 @@
 .error-boundary__message {
   color: #e2e8f0;
   line-height: 1.6;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .error-boundary__details {
