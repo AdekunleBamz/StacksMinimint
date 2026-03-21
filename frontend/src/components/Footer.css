@@ -102,12 +102,14 @@
 .footer__copyright {
   color: #6b7280;
   font-size: 0.875rem;
+  line-height: 1.5;
   margin: 0;
 }
 
 .footer__credit {
   color: #6b7280;
   font-size: 0.875rem;
+  line-height: 1.5;
   margin: 0;
 }
 
