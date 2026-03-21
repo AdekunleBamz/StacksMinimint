@@ -303,10 +303,10 @@ export function Gallery() {
               </div>
             </div>
             <div className="nft-card__info">
-              <h3 className="nft-card__name">{nft.name}</h3>
+              <h3 className="nft-card__name" title={nft.name}>{nft.name}</h3>
               <p className="nft-card__owner">
                 <span className="label">Owner:</span>
-                <span className="value">{formatAddress(nft.owner)}</span>
+                <span className="value" title={nft.owner}>{formatAddress(nft.owner)}</span>
               </p>
             </div>
           </article>
