@@ -20,6 +20,11 @@
   color: #f3f4f6;
 }
 
+.copy-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.95), 0 0 0 4px rgba(139, 92, 246, 0.45);
+}
+
 .copy-btn:disabled {
   opacity: 0.55;
   cursor: not-allowed;
