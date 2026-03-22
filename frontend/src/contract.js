@@ -24,10 +24,11 @@ export {
 function getBaseExplorerUrl(type, identifier) {
   const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
   const baseUrl = networkConfig.explorerUrl;
-  if (identifier === null || identifier === undefined || identifier === '') {
+  const normalizedIdentifier = typeof identifier === 'string' ? identifier.trim() : identifier;
+  if (normalizedIdentifier === null || normalizedIdentifier === undefined || normalizedIdentifier === '') {
     return `${baseUrl}?chain=${NETWORK}`;
   }
-  return `${baseUrl}/${type}/${encodeURIComponent(identifier)}?chain=${NETWORK}`;
+  return `${baseUrl}/${type}/${encodeURIComponent(normalizedIdentifier)}?chain=${NETWORK}`;
 }
 
 export function getExplorerUrl(txId) {
