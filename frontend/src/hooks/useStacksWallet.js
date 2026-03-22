@@ -21,26 +21,31 @@ export function useStacksWallet() {
 
   const connect = useCallback(() => {
     setIsConnecting(true);
-    showConnect({
-      appDetails: {
-        name: 'NFTminimint',
-        icon: typeof window !== 'undefined' ? window.location.origin + '/favicon.png' : '',
-      },
-      redirectTo: '/',
-      onFinish: () => {
-        try {
-          const data = userSession.loadUserData();
-          setUserData(data);
-          setAddress(getStacksAddress(data));
-        } finally {
+    try {
+      showConnect({
+        appDetails: {
+          name: 'NFTminimint',
+          icon: typeof window !== 'undefined' ? window.location.origin + '/favicon.png' : '',
+        },
+        redirectTo: '/',
+        onFinish: () => {
+          try {
+            const data = userSession.loadUserData();
+            setUserData(data);
+            setAddress(getStacksAddress(data));
+          } finally {
+            setIsConnecting(false);
+          }
+        },
+        onCancel: () => {
           setIsConnecting(false);
-        }
-      },
-      onCancel: () => {
-        setIsConnecting(false);
-      },
-      userSession
-    });
+        },
+        userSession
+      });
+    } catch (error) {
+      console.error('Failed to open wallet connect modal:', error);
+      setIsConnecting(false);
+    }
   }, []);
 
   const disconnect = useCallback(() => {
