@@ -15,8 +15,10 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
     }
   }, [contractInfo])
   const { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel, totalSupply } = useMemo(() => {
-    const totalSupply = contractInfo?.totalSupply || 0
-    const maxSupply = contractInfo?.maxSupply ?? null
+    const parsedTotalSupply = Number(contractInfo?.totalSupply)
+    const parsedMaxSupply = Number(contractInfo?.maxSupply)
+    const totalSupply = Number.isFinite(parsedTotalSupply) ? parsedTotalSupply : 0
+    const maxSupply = Number.isFinite(parsedMaxSupply) ? parsedMaxSupply : null
     const remainingSupply = typeof maxSupply === 'number'
       ? Math.max(maxSupply - totalSupply, 0)
       : null
