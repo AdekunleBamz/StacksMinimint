@@ -30,8 +30,10 @@ export function formatSTX(microstx) {
  */
 export function formatAddress(address, start = 5, end = 5) {
   if (!address || typeof address !== 'string') return ''
-  if (address.length <= start + end + 3) return address
-  return `${address.slice(0, start)}...${address.slice(-end)}`
+  const safeStart = Number.isInteger(start) && start >= 0 ? start : 5
+  const safeEnd = Number.isInteger(end) && end >= 0 ? end : 5
+  if (address.length <= safeStart + safeEnd + 3) return address
+  return `${address.slice(0, safeStart)}...${address.slice(-safeEnd)}`
 }
 
 /**
