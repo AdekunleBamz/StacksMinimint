@@ -39,6 +39,10 @@ describe('strings utility', () => {
       expect(capitalize('Stacks')).toBe('Stacks');
     });
 
+    it('should ignore leading whitespace before capitalization', () => {
+      expect(capitalize('  stacks')).toBe('Stacks');
+    });
+
     it('should handle empty strings or non-string inputs', () => {
       expect(capitalize('')).toBe('');
       expect(capitalize(null)).toBe('');
