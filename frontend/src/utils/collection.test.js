@@ -8,6 +8,11 @@ describe('collection utility', () => {
       expect(formatSTX(1000000)).toBe('1')
       expect(formatSTX(2500000)).toBe('2.5')
     })
+
+    it('returns zero for non-finite inputs', () => {
+      expect(formatSTX(Number.POSITIVE_INFINITY)).toBe('0')
+      expect(formatSTX(Number.NEGATIVE_INFINITY)).toBe('0')
+    })
   })
 
   describe('formatAddress', () => {
