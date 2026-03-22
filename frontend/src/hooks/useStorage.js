@@ -60,25 +60,6 @@ export function useLocalStorage(key, initialValue) {
   useEffect(() => {
     if (typeof window === 'undefined' || !hasValidKey) return
 
-    const handleStorage = (event) => {
-      if (event.storageArea !== window.sessionStorage) return
-      if (event.key !== key && event.key !== null) return
-
-      try {
-        const nextValue = window.sessionStorage.getItem(key)
-        setStoredValue(nextValue ? JSON.parse(nextValue) : initialValue)
-      } catch (error) {
-        console.warn(`Error syncing sessionStorage key "${key}":`, error)
-      }
-    }
-
-    window.addEventListener('storage', handleStorage)
-    return () => window.removeEventListener('storage', handleStorage)
-  }, [key, initialValue, hasValidKey])
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !hasValidKey) return
-
     try {
       const item = window.localStorage.getItem(key)
       setStoredValue(item ? JSON.parse(item) : initialValue)
@@ -125,6 +106,37 @@ export function useSessionStorage(key, initialValue) {
       setStoredValue(initialValue)
     } catch (error) {
       console.warn(`Error removing sessionStorage key "${key}":`, error)
+    }
+  }, [key, initialValue, hasValidKey])
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !hasValidKey) return
+
+    const handleStorage = (event) => {
+      if (event.storageArea !== window.sessionStorage) return
+      if (event.key !== key && event.key !== null) return
+
+      try {
+        const nextValue = window.sessionStorage.getItem(key)
+        setStoredValue(nextValue ? JSON.parse(nextValue) : initialValue)
+      } catch (error) {
+        console.warn(`Error syncing sessionStorage key "${key}":`, error)
+      }
+    }
+
+    window.addEventListener('storage', handleStorage)
+    return () => window.removeEventListener('storage', handleStorage)
+  }, [key, initialValue, hasValidKey])
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !hasValidKey) return
+
+    try {
+      const item = window.sessionStorage.getItem(key)
+      setStoredValue(item ? JSON.parse(item) : initialValue)
+    } catch (error) {
+      console.warn(`Error reloading sessionStorage key "${key}":`, error)
+      setStoredValue(initialValue)
     }
   }, [key, initialValue, hasValidKey])
 
