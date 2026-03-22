@@ -29,7 +29,7 @@ export function formatSTX(microstx) {
  * @returns {string} The truncated address.
  */
 export function formatAddress(address, start = 5, end = 5) {
-  if (!address) return ''
+  if (!address || typeof address !== 'string') return ''
   if (address.length <= start + end + 3) return address
   return `${address.slice(0, start)}...${address.slice(-end)}`
 }
