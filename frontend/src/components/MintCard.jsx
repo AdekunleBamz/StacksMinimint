@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import './MintCard.css'
 import { Spinner } from './Spinner'
 import { getExplorerUrl } from '../contract'
-import { formatSTX, validateTokenURI } from '../utils/collection'
+import { formatSTX, MAX_TOKEN_URI_LENGTH, validateTokenURI } from '../utils/collection'
 
 export function MintCard({ 
   contractInfo, 
@@ -137,7 +137,7 @@ export function MintCard({
               className="form-input"
               placeholder="ipfs://metadata.json or https://example.com/metadata.json"
               value={tokenURI}
-              maxLength={256}
+              maxLength={MAX_TOKEN_URI_LENGTH}
               inputMode="url"
               enterKeyHint="go"
               spellCheck={false}
@@ -157,7 +157,7 @@ export function MintCard({
               Paste an ipfs:// CID or secure https:// link to your metadata JSON
             </span>
             <div className="form-counter" aria-live="polite">
-              {tokenUriValidation.characterCount} / 256 characters
+              {tokenUriValidation.characterCount} / {MAX_TOKEN_URI_LENGTH} characters
             </div>
           </div>
 
