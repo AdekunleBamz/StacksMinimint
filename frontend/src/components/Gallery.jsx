@@ -93,8 +93,10 @@ export function Gallery() {
   }, [selectedNft])
 
   const filteredNfts = useMemo(() => nfts.filter(nft => {
-    if (normalizedSearchTerm.startsWith('#')) {
-      const idSearch = normalizedSearchTerm.slice(1)
+    const idSearch = normalizedSearchTerm.startsWith('#')
+      ? normalizedSearchTerm.slice(1)
+      : normalizedSearchTerm
+    if (/^\d+$/.test(idSearch)) {
       return nft.id.toString() === idSearch
     }
     return nft.name.toLowerCase().includes(normalizedSearchTerm) ||
