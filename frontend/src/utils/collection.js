@@ -135,7 +135,8 @@ export function getMetadataGatewayUrl(uri) {
   const lowered = normalized.toLowerCase()
 
   if (lowered.startsWith('ipfs://')) {
-    return `https://ipfs.io/ipfs/${normalized.slice('ipfs://'.length)}`
+    const path = normalized.slice('ipfs://'.length).replace(/^ipfs\//i, '')
+    return `https://ipfs.io/ipfs/${path}`
   }
 
   if (lowered.startsWith('https://') || lowered.startsWith('http://')) {
