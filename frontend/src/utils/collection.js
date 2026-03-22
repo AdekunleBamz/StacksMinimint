@@ -54,10 +54,12 @@ export function formatLimit(value, fallback = 'Not set') {
  * @returns {string} The relative time string.
  */
 export function formatRelativeTime(timestamp) {
-  if (!timestamp) return 'Just now'
+  if (timestamp === null || timestamp === undefined) return 'Just now'
+  const time = Number(timestamp)
+  if (Number.isNaN(time) || !Number.isFinite(time)) return 'Just now'
 
   const now = Date.now()
-  const diff = Math.max(now - timestamp, 0)
+  const diff = Math.max(now - time, 0)
   const minutes = Math.floor(diff / 60000)
   const hours = Math.floor(diff / 3600000)
   const days = Math.floor(diff / 86400000)
