@@ -214,6 +214,24 @@ export function validateTokenURI(value) {
     }
   }
 
+  if (kind === 'https') {
+    try {
+      const parsed = new URL(normalized)
+      if (parsed.username || parsed.password) {
+        return {
+          kind,
+          isValid: false,
+          tone: 'warning',
+          label: 'Remove URL credentials',
+          helper: 'Use a public metadata URL without embedded username or password fields.',
+          characterCount
+        }
+      }
+    } catch {
+      // This branch is unreachable for valid https URLs, but we keep mint validation resilient.
+    }
+  }
+
   return {
     kind,
     isValid: true,
