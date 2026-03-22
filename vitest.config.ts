@@ -26,7 +26,6 @@ export default defineConfig({
     pool: "forks",
     // clarinet handles test isolation by resetting the simnet between tests
     isolate: false,
-    maxWorkers: 1,
     setupFiles: [
       vitestSetupFilePath,
       // custom setup files can be added here
@@ -39,4 +38,3 @@ export default defineConfig({
     },
   },
 });
-
