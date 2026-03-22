@@ -6,6 +6,11 @@ import './RecentMints.css'
 import { formatAddress, formatExactTime, formatRelativeTime } from '../utils/collection'
 import { getExplorerUrl } from '../contract'
 
+function getMintTimestampMs(timestamp) {
+  if (!Number.isFinite(timestamp)) return Date.now()
+  return timestamp > 1_000_000_000_000 ? timestamp : timestamp * 1000
+}
+
 export function RecentMints({ items = [] }) {
   const isLoading = items === null
   const recentMints = Array.isArray(items) ? items : []
@@ -48,6 +53,7 @@ export function RecentMints({ items = [] }) {
       <p className="recent-mints__subtitle">Fresh activity appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
+          const timestampMs = getMintTimestampMs(mint.timestamp)
           const txId = mint.txId || mint.txHash
           const tokenLabel = mint.tokenId == null ? 'Pending' : `#${mint.tokenId}`
           const receiptLabel = mint.tokenId == null ? 'Submitted ↗' : 'Minted ↗'
@@ -67,8 +73,8 @@ export function RecentMints({ items = [] }) {
                   </span>
                 </span>
                 <span className="mint-item__time">
-                  <time dateTime={new Date(mint.timestamp * 1000).toISOString()} title={formatExactTime(mint.timestamp * 1000)}>
-                    {formatRelativeTime(mint.timestamp * 1000)}
+                  <time dateTime={new Date(timestampMs).toISOString()} title={formatExactTime(timestampMs)}>
+                    {formatRelativeTime(timestampMs)}
                   </time>
                 </span>
               </div>
