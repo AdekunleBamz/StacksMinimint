@@ -1,0 +1,11 @@
+import React from 'react'
+import { describe, expect, it } from 'vitest'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { Badge } from './Badge'
+
+describe('Badge', () => {
+  it('does not render dot marker when dot mode is not enabled', () => {
+    const markup = renderToStaticMarkup(React.createElement(Badge, null, 'Live'))
+    expect(markup).not.toContain('badge__dot')
+  })
+})
