@@ -22,7 +22,6 @@ function App() {
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
-  const [lastTxId, setLastTxId] = useState(null)
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -41,7 +40,6 @@ function App() {
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
     if (result) {
-      setLastTxId(result.txId)
       showToast('Transaction submitted to Stacks.', 'success')
       setRecentMints(prev => [result, ...prev].slice(0, 5))
     }
