@@ -19,6 +19,10 @@ describe('collection utility', () => {
     it('supports truncation without a suffix segment', () => {
       expect(formatAddress('SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT', 4, 0)).toBe('SP5K...')
     })
+
+    it('trims surrounding spaces before formatting addresses', () => {
+      expect(formatAddress('  SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT  ', 4, 4)).toBe('SP5K...9TJT')
+    })
   })
 
   describe('getMetadataKind', () => {
