@@ -11,17 +11,18 @@ export function useClipboard(timeout = 2000) {
   const timerRef = useRef(null);
 
   const copy = useCallback(async (text) => {
-    if (!text) return;
+    if (text === null || text === undefined) return;
+    const value = String(text);
 
     try {
       if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(value);
       } else {
         if (typeof document === 'undefined') {
           throw new Error('Clipboard is not available in this environment');
         }
         const textarea = document.createElement('textarea');
-        textarea.value = text;
+        textarea.value = value;
         textarea.setAttribute('readonly', '');
         textarea.style.position = 'absolute';
         textarea.style.left = '-9999px';
