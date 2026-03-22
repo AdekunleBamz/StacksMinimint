@@ -2,11 +2,12 @@
 // Scope: keep Footer concerns isolated.
 
 import './Footer.css'
+import { NETWORK } from '../constants'
 
 const FOOTER_LINKS = {
   project: [
     { label: 'Stacks', href: 'https://www.stacks.co/' },
-    { label: 'Hiro Explorer', href: 'https://explorer.hiro.so/?chain=mainnet' },
+    { label: 'Hiro Explorer', href: `https://explorer.hiro.so/?chain=${NETWORK}` },
     { label: 'IPFS Docs', href: 'https://docs.ipfs.tech/' }
   ],
   community: [
