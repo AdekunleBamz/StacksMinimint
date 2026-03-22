@@ -1,12 +1,11 @@
 {
-  "*.sol": [
-    "npx solhint --fix",
+  "*.clar": [
     "npx prettier --write"
   ],
-  "*.{js,ts}": [
+  "*.{js,jsx,ts,tsx}": [
     "npx prettier --write"
   ],
-  "*.{json,md}": [
+  "*.{json,md,css}": [
     "npx prettier --write"
   ]
 }
