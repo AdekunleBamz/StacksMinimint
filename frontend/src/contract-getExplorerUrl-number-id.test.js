@@ -1,0 +1,8 @@
+import { describe, expect, it } from 'vitest'
+import { getExplorerUrl } from './contract'
+
+describe('getExplorerUrl', () => {
+  it('supports numeric transaction identifiers', () => {
+    expect(getExplorerUrl(42)).toBe('https://explorer.hiro.so/txid/42?chain=mainnet')
+  })
+})
