@@ -60,7 +60,11 @@ export function useStacksWallet() {
       const data = userSession.loadUserData();
       setUserData(data);
       setAddress(getStacksAddress(data));
+      return;
     }
+
+    setUserData(null);
+    setAddress(null);
   }, []);
 
   return {
