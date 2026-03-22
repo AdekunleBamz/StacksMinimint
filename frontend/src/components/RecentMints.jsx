@@ -1,26 +1,14 @@
 // Note: Recentmints module
 // Scope: keep RecentMints concerns isolated.
 
-import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './RecentMints.css'
 import { formatAddress, formatExactTime, formatRelativeTime } from '../utils/collection'
 import { getExplorerUrl } from '../contract'
 
 export function RecentMints({ items = [] }) {
-  const [recentMints, setRecentMints] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    if (items.length > 0) {
-      setRecentMints(items)
-      setIsLoading(false)
-      return
-    }
-
-    setRecentMints([])
-    setIsLoading(false)
-  }, [items])
+  const isLoading = items === null
+  const recentMints = Array.isArray(items) ? items : []
 
   if (isLoading) {
     return (
