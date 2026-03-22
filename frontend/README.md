@@ -128,13 +128,13 @@ npm run test:watch # Run unit tests in watch mode
 
 - Never commit `.env.local` files
 - Validate all user inputs
-- Keep contract addresses/network values explicit in `src/contract.js`
+- Keep contract addresses/network values explicit in `src/constants/index.js`
 - Test on Stacks testnet before mainnet deployment
 
 ## 🧭 Troubleshooting
 
 - If wallet prompts do not appear, ensure pop-ups are allowed for `localhost`.
-- If transactions open on the wrong chain, confirm `NETWORK` in `src/contract.js`.
+- If transactions open on the wrong chain, confirm `NETWORK` in `src/constants/index.js`.
 
 ## 📄 License
 
