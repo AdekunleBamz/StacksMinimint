@@ -22,7 +22,9 @@ export function truncateAddress(address, startChars = 4, endChars = 4) {
  */
 export function capitalize(str) {
   if (!str || typeof str !== 'string') return '';
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  const normalized = str.trimStart();
+  if (!normalized) return '';
+  return normalized.charAt(0).toUpperCase() + normalized.slice(1);
 }
 /**
  * Validates if a string is a properly formatted Stacks address.
