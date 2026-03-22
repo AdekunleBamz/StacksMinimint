@@ -43,6 +43,10 @@ describe('strings utility', () => {
       expect(capitalize('  stacks')).toBe('Stacks');
     });
 
+    it('should return an empty string for whitespace-only values', () => {
+      expect(capitalize('   ')).toBe('');
+    });
+
     it('should handle empty strings or non-string inputs', () => {
       expect(capitalize('')).toBe('');
       expect(capitalize(null)).toBe('');
