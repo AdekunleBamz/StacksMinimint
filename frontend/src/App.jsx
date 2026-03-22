@@ -113,7 +113,7 @@ function App() {
 
         <Footer />
 
-        <div className="toast-stack" aria-live="polite" aria-label="Notifications">
+        <div className="toast-stack" aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
           {toasts.map((toast) => (
             <Toast
               key={toast.id}
