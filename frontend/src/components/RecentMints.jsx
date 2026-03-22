@@ -7,8 +7,9 @@ import { formatAddress, formatExactTime, formatRelativeTime } from '../utils/col
 import { getExplorerUrl } from '../contract'
 
 function getMintTimestampMs(timestamp) {
-  if (!Number.isFinite(timestamp)) return Date.now()
-  return timestamp > 1_000_000_000_000 ? timestamp : timestamp * 1000
+  const numericTimestamp = Number(timestamp)
+  if (!Number.isFinite(numericTimestamp)) return Date.now()
+  return numericTimestamp > 1_000_000_000_000 ? numericTimestamp : numericTimestamp * 1000
 }
 
 export function RecentMints({ items = [] }) {
