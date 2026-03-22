@@ -58,9 +58,10 @@ export function formatRelativeTime(timestamp) {
   if (timestamp === null || timestamp === undefined) return 'Just now'
   const time = Number(timestamp)
   if (Number.isNaN(time) || !Number.isFinite(time)) return 'Just now'
+  const normalizedTime = time < 1_000_000_000_000 ? time * 1000 : time
 
   const now = Date.now()
-  const diff = Math.max(now - time, 0)
+  const diff = Math.max(now - normalizedTime, 0)
   const minutes = Math.floor(diff / 60000)
   const hours = Math.floor(diff / 3600000)
   const days = Math.floor(diff / 86400000)
