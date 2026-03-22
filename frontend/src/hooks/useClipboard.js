@@ -13,6 +13,7 @@ export function useClipboard(timeout = 2000) {
   const copy = useCallback(async (text) => {
     if (text === null || text === undefined) return;
     const value = String(text);
+    setError(null);
 
     try {
       if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
