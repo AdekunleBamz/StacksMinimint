@@ -58,6 +58,11 @@ describe('collection utility', () => {
     it('returns Just now for fresh timestamps', () => {
       expect(formatRelativeTime(Date.now())).toBe('Just now')
     })
+
+    it('accepts Unix timestamps provided in seconds', () => {
+      const oneMinuteAgoSeconds = Math.floor(Date.now() / 1000) - 60
+      expect(formatRelativeTime(oneMinuteAgoSeconds)).toBe('1m ago')
+    })
   })
 
   describe('formatExactTime', () => {
