@@ -1,0 +1,15 @@
+import { describe, expect, it } from 'vitest'
+import { renderToStaticMarkup } from 'react-dom/server'
+import ErrorBoundary from './ErrorBoundary'
+
+describe('ErrorBoundary', () => {
+  it('renders fallback UI when component state marks an error', () => {
+    const boundary = new ErrorBoundary({ children: null })
+    boundary.state = { hasError: true, error: new Error('Render failure') }
+
+    const markup = renderToStaticMarkup(boundary.render())
+    expect(markup).toContain('Something went wrong.')
+    expect(markup).toContain('Refresh Page')
+    expect(markup).toContain('Render failure')
+  })
+})
