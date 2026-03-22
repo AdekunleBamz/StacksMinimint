@@ -113,7 +113,8 @@ export function getMetadataKind(uri) {
  * @returns {string} The metadata label.
  */
 export function getMetadataLabel(uri) {
-  const kind = getMetadataKind(uri)
+  const normalized = String(uri ?? '').trim()
+  const kind = getMetadataKind(normalized)
 
   if (kind === 'ipfs') {
     return 'IPFS metadata'
@@ -121,7 +122,7 @@ export function getMetadataLabel(uri) {
 
   if (kind === 'https' || kind === 'http') {
     try {
-      return new URL(uri).hostname.replace(/^www\./, '')
+      return new URL(normalized).hostname.replace(/^www\./, '')
     } catch {
       return 'Web metadata'
     }
