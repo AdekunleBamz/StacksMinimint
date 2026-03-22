@@ -1,0 +1,9 @@
+import { describe, expect, it } from 'vitest'
+import { formatRelativeTime } from './collection'
+
+describe('formatRelativeTime', () => {
+  it('switches to hour labels at sixty minutes', () => {
+    const sixtyMinutesAgo = Date.now() - (60 * 60 * 1000)
+    expect(formatRelativeTime(sixtyMinutesAgo)).toBe('1h ago')
+  })
+})
