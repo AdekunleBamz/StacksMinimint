@@ -2,7 +2,6 @@
 // Scope: keep Gallery concerns isolated.
 
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
 import { formatAddress } from '../utils/collection'
