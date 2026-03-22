@@ -76,5 +76,10 @@ describe('collection utility', () => {
       const formatted = formatExactTime(Math.floor(Date.now() / 1000))
       expect(formatted).not.toBe('Unknown time')
     })
+
+    it('formats second and millisecond timestamps equivalently', () => {
+      const unixSeconds = 1710000000
+      expect(formatExactTime(unixSeconds)).toBe(formatExactTime(unixSeconds * 1000))
+    })
   })
 })
