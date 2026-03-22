@@ -34,6 +34,12 @@ describe('collection utility', () => {
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Unsupported scheme')
     })
+
+    it('rejects malformed https metadata URLs', () => {
+      const result = validateTokenURI('https://exa mple.com/meta.json')
+      expect(result.isValid).toBe(false)
+      expect(result.label).toBe('Invalid metadata URL')
+    })
   })
 
   describe('formatRelativeTime', () => {
