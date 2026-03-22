@@ -81,11 +81,12 @@ export function formatExactTime(timestamp) {
   if (timestamp === null || timestamp === undefined) return 'Unknown time'
   const time = Number(timestamp)
   if (Number.isNaN(time) || !Number.isFinite(time)) return 'Unknown time'
+  const normalizedTime = time < 1_000_000_000_000 ? time * 1000 : time
 
   return new Intl.DateTimeFormat(undefined, {
     dateStyle: 'medium',
     timeStyle: 'short'
-  }).format(new Date(time))
+  }).format(new Date(normalizedTime))
 }
 
 /**
