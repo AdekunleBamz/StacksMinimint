@@ -14,9 +14,12 @@ export function useClipboard(timeout = 2000) {
     if (!text) return;
 
     try {
-      if (navigator?.clipboard?.writeText) {
+      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(text);
       } else {
+        if (typeof document === 'undefined') {
+          throw new Error('Clipboard is not available in this environment');
+        }
         const textarea = document.createElement('textarea');
         textarea.value = text;
         textarea.setAttribute('readonly', '');
