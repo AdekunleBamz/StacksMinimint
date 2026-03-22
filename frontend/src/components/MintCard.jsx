@@ -38,7 +38,10 @@ export function MintCard({
     try {
       const result = await onMint(normalizedTokenURI)
       if (!result) {
-        setMintStatus(null)
+        setMintStatus({
+          type: 'warning',
+          message: 'Mint cancelled or rejected in wallet.'
+        })
         return
       }
       setMintStatus({ 
