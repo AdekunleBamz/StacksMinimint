@@ -57,6 +57,25 @@ export function useLocalStorage(key, initialValue) {
     return () => window.removeEventListener('storage', handleStorage)
   }, [key, initialValue, hasValidKey])
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !hasValidKey) return
+
+    const handleStorage = (event) => {
+      if (event.storageArea !== window.sessionStorage) return
+      if (event.key !== key && event.key !== null) return
+
+      try {
+        const nextValue = window.sessionStorage.getItem(key)
+        setStoredValue(nextValue ? JSON.parse(nextValue) : initialValue)
+      } catch (error) {
+        console.warn(`Error syncing sessionStorage key "${key}":`, error)
+      }
+    }
+
+    window.addEventListener('storage', handleStorage)
+    return () => window.removeEventListener('storage', handleStorage)
+  }, [key, initialValue, hasValidKey])
+
   return [storedValue, setValue, removeValue]
 }
 
