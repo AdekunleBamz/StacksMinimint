@@ -11,7 +11,7 @@ const ASCII_PATTERN = /^[\x20-\x7E]*$/
  */
 export function formatSTX(microstx) {
   const amount = Number(microstx)
-  if (microstx === null || microstx === undefined || Number.isNaN(amount)) {
+  if (microstx === null || microstx === undefined || Number.isNaN(amount) || !Number.isFinite(amount)) {
     return '0'
   }
 
