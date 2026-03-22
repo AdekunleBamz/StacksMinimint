@@ -7,8 +7,11 @@
  */
 export function truncateAddress(address, startChars = 4, endChars = 4) {
   if (!address || typeof address !== 'string') return '';
-  if (address.length <= startChars + endChars) return address;
-  return `${address.slice(0, startChars)}...${address.slice(-endChars)}`;
+  const normalizedAddress = address.trim();
+  const safeStart = Number.isInteger(startChars) && startChars >= 0 ? startChars : 4;
+  const safeEnd = Number.isInteger(endChars) && endChars >= 0 ? endChars : 4;
+  if (normalizedAddress.length <= safeStart + safeEnd) return normalizedAddress;
+  return `${normalizedAddress.slice(0, safeStart)}...${normalizedAddress.slice(-safeEnd)}`;
 }
 
 /**
