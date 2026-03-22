@@ -44,9 +44,10 @@ export function useLocalStorage(key, initialValue) {
     if (typeof window === 'undefined' || !hasValidKey) return
 
     const handleStorage = (event) => {
-      if (event.key !== key) return
+      if (event.key !== key && event.key !== null) return
       try {
-        setStoredValue(event.newValue ? JSON.parse(event.newValue) : initialValue)
+        const nextValue = window.localStorage.getItem(key)
+        setStoredValue(nextValue ? JSON.parse(nextValue) : initialValue)
       } catch (error) {
         console.warn(`Error syncing localStorage key "${key}":`, error)
       }
