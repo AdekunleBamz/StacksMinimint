@@ -37,7 +37,7 @@ export function useTransactionStatus(txId) {
         return;
       }
       console.error('Error fetching transaction status:', err);
-      setError(err.message);
+      setError(err.message || 'Unable to load transaction status');
     } finally {
       if (!controller.signal.aborted) {
         setIsLoading(false);
