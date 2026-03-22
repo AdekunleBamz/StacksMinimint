@@ -94,6 +94,7 @@ export function formatExactTime(timestamp) {
 export function getMetadataKind(uri) {
   if (!uri) return 'empty'
   const normalized = String(uri).trim().toLowerCase()
+  if (!normalized) return 'empty'
 
   if (normalized.startsWith('ipfs://')) return 'ipfs'
   if (normalized.startsWith('https://')) return 'https'
