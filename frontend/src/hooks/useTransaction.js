@@ -22,7 +22,8 @@ export function useTransactionStatus(txId) {
     controllerRef.current = controller;
     setIsLoading(true);
     try {
-      const apiUrl = STACKS_NETWORK_CONFIG[NETWORK].apiUrl;
+      const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
+      const apiUrl = networkConfig.apiUrl;
       const response = await fetch(`${apiUrl}/extended/v1/tx/${txId}`, {
         signal: controller.signal
       });
