@@ -229,7 +229,14 @@ export function validateTokenURI(value) {
         }
       }
     } catch {
-      // This branch is unreachable for valid https URLs, but we keep mint validation resilient.
+      return {
+        kind,
+        isValid: false,
+        tone: 'warning',
+        label: 'Invalid metadata URL',
+        helper: 'Provide a fully valid https:// URL before submitting to the wallet.',
+        characterCount
+      }
     }
   }
 
