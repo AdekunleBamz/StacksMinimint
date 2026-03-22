@@ -26,7 +26,8 @@ export function useTransactionStatus(txId) {
     try {
       const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
       const apiUrl = networkConfig.apiUrl;
-      const response = await fetch(`${apiUrl}/extended/v1/tx/${txId}`, {
+      const encodedTxId = encodeURIComponent(txId);
+      const response = await fetch(`${apiUrl}/extended/v1/tx/${encodedTxId}`, {
         signal: controller.signal
       });
       if (!response.ok) {
