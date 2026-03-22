@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-let toastId = 0
-
 export function useToast() {
   const [toasts, setToasts] = useState([])
+  const toastIdRef = useRef(0)
 
   const timersRef = useRef(new Map())
 
@@ -17,7 +16,8 @@ export function useToast() {
   }, [])
 
   const addToast = useCallback((message, type = 'info', duration = 5000) => {
-    const id = ++toastId
+    toastIdRef.current += 1
+    const id = toastIdRef.current
     const toast = { id, message, type }
     
     setToasts(prev => [...prev, toast])
