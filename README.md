@@ -99,6 +99,11 @@ Build for production:
 npm run frontend:build
 ```
 
+Run frontend unit tests:
+```bash
+npm run frontend:test
+```
+
 ---
 
 ## 📜 Contract Details
