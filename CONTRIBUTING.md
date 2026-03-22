@@ -1,10 +1,10 @@
-# Contributing to NFTminimint
+# Contributing to StacksMinimint
 
 > Note: Contributing documentation
 > Scope: minimal clarity note.
 
 
-Thanks for helping improve the NFTminimint experience. We appreciate your time and expertise!
+Thanks for helping improve the StacksMinimint experience. We appreciate your time and expertise!
 
 ---
 
