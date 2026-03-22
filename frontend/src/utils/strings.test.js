@@ -55,6 +55,10 @@ describe('strings utility', () => {
       expect(isValidStacksAddress('sp5k2rhmsbh4pap4pgx77mcvnk1zeed07cwx9tjt')).toBe(true);
     });
 
+    it('should accept addresses with leading or trailing spaces', () => {
+      expect(isValidStacksAddress('  SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT  ')).toBe(true);
+    });
+
     it('should reject invalid addresses', () => {
       expect(isValidStacksAddress('')).toBe(false);
       expect(isValidStacksAddress('SP123')).toBe(false);
