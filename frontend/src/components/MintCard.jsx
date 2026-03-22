@@ -61,10 +61,14 @@ export function MintCard({
     }
   }, [tokenURI, onMint])
 
-  const totalSupply = contractInfo?.totalSupply ?? 0
-  const maxSupply = Number.isFinite(contractInfo?.maxSupply) ? contractInfo.maxSupply : null
-  const walletMinted = contractInfo?.walletMinted ?? 0
-  const maxPerWallet = Number.isFinite(contractInfo?.maxPerWallet) ? contractInfo.maxPerWallet : null
+  const parsedTotalSupply = Number(contractInfo?.totalSupply)
+  const parsedMaxSupply = Number(contractInfo?.maxSupply)
+  const parsedWalletMinted = Number(contractInfo?.walletMinted)
+  const parsedMaxPerWallet = Number(contractInfo?.maxPerWallet)
+  const totalSupply = Number.isFinite(parsedTotalSupply) ? parsedTotalSupply : 0
+  const maxSupply = Number.isFinite(parsedMaxSupply) ? parsedMaxSupply : null
+  const walletMinted = Number.isFinite(parsedWalletMinted) ? parsedWalletMinted : 0
+  const maxPerWallet = Number.isFinite(parsedMaxPerWallet) ? parsedMaxPerWallet : null
   const isSoldOut = maxSupply !== null && totalSupply >= maxSupply
   const walletLimitReached = maxPerWallet !== null && walletMinted >= maxPerWallet
   const mintActionMessage = contractInfo?.isPaused
