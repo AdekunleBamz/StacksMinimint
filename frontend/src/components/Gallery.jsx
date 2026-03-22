@@ -379,5 +379,3 @@ export function Gallery() {
     </section>
   )
 }
-
-Gallery.propTypes = {}
