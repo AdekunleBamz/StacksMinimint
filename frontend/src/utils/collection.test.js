@@ -17,6 +17,10 @@ describe('collection utility', () => {
       expect(getMetadataKind('http://example.com')).toBe('http')
       expect(getMetadataKind('')).toBe('empty')
     })
+
+    it('treats whitespace-only metadata as empty', () => {
+      expect(getMetadataKind('   ')).toBe('empty')
+    })
   })
 
   describe('validateTokenURI', () => {
