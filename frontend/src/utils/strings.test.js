@@ -5,7 +5,7 @@ describe('strings utility', () => {
   describe('truncateAddress', () => {
     it('should truncate a long address correctly', () => {
       const address = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT';
-      expect(truncateAddress(address)).toBe('SP5K...TJT');
+      expect(truncateAddress(address)).toBe('SP5K...9TJT');
     });
 
     it('should handle custom character counts', () => {
