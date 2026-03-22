@@ -61,7 +61,7 @@ export function useStacksWallet() {
   return {
     address,
     userData,
-    isConnected: userSession.isUserSignedIn(),
+    isConnected: Boolean(address),
     isConnecting,
     connect,
     disconnect,
