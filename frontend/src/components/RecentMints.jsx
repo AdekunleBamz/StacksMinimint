@@ -55,6 +55,7 @@ export function RecentMints({ items = [] }) {
         {recentMints.map((mint) => {
           const timestampMs = getMintTimestampMs(mint.timestamp)
           const txId = mint.txId || mint.txHash
+          const minterAddress = mint.minter || mint.address || 'Unknown'
           const tokenLabel = mint.tokenId == null ? 'Pending' : `#${mint.tokenId}`
           const receiptLabel = mint.tokenId == null ? 'Submitted ↗' : 'Minted ↗'
           const explorerLabel = mint.tokenId == null
@@ -68,8 +69,8 @@ export function RecentMints({ items = [] }) {
               </div>
               <div className="mint-item__info">
                 <span className="mint-item__address">
-                  <span title={mint.minter}>
-                    {formatAddress(mint.minter)}
+                  <span title={minterAddress}>
+                    {formatAddress(minterAddress)}
                   </span>
                 </span>
                 <span className="mint-item__time">
@@ -104,8 +105,9 @@ export function RecentMints({ items = [] }) {
 RecentMints.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     tokenId: PropTypes.number,
-    timestamp: PropTypes.number.isRequired,
-    minter: PropTypes.string.isRequired,
+    timestamp: PropTypes.number,
+    minter: PropTypes.string,
+    address: PropTypes.string,
     txId: PropTypes.string,
     txHash: PropTypes.string
   }))
