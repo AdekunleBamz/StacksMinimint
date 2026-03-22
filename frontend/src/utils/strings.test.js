@@ -51,6 +51,10 @@ describe('strings utility', () => {
       expect(isValidStacksAddress('ST2J8EVYHP7SWB8B3J7G7H1ZP9YVZEV1XJ0D5X0W4')).toBe(true);
     });
 
+    it('should accept lowercase addresses from user input', () => {
+      expect(isValidStacksAddress('sp5k2rhmsbh4pap4pgx77mcvnk1zeed07cwx9tjt')).toBe(true);
+    });
+
     it('should reject invalid addresses', () => {
       expect(isValidStacksAddress('')).toBe(false);
       expect(isValidStacksAddress('SP123')).toBe(false);
