@@ -112,6 +112,8 @@ npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
 npm run check    # Run production build check
+npm run test     # Run frontend unit tests
+npm run test:watch # Run unit tests in watch mode
 ```
 
 ## 📦 Dependencies
