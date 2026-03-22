@@ -152,7 +152,7 @@ export function getMetadataGatewayUrl(uri) {
  * @returns {Object} The validation result object.
  */
 export function validateTokenURI(value) {
-  const normalized = value.trim()
+  const normalized = String(value ?? '').trim()
   const kind = getMetadataKind(normalized)
   const characterCount = normalized.length
   const isAsciiOnly = ASCII_PATTERN.test(normalized)
