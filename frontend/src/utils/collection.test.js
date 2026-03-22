@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, getMetadataGatewayUrl, getMetadataKind, validateTokenURI } from './collection'
+import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, validateTokenURI } from './collection'
 
 describe('collection utility', () => {
   describe('formatSTX', () => {
@@ -72,6 +72,12 @@ describe('collection utility', () => {
   describe('getMetadataGatewayUrl', () => {
     it('normalizes ipfs://ipfs paths to a single gateway prefix', () => {
       expect(getMetadataGatewayUrl('ipfs://ipfs/QmExample')).toBe('https://ipfs.io/ipfs/QmExample')
+    })
+  })
+
+  describe('getMetadataLabel', () => {
+    it('extracts host labels from padded web URLs', () => {
+      expect(getMetadataLabel('  https://www.example.com/meta.json  ')).toBe('example.com')
     })
   })
 
