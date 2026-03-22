@@ -40,6 +40,12 @@ describe('collection utility', () => {
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Invalid metadata URL')
     })
+
+    it('rejects ipfs URIs without a CID path', () => {
+      const result = validateTokenURI('ipfs://')
+      expect(result.isValid).toBe(false)
+      expect(result.label).toBe('Invalid IPFS URI')
+    })
   })
 
   describe('formatRelativeTime', () => {
