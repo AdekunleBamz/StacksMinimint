@@ -44,7 +44,7 @@ export function MintCard({
       setMintStatus({ 
         type: 'success', 
         message: result.tokenId ? `NFT minted! Token ID: ${result.tokenId}` : 'Mint submitted. Track the transaction below.',
-        txHash: result.txHash || result.txId
+        txId: result.txHash || result.txId
       })
       setTokenURI('')
     } catch (error) {
@@ -72,7 +72,7 @@ export function MintCard({
         : !isTokenUriValid
           ? tokenUriValidation.helper
           : 'Ready to mint on Stacks.'
-  const txId = mintStatus?.txId || mintStatus?.txHash
+  const txId = mintStatus?.txId
 
   return (
     <div className="mint-card">
