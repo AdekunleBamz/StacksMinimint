@@ -23,6 +23,9 @@ export {
  */
 function getBaseExplorerUrl(type, identifier) {
   const baseUrl = STACKS_NETWORK_CONFIG[NETWORK].explorerUrl;
+  if (identifier === null || identifier === undefined || identifier === '') {
+    return `${baseUrl}?chain=${NETWORK}`;
+  }
   return `${baseUrl}/${type}/${encodeURIComponent(identifier)}?chain=${NETWORK}`;
 }
 
