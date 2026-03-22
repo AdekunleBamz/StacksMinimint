@@ -71,5 +71,10 @@ describe('collection utility', () => {
       expect(typeof formatted).toBe('string')
       expect(formatted.length).toBeGreaterThan(0)
     })
+
+    it('accepts Unix timestamps provided in seconds', () => {
+      const formatted = formatExactTime(Math.floor(Date.now() / 1000))
+      expect(formatted).not.toBe('Unknown time')
+    })
   })
 })
