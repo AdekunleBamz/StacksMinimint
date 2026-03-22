@@ -52,6 +52,12 @@ describe('collection utility', () => {
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Invalid IPFS URI')
     })
+
+    it('rejects https metadata URLs with embedded credentials', () => {
+      const result = validateTokenURI('https://user:pass@example.com/meta.json')
+      expect(result.isValid).toBe(false)
+      expect(result.label).toBe('Remove URL credentials')
+    })
   })
 
   describe('formatRelativeTime', () => {
