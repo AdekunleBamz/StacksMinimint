@@ -9,4 +9,8 @@ describe('contract explorer helpers', () => {
   it('falls back to the chain home URL when tx id is missing', () => {
     expect(getExplorerUrl('')).toBe('https://explorer.hiro.so?chain=mainnet')
   })
+
+  it('encodes transaction ids safely for explorer URLs', () => {
+    expect(getExplorerUrl('0xabc/def?x=1')).toBe('https://explorer.hiro.so/txid/0xabc%2Fdef%3Fx%3D1?chain=mainnet')
+  })
 })
