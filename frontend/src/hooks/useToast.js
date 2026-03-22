@@ -16,6 +16,10 @@ export function useToast() {
   }, [])
 
   const addToast = useCallback((message, type = 'info', duration = 5000) => {
+    if (!message) {
+      return null
+    }
+
     toastIdRef.current += 1
     const id = toastIdRef.current
     const toast = { id, message, type }
