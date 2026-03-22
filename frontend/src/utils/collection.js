@@ -215,6 +215,20 @@ export function validateTokenURI(value) {
     }
   }
 
+  if (kind === 'ipfs') {
+    const ipfsPath = normalized.slice('ipfs://'.length).trim()
+    if (!ipfsPath || /\s/.test(ipfsPath)) {
+      return {
+        kind,
+        isValid: false,
+        tone: 'warning',
+        label: 'Invalid IPFS URI',
+        helper: 'Provide an ipfs:// URI with a CID or CID path and no spaces.',
+        characterCount
+      }
+    }
+  }
+
   if (kind === 'https') {
     try {
       const parsed = new URL(normalized)
