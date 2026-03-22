@@ -26,10 +26,12 @@ export function useToast() {
     
     setToasts(prev => [...prev, toast])
 
-    if (duration > 0) {
+    const safeDuration = Number.isFinite(duration) ? Math.max(duration, 0) : 5000
+
+    if (safeDuration > 0) {
       const timer = setTimeout(() => {
         removeToast(id)
-      }, duration)
+      }, safeDuration)
       timersRef.current.set(id, timer)
     }
 
