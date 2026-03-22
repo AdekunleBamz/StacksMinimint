@@ -6,6 +6,7 @@ settings/Testnet.toml
 .env.local
 dist/
 .cache/
+deployments/
 test-wallets.json
 scripts/
 frontend/build_output*.txt
