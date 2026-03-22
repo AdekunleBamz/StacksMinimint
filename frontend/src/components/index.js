@@ -13,4 +13,4 @@ export { LoadingSkeleton, CardSkeleton, ListItemSkeleton } from './LoadingSkelet
 export { CopyButton } from './CopyButton'
 export { Badge } from './Badge'
 export { Card, CardHeader, CardBody, CardFooter } from './Card'
-export { ErrorBoundary } from './ErrorBoundary'
+export { default as ErrorBoundary } from './ErrorBoundary'
