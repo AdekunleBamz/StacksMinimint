@@ -222,7 +222,10 @@ export function validateTokenURI(value) {
   }
 
   if (kind === 'ipfs') {
-    const ipfsPath = normalized.slice('ipfs://'.length).trim()
+    const ipfsPath = normalized
+      .slice('ipfs://'.length)
+      .trim()
+      .replace(/^ipfs\//i, '')
     if (!ipfsPath || /\s/.test(ipfsPath)) {
       return {
         kind,
