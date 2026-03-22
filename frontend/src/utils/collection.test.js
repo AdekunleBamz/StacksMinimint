@@ -44,6 +44,11 @@ describe('collection utility', () => {
       expect(validateTokenURI('https://example.com/meta.json').isValid).toBe(true)
     })
 
+    it('accepts uppercase secure schemes', () => {
+      expect(validateTokenURI('IPFS://cid').isValid).toBe(true)
+      expect(validateTokenURI('HTTPS://example.com/meta.json').isValid).toBe(true)
+    })
+
     it('rejects unsupported schemes', () => {
       const result = validateTokenURI('ftp://example.com')
       expect(result.isValid).toBe(false)
