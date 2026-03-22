@@ -97,11 +97,13 @@ export function Gallery() {
     const idSearch = normalizedSearchTerm.startsWith('#')
       ? normalizedSearchTerm.slice(1)
       : normalizedSearchTerm
+    const nftName = String(nft?.name || '').toLowerCase()
+    const nftOwner = String(nft?.owner || '').toLowerCase()
     if (/^\d+$/.test(idSearch)) {
       return nft.id.toString() === idSearch
     }
-    return nft.name.toLowerCase().includes(normalizedSearchTerm) ||
-           nft.owner.toLowerCase().includes(normalizedSearchTerm)
+    return nftName.includes(normalizedSearchTerm) ||
+           nftOwner.includes(normalizedSearchTerm)
   }), [nfts, normalizedSearchTerm])
   const hasSearch = searchTerm.trim().length > 0
   const filteredLabel = filteredNfts.length === 1 ? 'item' : 'items'
