@@ -266,7 +266,7 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
  * @returns {Object} The accent color object.
  */
 export function getCardAccent(seed) {
-  const input = seed || 'minimint'
+  const input = String(seed || 'minimint')
   let hash = 0
 
   for (let index = 0; index < input.length; index += 1) {
