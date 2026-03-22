@@ -18,6 +18,7 @@ export function Gallery() {
   const gridId = useId()
   const searchHintId = `${gridId}-search-hint`
   const normalizedSearchTerm = searchTerm.toLowerCase().trim()
+  const safeViewMode = viewMode === 'list' ? 'list' : 'grid'
 
   // Sample NFT data for demonstration
   useEffect(() => {
@@ -119,7 +120,7 @@ export function Gallery() {
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
-        <div className={`gallery__grid gallery__grid--${viewMode}`}>
+        <div className={`gallery__grid gallery__grid--${safeViewMode}`}>
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="nft-card nft-card--skeleton">
               <div className="skeleton skeleton--image"></div>
@@ -173,10 +174,10 @@ export function Gallery() {
           <div className="gallery__controls">
             <button
               type="button"
-              className={`view-btn ${viewMode === 'grid' ? 'view-btn--active' : ''}`}
+              className={`view-btn ${safeViewMode === 'grid' ? 'view-btn--active' : ''}`}
               onClick={() => setViewMode('grid')}
               aria-label="Grid view"
-              aria-pressed={viewMode === 'grid'}
+              aria-pressed={safeViewMode === 'grid'}
               aria-controls={gridId}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -185,10 +186,10 @@ export function Gallery() {
             </button>
             <button
               type="button"
-              className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
+              className={`view-btn ${safeViewMode === 'list' ? 'view-btn--active' : ''}`}
               onClick={() => setViewMode('list')}
               aria-label="List view"
-              aria-pressed={viewMode === 'list'}
+              aria-pressed={safeViewMode === 'list'}
               aria-controls={gridId}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -250,10 +251,10 @@ export function Gallery() {
         <div className="gallery__controls">
           <button
             type="button"
-            className={`view-btn ${viewMode === 'grid' ? 'view-btn--active' : ''}`}
+            className={`view-btn ${safeViewMode === 'grid' ? 'view-btn--active' : ''}`}
             onClick={() => setViewMode('grid')}
             aria-label="Grid view"
-            aria-pressed={viewMode === 'grid'}
+            aria-pressed={safeViewMode === 'grid'}
             aria-controls={gridId}
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -262,10 +263,10 @@ export function Gallery() {
           </button>
           <button
             type="button"
-            className={`view-btn ${viewMode === 'list' ? 'view-btn--active' : ''}`}
+            className={`view-btn ${safeViewMode === 'list' ? 'view-btn--active' : ''}`}
             onClick={() => setViewMode('list')}
             aria-label="List view"
-            aria-pressed={viewMode === 'list'}
+            aria-pressed={safeViewMode === 'list'}
             aria-controls={gridId}
           >
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -284,7 +285,7 @@ export function Gallery() {
         {hasSearch ? ` matching "${searchTerm}"` : ''} out of {nfts.length} {totalLabel}.
       </p>
 
-      <div id={gridId} className={`gallery__grid gallery__grid--${viewMode}`}>
+      <div id={gridId} className={`gallery__grid gallery__grid--${safeViewMode}`}>
         {filteredNfts.map((nft, index) => (
           <article
             key={nft.id}
