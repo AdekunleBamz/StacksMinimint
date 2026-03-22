@@ -1,0 +1,14 @@
+import React from 'react'
+import { describe, expect, it } from 'vitest'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { Card } from './Card'
+
+describe('Card', () => {
+  it('forwards aria-describedby ids for assistive descriptions', () => {
+    const markup = renderToStaticMarkup(
+      React.createElement(Card, { ariaDescriptionId: 'card-copy' }, 'Body')
+    )
+
+    expect(markup).toContain('aria-describedby="card-copy"')
+  })
+})
