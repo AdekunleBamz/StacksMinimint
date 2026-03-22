@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatExactTime, formatRelativeTime, formatSTX, getMetadataKind, validateTokenURI } from './collection'
+import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, getMetadataKind, validateTokenURI } from './collection'
 
 describe('collection utility', () => {
   describe('formatSTX', () => {
@@ -7,6 +7,12 @@ describe('collection utility', () => {
       expect(formatSTX(0)).toBe('0')
       expect(formatSTX(1000000)).toBe('1')
       expect(formatSTX(2500000)).toBe('2.5')
+    })
+  })
+
+  describe('formatAddress', () => {
+    it('supports truncation without a suffix segment', () => {
+      expect(formatAddress('SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT', 4, 0)).toBe('SP5K...')
     })
   })
 
