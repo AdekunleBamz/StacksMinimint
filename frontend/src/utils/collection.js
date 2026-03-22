@@ -131,13 +131,15 @@ export function getMetadataLabel(uri) {
  */
 export function getMetadataGatewayUrl(uri) {
   if (!uri) return null
+  const normalized = String(uri).trim()
+  const lowered = normalized.toLowerCase()
 
-  if (uri.startsWith('ipfs://')) {
-    return `https://ipfs.io/ipfs/${uri.slice('ipfs://'.length)}`
+  if (lowered.startsWith('ipfs://')) {
+    return `https://ipfs.io/ipfs/${normalized.slice('ipfs://'.length)}`
   }
 
-  if (uri.startsWith('https://') || uri.startsWith('http://')) {
-    return uri
+  if (lowered.startsWith('https://') || lowered.startsWith('http://')) {
+    return normalized
   }
 
   return null
