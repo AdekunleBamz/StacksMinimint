@@ -15,8 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive `prop-types` validation for all 14 core UI components.
 - New `SECURITY.md` policy for responsible vulnerability reporting.
 - Initial `CHANGELOG.md` to track project evolution.
-- Enhanced `CONTRIBUTING.md` with PR guidelines (pending).
-- Smart contract enhancements including `burn` and `pause` (pending).
+- Enhanced `CONTRIBUTING.md` with PR guidelines.
+- Smart contract enhancements including `burn` and `pause`.
 
 ### Changed
 - Refactored frontend components to improve type safety and maintainability.
