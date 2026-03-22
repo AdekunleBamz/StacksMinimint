@@ -21,6 +21,8 @@ export function useTransactionStatus(txId) {
     const controller = new AbortController();
     controllerRef.current = controller;
     setIsLoading(true);
+    setStatus(null);
+    setError(null);
     try {
       const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
       const apiUrl = networkConfig.apiUrl;
@@ -32,7 +34,6 @@ export function useTransactionStatus(txId) {
       }
       const data = await response.json();
       setStatus(data.tx_status);
-      setError(null);
     } catch (err) {
       if (err.name === 'AbortError') {
         return;
