@@ -14,6 +14,8 @@
     "frontend:build": "npm --prefix frontend run build",
     "frontend:preview": "npm --prefix frontend run preview",
     "frontend:check": "npm --prefix frontend run check",
+    "frontend:test": "npm --prefix frontend run test",
+    "frontend:test:watch": "npm --prefix frontend run test:watch",
     "scripts:install": "npm --prefix scripts install",
     "scripts:wallets": "npm --prefix scripts run generate:wallets",
     "scripts:distribute": "npm --prefix scripts run distribute:stx",
