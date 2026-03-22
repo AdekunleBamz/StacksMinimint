@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 
 export function useMediaQuery(query) {
+  const hasValidQuery = typeof query === 'string' && query.length > 0
+
   const [matches, setMatches] = useState(() => {
-    if (typeof window !== 'undefined' && query) {
+    if (typeof window !== 'undefined' && hasValidQuery) {
       return window.matchMedia(query).matches
     }
     return false
   })
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !query) return
+    if (typeof window === 'undefined' || !hasValidQuery) return
 
     const mediaQuery = window.matchMedia(query)
     
@@ -35,7 +37,7 @@ export function useMediaQuery(query) {
         mediaQuery.removeListener(handler)
       }
     }
-  }, [query])
+  }, [query, hasValidQuery])
 
   return matches
 }
