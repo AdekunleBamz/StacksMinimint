@@ -22,7 +22,8 @@ export {
  * @returns {string} The full explorer URL.
  */
 function getBaseExplorerUrl(type, identifier) {
-  const baseUrl = STACKS_NETWORK_CONFIG[NETWORK].explorerUrl;
+  const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
+  const baseUrl = networkConfig.explorerUrl;
   if (identifier === null || identifier === undefined || identifier === '') {
     return `${baseUrl}?chain=${NETWORK}`;
   }
