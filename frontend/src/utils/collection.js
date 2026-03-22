@@ -74,12 +74,14 @@ export function formatRelativeTime(timestamp) {
  * @returns {string} The exact time string.
  */
 export function formatExactTime(timestamp) {
-  if (!timestamp) return 'Unknown time'
+  if (timestamp === null || timestamp === undefined) return 'Unknown time'
+  const time = Number(timestamp)
+  if (Number.isNaN(time) || !Number.isFinite(time)) return 'Unknown time'
 
   return new Intl.DateTimeFormat(undefined, {
     dateStyle: 'medium',
     timeStyle: 'short'
-  }).format(new Date(timestamp))
+  }).format(new Date(time))
 }
 
 /**
