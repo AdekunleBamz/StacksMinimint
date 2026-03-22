@@ -1,12 +1,13 @@
 // Note: Modal module
 // Scope: keep Modal concerns isolated.
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import PropTypes from 'prop-types'
 import './Modal.css'
 
 export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const modalRef = useRef(null)
+  const titleId = useId()
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -45,12 +46,12 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
       onClick={handleOverlayClick}
       role="dialog"
       aria-modal="true"
-      aria-labelledby={title ? 'modal-title' : undefined}
+      aria-labelledby={title ? titleId : undefined}
       aria-label={title ? undefined : 'Dialog'}
     >
       <div ref={modalRef} className={`modal modal--${size}`} tabIndex={-1}>
         <div className="modal__header">
-          {title && <h2 id="modal-title" className="modal__title">{title}</h2>}
+          {title && <h2 id={titleId} className="modal__title">{title}</h2>}
           <button 
             type="button"
             className="modal__close" 
@@ -77,4 +78,3 @@ Modal.propTypes = {
   children: PropTypes.node,
   size: PropTypes.oneOf(['small', 'medium', 'large', 'full'])
 }
-
