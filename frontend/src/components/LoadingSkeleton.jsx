@@ -65,4 +65,4 @@ LoadingSkeleton.propTypes = {
 CardSkeleton.propTypes = {}
 ListItemSkeleton.propTypes = {}
 
-export { LoadingSkeleton, CardSkeleton, ListItemSkeleton }
+export { CardSkeleton, ListItemSkeleton }
