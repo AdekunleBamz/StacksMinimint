@@ -12,6 +12,7 @@ export function MintCard({
   contractInfo, 
   onMint, 
   isConnected,
+  isConnecting = false,
   onConnect,
   contractError
 }) {
@@ -124,8 +125,15 @@ export function MintCard({
       {!isConnected ? (
         <div className="mint-card__connect">
           <p>Connect a Stacks wallet to start minting</p>
-          <button type="button" className="mint-card__btn" onClick={onConnect} aria-label="Connect wallet to mint">
-            Connect Wallet
+          <button
+            type="button"
+            className="mint-card__btn"
+            onClick={onConnect}
+            aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet to mint'}
+            aria-busy={isConnecting}
+            disabled={isConnecting}
+          >
+            {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
         </div>
       ) : (
@@ -230,6 +238,7 @@ MintCard.propTypes = {
   }),
   onMint: PropTypes.func.isRequired,
   isConnected: PropTypes.bool,
+  isConnecting: PropTypes.bool,
   onConnect: PropTypes.func.isRequired,
   contractError: PropTypes.string
 }
