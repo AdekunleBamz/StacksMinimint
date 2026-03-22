@@ -76,6 +76,18 @@ export function useLocalStorage(key, initialValue) {
     return () => window.removeEventListener('storage', handleStorage)
   }, [key, initialValue, hasValidKey])
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !hasValidKey) return
+
+    try {
+      const item = window.localStorage.getItem(key)
+      setStoredValue(item ? JSON.parse(item) : initialValue)
+    } catch (error) {
+      console.warn(`Error reloading localStorage key "${key}":`, error)
+      setStoredValue(initialValue)
+    }
+  }, [key, initialValue, hasValidKey])
+
   return [storedValue, setValue, removeValue]
 }
 
