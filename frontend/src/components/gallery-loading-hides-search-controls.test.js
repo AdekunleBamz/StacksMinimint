@@ -1,0 +1,11 @@
+import React from 'react'
+import { describe, expect, it } from 'vitest'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { Gallery } from './Gallery'
+
+describe('Gallery', () => {
+  it('does not render search input while loading placeholders are visible', () => {
+    const markup = renderToStaticMarkup(React.createElement(Gallery))
+    expect(markup).not.toContain('type="search"')
+  })
+})
