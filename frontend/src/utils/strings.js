@@ -11,6 +11,7 @@ export function truncateAddress(address, startChars = 4, endChars = 4) {
   const safeStart = Number.isInteger(startChars) && startChars >= 0 ? startChars : 4;
   const safeEnd = Number.isInteger(endChars) && endChars >= 0 ? endChars : 4;
   if (normalizedAddress.length <= safeStart + safeEnd) return normalizedAddress;
+  if (safeEnd === 0) return `${normalizedAddress.slice(0, safeStart)}...`;
   return `${normalizedAddress.slice(0, safeStart)}...${normalizedAddress.slice(-safeEnd)}`;
 }
 
