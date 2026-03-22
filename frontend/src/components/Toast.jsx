@@ -11,6 +11,7 @@ export function Toast({ message, type = 'info', onClose }) {
     warning: '⚠',
     info: 'ℹ'
   }
+  const icon = icons[type] || icons.info
 
   return (
     <div
@@ -19,7 +20,7 @@ export function Toast({ message, type = 'info', onClose }) {
       aria-live={type === 'error' ? 'assertive' : 'polite'}
       aria-atomic="true"
     >
-      <span className="toast__icon" aria-hidden="true">{icons[type]}</span>
+      <span className="toast__icon" aria-hidden="true">{icon}</span>
       <span className="toast__message">{message}</span>
       {onClose && (
         <button type="button" className="toast__close" onClick={onClose} aria-label={`Dismiss ${type} notification`}>
