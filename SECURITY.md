@@ -1,9 +1,5 @@
 # Security Policy
 
-> Note: Security documentation
-> Scope: minimal clarity note.
-
-
 ## Supported Versions
 
 We currently provide security updates for the following versions:
