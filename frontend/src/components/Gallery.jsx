@@ -26,21 +26,21 @@ export function Gallery() {
         id: 1,
         name: 'Genesis #1',
         image: 'https://picsum.photos/seed/nft1/400/400',
-        owner: 'SP3H9...ABCDE',
+        owner: 'SP3HE2Y4S6K8N4D0X8M6G4Q2Y9B7P5R3T1V0WXYZ',
         tokenURI: 'ipfs://QmExample1'
       },
       {
         id: 2,
         name: 'Genesis #2',
         image: 'https://picsum.photos/seed/nft2/400/400',
-        owner: 'SP2JA...XYZ12',
+        owner: 'SP2JA9Q8R7T6Y5U4I3O2P1A0S9D8F7G6H5J4K3L2',
         tokenURI: 'ipfs://QmExample2'
       },
       {
         id: 3,
         name: 'Genesis #3',
         image: 'https://picsum.photos/seed/nft3/400/400',
-        owner: 'SP1P7...QWERT',
+        owner: 'SP1P7Q9W8E7R6T5Y4U3I2O1P0A9S8D7F6G5H4J3K',
         tokenURI: 'ipfs://QmExample3'
       }
     ]
