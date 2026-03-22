@@ -77,6 +77,7 @@ function App() {
                 contractInfo={contractInfo}
                 onMint={handleMint}
                 isConnected={isConnected}
+                isConnecting={isConnecting}
                 onConnect={connect}
                 contractError={contractError}
               />
