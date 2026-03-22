@@ -33,6 +33,7 @@ export function formatAddress(address, start = 5, end = 5) {
   const safeStart = Number.isInteger(start) && start >= 0 ? start : 5
   const safeEnd = Number.isInteger(end) && end >= 0 ? end : 5
   if (address.length <= safeStart + safeEnd + 3) return address
+  if (safeEnd === 0) return `${address.slice(0, safeStart)}...`
   return `${address.slice(0, safeStart)}...${address.slice(-safeEnd)}`
 }
 
