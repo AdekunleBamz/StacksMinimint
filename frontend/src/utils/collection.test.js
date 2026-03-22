@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, getMetadataKind, validateTokenURI } from './collection'
+import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, getMetadataGatewayUrl, getMetadataKind, validateTokenURI } from './collection'
 
 describe('collection utility', () => {
   describe('formatSTX', () => {
@@ -57,6 +57,12 @@ describe('collection utility', () => {
       const result = validateTokenURI('https://user:pass@example.com/meta.json')
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Remove URL credentials')
+    })
+  })
+
+  describe('getMetadataGatewayUrl', () => {
+    it('normalizes ipfs://ipfs paths to a single gateway prefix', () => {
+      expect(getMetadataGatewayUrl('ipfs://ipfs/QmExample')).toBe('https://ipfs.io/ipfs/QmExample')
     })
   })
 
