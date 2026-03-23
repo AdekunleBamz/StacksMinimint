@@ -1,4 +1,4 @@
-# NFTminimint Frontend
+# StacksMinimint Frontend
 
 > Note: Readme documentation
 > Scope: minimal clarity note.
