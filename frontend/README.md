@@ -1,9 +1,5 @@
 # NFTminimint Frontend
 
-> Note: Readme documentation
-> Scope: minimal clarity note.
-
-
 A React-based frontend for the NFTminimint smart contract, built with Vite and the Stacks JS SDK.
 
 ## 🚀 Quick Start
