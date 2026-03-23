@@ -1,7 +1,7 @@
 export const CONTRACT_ADDRESS = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT';
 export const CONTRACT_NAME = 'minimint-core';
 export const NETWORK = 'mainnet'; // 'mainnet' or 'testnet'
-export const MINT_FEE = 1000; // 0.001 STX (in micro-STX)
+export const MINT_FEE = Number(import.meta.env.VITE_MINT_FEE || 1000); // 0.001 STX (in micro-STX)
 
 export const FUNCTIONS = {
   MINT: 'mint',
