@@ -11,6 +11,7 @@
 ;; @version 1.0.0
 ;; @notice Manages staking, marketplace, and reward logic.
 
+;; Keep this path pinned to the local v-i27 SIP trait contract for Clarinet compatibility.
 (use-trait nft-trait .sip-009-nft-trait-v-i27.sip-009-nft-trait)
 
 (define-constant ERR-NOT-AUTHORIZED (err u100))
