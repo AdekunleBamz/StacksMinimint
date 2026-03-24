@@ -1,4 +1,4 @@
-// Stacks Contract Configuration for NFTminimint
+// Stacks Contract Configuration for StacksMinimint
 // Using @stacks/connect and @stacks/transactions
 
 import {
