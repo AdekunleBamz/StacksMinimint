@@ -21,8 +21,8 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   return (
     <header className="header">
       <div className="header__brand">
-        <img src={logo} alt="NFTminimint Logo" className="header__logo" />
-        <span className="header__title">NFTminimint</span>
+        <img src={logo} alt="StacksMinimint Logo" className="header__logo" />
+        <span className="header__title">StacksMinimint</span>
       </div>
 
       <div className="header__wallet">
