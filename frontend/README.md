@@ -129,6 +129,7 @@ npm run check    # Run production build check
 
 - If wallet prompts do not appear, ensure pop-ups are allowed for `localhost`.
 - If transactions open on the wrong chain, confirm `NETWORK` in `src/contract.js`.
+- If mint calls fail with contract-not-found style errors, verify `CONTRACT_NAME` is set to `minimint-core-v-i27` in `src/contract.js`.
 
 ## 📄 License
 
