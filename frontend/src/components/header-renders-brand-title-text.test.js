@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 describe('Header', () => {
-  it('renders the NFTminimint brand title', () => {
+  it('renders the StacksMinimint brand title', () => {
     const markup = renderToStaticMarkup(React.createElement(Header, {
       account: null,
       onConnect: () => {},
@@ -12,6 +12,6 @@ describe('Header', () => {
       isConnecting: false
     }))
 
-    expect(markup).toContain('NFTminimint')
+    expect(markup).toContain('StacksMinimint')
   })
 })
