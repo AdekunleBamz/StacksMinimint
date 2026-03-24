@@ -30,7 +30,7 @@ export function Footer() {
       <div className="footer__content">
         <div className="footer__brand">
           <span className="footer__logo" aria-hidden="true">◆</span>
-          <span className="footer__title">NFTminimint</span>
+          <span className="footer__title">StacksMinimint</span>
           <p className="footer__description">
             Mint lightweight NFTs on Stacks with a wallet-first flow,
             clear on-chain feedback, and collection context that stays visible.
@@ -99,7 +99,7 @@ export function Footer() {
 
       <div className="footer__bottom">
         <p className="footer__copyright">
-          © {currentYear} NFTminimint. Open source under MIT.
+          © {currentYear} StacksMinimint. Open source under MIT.
         </p>
         <p className="footer__credit">
           Built for Stacks NFT drops
