@@ -64,7 +64,7 @@ function App() {
           <section className="hero">
             <div className="hero__content">
               <span className="hero__badge">SIP-009</span>
-              <h1 className="hero__title">NFTminimint</h1>
+              <h1 className="hero__title">StacksMinimint</h1>
               <p className="hero__subtitle">
                 A wallet-first, gas-efficient NFT minting experience on Stacks
               </p>
