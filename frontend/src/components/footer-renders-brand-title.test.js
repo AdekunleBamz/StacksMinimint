@@ -4,8 +4,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Footer } from './Footer'
 
 describe('Footer', () => {
-  it('renders the NFTminimint brand title in footer branding', () => {
+  it('renders the StacksMinimint brand title in footer branding', () => {
     const markup = renderToStaticMarkup(React.createElement(Footer))
-    expect(markup).toContain('NFTminimint')
+    expect(markup).toContain('StacksMinimint')
   })
 })
