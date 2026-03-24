@@ -32,6 +32,8 @@ export const CONTRACT_NAME = 'minimint-core'
 export const NETWORK = 'mainnet' // or 'testnet'
 ```
 
+This frontend intentionally keeps contract defaults in `src/contract.js` instead of a separate `.env.example` template to prevent stale placeholder addresses.
+
 The app reads contract settings from `src/contract.js` directly. `VITE_*` environment variables are not used for contract routing in this frontend.
 
 ## 📁 Project Structure
