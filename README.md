@@ -84,6 +84,8 @@ For the operational automation scripts under `scripts/`:
 npm run scripts:interact:token
 ```
 
+Before running it, install the script package dependencies once with `npm --prefix scripts install`.
+
 ## Frontend
 
 The UI includes a live minting dashboard, real-time supply polling, a unified gallery, and collection statistics. It connects natively to the Stacks network with wallet confirmation flows.
