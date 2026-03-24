@@ -14,6 +14,6 @@ describe('Header', () => {
       })
     )
 
-    expect(markup).toContain('alt="NFTminimint Logo"')
+    expect(markup).toContain('alt="StacksMinimint Logo"')
   })
 })
