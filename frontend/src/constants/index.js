@@ -1,22 +1,17 @@
-export const CONTRACT_ADDRESS = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT';
-export const CONTRACT_NAME = 'minimint-core';
-export const NETWORK = 'mainnet'; // 'mainnet' or 'testnet'
-export const MINT_FEE = 1000; // 0.001 STX (in micro-STX)
+import {
+  CONTRACT_ADDRESS as SDK_CONTRACT_ADDRESS,
+  CONTRACT_NAME as SDK_CONTRACT_NAME,
+  DEFAULT_NETWORK,
+  FUNCTIONS as SDK_FUNCTIONS,
+  MINT_FEE as SDK_MINT_FEE,
+  STACKS_NETWORK_CONFIG as SDK_STACKS_NETWORK_CONFIG,
+} from 'stacksminimint-sdk';
 
-export const FUNCTIONS = {
-  MINT: 'mint',
-  GET_LAST_ID: 'get-last-token-id',
-  GET_OWNER: 'get-owner',
-  TRANSFER: 'transfer'
-};
+export const CONTRACT_ADDRESS = SDK_CONTRACT_ADDRESS;
+export const CONTRACT_NAME = SDK_CONTRACT_NAME;
+export const NETWORK = DEFAULT_NETWORK; // 'mainnet' or 'testnet'
+export const MINT_FEE = SDK_MINT_FEE; // 0.001 STX (in micro-STX)
 
-export const STACKS_NETWORK_CONFIG = {
-  mainnet: {
-    apiUrl: 'https://api.hiro.so',
-    explorerUrl: 'https://explorer.hiro.so'
-  },
-  testnet: {
-    apiUrl: 'https://api.testnet.hiro.so',
-    explorerUrl: 'https://explorer.hiro.so'
-  }
-};
+export const FUNCTIONS = SDK_FUNCTIONS;
+export const STACKS_NETWORK_CONFIG = SDK_STACKS_NETWORK_CONFIG;
+export const MAX_SUPPLY = 10000;

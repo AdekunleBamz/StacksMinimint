@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { openContractCall } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import {
@@ -11,26 +11,52 @@ import {
   CONTRACT_NAME,
   FUNCTIONS,
   MINT_FEE,
+  MAX_SUPPLY,
   NETWORK
 } from '../constants';
 import { userSession } from './useStacksWallet';
 import { validateTokenURI } from '../utils/collection';
+import { MinimintClient } from 'stacksminimint-sdk';
+
+const parseUint = (value) => {
+  if (typeof value === 'bigint') {
+    return Number(value);
+  }
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : 0;
+  }
+  if (typeof value === 'string' && /^\d+$/.test(value)) {
+    return Number(value);
+  }
+  return 0;
+};
 
 export function useStacksContract(address) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [contractInfo, setContractInfo] = useState({
     totalSupply: 0,
-    maxSupply: 10000,
+    maxSupply: MAX_SUPPLY,
     mintFee: MINT_FEE
   });
   const stacksNetwork = NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET;
+  const sdkClient = useMemo(() => new MinimintClient(NETWORK), []);
 
-  // Mock fetch for now, as we'd need read-only calls
   const fetchContractInfo = useCallback(async () => {
-    // In a real app, use callReadOnlyFunction from @stacks/transactions
-    setContractInfo(prev => ({ ...prev }));
-  }, []);
+    try {
+      const lastTokenId = await sdkClient.getLastTokenId();
+      const totalSupply = parseUint(lastTokenId);
+
+      setContractInfo(prev => ({
+        ...prev,
+        totalSupply,
+        maxSupply: MAX_SUPPLY,
+        mintFee: MINT_FEE,
+      }));
+    } catch (fetchError) {
+      console.warn('Failed to fetch contract info:', fetchError);
+    }
+  }, [sdkClient]);
 
   useEffect(() => {
     fetchContractInfo();
@@ -71,6 +97,7 @@ export function useStacksContract(address) {
           postConditionMode: PostConditionMode.Deny,
           network: stacksNetwork,
           onFinish: (data) => {
+            fetchContractInfo();
             setIsLoading(false);
             resolve({
               txId: data.txId,
@@ -94,7 +121,7 @@ export function useStacksContract(address) {
       setIsLoading(false);
       return null;
     }
-  }, [address]);
+  }, [address, fetchContractInfo, stacksNetwork]);
 
   return {
     mint,
