@@ -18,7 +18,7 @@ A React-based frontend for the NFTminimint smart contract, built with Vite and t
 
 ```bash
 # Install dependencies
-npm install
+npm ci
 
 # Start development server
 npm run dev
