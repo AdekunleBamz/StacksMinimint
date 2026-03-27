@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { CardHeader } from './Card'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('CardHeader', () => {
   it('renders children inside the card header container', () => {
     const markup = renderToStaticMarkup(
