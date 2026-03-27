@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Footer } from './Footer'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('Footer', () => {
   it('shows the current year in copyright copy', () => {
     const year = new Date().getFullYear()
