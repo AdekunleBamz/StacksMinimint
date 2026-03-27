@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Card } from './Card'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('Card', () => {
   it('renders default variant and padding classes', () => {
     const markup = renderToStaticMarkup(React.createElement(Card, null, 'Body'))
