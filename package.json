@@ -1,7 +1,7 @@
 {
   "name": "stacksminimint",
   "version": "1.0.0",
-  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Clarity](https://img.shields.io/badge/Clarity-v2.0-blue.svg)](https://clarity-lang.org/) [![Stacks](https://img.shields.io/badge/Built%20with-Stacks-purple.svg)](https://stacks.co/) [![Hiro](https://img.shields.io/badge/Tools-Clarinet-orange.svg)](https://hiro.so/)",
+  "description": "Modular NFT minting and rewards protocol on Stacks with Clarity contracts and a React frontend",
   "main": "index.js",
   "directories": {
     "test": "test"
