@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { CopyButton } from './CopyButton'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('CopyButton', () => {
   it('uses the visible label as the aria-label when idle', () => {
     const markup = renderToStaticMarkup(
