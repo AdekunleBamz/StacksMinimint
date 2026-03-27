@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { CopyButton } from './CopyButton'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('CopyButton', () => {
   it('renders as disabled when no text value is provided', () => {
     const markup = renderToStaticMarkup(React.createElement(CopyButton))
