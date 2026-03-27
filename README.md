@@ -49,7 +49,7 @@ Stored in the `contracts/` directory, the ecosystem consists of three main compo
    ```bash
    git clone https://github.com/AdekunleBamz/StacksMinimint.git
    cd StacksMinimint
-   npm install
+   npm ci
    ```
 
 2. **Frontend Setup:**
