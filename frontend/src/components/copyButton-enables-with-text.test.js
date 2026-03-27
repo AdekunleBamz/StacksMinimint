@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { CopyButton } from './CopyButton'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('CopyButton', () => {
   it('remains enabled when a copy target is provided', () => {
     const markup = renderToStaticMarkup(React.createElement(CopyButton, { text: 'SP123' }))
