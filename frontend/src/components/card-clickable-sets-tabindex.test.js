@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Card } from './Card'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('Card', () => {
   it('sets keyboard tab index when card is interactive', () => {
     const markup = renderToStaticMarkup(React.createElement(Card, { onClick: vi.fn() }, 'Body'))
