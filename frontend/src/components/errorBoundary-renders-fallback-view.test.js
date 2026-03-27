@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import ErrorBoundary from './ErrorBoundary'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('ErrorBoundary', () => {
   it('renders fallback UI when component state marks an error', () => {
     const boundary = new ErrorBoundary({ children: null })
