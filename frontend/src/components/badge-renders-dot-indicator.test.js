@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Badge } from './Badge'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('Badge', () => {
   it('renders a dot marker when dot mode is enabled', () => {
     const markup = renderToStaticMarkup(
