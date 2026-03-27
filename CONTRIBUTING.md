@@ -19,6 +19,7 @@ Thanks for helping improve the StacksMinimint experience. We appreciate your tim
 
 ```bash
 # Setup
+npm ci
 npm run frontend:install
 
 # Development
