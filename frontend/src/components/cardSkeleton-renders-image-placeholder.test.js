@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { CardSkeleton } from './LoadingSkeleton'
 
+// Regression note: keep this UI behavior expectation explicit.
 describe('CardSkeleton', () => {
   it('includes an image placeholder block in the card layout', () => {
     const markup = renderToStaticMarkup(React.createElement(CardSkeleton))
