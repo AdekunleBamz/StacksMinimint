@@ -83,6 +83,11 @@ Execute contract tests:
 npm test
 ```
 
+Run the root validation flow (contracts + tests):
+```bash
+npm run check
+```
+
 ### Frontend Development
 
 Start the local development server:
@@ -98,6 +103,11 @@ npm run frontend:build
 Run frontend unit tests:
 ```bash
 npm run frontend:test
+```
+
+Run frontend static checks:
+```bash
+npm run frontend:check
 ```
 
 ---
