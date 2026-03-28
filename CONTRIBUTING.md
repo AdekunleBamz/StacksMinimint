@@ -17,13 +17,15 @@ Thanks for helping improve the StacksMinimint experience. We appreciate your tim
 # Setup
 npm ci
 npm run frontend:install
+npm run scripts:install
 
 # Development
 npm run frontend:dev
 
 # Verification
+npm run check
 npm run frontend:check
-clarinet check
+npm run frontend:test
 ```
 
 ## 📝 Commit Guidelines
@@ -41,7 +43,8 @@ clarinet check
 
 ### Testing Expectations
 - Run `npm run frontend:check` for UI-impacting changes.
-- Run `clarinet check` for contract-impacting changes.
+- Run `npm run check` for contract-impacting changes.
+- Run `npm run frontend:test` when changing frontend business logic.
 - **Note**: Mention any checks you could not run in your PR description.
 
 ### Accessibility Checklist
