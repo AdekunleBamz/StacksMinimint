@@ -75,7 +75,7 @@ clarinet check
 
 Run interactive console:
 ```bash
-clarinet console
+npm run contracts:console
 ```
 
 Execute contract tests:
