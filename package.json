@@ -45,6 +45,9 @@
   ],
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "type": "module",
   "bugs": {
     "url": "https://github.com/AdekunleBamz/StacksMinimint/issues"
