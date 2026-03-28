@@ -10,6 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "contracts:check": "clarinet check",
+    "contracts:console": "clarinet console",
     "check": "npm run contracts:check && npm run test",
     "frontend:install": "npm --prefix frontend ci",
     "frontend:dev": "npm --prefix frontend run dev",
