@@ -1,3 +1,4 @@
+// Module note: keeps index behavior responsibilities explicit.
 import {
   CONTRACT_ADDRESS as SDK_CONTRACT_ADDRESS,
   CONTRACT_NAME as SDK_CONTRACT_NAME,
