@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
+// Regression note: preserve modal renders close button label behavior coverage.
 describe('Modal', () => {
   it('renders an accessible close button label', () => {
     const markup = renderToStaticMarkup(
