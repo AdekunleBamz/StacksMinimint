@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard shows open supply symbol behavior coverage.
 describe('MintCard', () => {
   it('shows infinity symbol when max supply is not configured', () => {
     const markup = renderToStaticMarkup(
