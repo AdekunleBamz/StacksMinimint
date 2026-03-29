@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header truncates wallet address behavior coverage.
 describe('Header', () => {
   it('renders a shortened wallet address label for connected accounts', () => {
     const account = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT'
