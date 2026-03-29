@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard submit text includes mint fee behavior coverage.
 describe('MintCard', () => {
   it('includes formatted mint fee in the submit button copy', () => {
     const markup = renderToStaticMarkup(
