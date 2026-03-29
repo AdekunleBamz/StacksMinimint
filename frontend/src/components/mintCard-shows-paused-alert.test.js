@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard shows paused alert behavior coverage.
 describe('MintCard', () => {
   it('shows paused alert when contract pause flag is true', () => {
     const markup = renderToStaticMarkup(
