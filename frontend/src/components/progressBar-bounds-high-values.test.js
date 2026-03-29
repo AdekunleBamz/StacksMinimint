@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { ProgressBar } from './ProgressBar'
 
 // Regression note: preserve progressBar bounds high values behavior coverage.
+// Scope note: validates progressBar bounds high values behavior for regressions.
 describe('ProgressBar', () => {
   it('caps progress width at one hundred percent for oversized values', () => {
     const markup = renderToStaticMarkup(
