@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Spinner } from './Spinner'
 
+// Regression note: preserve spinner applies size tone classes behavior coverage.
 describe('Spinner', () => {
   it('applies size, tone, and custom class names', () => {
     const markup = renderToStaticMarkup(
