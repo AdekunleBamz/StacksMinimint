@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
 // Regression note: preserve recentMints empty copy guidance behavior coverage.
+// Scope note: validates recentMints empty copy guidance behavior for regressions.
 describe('RecentMints', () => {
   it('guides users when no local mint receipts exist', () => {
     const markup = renderToStaticMarkup(React.createElement(RecentMints, { items: [] }))
