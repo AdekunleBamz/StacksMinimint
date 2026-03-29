@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats renders section title behavior coverage.
 describe('Stats', () => {
   it('renders the collection stats section title', () => {
     const markup = renderToStaticMarkup(React.createElement(Stats, {
