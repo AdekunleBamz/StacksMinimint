@@ -1,3 +1,4 @@
+// Module note: keeps errorboundary behavior responsibilities explicit.
 // Note: Errorboundary module
 // Scope: keep ErrorBoundary concerns isolated.
 
