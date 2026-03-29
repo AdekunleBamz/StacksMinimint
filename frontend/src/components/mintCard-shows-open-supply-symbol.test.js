@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard shows open supply symbol behavior coverage.
+// Scope note: validates mintCard shows open supply symbol behavior for regressions.
 describe('MintCard', () => {
   it('shows infinity symbol when max supply is not configured', () => {
     const markup = renderToStaticMarkup(
