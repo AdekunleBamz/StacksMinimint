@@ -1,3 +1,4 @@
+// Module note: keeps useclipboard behavior responsibilities explicit.
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /**
