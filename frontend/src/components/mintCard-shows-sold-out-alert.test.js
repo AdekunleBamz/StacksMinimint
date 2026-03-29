@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard shows sold out alert behavior coverage.
+// Scope note: validates mintCard shows sold out alert behavior for regressions.
 describe('MintCard', () => {
   it('shows sold-out alert when minted supply reaches max supply', () => {
     const markup = renderToStaticMarkup(
