@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
 // Regression note: preserve recentMints submitted label for pending token behavior coverage.
+// Scope note: validates recentMints submitted label for pending token behavior for regressions.
 describe('RecentMints', () => {
   it('uses submitted label when tx exists but token id is still pending', () => {
     const markup = renderToStaticMarkup(
