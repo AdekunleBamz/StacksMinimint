@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ProgressBar } from './ProgressBar'
 
+// Regression note: preserve progressBar bounds high values behavior coverage.
 describe('ProgressBar', () => {
   it('caps progress width at one hundred percent for oversized values', () => {
     const markup = renderToStaticMarkup(
