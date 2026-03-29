@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header connect button aria connecting behavior coverage.
 describe('Header', () => {
   it('uses connecting aria label while connect flow is pending', () => {
     const markup = renderToStaticMarkup(
