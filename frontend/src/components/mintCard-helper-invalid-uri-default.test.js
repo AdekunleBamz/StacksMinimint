@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard helper invalid uri default behavior coverage.
 describe('MintCard', () => {
   it('shows token URI guidance when no metadata value has been entered', () => {
     const markup = renderToStaticMarkup(
