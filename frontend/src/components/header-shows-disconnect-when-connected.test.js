@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header shows disconnect when connected behavior coverage.
 describe('Header', () => {
   it('shows disconnect controls when an account is connected', () => {
     const markup = renderToStaticMarkup(
