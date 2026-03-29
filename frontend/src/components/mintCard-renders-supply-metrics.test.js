@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard renders supply metrics behavior coverage.
+// Scope note: validates mintCard renders supply metrics behavior for regressions.
 describe('MintCard', () => {
   it('renders minted and max supply summary values', () => {
     const markup = renderToStaticMarkup(
