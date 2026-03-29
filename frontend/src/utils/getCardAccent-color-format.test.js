@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { getCardAccent } from './collection'
 
+// Regression note: preserve getCardAccent color format behavior coverage.
 describe('getCardAccent', () => {
   it('returns HSL and HSLA formatted color values', () => {
     const accent = getCardAccent('format-check')
