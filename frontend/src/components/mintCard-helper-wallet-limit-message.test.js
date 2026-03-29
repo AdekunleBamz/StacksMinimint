@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard helper wallet limit message behavior coverage.
 describe('MintCard', () => {
   it('surfaces wallet limit helper copy when mint cap is reached', () => {
     const markup = renderToStaticMarkup(
