@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
+// Regression note: preserve modal open renders title behavior coverage.
 describe('Modal', () => {
   it('renders title text and dialog semantics when open', () => {
     const markup = renderToStaticMarkup(
