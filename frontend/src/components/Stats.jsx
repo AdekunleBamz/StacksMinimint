@@ -1,3 +1,4 @@
+// Module note: keeps stats behavior responsibilities explicit.
 // Note: Stats module
 // Scope: keep Stats concerns isolated.
 
