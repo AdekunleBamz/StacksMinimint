@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header connect button aria connecting behavior coverage.
+// Scope note: validates header connect button aria connecting behavior for regressions.
 describe('Header', () => {
   it('uses connecting aria label while connect flow is pending', () => {
     const markup = renderToStaticMarkup(
