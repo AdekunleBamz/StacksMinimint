@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Spinner } from './Spinner'
 
+// Regression note: preserve spinner renders ring element behavior coverage.
 describe('Spinner', () => {
   it('renders the internal spinner ring element', () => {
     const markup = renderToStaticMarkup(React.createElement(Spinner))
