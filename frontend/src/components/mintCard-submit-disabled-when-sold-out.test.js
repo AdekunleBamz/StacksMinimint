@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard submit disabled when sold out behavior coverage.
+// Scope note: validates mintCard submit disabled when sold out behavior for regressions.
 describe('MintCard', () => {
   it('disables submit action when collection is sold out', () => {
     const markup = renderToStaticMarkup(
