@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard renders token uri label behavior coverage.
+// Scope note: validates mintCard renders token uri label behavior for regressions.
 describe('MintCard', () => {
   it('renders the token URI input label for connected users', () => {
     const markup = renderToStaticMarkup(React.createElement(MintCard, {
