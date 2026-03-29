@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
 // Regression note: preserve recentMints fallbacks to unknown address behavior coverage.
+// Scope note: validates recentMints fallbacks to unknown address behavior for regressions.
 describe('RecentMints', () => {
   it('falls back to unknown address copy when no address fields exist', () => {
     const markup = renderToStaticMarkup(
