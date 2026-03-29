@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { LoadingSkeleton } from './LoadingSkeleton'
 
+// Regression note: preserve loadingSkeleton renders count behavior coverage.
 describe('LoadingSkeleton', () => {
   it('renders as many skeleton blocks as requested', () => {
     const markup = renderToStaticMarkup(
