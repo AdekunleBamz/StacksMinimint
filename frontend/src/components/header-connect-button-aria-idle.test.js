@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header connect button aria idle behavior coverage.
+// Scope note: validates header connect button aria idle behavior for regressions.
 describe('Header', () => {
   it('uses connect wallet aria label when idle', () => {
     const markup = renderToStaticMarkup(
