@@ -1,3 +1,4 @@
+// Module note: keeps usestackswallet behavior responsibilities explicit.
 import { useState, useEffect, useCallback } from 'react';
 import { AppConfig, UserSession, showConnect } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
