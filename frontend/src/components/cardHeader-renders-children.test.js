@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { CardHeader } from './Card'
 
 // Regression note: keep this UI behavior expectation explicit.
+// Scope note: validates cardHeader renders children behavior for regressions.
 describe('CardHeader', () => {
   it('renders children inside the card header container', () => {
     const markup = renderToStaticMarkup(
