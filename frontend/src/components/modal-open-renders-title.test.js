@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
 // Regression note: preserve modal open renders title behavior coverage.
+// Scope note: validates modal open renders title behavior for regressions.
 describe('Modal', () => {
   it('renders title text and dialog semantics when open', () => {
     const markup = renderToStaticMarkup(
