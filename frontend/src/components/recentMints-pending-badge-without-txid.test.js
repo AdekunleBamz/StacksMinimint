@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
+// Regression note: preserve recentMints pending badge without txid behavior coverage.
 describe('RecentMints', () => {
   it('shows pending status when an item has no transaction id', () => {
     const markup = renderToStaticMarkup(
