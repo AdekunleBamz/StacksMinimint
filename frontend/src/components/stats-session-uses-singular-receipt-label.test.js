@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
 // Regression note: preserve stats session uses singular receipt label behavior coverage.
+// Scope note: validates stats session uses singular receipt label behavior for regressions.
 describe('Stats', () => {
   it('uses singular receipt label for one recent activity item', () => {
     const markup = renderToStaticMarkup(
