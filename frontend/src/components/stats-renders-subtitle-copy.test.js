@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats renders subtitle copy behavior coverage.
 describe('Stats', () => {
   it('renders the explanatory subtitle copy', () => {
     const markup = renderToStaticMarkup(React.createElement(Stats, {
