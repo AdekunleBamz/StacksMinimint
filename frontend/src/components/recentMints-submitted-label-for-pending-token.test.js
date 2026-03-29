@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
+// Regression note: preserve recentMints submitted label for pending token behavior coverage.
 describe('RecentMints', () => {
   it('uses submitted label when tx exists but token id is still pending', () => {
     const markup = renderToStaticMarkup(
