@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { formatRelativeTime } from './collection'
 
+// Regression note: preserve formatRelativeTime string ms hour behavior coverage.
 describe('formatRelativeTime', () => {
   it('accepts millisecond timestamps provided as strings', () => {
     const timestamp = String(Date.now() - (2 * 60 * 60 * 1000))
