@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { truncateAddress, capitalize, isValidStacksAddress } from './strings';
 
+// Regression note: preserve strings behavior coverage.
 describe('strings utility', () => {
   describe('truncateAddress', () => {
     it('should truncate a long address correctly', () => {
