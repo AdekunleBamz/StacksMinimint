@@ -1,3 +1,4 @@
+// Module note: keeps badge behavior responsibilities explicit.
 // Note: Badge module
 // Scope: keep Badge concerns isolated.
 
