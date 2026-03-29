@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ProgressBar } from './ProgressBar'
 
+// Regression note: preserve progressBar hides label when disabled behavior coverage.
 describe('ProgressBar', () => {
   it('omits percentage label text when showLabel is false', () => {
     const markup = renderToStaticMarkup(
