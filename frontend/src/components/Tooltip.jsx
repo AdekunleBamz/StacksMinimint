@@ -1,3 +1,4 @@
+// Module note: keeps tooltip behavior responsibilities explicit.
 // Note: Tooltip module
 // Scope: keep Tooltip concerns isolated.
 
