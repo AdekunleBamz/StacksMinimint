@@ -1,3 +1,4 @@
+// Module note: keeps toast behavior responsibilities explicit.
 // Note: Toast module
 // Scope: keep Toast concerns isolated.
 
