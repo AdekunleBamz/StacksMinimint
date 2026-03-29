@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
 // Regression note: preserve stats session uses plural receipt label behavior coverage.
+// Scope note: validates stats session uses plural receipt label behavior for regressions.
 describe('Stats', () => {
   it('uses plural receipt label for multiple recent activity items', () => {
     const markup = renderToStaticMarkup(
