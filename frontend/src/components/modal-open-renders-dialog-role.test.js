@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
+// Regression note: preserve modal open renders dialog role behavior coverage.
 describe('Modal', () => {
   it('renders dialog role attributes when open', () => {
     const markup = renderToStaticMarkup(React.createElement(Modal, {
