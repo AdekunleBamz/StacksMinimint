@@ -1,3 +1,4 @@
+// Module note: keeps header behavior responsibilities explicit.
 // Note: Header module
 // Scope: keep Header concerns isolated.
 
