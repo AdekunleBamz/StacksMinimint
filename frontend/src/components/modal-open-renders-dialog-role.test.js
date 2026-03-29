@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
 // Regression note: preserve modal open renders dialog role behavior coverage.
+// Scope note: validates modal open renders dialog role behavior for regressions.
 describe('Modal', () => {
   it('renders dialog role attributes when open', () => {
     const markup = renderToStaticMarkup(React.createElement(Modal, {
