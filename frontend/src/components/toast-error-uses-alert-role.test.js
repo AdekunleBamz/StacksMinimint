@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Toast } from './Toast'
 
 // Regression note: preserve toast error uses alert role behavior coverage.
+// Scope note: validates toast error uses alert role behavior for regressions.
 describe('Toast', () => {
   it('uses alert semantics for error notifications', () => {
     const markup = renderToStaticMarkup(
