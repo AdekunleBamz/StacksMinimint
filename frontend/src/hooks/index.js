@@ -1,3 +1,4 @@
+// Module note: keeps index behavior responsibilities explicit.
 export { useStacksWallet as useWallet } from './useStacksWallet'
 export { useStacksContract as useContract } from './useStacksContract'
 export { useToast } from './useToast'
