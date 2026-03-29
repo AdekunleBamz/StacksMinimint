@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard submit text includes mint fee behavior coverage.
+// Scope note: validates mintCard submit text includes mint fee behavior for regressions.
 describe('MintCard', () => {
   it('includes formatted mint fee in the submit button copy', () => {
     const markup = renderToStaticMarkup(
