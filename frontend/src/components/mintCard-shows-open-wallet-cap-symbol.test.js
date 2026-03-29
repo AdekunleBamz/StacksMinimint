@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard shows open wallet cap symbol behavior coverage.
 describe('MintCard', () => {
   it('shows infinity symbol when wallet cap is not configured', () => {
     const markup = renderToStaticMarkup(
