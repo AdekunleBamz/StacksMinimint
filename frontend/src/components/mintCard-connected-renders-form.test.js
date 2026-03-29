@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard connected renders form behavior coverage.
 describe('MintCard', () => {
   it('renders metadata submission form when wallet is connected', () => {
     const markup = renderToStaticMarkup(
