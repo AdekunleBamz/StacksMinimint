@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
 // Regression note: preserve stats shows ready state by default behavior coverage.
+// Scope note: validates stats shows ready state by default behavior for regressions.
 describe('Stats', () => {
   it('shows ready state when collection is active and not sold out', () => {
     const markup = renderToStaticMarkup(
