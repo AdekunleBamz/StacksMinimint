@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats loading state skeleton count behavior coverage.
 describe('Stats', () => {
   it('renders four skeleton cards during loading states', () => {
     const markup = renderToStaticMarkup(
