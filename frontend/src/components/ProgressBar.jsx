@@ -1,3 +1,4 @@
+// Module note: keeps progressbar behavior responsibilities explicit.
 // Note: Progressbar module
 // Scope: keep ProgressBar concerns isolated.
 
