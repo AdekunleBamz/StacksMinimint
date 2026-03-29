@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
+// Regression note: preserve recentMints renders token id label behavior coverage.
 describe('RecentMints', () => {
   it('renders token id label prefix for minted items', () => {
     const markup = renderToStaticMarkup(
