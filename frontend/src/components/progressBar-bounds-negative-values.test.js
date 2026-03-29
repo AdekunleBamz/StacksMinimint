@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ProgressBar } from './ProgressBar'
 
+// Regression note: preserve progressBar bounds negative values behavior coverage.
 describe('ProgressBar', () => {
   it('floors progress values at zero for negative inputs', () => {
     const markup = renderToStaticMarkup(
