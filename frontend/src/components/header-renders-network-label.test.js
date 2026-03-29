@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header renders network label behavior coverage.
+// Scope note: validates header renders network label behavior for regressions.
 describe('Header', () => {
   it('renders the configured network label when connected', () => {
     const markup = renderToStaticMarkup(
