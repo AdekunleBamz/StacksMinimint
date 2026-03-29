@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Toast } from './Toast'
 
+// Regression note: preserve toast info uses status role behavior coverage.
 describe('Toast', () => {
   it('uses polite status semantics for informational toasts', () => {
     const markup = renderToStaticMarkup(React.createElement(Toast, { type: 'info', message: 'FYI' }))
