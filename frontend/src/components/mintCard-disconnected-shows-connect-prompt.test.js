@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard disconnected shows connect prompt behavior coverage.
 describe('MintCard', () => {
   it('shows wallet connect prompt when user is disconnected', () => {
     const markup = renderToStaticMarkup(
