@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats session uses singular receipt label behavior coverage.
 describe('Stats', () => {
   it('uses singular receipt label for one recent activity item', () => {
     const markup = renderToStaticMarkup(
