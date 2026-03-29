@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Card } from './Card'
 
 // Regression note: keep this UI behavior expectation explicit.
+// Scope note: validates card renders clickable role behavior for regressions.
 describe('Card', () => {
   it('renders button semantics when click handlers are supplied', () => {
     const markup = renderToStaticMarkup(
