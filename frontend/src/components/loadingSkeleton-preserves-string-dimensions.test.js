@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { LoadingSkeleton } from './LoadingSkeleton'
 
 // Regression note: preserve loadingSkeleton preserves string dimensions behavior coverage.
+// Scope note: validates loadingSkeleton preserves string dimensions behavior for regressions.
 describe('LoadingSkeleton', () => {
   it('preserves string-based width and height values', () => {
     const markup = renderToStaticMarkup(
