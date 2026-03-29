@@ -1,3 +1,4 @@
+// Module note: keeps mintcard behavior responsibilities explicit.
 // Note: Mintcard module
 // Scope: keep MintCard concerns isolated.
 
