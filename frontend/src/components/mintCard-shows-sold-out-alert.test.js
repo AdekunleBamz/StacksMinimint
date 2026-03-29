@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard shows sold out alert behavior coverage.
 describe('MintCard', () => {
   it('shows sold-out alert when minted supply reaches max supply', () => {
     const markup = renderToStaticMarkup(
