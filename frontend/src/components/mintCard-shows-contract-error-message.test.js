@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard shows contract error message behavior coverage.
 describe('MintCard', () => {
   it('renders contract error text when an upstream error is provided', () => {
     const markup = renderToStaticMarkup(
