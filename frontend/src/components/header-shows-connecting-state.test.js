@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header shows connecting state behavior coverage.
+// Scope note: validates header shows connecting state behavior for regressions.
 describe('Header', () => {
   it('shows connecting copy while wallet connection is pending', () => {
     const markup = renderToStaticMarkup(
