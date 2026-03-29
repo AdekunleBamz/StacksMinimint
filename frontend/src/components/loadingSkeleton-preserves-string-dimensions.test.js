@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { LoadingSkeleton } from './LoadingSkeleton'
 
+// Regression note: preserve loadingSkeleton preserves string dimensions behavior coverage.
 describe('LoadingSkeleton', () => {
   it('preserves string-based width and height values', () => {
     const markup = renderToStaticMarkup(
