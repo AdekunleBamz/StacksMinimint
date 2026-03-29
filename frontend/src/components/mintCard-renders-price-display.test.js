@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard renders price display behavior coverage.
+// Scope note: validates mintCard renders price display behavior for regressions.
 describe('MintCard', () => {
   it('formats mint fee values in STX units within summary stats', () => {
     const markup = renderToStaticMarkup(
