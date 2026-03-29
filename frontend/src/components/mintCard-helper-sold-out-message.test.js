@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard helper sold out message behavior coverage.
+// Scope note: validates mintCard helper sold out message behavior for regressions.
 describe('MintCard', () => {
   it('surfaces sold-out helper copy in mint action message', () => {
     const markup = renderToStaticMarkup(
