@@ -1,3 +1,4 @@
+// Module note: keeps usetransaction behavior responsibilities explicit.
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { STACKS_NETWORK_CONFIG, NETWORK } from '../constants';
 
