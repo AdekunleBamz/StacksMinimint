@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
 // Regression note: preserve modal sets aria modal true behavior coverage.
+// Scope note: validates modal sets aria modal true behavior for regressions.
 describe('Modal', () => {
   it('sets aria-modal to true when rendered open', () => {
     const markup = renderToStaticMarkup(
