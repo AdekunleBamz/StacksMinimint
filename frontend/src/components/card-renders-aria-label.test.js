@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Card } from './Card'
 
 // Regression note: keep this UI behavior expectation explicit.
+// Scope note: validates card renders aria label behavior for regressions.
 describe('Card', () => {
   it('forwards aria-label when the card is clickable', () => {
     const markup = renderToStaticMarkup(
