@@ -1,3 +1,4 @@
+// Module note: keeps gallery behavior responsibilities explicit.
 // Note: Gallery module
 // Scope: keep Gallery concerns isolated.
 
