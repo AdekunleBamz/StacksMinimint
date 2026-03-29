@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Gallery } from './Gallery'
 
+// Regression note: preserve gallery initial loading state behavior coverage.
 describe('Gallery', () => {
   it('renders loading placeholders on initial server render', () => {
     const markup = renderToStaticMarkup(React.createElement(Gallery))
