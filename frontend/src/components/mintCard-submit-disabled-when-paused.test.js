@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard submit disabled when paused behavior coverage.
+// Scope note: validates mintCard submit disabled when paused behavior for regressions.
 describe('MintCard', () => {
   it('disables submit action when minting is paused', () => {
     const markup = renderToStaticMarkup(
