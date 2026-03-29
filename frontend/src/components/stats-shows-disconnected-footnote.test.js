@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
 // Regression note: preserve stats shows disconnected footnote behavior coverage.
+// Scope note: validates stats shows disconnected footnote behavior for regressions.
 describe('Stats', () => {
   it('shows connect guidance copy when wallet is not connected', () => {
     const markup = renderToStaticMarkup(
