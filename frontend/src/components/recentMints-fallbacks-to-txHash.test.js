@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
+// Regression note: preserve recentMints fallbacks to txHash behavior coverage.
 describe('RecentMints', () => {
   it('uses txHash values when txId is missing', () => {
     const txHash = '0xhash123'
