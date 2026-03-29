@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { CardFooter } from './Card'
 
 // Regression note: keep this UI behavior expectation explicit.
+// Scope note: validates cardFooter renders children behavior for regressions.
 describe('CardFooter', () => {
   it('renders children inside the card footer container', () => {
     const markup = renderToStaticMarkup(
