@@ -1,3 +1,4 @@
+// Module note: keeps spinner behavior responsibilities explicit.
 import PropTypes from 'prop-types'
 import './Spinner.css'
 
