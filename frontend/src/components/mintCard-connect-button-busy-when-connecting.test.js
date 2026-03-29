@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard connect button busy when connecting behavior coverage.
+// Scope note: validates mintCard connect button busy when connecting behavior for regressions.
 describe('MintCard', () => {
   it('marks connect action as busy while wallet connection is in progress', () => {
     const markup = renderToStaticMarkup(
