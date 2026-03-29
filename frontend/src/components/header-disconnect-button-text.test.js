@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header disconnect button text behavior coverage.
+// Scope note: validates header disconnect button text behavior for regressions.
 describe('Header', () => {
   it('shows disconnect text when an account is connected', () => {
     const markup = renderToStaticMarkup(React.createElement(Header, {
