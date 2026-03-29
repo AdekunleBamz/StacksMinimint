@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard renders supply metrics behavior coverage.
 describe('MintCard', () => {
   it('renders minted and max supply summary values', () => {
     const markup = renderToStaticMarkup(
