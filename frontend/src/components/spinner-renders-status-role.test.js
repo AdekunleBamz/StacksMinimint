@@ -3,6 +3,7 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Spinner } from './Spinner'
 
+// Regression note: preserve spinner renders status role behavior coverage.
 describe('Spinner', () => {
   it('renders with a status role for assistive technologies', () => {
     const markup = renderToStaticMarkup(React.createElement(Spinner))
