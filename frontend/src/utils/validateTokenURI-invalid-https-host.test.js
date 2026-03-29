@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { validateTokenURI } from './collection'
 
+// Regression note: preserve validateTokenURI invalid https host behavior coverage.
 describe('validateTokenURI', () => {
   it('rejects invalid HTTPS hosts', () => {
     const result = validateTokenURI('https://')
