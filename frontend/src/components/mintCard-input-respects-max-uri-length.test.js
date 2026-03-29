@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard input respects max uri length behavior coverage.
 describe('MintCard', () => {
   it('applies token URI max length constraint to metadata input field', () => {
     const markup = renderToStaticMarkup(
