@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard shows open wallet cap symbol behavior coverage.
+// Scope note: validates mintCard shows open wallet cap symbol behavior for regressions.
 describe('MintCard', () => {
   it('shows infinity symbol when wallet cap is not configured', () => {
     const markup = renderToStaticMarkup(
