@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
 // Regression note: preserve modal renders close button label behavior coverage.
+// Scope note: validates modal renders close button label behavior for regressions.
 describe('Modal', () => {
   it('renders an accessible close button label', () => {
     const markup = renderToStaticMarkup(
