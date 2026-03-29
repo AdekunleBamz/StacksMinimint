@@ -1,3 +1,4 @@
+// Module note: keeps recentmints behavior responsibilities explicit.
 // Note: Recentmints module
 // Scope: keep RecentMints concerns isolated.
 
