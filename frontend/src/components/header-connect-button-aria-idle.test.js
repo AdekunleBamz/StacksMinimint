@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header connect button aria idle behavior coverage.
 describe('Header', () => {
   it('uses connect wallet aria label when idle', () => {
     const markup = renderToStaticMarkup(
