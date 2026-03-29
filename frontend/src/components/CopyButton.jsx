@@ -1,3 +1,4 @@
+// Module note: keeps copybutton behavior responsibilities explicit.
 // Note: Copybutton module
 // Scope: keep CopyButton concerns isolated.
 
