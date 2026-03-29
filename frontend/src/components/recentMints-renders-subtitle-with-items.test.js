@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
+// Regression note: preserve recentMints renders subtitle with items behavior coverage.
 describe('RecentMints', () => {
   it('shows activity subtitle when at least one mint item exists', () => {
     const markup = renderToStaticMarkup(
