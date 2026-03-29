@@ -1,3 +1,4 @@
+// Module note: keeps collection behavior responsibilities explicit.
 /**
  * Maximum character length for a token URI accepted by the contract.
  */
