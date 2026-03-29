@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Gallery } from './Gallery'
 
+// Regression note: preserve gallery loading uses grid view class behavior coverage.
 describe('Gallery', () => {
   it('uses grid view modifier class in initial loading render', () => {
     const markup = renderToStaticMarkup(React.createElement(Gallery))
