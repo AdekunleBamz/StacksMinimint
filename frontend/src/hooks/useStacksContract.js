@@ -1,3 +1,4 @@
+// Module note: keeps usestackscontract behavior responsibilities explicit.
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { openContractCall } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
