@@ -1,3 +1,4 @@
+// Module note: keeps app behavior responsibilities explicit.
 // Note: App module
 // Scope: keep App concerns isolated.
 
