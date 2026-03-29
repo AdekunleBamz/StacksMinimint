@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Badge } from './Badge'
 
 // Regression note: keep this UI behavior expectation explicit.
+// Scope note: validates badge applies variant size classes behavior for regressions.
 describe('Badge', () => {
   it('applies variant and size classes to badge output', () => {
     const markup = renderToStaticMarkup(
