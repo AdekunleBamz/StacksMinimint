@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
+// Regression note: preserve recentMints links when txid present behavior coverage.
 describe('RecentMints', () => {
   it('renders explorer links for items with transaction ids', () => {
     const txId = '0xabc123'
