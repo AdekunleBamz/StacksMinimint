@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header address wrapper copy label behavior coverage.
 describe('Header', () => {
   it('labels wallet address wrapper as copy action', () => {
     const markup = renderToStaticMarkup(
