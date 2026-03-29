@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard connected renders form behavior coverage.
+// Scope note: validates mintCard connected renders form behavior for regressions.
 describe('MintCard', () => {
   it('renders metadata submission form when wallet is connected', () => {
     const markup = renderToStaticMarkup(
