@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard helper paused message behavior coverage.
+// Scope note: validates mintCard helper paused message behavior for regressions.
 describe('MintCard', () => {
   it('surfaces paused helper copy in mint action message', () => {
     const markup = renderToStaticMarkup(
