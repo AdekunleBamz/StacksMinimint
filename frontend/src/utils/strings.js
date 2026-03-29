@@ -1,3 +1,4 @@
+// Module note: keeps strings behavior responsibilities explicit.
 /**
  * Truncates a Stacks wallet address to a shorter format (e.g., SP12...3456).
  * @param {string} address - The full wallet address.
