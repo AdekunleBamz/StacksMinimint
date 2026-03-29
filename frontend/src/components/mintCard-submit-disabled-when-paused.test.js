@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard submit disabled when paused behavior coverage.
 describe('MintCard', () => {
   it('disables submit action when minting is paused', () => {
     const markup = renderToStaticMarkup(
