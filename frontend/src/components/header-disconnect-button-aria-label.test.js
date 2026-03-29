@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header disconnect button aria label behavior coverage.
 describe('Header', () => {
   it('exposes a disconnect aria label for connected state button', () => {
     const markup = renderToStaticMarkup(
