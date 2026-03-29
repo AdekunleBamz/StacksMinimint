@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { getExplorerUrl } from './contract'
 
+// Regression note: preserve contract behavior coverage.
 describe('contract explorer helpers', () => {
   it('builds transaction explorer links on the configured network', () => {
     expect(getExplorerUrl('0xabc')).toBe('https://explorer.hiro.so/txid/0xabc?chain=mainnet')
