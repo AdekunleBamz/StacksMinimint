@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { validateTokenURI } from './collection'
 
+// Regression note: preserve validateTokenURI javascript scheme rejection behavior coverage.
 describe('validateTokenURI', () => {
   it('rejects javascript schemes as unsupported', () => {
     const result = validateTokenURI('javascript:alert(1)')
