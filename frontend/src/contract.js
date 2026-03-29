@@ -1,3 +1,4 @@
+// Module note: keeps contract behavior responsibilities explicit.
 // Stacks Contract Configuration for StacksMinimint
 // Using @stacks/connect and @stacks/transactions
 
