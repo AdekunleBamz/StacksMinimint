@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard helper invalid uri default behavior coverage.
+// Scope note: validates mintCard helper invalid uri default behavior for regressions.
 describe('MintCard', () => {
   it('shows token URI guidance when no metadata value has been entered', () => {
     const markup = renderToStaticMarkup(
