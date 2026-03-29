@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ProgressBar } from './ProgressBar'
 
+// Regression note: preserve progressBar applies custom aria label behavior coverage.
 describe('ProgressBar', () => {
   it('forwards custom aria labels to the progressbar element', () => {
     const markup = renderToStaticMarkup(React.createElement(ProgressBar, { value: 10, ariaLabel: 'Mint completion' }))
