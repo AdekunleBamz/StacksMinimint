@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header disconnect button text behavior coverage.
 describe('Header', () => {
   it('shows disconnect text when an account is connected', () => {
     const markup = renderToStaticMarkup(React.createElement(Header, {
