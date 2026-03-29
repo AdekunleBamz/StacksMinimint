@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard submit disabled when sold out behavior coverage.
 describe('MintCard', () => {
   it('disables submit action when collection is sold out', () => {
     const markup = renderToStaticMarkup(
