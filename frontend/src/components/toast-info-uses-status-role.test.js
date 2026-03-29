@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Toast } from './Toast'
 
 // Regression note: preserve toast info uses status role behavior coverage.
+// Scope note: validates toast info uses status role behavior for regressions.
 describe('Toast', () => {
   it('uses polite status semantics for informational toasts', () => {
     const markup = renderToStaticMarkup(React.createElement(Toast, { type: 'info', message: 'FYI' }))
