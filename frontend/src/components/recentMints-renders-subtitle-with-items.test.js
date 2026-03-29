@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
 // Regression note: preserve recentMints renders subtitle with items behavior coverage.
+// Scope note: validates recentMints renders subtitle with items behavior for regressions.
 describe('RecentMints', () => {
   it('shows activity subtitle when at least one mint item exists', () => {
     const markup = renderToStaticMarkup(
