@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, validateTokenURI } from './collection'
 
 // Regression note: preserve collection behavior coverage.
+// Scope note: validates collection behavior for regressions.
 describe('collection utility', () => {
   describe('formatSTX', () => {
     it('formats microstx values safely', () => {
