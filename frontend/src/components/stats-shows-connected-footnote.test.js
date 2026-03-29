@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats shows connected footnote behavior coverage.
 describe('Stats', () => {
   it('shows connected guidance copy when wallet is connected', () => {
     const markup = renderToStaticMarkup(
