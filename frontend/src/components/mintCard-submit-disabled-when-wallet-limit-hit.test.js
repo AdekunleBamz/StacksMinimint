@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
 // Regression note: preserve mintCard submit disabled when wallet limit hit behavior coverage.
+// Scope note: validates mintCard submit disabled when wallet limit hit behavior for regressions.
 describe('MintCard', () => {
   it('disables submit action when wallet has reached mint cap', () => {
     const markup = renderToStaticMarkup(
