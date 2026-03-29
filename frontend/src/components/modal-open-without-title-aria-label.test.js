@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
 // Regression note: preserve modal open without title aria label behavior coverage.
+// Scope note: validates modal open without title aria label behavior for regressions.
 describe('Modal', () => {
   it('sets an accessible dialog label when title is not provided', () => {
     const markup = renderToStaticMarkup(
