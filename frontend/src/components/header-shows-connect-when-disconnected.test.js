@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header shows connect when disconnected behavior coverage.
+// Scope note: validates header shows connect when disconnected behavior for regressions.
 describe('Header', () => {
   it('shows the connect wallet action when no account is connected', () => {
     const markup = renderToStaticMarkup(
