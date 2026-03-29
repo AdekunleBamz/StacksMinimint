@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header shows disconnect when connected behavior coverage.
+// Scope note: validates header shows disconnect when connected behavior for regressions.
 describe('Header', () => {
   it('shows disconnect controls when an account is connected', () => {
     const markup = renderToStaticMarkup(
