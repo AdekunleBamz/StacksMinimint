@@ -1,3 +1,4 @@
+// Module note: keeps themecontext behavior responsibilities explicit.
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
