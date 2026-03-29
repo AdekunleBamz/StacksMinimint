@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
 // Regression note: preserve stats shows sold out state behavior coverage.
+// Scope note: validates stats shows sold out state behavior for regressions.
 describe('Stats', () => {
   it('marks the collection as sold out when remaining supply reaches zero', () => {
     const markup = renderToStaticMarkup(
