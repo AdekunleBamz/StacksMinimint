@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
+// Regression note: preserve header renders network label behavior coverage.
 describe('Header', () => {
   it('renders the configured network label when connected', () => {
     const markup = renderToStaticMarkup(
