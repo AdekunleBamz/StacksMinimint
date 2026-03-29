@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats shows ready state by default behavior coverage.
 describe('Stats', () => {
   it('shows ready state when collection is active and not sold out', () => {
     const markup = renderToStaticMarkup(
