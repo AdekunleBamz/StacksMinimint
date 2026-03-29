@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Spinner } from './Spinner'
 
 // Regression note: preserve spinner applies size tone classes behavior coverage.
+// Scope note: validates spinner applies size tone classes behavior for regressions.
 describe('Spinner', () => {
   it('applies size, tone, and custom class names', () => {
     const markup = renderToStaticMarkup(
