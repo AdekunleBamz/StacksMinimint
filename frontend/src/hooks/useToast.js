@@ -1,3 +1,4 @@
+// Module note: keeps usetoast behavior responsibilities explicit.
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export function useToast() {
