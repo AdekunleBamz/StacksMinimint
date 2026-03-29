@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Header } from './Header'
 
 // Regression note: preserve header renders brand title text behavior coverage.
+// Scope note: validates header renders brand title text behavior for regressions.
 describe('Header', () => {
   it('renders the StacksMinimint brand title', () => {
     const markup = renderToStaticMarkup(React.createElement(Header, {
