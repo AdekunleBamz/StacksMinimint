@@ -1,3 +1,4 @@
+// Module note: keeps modal behavior responsibilities explicit.
 // Note: Modal module
 // Scope: keep Modal concerns isolated.
 
