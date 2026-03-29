@@ -1,3 +1,4 @@
+// Module note: keeps card behavior responsibilities explicit.
 // Note: Card module
 // Scope: keep Card concerns isolated.
 
