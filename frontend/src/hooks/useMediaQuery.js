@@ -1,3 +1,4 @@
+// Module note: keeps usemediaquery behavior responsibilities explicit.
 import { useState, useEffect } from 'react'
 
 export function useMediaQuery(query) {
