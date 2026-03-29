@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard helper sold out message behavior coverage.
 describe('MintCard', () => {
   it('surfaces sold-out helper copy in mint action message', () => {
     const markup = renderToStaticMarkup(
