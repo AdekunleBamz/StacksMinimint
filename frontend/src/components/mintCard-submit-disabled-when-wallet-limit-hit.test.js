@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MintCard } from './MintCard'
 
+// Regression note: preserve mintCard submit disabled when wallet limit hit behavior coverage.
 describe('MintCard', () => {
   it('disables submit action when wallet has reached mint cap', () => {
     const markup = renderToStaticMarkup(
