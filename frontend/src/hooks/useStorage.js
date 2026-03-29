@@ -1,3 +1,4 @@
+// Module note: keeps usestorage behavior responsibilities explicit.
 import { useCallback, useEffect, useState } from 'react'
 
 export function useLocalStorage(key, initialValue) {
