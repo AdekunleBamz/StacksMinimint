@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { RecentMints } from './RecentMints'
 
+// Regression note: preserve recentMints renders time elements behavior coverage.
 describe('RecentMints', () => {
   it('wraps relative time copy in semantic time elements', () => {
     const markup = renderToStaticMarkup(
