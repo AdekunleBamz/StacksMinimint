@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Toast } from './Toast'
 
 // Regression note: preserve toast renders close button behavior coverage.
+// Scope note: validates toast renders close button behavior for regressions.
 describe('Toast', () => {
   it('renders a dismiss button when onClose is provided', () => {
     const markup = renderToStaticMarkup(
