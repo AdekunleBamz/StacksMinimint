@@ -1,3 +1,4 @@
+// Module note: keeps index behavior responsibilities explicit.
 export { Header } from './Header'
 export { MintCard } from './MintCard'
 export { Stats } from './Stats'
