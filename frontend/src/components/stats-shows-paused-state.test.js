@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats shows paused state behavior coverage.
 describe('Stats', () => {
   it('marks the collection status as paused when contract pause flag is set', () => {
     const markup = renderToStaticMarkup(
