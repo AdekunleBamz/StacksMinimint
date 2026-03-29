@@ -1,3 +1,4 @@
+// Module note: keeps loadingskeleton behavior responsibilities explicit.
 // Note: Loadingskeleton module
 // Scope: keep LoadingSkeleton concerns isolated.
 
