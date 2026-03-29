@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Stats } from './Stats'
 
+// Regression note: preserve stats shows sold out state behavior coverage.
 describe('Stats', () => {
   it('marks the collection as sold out when remaining supply reaches zero', () => {
     const markup = renderToStaticMarkup(
