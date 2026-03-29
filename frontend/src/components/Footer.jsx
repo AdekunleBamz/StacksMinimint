@@ -1,3 +1,4 @@
+// Module note: keeps footer behavior responsibilities explicit.
 // Note: Footer module
 // Scope: keep Footer concerns isolated.
 
