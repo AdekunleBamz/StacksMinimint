@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { createSubmissionRecord } from './collection'
 
 // Regression note: preserve createSubmissionRecord explicit id behavior coverage.
+// Scope note: validates createSubmissionRecord explicit id behavior for regressions.
 describe('createSubmissionRecord', () => {
   it('uses the transaction id directly when provided', () => {
     const record = createSubmissionRecord({
