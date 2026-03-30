@@ -4,3 +4,4 @@
 - Validate fee and recipient constants before release.
 - Run contract checks and tests on a clean install.
 - Archive deployment tx links after successful publish.
+- Keep immediate rollback contract references ready before deploy approval.
