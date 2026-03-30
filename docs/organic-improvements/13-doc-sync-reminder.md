@@ -4,3 +4,4 @@
 - Keep environment variable docs in sync with frontend changes.
 - Note contract version bumps in architecture tables.
 - Link new docs from existing index pages when available.
+- Re-check SECURITY.md references when incident workflow docs are updated.
