@@ -110,6 +110,8 @@ Run frontend static checks:
 npm run frontend:check
 ```
 
+Run this check before publishing frontend-facing release candidates.
+
 ---
 
 ## 📜 Contract Details
