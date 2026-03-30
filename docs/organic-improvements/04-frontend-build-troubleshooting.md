@@ -4,3 +4,4 @@
 - Ensure environment values exist before previewing production build.
 - Clear local node_modules only after confirming lockfile changes.
 - Rebuild after contract address updates to avoid stale constants.
+- Verify active Node.js version matches project expectation before deeper debugging.
