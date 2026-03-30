@@ -110,6 +110,8 @@ Run frontend static checks:
 npm run frontend:check
 ```
 
+Use `docs/organic-improvements/11-network-switch-sanity.md` when validating environment switches.
+
 ---
 
 ## 📜 Contract Details
