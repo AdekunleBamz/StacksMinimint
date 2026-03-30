@@ -4,3 +4,4 @@
 - Confirm contract identifiers for the target environment.
 - Re-test one read-only and one write interaction after switching.
 - Clear stale local cache before reporting issues.
+- Confirm explorer links render the same network you switched to.
