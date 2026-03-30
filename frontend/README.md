@@ -24,6 +24,8 @@ npm ci
 npm run dev
 ```
 
+From repository root, use `npm run frontend:dev` for the same local dev flow.
+
 The app will be available at `http://localhost:5173` by default.
 
 ## 🔧 Configuration
