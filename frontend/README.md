@@ -116,6 +116,8 @@ npm run test     # Run frontend unit tests
 npm run test:watch # Run unit tests in watch mode
 ```
 
+From repository root, use `npm run frontend:test` for the same test command.
+
 ## 📦 Dependencies
 
 - **React 18** - UI library
