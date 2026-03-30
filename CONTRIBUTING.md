@@ -56,6 +56,7 @@ npm run frontend:test
 - Ensure loading, empty, and error states remain clear.
 - Confirm external links use `rel="noopener noreferrer"`.
 - **Verify changes on mobile breakpoints.**
+- Verify explorer links resolve to the expected chain for the current environment.
 
 ---
 
