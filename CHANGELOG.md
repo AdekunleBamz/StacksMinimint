@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial `CHANGELOG.md` to track project evolution.
 - Enhanced `CONTRIBUTING.md` with PR guidelines.
 - Smart contract enhancements including `burn` and `pause`.
+- Operational guidance notes for repeatable release and incident workflows.
 
 ### Changed
 - Refactored frontend components to improve type safety and maintainability.
