@@ -4,3 +4,4 @@
 - Install Clarinet before running contract checks.
 - Run `npm ci` at the root before frontend or script commands.
 - Confirm wallet extension is unlocked before integration testing.
+- Verify wallet key artifacts remain excluded from version control before pushing setup branches.
