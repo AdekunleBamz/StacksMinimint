@@ -3,6 +3,8 @@
 > Note: Code Of Conduct documentation
 > Scope: minimal clarity note.
 
+For security vulnerability disclosures, use the private reporting path in `SECURITY.md` instead of public threads.
+
 
 ## Our Pledge
 
