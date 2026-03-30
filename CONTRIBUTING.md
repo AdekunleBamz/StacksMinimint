@@ -11,6 +11,8 @@ Thanks for helping improve the StacksMinimint experience. We appreciate your tim
 3. **Verify**: Run relevant checks before opening a pull request.
 4. **Context**: Include details about *what* changed and *why*.
 
+For mixed contract/frontend changes, run `npm run check` and `npm run frontend:check` before opening PR.
+
 ## 🛠 Useful Commands
 
 ```bash
