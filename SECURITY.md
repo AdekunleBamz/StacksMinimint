@@ -23,6 +23,7 @@ Please include the following information in your report:
 - The location of the affected code
 - A dynamic-analysis report or a functional exploit (Proof of Concept)
 - Steps to reproduce the issue
+- Affected network and any relevant transaction IDs
 
 We will acknowledge receipt of your vulnerability report within 48 hours and send a more detailed response within 7 days.
 
