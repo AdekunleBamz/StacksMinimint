@@ -4,3 +4,4 @@
 - Compare costs between previous and current contract versions.
 - Flag any cost growth before publishing release notes.
 - Keep worst-case values in team deployment notes.
+- Capture at least one measurement during higher network activity windows.
