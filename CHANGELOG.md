@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Refactored frontend components to improve type safety and maintainability.
 - Updated repository documentation for a more professional developer experience.
+- Clarified validation and docs-sync workflows for ongoing maintenance.
 
 ## [1.0.0] - 2026-03-17
 
