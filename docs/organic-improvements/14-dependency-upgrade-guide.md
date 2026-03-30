@@ -4,3 +4,4 @@
 - Run contract checks and tests after each upgrade set.
 - Document breaking changes affecting scripts or frontend flows.
 - Commit lockfile updates together with package manifest edits.
+- Re-run `npm ci` after lockfile changes before comparing runtime behavior.
