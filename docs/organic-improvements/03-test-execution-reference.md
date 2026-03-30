@@ -4,3 +4,4 @@
 - Use npm run test:watch for rapid local feedback.
 - Re-run tests after changing deployment plans or constants.
 - Keep test output attached to release candidates.
+- Include a short failing log snippet when reporting regressions.
