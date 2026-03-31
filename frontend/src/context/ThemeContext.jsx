@@ -1,4 +1,12 @@
-// Module note: keeps themecontext behavior responsibilities explicit.
+/**
+ * ThemeContext for managing application theme preferences.
+ * 
+ * Provides light/dark theme support with localStorage persistence
+ * and system preference detection. Includes a useTheme hook for
+ * consuming theme state and toggle functionality.
+ * 
+ * @module ThemeContext
+ */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
