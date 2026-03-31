@@ -1,6 +1,11 @@
-// Module note: keeps contract behavior responsibilities explicit.
-// Stacks Contract Configuration for StacksMinimint
-// Using @stacks/connect and @stacks/transactions
+/**
+ * Contract utility functions for Stacks blockchain interaction.
+ * 
+ * Provides helpers for generating explorer URLs for transactions,
+ * tokens, and addresses. Re-exports contract configuration from constants.
+ * 
+ * @module contract
+ */
 
 import {
   NETWORK,
