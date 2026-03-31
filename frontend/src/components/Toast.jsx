@@ -1,6 +1,11 @@
-// Module note: keeps toast behavior responsibilities explicit.
-// Note: Toast module
-// Scope: keep Toast concerns isolated.
+/**
+ * Toast component for displaying transient notification messages.
+ * 
+ * Supports multiple types (success, error, warning, info) with appropriate
+ * icons and ARIA live regions for accessibility. Includes optional dismiss button.
+ * 
+ * @module Toast
+ */
 
 import PropTypes from 'prop-types'
 import './Toast.css'
