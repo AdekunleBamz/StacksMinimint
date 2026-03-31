@@ -1,4 +1,11 @@
-// Module note: keeps usemediaquery behavior responsibilities explicit.
+/**
+ * useMediaQuery hook for responsive design and feature detection.
+ * 
+ * Provides a way to track CSS media query matches with proper
+ * browser compatibility and SSR support. Includes preset breakpoints.
+ * 
+ * @module useMediaQuery
+ */
 import { useState, useEffect } from 'react'
 
 export function useMediaQuery(query) {
