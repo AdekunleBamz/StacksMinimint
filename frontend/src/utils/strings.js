@@ -1,4 +1,11 @@
-// Module note: keeps strings behavior responsibilities explicit.
+/**
+ * String utility functions for formatting and validation.
+ * 
+ * Provides helpers for address truncation, string capitalization,
+ * and Stacks address validation.
+ * 
+ * @module strings
+ */
 /**
  * Truncates a Stacks wallet address to a shorter format (e.g., SP12...3456).
  * @param {string} address - The full wallet address.
