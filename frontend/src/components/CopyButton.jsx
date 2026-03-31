@@ -1,6 +1,11 @@
-// Module note: keeps copybutton behavior responsibilities explicit.
-// Note: Copybutton module
-// Scope: keep CopyButton concerns isolated.
+/**
+ * CopyButton component for copying text to clipboard with visual feedback.
+ * 
+ * Provides a user-friendly way to copy text values with automatic
+ * success indication. Handles clipboard API interactions and error states.
+ * 
+ * @module CopyButton
+ */
 
 import { useCallback } from 'react'
 import PropTypes from 'prop-types'
