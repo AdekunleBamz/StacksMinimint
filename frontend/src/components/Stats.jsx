@@ -67,18 +67,19 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
 
   if (isLoading) {
     return (
-      <section className="stats" aria-busy="true">
+      <section className="stats" aria-busy="true" aria-label="Loading collection statistics">
         <h2 className="stats__title">Collection Stats</h2>
         <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
           {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="stat-card stat-card--skeleton" role="listitem">
+            <div key={item} className="stat-card stat-card--skeleton" role="listitem" aria-hidden="true">
               <div className="skeleton skeleton--value"></div>
               <div className="skeleton skeleton--label"></div>
               <div className="skeleton skeleton--copy"></div>
             </div>
           ))}
         </div>
+        <span className="sr-only">Loading collection statistics, please wait.</span>
       </section>
     )
   }
