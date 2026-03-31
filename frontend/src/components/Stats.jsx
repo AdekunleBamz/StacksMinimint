@@ -1,6 +1,11 @@
-// Module note: keeps stats behavior responsibilities explicit.
-// Note: Stats module
-// Scope: keep Stats concerns isolated.
+/**
+ * Stats component for displaying collection metrics and progress.
+ * 
+ * Shows minted count, remaining supply, mint price, and wallet caps.
+ * Includes a progress bar and collection state indicator.
+ * 
+ * @module Stats
+ */
 
 import { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
