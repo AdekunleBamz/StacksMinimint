@@ -1,4 +1,9 @@
-// Module note: keeps main behavior responsibilities explicit.
+/**
+ * Application entry point.
+ * 
+ * Renders the React application with theme context provider
+ * and strict mode enabled for development best practices.
+ */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
