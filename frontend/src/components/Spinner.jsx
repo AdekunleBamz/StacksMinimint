@@ -1,4 +1,11 @@
-// Module note: keeps spinner behavior responsibilities explicit.
+/**
+ * Spinner component for indicating loading or processing states.
+ * 
+ * Provides an animated loading indicator with customizable size and color.
+ * Includes proper ARIA attributes for screen reader accessibility.
+ * 
+ * @module Spinner
+ */
 import PropTypes from 'prop-types'
 import './Spinner.css'
 
