@@ -2,6 +2,8 @@
 
 Thanks for helping improve the StacksMinimint experience. We appreciate your time and expertise!
 
+Please review our [Code of Conduct](./CODE_OF_CONDUCT.md) before participating in this project.
+
 ---
 
 ## 🚀 Workflow
