@@ -1,8 +1,18 @@
-// Module note: keeps usestackscontract behavior responsibilities explicit.
-import { useState, useCallback, useEffect, useMemo } from 'react';
+/**
+ * useStacksContract hook for interacting with the StacksMinimint smart contract.
+ * 
+ * Provides contract read operations (total supply, mint fee) and write
+ * operations (mint NFT). Handles wallet connection requirements and
+ * post-condition validation for secure transactions.
+ * 
+ * @module useStacksContract
+ */
+import { useState, useCallback, useEffect } from 'react';
 import { openContractCall } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import {
+  fetchCallReadOnlyFunction,
+  cvToValue,
   stringAsciiCV,
   PostConditionMode,
   Pc
@@ -17,7 +27,6 @@ import {
 } from '../constants';
 import { userSession } from './useStacksWallet';
 import { validateTokenURI } from '../utils/collection';
-import { MinimintClient } from 'stacksminimint-sdk';
 
 const parseUint = (value) => {
   if (typeof value === 'bigint') {
@@ -41,11 +50,20 @@ export function useStacksContract(address) {
     mintFee: MINT_FEE
   });
   const stacksNetwork = NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET;
-  const sdkClient = useMemo(() => new MinimintClient(NETWORK), []);
 
   const fetchContractInfo = useCallback(async () => {
     try {
-      const lastTokenId = await sdkClient.getLastTokenId();
+      const response = await fetchCallReadOnlyFunction({
+        contractAddress: CONTRACT_ADDRESS,
+        contractName: CONTRACT_NAME,
+        functionName: FUNCTIONS.GET_LAST_ID,
+        functionArgs: [],
+        network: stacksNetwork,
+        senderAddress: address || CONTRACT_ADDRESS,
+      });
+      const lastTokenId = response?.type === 7 || response?.type === 8
+        ? cvToValue(response.value)
+        : cvToValue(response);
       const totalSupply = parseUint(lastTokenId);
 
       setContractInfo(prev => ({
@@ -57,7 +75,7 @@ export function useStacksContract(address) {
     } catch (fetchError) {
       console.warn('Failed to fetch contract info:', fetchError);
     }
-  }, [sdkClient]);
+  }, [address, stacksNetwork]);
 
   useEffect(() => {
     fetchContractInfo();
