@@ -1,4 +1,12 @@
-// Module note: keeps usestackswallet behavior responsibilities explicit.
+/**
+ * useStacksWallet hook for managing wallet connection state.
+ * 
+ * Handles wallet connection/disconnection using @stacks/connect,
+ * retrieves user address, and provides network configuration.
+ * Supports both mainnet and testnet environments.
+ * 
+ * @module useStacksWallet
+ */
 import { useState, useEffect, useCallback } from 'react';
 import { AppConfig, UserSession, showConnect } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
