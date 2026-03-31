@@ -1,4 +1,11 @@
-// Module note: keeps collection behavior responsibilities explicit.
+/**
+ * Collection utility functions for formatting and validation.
+ * 
+ * Provides helpers for STX formatting, address truncation, time formatting,
+ * metadata URI validation, and card accent color generation.
+ * 
+ * @module collection
+ */
 /**
  * Maximum character length for a token URI accepted by the contract.
  */
