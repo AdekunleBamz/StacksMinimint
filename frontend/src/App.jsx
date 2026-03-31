@@ -1,6 +1,11 @@
-// Module note: keeps app behavior responsibilities explicit.
-// Note: App module
-// Scope: keep App concerns isolated.
+/**
+ * Main application component for StacksMinimint.
+ * 
+ * Manages wallet connection state, contract interactions, and coordinates
+ * between child components for the minting experience.
+ * 
+ * @module App
+ */
 
 import { useState, useEffect } from 'react'
 import { useWallet, useContract, useToast } from './hooks'
