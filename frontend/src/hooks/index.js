@@ -1,4 +1,9 @@
-// Module note: keeps index behavior responsibilities explicit.
+/**
+ * Hooks barrel export file.
+ * 
+ * Centralizes all custom hook exports for clean imports
+ * throughout the application.
+ */
 export { useStacksWallet as useWallet } from './useStacksWallet'
 export { useStacksContract as useContract } from './useStacksContract'
 export { useToast } from './useToast'
