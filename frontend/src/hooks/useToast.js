@@ -1,4 +1,12 @@
-// Module note: keeps usetoast behavior responsibilities explicit.
+/**
+ * useToast hook for managing toast notifications.
+ * 
+ * Provides a flexible toast system with auto-dismiss, multiple types
+ * (success, error, warning, info), and manual control methods.
+ * Handles timer cleanup and prevents memory leaks.
+ * 
+ * @module useToast
+ */
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export function useToast() {
