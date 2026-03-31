@@ -1,6 +1,11 @@
-// Module note: keeps footer behavior responsibilities explicit.
-// Note: Footer module
-// Scope: keep Footer concerns isolated.
+/**
+ * Footer component displaying site-wide links and branding.
+ * 
+ * Organizes links into Project, Community, and Resources sections.
+ * All external links open in new tabs with proper security attributes.
+ * 
+ * @module Footer
+ */
 
 import './Footer.css'
 import { NETWORK } from '../constants'
