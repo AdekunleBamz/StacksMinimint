@@ -1,6 +1,11 @@
-// Module note: keeps gallery behavior responsibilities explicit.
-// Note: Gallery module
-// Scope: keep Gallery concerns isolated.
+/**
+ * Gallery component for displaying and browsing the NFT collection.
+ * 
+ * Features include grid/list view modes, search functionality, and a detail modal.
+ * Uses mock data for demonstration and integrates with the Stacks explorer.
+ * 
+ * @module Gallery
+ */
 
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import './Gallery.css'
