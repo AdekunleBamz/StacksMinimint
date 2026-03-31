@@ -1,6 +1,11 @@
-// Module note: keeps modal behavior responsibilities explicit.
-// Note: Modal module
-// Scope: keep Modal concerns isolated.
+/**
+ * Modal component for displaying overlay dialogs with focus management.
+ * 
+ * Handles keyboard navigation (Escape to close), focus trapping, and
+ * body scroll locking. Supports customizable sizes and optional titles.
+ * 
+ * @module Modal
+ */
 
 import { useEffect, useId, useRef } from 'react'
 import PropTypes from 'prop-types'
