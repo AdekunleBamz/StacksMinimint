@@ -1,6 +1,11 @@
-// Module note: keeps badge behavior responsibilities explicit.
-// Note: Badge module
-// Scope: keep Badge concerns isolated.
+/**
+ * Badge component for displaying status indicators and labels.
+ * 
+ * Supports multiple variants (default, primary, success, warning, danger, info)
+ * and sizes (small, medium, large). Can optionally display a dot indicator.
+ * 
+ * @module Badge
+ */
 
 import PropTypes from 'prop-types'
 import './Badge.css'
