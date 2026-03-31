@@ -1,6 +1,11 @@
-// Module note: keeps progressbar behavior responsibilities explicit.
-// Note: Progressbar module
-// Scope: keep ProgressBar concerns isolated.
+/**
+ * ProgressBar component for visualizing completion percentage.
+ * 
+ * Supports customizable colors, sizes, and optional percentage labels.
+ * Includes proper ARIA attributes for accessibility.
+ * 
+ * @module ProgressBar
+ */
 
 import PropTypes from 'prop-types'
 import './ProgressBar.css'
