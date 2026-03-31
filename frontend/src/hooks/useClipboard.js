@@ -26,10 +26,7 @@ export function useClipboard(timeout = 2000) {
     try {
       if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(value);
-      } else {
-        if (typeof document === 'undefined') {
-          throw new Error('Clipboard is not available in this environment');
-        }
+      } else if (typeof document !== 'undefined') {
         const textarea = document.createElement('textarea');
         textarea.value = value;
         textarea.setAttribute('readonly', '');
@@ -39,6 +36,8 @@ export function useClipboard(timeout = 2000) {
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
+      } else {
+        throw new Error('Clipboard API and document are not available in this environment');
       }
       setCopied(true);
       setError(null);
