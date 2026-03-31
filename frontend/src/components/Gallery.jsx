@@ -98,7 +98,8 @@ export function Gallery() {
     }
   }, [selectedNft])
 
-  const filteredNfts = useMemo(() => nfts.filter(nft => {
+  const filteredNfts = useMemo(() => {
+    return nfts.filter(nft => {
     const idSearch = normalizedSearchTerm.startsWith('#')
       ? normalizedSearchTerm.slice(1)
       : normalizedSearchTerm
@@ -107,9 +108,10 @@ export function Gallery() {
     if (/^\d+$/.test(idSearch)) {
       return nft.id.toString() === idSearch
     }
-    return nftName.includes(normalizedSearchTerm) ||
-           nftOwner.includes(normalizedSearchTerm)
-  }), [nfts, normalizedSearchTerm])
+      return nftName.includes(normalizedSearchTerm) ||
+             nftOwner.includes(normalizedSearchTerm)
+    })
+  }, [nfts, normalizedSearchTerm])
   const hasSearch = searchTerm.trim().length > 0
   const filteredLabel = filteredNfts.length === 1 ? 'item' : 'items'
   const totalLabel = nfts.length === 1 ? 'item' : 'items'
