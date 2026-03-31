@@ -1,6 +1,12 @@
-// Module note: keeps card behavior responsibilities explicit.
-// Note: Card module
-// Scope: keep Card concerns isolated.
+/**
+ * Card component for containing and presenting content with various styles.
+ * 
+ * Provides a flexible container with support for clickable behavior,
+ * hover effects, and multiple visual variants. Includes CardHeader,
+ * CardBody, and CardFooter sub-components for structured layouts.
+ * 
+ * @module Card
+ */
 
 import PropTypes from 'prop-types'
 import './Card.css'
