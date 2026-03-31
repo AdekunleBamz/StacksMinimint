@@ -1,6 +1,11 @@
-// Module note: keeps mintcard behavior responsibilities explicit.
-// Note: Mintcard module
-// Scope: keep MintCard concerns isolated.
+/**
+ * MintCard component for the primary NFT minting interface.
+ * 
+ * Handles token URI validation, mint fee display, supply tracking, and
+ * wallet connection requirements. Provides real-time feedback on mint status.
+ * 
+ * @module MintCard
+ */
 
 import { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
