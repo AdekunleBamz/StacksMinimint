@@ -1,6 +1,11 @@
-// Module note: keeps recentmints behavior responsibilities explicit.
-// Note: Recentmints module
-// Scope: keep RecentMints concerns isolated.
+/**
+ * RecentMints component displaying the latest minting activity.
+ * 
+ * Shows a list of recent NFT mints with timestamps, addresses, and
+ * links to explorer transactions. Includes loading and empty states.
+ * 
+ * @module RecentMints
+ */
 
 import PropTypes from 'prop-types'
 import './RecentMints.css'
