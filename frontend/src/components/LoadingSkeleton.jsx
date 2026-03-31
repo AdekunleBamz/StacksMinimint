@@ -1,6 +1,11 @@
-// Module note: keeps loadingskeleton behavior responsibilities explicit.
-// Note: Loadingskeleton module
-// Scope: keep LoadingSkeleton concerns isolated.
+/**
+ * LoadingSkeleton component for displaying placeholder content during loading states.
+ * 
+ * Provides various skeleton variants (text, title, image, avatar) with
+ * customizable dimensions. Includes preset layouts for cards and list items.
+ * 
+ * @module LoadingSkeleton
+ */
 
 import PropTypes from 'prop-types'
 import './LoadingSkeleton.css'
