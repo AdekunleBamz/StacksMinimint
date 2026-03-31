@@ -9,10 +9,22 @@
 
 ---
 
+## 📑 Table of Contents
+
+- [Key Features](#-key-features)
+- [System Architecture](#-system-architecture)
+- [Development Setup](#-development-setup)
+- [Getting Started](#-getting-started)
+- [Contract Details](#-contract-details)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
 ## ✨ Key Features
 
 - **🚀 Nakamoto Ready**: Fully compatible with the latest Stacks blockchain updates and fast block confirmations.
-- **🏗️ Modular Architecture**: Highly optimized smart contracts separated by concern (Core, Token, Hub).
+- **🏗️ Modular Architecture**: Highly optimized smart contracts separated by concern (Core + Hub).
 - **💸 Low-Friction Minting**: Optimized execution costs and user-friendly post-conditions.
 - **💎 SIP-009 Standard**: Fully compliant Non-Fungible Token implementation.
 - **💰 SIP-010 Integration**: Native reward tokenomics with built-in staking capabilities.
@@ -22,13 +34,14 @@
 
 ## 📐 System Architecture
 
-Stored in the `contracts/` directory, the ecosystem consists of three main components:
+Stored in the `contracts/` directory, the ecosystem consists of two active components:
 
 | Contract | Purpose | Standard |
 |----------|---------|----------|
 | `minimint-core-v-i27` | Base implementation, mint controller, and metadata management | SIP-009 |
-| `minimint-token-v-i27` | Governance and utility token used for ecosystem rewards | SIP-010 |
-| `minimint-hub-v-i27` | Central escrow for staking, marketplace logic, and distribution | Custom |
+| `minimint-hub-v-i27` | Central escrow for staking + marketplace, and consolidated SIP-010 reward token logic | SIP-010 + Custom |
+
+The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-total-supply`, `set-token-uri`, and related read-onlys) is preserved on `minimint-hub-v-i27`.
 
 > [!NOTE]
 > The frontend is configured to target the `minimint-core` deployment by default. Update `frontend/src/constants/index.js` if you are pointing at a versioned Clarinet contract such as `minimint-core-v-i27`.
