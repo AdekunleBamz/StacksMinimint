@@ -1,4 +1,11 @@
-// Module note: keeps usetransaction behavior responsibilities explicit.
+/**
+ * useTransaction hook for tracking Stacks transaction status.
+ * 
+ * Polls the Stacks API to monitor transaction confirmation status.
+ * Handles request cancellation and automatic polling with cleanup.
+ * 
+ * @module useTransaction
+ */
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { STACKS_NETWORK_CONFIG, NETWORK } from '../constants';
 
