@@ -1,4 +1,9 @@
-// Module note: keeps index behavior responsibilities explicit.
+/**
+ * Components barrel export file.
+ * 
+ * Centralizes all component exports for clean imports
+ * throughout the application.
+ */
 export { Header } from './Header'
 export { MintCard } from './MintCard'
 export { Stats } from './Stats'
