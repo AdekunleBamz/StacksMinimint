@@ -173,7 +173,18 @@ export function getMetadataGatewayUrl(uri) {
  * @returns {Object} The validation result object.
  */
 export function validateTokenURI(value) {
-  const normalized = String(value ?? '').trim()
+  if (value === null || value === undefined) {
+    return {
+      kind: 'empty',
+      isValid: false,
+      tone: 'neutral',
+      label: 'Metadata required',
+      helper: 'Use an ipfs:// or https:// metadata URL. The contract accepts ASCII only, up to 256 characters.',
+      characterCount: 0
+    }
+  }
+
+  const normalized = String(value).trim()
   const kind = getMetadataKind(normalized)
   const characterCount = normalized.length
   const isAsciiOnly = ASCII_PATTERN.test(normalized)
