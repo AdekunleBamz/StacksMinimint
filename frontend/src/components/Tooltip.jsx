@@ -1,6 +1,11 @@
-// Module note: keeps tooltip behavior responsibilities explicit.
-// Note: Tooltip module
-// Scope: keep Tooltip concerns isolated.
+/**
+ * Tooltip component for displaying contextual information on hover or focus.
+ * 
+ * Supports configurable positioning (top, bottom, left, right) and delay.
+ * Includes proper ARIA attributes for screen reader accessibility.
+ * 
+ * @module Tooltip
+ */
 
 import { useEffect, useId, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
