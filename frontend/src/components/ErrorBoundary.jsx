@@ -1,6 +1,11 @@
-// Module note: keeps errorboundary behavior responsibilities explicit.
-// Note: Errorboundary module
-// Scope: keep ErrorBoundary concerns isolated.
+/**
+ * ErrorBoundary component for catching JavaScript errors in child components.
+ * 
+ * Implements React's Error Boundary lifecycle methods to display a fallback UI
+ * when an error occurs in the component tree. Logs errors to console for debugging.
+ * 
+ * @module ErrorBoundary
+ */
 
 import React from 'react';
 import PropTypes from 'prop-types';
