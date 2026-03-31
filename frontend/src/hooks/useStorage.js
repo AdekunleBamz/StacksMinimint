@@ -1,4 +1,11 @@
-// Module note: keeps usestorage behavior responsibilities explicit.
+/**
+ * useStorage hooks for persistent state management.
+ * 
+ * Provides useLocalStorage and useSessionStorage hooks with
+ * automatic JSON serialization, SSR support, and cross-tab synchronization.
+ * 
+ * @module useStorage
+ */
 import { useCallback, useEffect, useState } from 'react'
 
 export function useLocalStorage(key, initialValue) {
