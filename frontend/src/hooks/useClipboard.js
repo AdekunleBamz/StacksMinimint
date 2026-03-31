@@ -1,4 +1,11 @@
-// Module note: keeps useclipboard behavior responsibilities explicit.
+/**
+ * useClipboard hook for copying text to the clipboard.
+ * 
+ * Provides a simple interface for clipboard operations with
+ * visual feedback on copy success. Handles permission requests.
+ * 
+ * @module useClipboard
+ */
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /**
