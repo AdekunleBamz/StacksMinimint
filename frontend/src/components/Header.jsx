@@ -1,6 +1,11 @@
-// Module note: keeps header behavior responsibilities explicit.
-// Note: Header module
-// Scope: keep Header concerns isolated.
+/**
+ * Header component displaying branding and wallet connection controls.
+ * 
+ * Shows network status, wallet address with copy functionality, and
+ * connect/disconnect actions. Integrates with the Stacks wallet hooks.
+ * 
+ * @module Header
+ */
 
 import { useCallback } from 'react'
 import PropTypes from 'prop-types'
