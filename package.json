@@ -24,7 +24,11 @@
     "scripts:distribute": "npm --prefix scripts run distribute:stx",
     "scripts:interact": "npm --prefix scripts run interact:core",
     "scripts:interact:token": "npm --prefix scripts run interact:token",
-    "scripts:consolidate": "npm --prefix scripts run consolidate"
+    "scripts:consolidate": "npm --prefix scripts run consolidate",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@stacks/network": "^7.3.1",
