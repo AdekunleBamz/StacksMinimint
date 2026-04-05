@@ -11,4 +11,5 @@ test-wallets.json
 scripts/
 frontend/build_output*.txt
 
-scripts.backup-before-desktop-sync-*/
+scripts.backup-*/
+.vscode/
