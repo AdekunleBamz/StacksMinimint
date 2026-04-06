@@ -150,3 +150,9 @@ export function useStacksContract(address) {
     refetch: fetchContractInfo
   };
 }
+
+/**
+ * Default export for useStacksContract hook.
+ * @type {() => UseStacksContractReturn}
+ */
+export default useStacksContract
