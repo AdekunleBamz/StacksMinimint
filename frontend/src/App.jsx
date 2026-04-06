@@ -39,6 +39,12 @@ function App() {
     return () => window.removeEventListener('scroll', checkScrollTop)
   }, [])
 
+  // Update document title based on connection state
+  useEffect(() => {
+    const baseTitle = 'StacksMinimint - NFT Minting on Stacks'
+    document.title = isConnected ? `Connected - ${baseTitle}` : baseTitle
+  }, [isConnected])
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
