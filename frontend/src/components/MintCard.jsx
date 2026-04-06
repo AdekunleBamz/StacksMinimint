@@ -252,3 +252,9 @@ MintCard.propTypes = {
   onConnect: PropTypes.func.isRequired,
   contractError: PropTypes.string
 }
+
+/**
+ * Default export for MintCard component.
+ * @type {React.FC<MintCardProps>}
+ */
+export default MintCard
