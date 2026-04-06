@@ -42,3 +42,9 @@ Toast.propTypes = {
   type: PropTypes.oneOf(['success', 'error', 'warning', 'info']),
   onClose: PropTypes.func
 }
+
+/**
+ * Default export for Toast component.
+ * @type {React.FC<ToastProps>}
+ */
+export default Toast
