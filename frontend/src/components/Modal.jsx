@@ -84,3 +84,9 @@ Modal.propTypes = {
   children: PropTypes.node,
   size: PropTypes.oneOf(['small', 'medium', 'large', 'full'])
 }
+
+/**
+ * Default export for Modal component.
+ * @type {React.FC<ModalProps>}
+ */
+export default Modal
