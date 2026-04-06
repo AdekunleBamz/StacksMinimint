@@ -88,3 +88,9 @@ export function useToast() {
     clearAll
   }
 }
+
+/**
+ * Default export for useToast hook.
+ * @type {() => UseToastReturn}
+ */
+export default useToast
