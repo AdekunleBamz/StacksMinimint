@@ -60,3 +60,9 @@ CopyButton.propTypes = {
   successLabel: PropTypes.string,
   className: PropTypes.string
 }
+
+/**
+ * Default export for CopyButton component.
+ * @type {React.FC<CopyButtonProps>}
+ */
+export default CopyButton
