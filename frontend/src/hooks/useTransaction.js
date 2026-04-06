@@ -78,3 +78,9 @@ export function useTransactionStatus(txId) {
 
   return { status, error, isLoading, refetch: checkStatus };
 }
+
+/**
+ * Default export for useTransactionStatus hook.
+ * @type {() => UseTransactionStatusReturn}
+ */
+export default useTransactionStatus
