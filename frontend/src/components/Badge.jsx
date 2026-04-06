@@ -42,3 +42,9 @@ Badge.propTypes = {
   dot: PropTypes.bool,
   className: PropTypes.string
 }
+
+/**
+ * Default export for Badge component.
+ * @type {React.FC<BadgeProps>}
+ */
+export default Badge
