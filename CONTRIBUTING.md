@@ -38,6 +38,7 @@ npm run frontend:test
 - Prefer small commits with one primary intent.
 - Keep messages concrete enough to explain user impact.
 - Use the imperative mood (e.g., "Add feature" not "Added feature").
+- **All commits must be GPG-signed** for verification. See [GitHub's signing guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 
 ---
 
