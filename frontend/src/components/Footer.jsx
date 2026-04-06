@@ -114,3 +114,9 @@ export function Footer() {
     </footer>
   )
 }
+
+/**
+ * Default export for Footer component.
+ * @type {React.FC}
+ */
+export default Footer
