@@ -33,3 +33,18 @@ export const MINT_FEE = Number.isFinite(envMintFee) ? envMintFee : SDK_MINT_FEE;
 export const FUNCTIONS = SDK_FUNCTIONS;
 export const STACKS_NETWORK_CONFIG = SDK_STACKS_NETWORK_CONFIG;
 export const MAX_SUPPLY = 10000;
+
+/**
+ * Default export for constants module.
+ */
+export default {
+  NETWORK,
+  CONTRACT_ADDRESS,
+  CONTRACT_NAME,
+  HUB_CONTRACT_ADDRESS,
+  HUB_CONTRACT_NAME,
+  MINT_FEE,
+  FUNCTIONS,
+  STACKS_NETWORK_CONFIG,
+  MAX_SUPPLY
+}
