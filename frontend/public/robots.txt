@@ -1,4 +1,16 @@
+# StacksMinimint robots.txt
+# https://stacksminimint.dev
+
 User-agent: *
 Allow: /
 
-Sitemap: https://minimint.stacks.sh/sitemap.xml
+# Disallow private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://stacksminimint.dev/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 10
