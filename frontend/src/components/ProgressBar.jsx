@@ -45,3 +45,9 @@ ProgressBar.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'danger']),
   ariaLabel: PropTypes.string
 }
+
+/**
+ * Default export for ProgressBar component.
+ * @type {React.FC<ProgressBarProps>}
+ */
+export default ProgressBar
