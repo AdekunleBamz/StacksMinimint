@@ -70,3 +70,8 @@ export function usePrefersDarkMode() {
 export function usePrefersReducedMotion() {
   return useMediaQuery('(prefers-reduced-motion: reduce)')
 }
+
+/**
+ * Default export for useMediaQuery hook and presets.
+ */
+export default { useMediaQuery, useIsMobile, useIsTablet, useIsDesktop, usePrefersDarkMode, usePrefersReducedMotion }
