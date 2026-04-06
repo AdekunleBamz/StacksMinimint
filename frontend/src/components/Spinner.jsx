@@ -27,3 +27,9 @@ Spinner.propTypes = {
   tone: PropTypes.oneOf(['primary', 'white', 'success']),
   className: PropTypes.string
 }
+
+/**
+ * Default export for Spinner component.
+ * @type {React.FC<SpinnerProps>}
+ */
+export default Spinner
