@@ -92,3 +92,12 @@ CardFooter.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string
 }
+
+/**
+ * Default export for Card component with sub-components.
+ * @type {React.FC<CardProps> & { Header: React.FC; Body: React.FC; Footer: React.FC }}
+ */
+Card.Header = CardHeader
+Card.Body = CardBody
+Card.Footer = CardFooter
+export default Card
