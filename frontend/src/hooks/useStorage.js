@@ -80,6 +80,12 @@ export function useLocalStorage(key, initialValue) {
   return [storedValue, setValue, removeValue]
 }
 
+/**
+ * Default export for useStorage hooks.
+ * Provides both useLocalStorage and useSessionStorage.
+ */
+export default { useLocalStorage, useSessionStorage }
+
 export function useSessionStorage(key, initialValue) {
   const hasValidKey = typeof key === 'string' && key.length > 0
 
