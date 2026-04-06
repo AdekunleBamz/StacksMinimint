@@ -20,3 +20,13 @@
 # Git files
 .gitattributes text eol=lf
 .gitignore text eol=lf
+
+# JSX and CSS
+*.jsx text eol=lf
+*.css text eol=lf
+
+# Clarity contracts
+*.clar text eol=lf
+
+# TOML config files
+*.toml text eol=lf
