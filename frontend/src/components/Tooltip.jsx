@@ -62,3 +62,9 @@ Tooltip.propTypes = {
   position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
   delay: PropTypes.number
 }
+
+/**
+ * Default export for Tooltip component.
+ * @type {React.FC<TooltipProps>}
+ */
+export default Tooltip
