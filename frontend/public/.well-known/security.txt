@@ -1,0 +1,7 @@
+Contact: mailto:security@stacksminimint.dev
+Expires: 2027-01-01T00:00:00.000Z
+Encryption: https://stacksminimint.dev/.well-known/pgp-key.txt
+Acknowledgments: https://github.com/AdekunleBamz/StacksMinimint/security/acknowledgments
+Preferred-Languages: en
+Canonical: https://stacksminimint.dev/.well-known/security.txt
+Policy: https://github.com/AdekunleBamz/StacksMinimint/security/policy
