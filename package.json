@@ -12,6 +12,7 @@
     "contracts:check": "clarinet check",
     "contracts:console": "clarinet console",
     "check": "npm run contracts:check && npm run test",
+    "format": "prettier --write .",
     "frontend:install": "npm --prefix frontend ci",
     "frontend:dev": "npm --prefix frontend run dev",
     "frontend:build": "npm --prefix frontend run build",
