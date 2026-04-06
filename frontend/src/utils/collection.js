@@ -327,3 +327,21 @@ export function getCardAccent(seed) {
     glow: `hsla(${hue} 72% 58% / 0.25)`
   }
 }
+
+/**
+ * Default export for collection utilities.
+ */
+export default {
+  MAX_TOKEN_URI_LENGTH,
+  formatSTX,
+  formatAddress,
+  formatLimit,
+  formatRelativeTime,
+  formatExactTime,
+  getMetadataKind,
+  getMetadataLabel,
+  getMetadataGatewayUrl,
+  validateTokenURI,
+  createSubmissionRecord,
+  getCardAccent
+}
