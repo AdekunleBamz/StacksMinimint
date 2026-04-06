@@ -160,3 +160,9 @@ Stats.propTypes = {
   isConnected: PropTypes.bool,
   recentActivityCount: PropTypes.number
 }
+
+/**
+ * Default export for Stats component.
+ * @type {React.FC<StatsProps>}
+ */
+export default Stats
