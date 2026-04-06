@@ -119,3 +119,9 @@ RecentMints.propTypes = {
     txHash: PropTypes.string
   }))
 }
+
+/**
+ * Default export for RecentMints component.
+ * @type {React.FC<RecentMintsProps>}
+ */
+export default RecentMints
