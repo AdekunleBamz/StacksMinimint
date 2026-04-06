@@ -386,3 +386,9 @@ export function Gallery() {
     </section>
   )
 }
+
+/**
+ * Default export for Gallery component.
+ * @type {React.FC<GalleryProps>}
+ */
+export default Gallery
