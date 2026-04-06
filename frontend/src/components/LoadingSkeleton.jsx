@@ -71,4 +71,8 @@ LoadingSkeleton.propTypes = {
 CardSkeleton.propTypes = {}
 ListItemSkeleton.propTypes = {}
 
-export { CardSkeleton, ListItemSkeleton }
+/**
+ * Default export for LoadingSkeleton component.
+ * @type {React.FC<LoadingSkeletonProps>}
+ */
+export default LoadingSkeleton
