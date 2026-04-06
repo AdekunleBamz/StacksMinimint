@@ -47,3 +47,8 @@ export function isValidStacksAddress(address) {
   const stacksAddressRegex = /^(S[PT])[0-9A-Z]{37,39}$/;
   return stacksAddressRegex.test(normalizedAddress);
 }
+
+/**
+ * Default export for strings utilities.
+ */
+export default { truncateAddress, capitalize, isValidStacksAddress }
