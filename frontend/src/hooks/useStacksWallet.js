@@ -86,3 +86,9 @@ export function useStacksWallet() {
     network: NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET
   };
 }
+
+/**
+ * Default export for useStacksWallet hook.
+ * @type {() => UseStacksWalletReturn}
+ */
+export default useStacksWallet
