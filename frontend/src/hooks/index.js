@@ -18,3 +18,14 @@ export {
 } from './useMediaQuery'
 export { useTransactionStatus } from './useTransaction'
 export { useClipboard } from './useClipboard'
+
+/**
+ * Default exports for individual hooks.
+ */
+export { default as useWalletDefault } from './useStacksWallet'
+export { default as useContractDefault } from './useStacksContract'
+export { default as useToastDefault } from './useToast'
+export { default as useStorageDefault } from './useStorage'
+export { default as useMediaQueryDefault } from './useMediaQuery'
+export { default as useTransactionDefault } from './useTransaction'
+export { default as useClipboardDefault } from './useClipboard'
