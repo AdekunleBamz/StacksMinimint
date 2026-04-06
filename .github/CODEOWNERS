@@ -1,0 +1,19 @@
+# StacksMinimint Code Owners
+# These owners will be requested for review when someone opens a pull request.
+
+# Default owners for all files
+* @AdekunleBamz
+
+# Contract files
+/contracts/*.clar @AdekunleBamz
+
+# Frontend files
+/frontend/src/ @AdekunleBamz
+
+# Documentation
+/docs/ @AdekunleBamz
+*.md @AdekunleBamz
+
+# Configuration files
+*.toml @AdekunleBamz
+*.json @AdekunleBamz
