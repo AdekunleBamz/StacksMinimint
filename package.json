@@ -32,7 +32,7 @@
     "@stacks/wallet-sdk": "^7.2.0"
   },
   "devDependencies": {
-    "@stacks/clarinet-sdk": "3.15.1",
+    "@stacks/clarinet-sdk": "3.16.0",
     "vite": "^5.0.0",
     "vitest": "^1.0.0",
     "vitest-environment-clarinet": "^3.0.2"
