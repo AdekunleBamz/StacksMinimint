@@ -80,3 +80,9 @@ Header.propTypes = {
   onDisconnect: PropTypes.func.isRequired,
   isConnecting: PropTypes.bool
 }
+
+/**
+ * Default export for Header component.
+ * @type {React.FC<HeaderProps>}
+ */
+export default Header
