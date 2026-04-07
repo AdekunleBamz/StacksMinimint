@@ -1,38 +1,137 @@
 # StacksMinimint Contracts
 
-Clarity smart contracts for the StacksMinimint NFT minting platform.
+Clarity smart contracts for the StacksMinimint NFT minting and rewards platform on Stacks.
 
-## Contract Overview
+## 📋 Contract Overview
 
-- **minimint-core-v-i27.clar** - Core NFT minting functionality
-- **minimint-hub-v-i27.clar** - Hub contract for coordinating mints
+| Contract | Purpose | Standard | Status |
+|----------|---------|----------|--------|
+| `minimint-core-v-i27.clar` | Core NFT minting, metadata, and ownership | SIP-009 | ✅ Active |
+| `minimint-hub-v-i27.clar` | Staking, marketplace, and reward distribution | SIP-010 + Custom | ✅ Active |
+| `minimint-token-v-i27.clar` | Reward token (MMT) implementation | SIP-010 | ✅ Active |
 
-## Development
+### Archive Contracts
 
-```bash
-# Install Clarinet
-npm install -g @hirosystems/clarinet
+| Contract | Purpose | Status |
+|----------|---------|--------|
+| `sip-009-nft-trait-v-i27.clar` | NFT trait definition | 📦 Reference |
+| `sip-010-trait-ft-standard-v-i27.clar` | FT trait definition | 📦 Reference |
 
-# Run tests
-clarinet test
+## 🏗️ Architecture
 
-# Start local devnet
-clarinet devnet start
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         Frontend (React)                        │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     minimint-hub-v-i27                          │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐ │
+│  │  Marketplace │  │   Staking   │  │   Reward Distribution   │ │
+│  │  (list/buy)  │  │ (stake/unstake)│  │   (claim-rewards)       │ │
+│  └─────────────┘  └─────────────┘  └─────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+              ┌───────────────┼───────────────┐
+              ▼               ▼               ▼
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ minimint-core   │ │ minimint-token  │ │  SIP Traits     │
+│ (NFT minting)   │ │ (reward token)  │ │ (type checking) │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
 ```
 
-## Contract Architecture
+## 🛠️ Development
 
-The contracts implement SIP-009 (Non-Fungible Token Standard) with:
+### Prerequisites
 
-- Lightweight metadata storage
-- Gas-efficient minting
-- Clear ownership tracking
+- [Clarinet](https://docs.hiro.so/clarinet/get-started) v3.x+
+- Node.js v18+
 
-## Deployment
+### Quick Start
 
-Contracts are deployed to Stacks mainnet at:
-- Deployer: `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT`
+```bash
+# Install Clarinet (if not installed)
+npm install -g @hirosystems/clarinet
 
-## License
+# Check contract integrity
+clarinet check
 
-MIT
+# Run tests
+npm test
+
+# Start local devnet for testing
+clarinet devnet start
+
+# Open interactive console
+clarinet console
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm test -- --coverage
+
+# Run specific test file
+npm test -- contracts/minimint-core.test.ts
+```
+
+## 📊 Contract Details
+
+### minimint-core-v-i27
+
+**Key Functions:**
+- `mint(uri)` - Mint a new NFT with metadata URI
+- `transfer(token-id, sender, recipient)` - Transfer NFT ownership
+- `burn(token-id)` - Burn an NFT
+- `get-last-token-id()` - Get the highest minted token ID
+- `get-token-uri(token-id)` - Get metadata URI for a token
+- `get-owner(token-id)` - Get current owner of a token
+
+**Constants:**
+- `MAX-SUPPLY`: 10,000 NFTs
+- `MINT-FEE`: 0.001 STX per mint
+
+### minimint-hub-v-i27
+
+**Key Functions:**
+- `list-item(nft, token-id, price)` - List NFT for sale
+- `buy-item(nft, token-id)` - Purchase an NFT
+- `stake(nft-contract, token-id)` - Stake an NFT to earn rewards
+- `unstake(nft-contract, token-id)` - Unstake an NFT
+- `claim-rewards()` - Claim accumulated staking rewards
+
+**Constants:**
+- `REWARD-PER-BLOCK`: 1.0 MMT tokens per block per staked NFT
+
+## 🚀 Deployment
+
+### Deployment Order
+
+1. SIP Trait Contracts (reference only)
+2. `minimint-core-v-i27`
+3. `minimint-token-v-i27`
+4. `minimint-hub-v-i27` (depends on core and token)
+
+### Mainnet Addresses
+
+| Contract | Address |
+|----------|---------|
+| Core | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-core-v-i28` |
+| Hub | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-hub-v-i28` |
+| Token | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-token-v-i28` |
+
+## 🔒 Security
+
+- All contracts use standardized error codes (u100-u106)
+- Access control enforced via owner checks
+- NFT transfers validated against core contract
+- Reentrancy protected by Clarity's synchronous execution
+
+## 📄 License
+
+MIT License - see [LICENSE](../LICENSE) for details.
