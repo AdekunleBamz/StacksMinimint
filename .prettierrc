@@ -13,6 +13,14 @@
         "tabWidth": 4,
         "printWidth": 120
       }
+    },
+    {
+      "files": "*.clar",
+      "options": {
+        "tabWidth": 4,
+        "printWidth": 100,
+        "singleQuote": false
+      }
     }
   ]
 }
