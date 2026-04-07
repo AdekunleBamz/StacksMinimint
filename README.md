@@ -52,9 +52,12 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18+ recommended)
-- [Clarinet](https://github.com/hirosystems/clarinet) for smart contract development
-- A Stacks Wallet (Leather or Xverse)
+| Tool | Version | Purpose | Installation |
+|------|---------|---------|--------------|
+| Node.js | v18+ | JavaScript runtime | [Download](https://nodejs.org/en/download) |
+| Clarinet | v3.x+ | Smart contract development | [Install Guide](https://docs.hiro.so/clarinet/get-started) |
+| Git | Latest | Version control | [Download](https://git-scm.com/downloads) |
+| Stacks Wallet | Latest | Wallet interaction | [Leather](https://leather.io/download) or [Xverse](https://www.xverse.app/download) |
 
 ### Installation
 
@@ -64,16 +67,26 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
    cd StacksMinimint
    npm ci
    ```
+   > **Note**: Uses `npm ci` for reproducible, clean installs.
 
 2. **Frontend Setup:**
    ```bash
    npm run frontend:install
    ```
+   > **Note**: Installs dependencies in the `frontend/` directory.
 
 3. **Automation Scripts Setup:**
    ```bash
    npm run scripts:install
    ```
+   > **Note**: Required for wallet generation and contract interaction scripts.
+
+4. **Environment Configuration:**
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` to configure your network (mainnet/testnet) and contract addresses.
+   See [Environment Variables](#-environment-variables) for available options.
 
 ---
 
@@ -127,9 +140,39 @@ npm run frontend:check
 
 ## 📜 Contract Details
 
-- **Blockchain**: Stacks (Layer 2 for Bitcoin)
-- **Language**: Clarity (Decidable, interpreted language)
-- **Security**: Strict post-condition enforcement and zero-balance checks.
+| Aspect | Details |
+|--------|---------|
+| **Blockchain** | Stacks (Layer 2 for Bitcoin) |
+| **Language** | Clarity v2.0 (Decidable, interpreted) |
+| **Epoch** | 2.4+ |
+| **NFT Standard** | SIP-009 compliant |
+| **Token Standard** | SIP-010 compliant |
+| **Security** | Post-condition enforcement, access control |
+
+### Error Codes
+
+| Code | Meaning |
+|------|---------|
+| u100 | Not authorized |
+| u101 | Not the owner |
+| u102 | Sold out / Not staked |
+| u103 | Paused / Listing not found |
+| u104 | Wrong maker |
+| u105 | Invalid price |
+| u106 | Wrong contract |
+
+---
+
+## 🔧 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_STX_NETWORK` | Network (mainnet/testnet) | mainnet |
+| `VITE_CONTRACT_ADDRESS` | Core contract address | Mainnet deployer |
+| `VITE_CONTRACT_NAME` | Core contract name | minimint-core-v-i28 |
+| `VITE_HUB_CONTRACT_ADDRESS` | Hub contract address | Mainnet deployer |
+| `VITE_HUB_CONTRACT_NAME` | Hub contract name | minimint-hub-v-i28 |
+| `VITE_MINT_FEE` | Mint fee in micro-STX | 1000000 |
 
 ---
 
