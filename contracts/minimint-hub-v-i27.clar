@@ -14,18 +14,52 @@
 ;; Keep this path pinned to the local v-i27 SIP trait contract for Clarinet compatibility.
 (use-trait nft-trait .sip-009-nft-trait-v-i27.sip-009-nft-trait)
 
+;; --- Error Codes ---
+;; Standardized error codes for marketplace and staking operations.
+
+;; ERR-NOT-AUTHORIZED (u100): Caller lacks permission for the requested action.
+;; Used when contract-caller is not the expected user in staking functions.
 (define-constant ERR-NOT-AUTHORIZED (err u100))
+
+;; ERR-NOT-OWNER (u101): Caller is not the owner of the specified NFT.
+;; Used in listing and unstaking to enforce ownership checks.
 (define-constant ERR-NOT-OWNER (err u101))
+
+;; ERR-NOT-STAKED (u102): No staking record found for the specified token or user.
+;; Returned when trying to unstake or claim rewards without an active stake.
 (define-constant ERR-NOT-STAKED (err u102))
+
+;; ERR-LISTING-NOT-FOUND (u103): No marketplace listing exists for the token.
+;; Returned when trying to buy or unlist a token that isn't listed.
 (define-constant ERR-LISTING-NOT-FOUND (err u103))
+
+;; ERR-WRONG-MAKER (u104): Caller is not the creator of the listing.
+;; Used to prevent unauthorized users from unlisting another user's NFT.
 (define-constant ERR-WRONG-MAKER (err u104))
+
+;; ERR-INVALID-PRICE (u105): The specified price is invalid (zero or negative).
+;; Returned when trying to list an NFT with a price <= 0.
 (define-constant ERR-INVALID-PRICE (err u105))
+
+;; ERR-WRONG-CONTRACT (u106): NFT is not from the expected core contract.
+;; Security check to ensure only official collection NFTs can be used.
 (define-constant ERR-WRONG-CONTRACT (err u106))
 
-(define-constant REWARD-PER-BLOCK u1000000) ;; 1 MMT per block (u6 decimals)
+;; --- Constants ---
+;; Immutable configuration values for the hub contract.
+
+;; REWARD-PER-BLOCK: Reward tokens minted per block per staked NFT.
+;; u1000000 = 1.0 MMT tokens (assuming 6 decimal places).
+;; Formula: rewards = staked_balance * blocks_passed * REWARD-PER-BLOCK
+(define-constant REWARD-PER-BLOCK u1000000)
+
+;; contract-owner: Tracks the administrative owner of this contract.
+;; Initialized to tx-sender on first deployment.
 (define-data-var contract-owner principal tx-sender)
 
-;; Make sure we are interacting with the correct minimint-core contract
+;; CORE-CONTRACT: Reference to the official minimint-core contract.
+;; Used to validate that NFTs being staked/listed are from the correct collection.
+;; This is a security measure to prevent unauthorized NFTs from being used.
 (define-constant CORE-CONTRACT .minimint-core-v-i27)
 
 ;; --- Staking Data ---
