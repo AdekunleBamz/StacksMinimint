@@ -1,32 +1,44 @@
-# Auto detect text files and normalize line endings
+# .gitattributes - Git attribute settings for consistent file handling
+# See: https://git-scm.com/docs/gitattributes
+
+# Auto detect text files and perform LF normalization
 * text=auto
 
-# Solidity files
-*.sol linguist-language=Solidity
-
-# JavaScript
+# Explicitly declare text files to always have LF line endings
 *.js text eol=lf
-*.ts text eol=lf
-
-# JSON files
-*.json text eol=lf
-
-# Markdown
-*.md text eol=lf
-
-# Shell scripts
-*.sh text eol=lf
-
-# Git files
-.gitattributes text eol=lf
-.gitignore text eol=lf
-
-# JSX and CSS
 *.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
 *.css text eol=lf
+*.scss text eol=lf
+*.xml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
 
-# Clarity contracts
+# Clarity smart contracts
 *.clar text eol=lf
 
-# TOML config files
+# Shell scripts should have LF and be executable
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Toml files
 *.toml text eol=lf
+
+# Denote all files that are truly binary and should not be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Lock files
+package-lock.json text eol=lf
