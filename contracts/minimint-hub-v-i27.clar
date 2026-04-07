@@ -63,10 +63,18 @@
 (define-constant CORE-CONTRACT .minimint-core-v-i27)
 
 ;; --- Staking Data ---
+;; stakers: Maps token IDs to the address that staked them.
+;; Used to verify ownership when unstaking.
 (define-map stakers uint principal)
+
+;; staking-info: Tracks each user's staking balance and last reward calculation.
+;; Balance increases with each stake, decreases with each unstake.
+;; last-reward-block is updated on each reward calculation to prevent double-counting.
 (define-map staking-info principal { staked-balance: uint, last-reward-block: uint })
 
 ;; --- Marketplace Data ---
+;; listings: Maps token IDs to listing details (maker and price).
+;; The key is a tuple to allow for future extensions (e.g., multiple marketplaces).
 (define-map listings { token-id: uint } { maker: principal, price: uint })
 
 ;; ------------------------------------------
