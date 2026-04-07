@@ -99,6 +99,8 @@
 )
 
 ;; --- Core Functions (Mint & Metadata) ---
+;; Note: These functions handle the primary minting workflow.
+;; Gas optimization: Using let binding to compute token-id once and reuse.
 
 ;; Mint a new NFT with metadata URI
 ;; Arguments:
@@ -138,6 +140,7 @@
 ;; Returns: (ok true) on success, or an error if:
 ;;   - Caller is not the token owner (ERR-NOT-OWNER)
 ;; Emits: burn event with owner and token-id
+;; Note: Burning reduces total supply indirectly by making tokens unrecoverable.
 (define-public (burn (token-id uint))
   (begin
     (asserts! (is-eq (some tx-sender) (nft-get-owner? minimint token-id)) ERR-NOT-OWNER)
