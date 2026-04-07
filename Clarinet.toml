@@ -1,13 +1,19 @@
-# Note: Clarinet config
-# Scope: minimal clarity note.
+# StacksMinimint Clarinet Configuration
+# This file defines the project structure and contract deployments for the StacksMinimint ecosystem.
+# See: https://docs.hiro.so/clarinet/advanced-topics/configuration
 
 [project]
+# Project metadata
 name = 'stacksminimint'
 description = 'A minimal NFT minting platform on Stacks'
 authors = []
-telemetry = false
-cache_dir = './.cache'
-requirements = []
+telemetry = false  # Set to true to send anonymous usage data to Hiro
+cache_dir = './.cache'  # Directory for caching compiled contracts
+requirements = []  # External contract requirements (none for this project)
+
+# --- Trait Contracts (Archive) ---
+# SIP standards implemented as traits for type checking and trait compliance.
+# These are stored in archive/ as they are reference implementations, not deployed.
 
 [contracts.sip-009-nft-trait-v-i27]
 path = 'contracts/archive/sip-009-nft-trait-v-i27.clar'
@@ -19,31 +25,45 @@ path = 'contracts/archive/sip-010-trait-ft-standard-v-i27.clar'
 clarity_version = 2
 epoch = 2.4
 
+# --- Core Contracts ---
+# Active contracts deployed to Stacks mainnet/testnet.
+
 [contracts.minimint-core-v-i27]
+# Core NFT contract implementing SIP-009 standard
 path = 'contracts/minimint-core-v-i27.clar'
 clarity_version = 2
 epoch = 2.4
 
 [contracts.minimint-token-v-i27]
+# SIP-010 compliant reward token contract
 path = 'contracts/minimint-token-v-i27.clar'
 clarity_version = 2
 epoch = 2.4
 
 [contracts.minimint-hub-v-i27]
+# Hub contract for staking, marketplace, and reward distribution
 path = 'contracts/minimint-hub-v-i27.clar'
 clarity_version = 2
 epoch = 2.4
+# Deployment order: core and token must be deployed before hub
 depends_on = ["minimint-core-v-i27", "minimint-token-v-i27"]
+
+# --- Static Analysis Configuration ---
+# Automated code analysis passes run during `clarinet check`.
 
 [repl.analysis]
 passes = ['call_checker', 'check_checker']
 
 [repl.analysis.check_checker]
-strict = false
-trusted_sender = false
-trusted_caller = false
-callee_filter = false
+# Check checker settings for security analysis
+strict = false  # Set to true for stricter checks
+trusted_sender = false  # Don't assume tx-sender is trusted
+trusted_caller = false  # Don't assume contract-caller is trusted
+callee_filter = false  # Don't filter callee analysis
+
+# --- Remote Data Configuration ---
+# Settings for fetching data from Hiro API during development.
 
 [repl.remote_data]
 enabled = true
-api_url = 'https://api.hiro.so'
+api_url = 'https://api.hiro.so'  # Hiro Stacks API endpoint
