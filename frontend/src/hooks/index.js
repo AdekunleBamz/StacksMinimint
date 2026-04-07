@@ -18,6 +18,7 @@ export {
 } from './useMediaQuery'
 export { useTransactionStatus } from './useTransaction'
 export { useClipboard } from './useClipboard'
+export { useAsync } from './useAsync'
 
 /**
  * Default exports for individual hooks.
@@ -29,3 +30,4 @@ export { default as useStorageDefault } from './useStorage'
 export { default as useMediaQueryDefault } from './useMediaQuery'
 export { default as useTransactionDefault } from './useTransaction'
 export { default as useClipboardDefault } from './useClipboard'
+export { default as useAsyncDefault } from './useAsync'
