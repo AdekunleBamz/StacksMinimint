@@ -39,6 +39,16 @@
 ;; Marketplace Functions
 ;; ------------------------------------------
 
+;; List an NFT for sale on the marketplace
+;; Arguments:
+;;   nft: The NFT trait reference for the collection
+;;   token-id: The NFT token ID to list
+;;   price: The asking price in STX (must be > 0)
+;; Returns: (ok true) on success, or an error if:
+;;   - Caller doesn't own the token (ERR-NOT-OWNER)
+;;   - NFT is not from the correct core contract (ERR-WRONG-CONTRACT)
+;;   - Price is zero or invalid (ERR-INVALID-PRICE)
+;; Emits: listed event with token-id, maker, and price
 (define-public (list-item (nft <nft-trait>) (token-id uint) (price uint))
   (let 
     (
@@ -57,6 +67,15 @@
   )
 )
 
+;; Remove an NFT from the marketplace (seller only)
+;; Arguments:
+;;   nft: The NFT trait reference for the collection
+;;   token-id: The NFT token ID to unlist
+;; Returns: (ok true) on success, or an error if:
+;;   - Listing not found (ERR-LISTING-NOT-FOUND)
+;;   - Caller is not the listing creator (ERR-WRONG-MAKER)
+;;   - NFT is not from the correct core contract (ERR-WRONG-CONTRACT)
+;; Emits: unlisted event with token-id and maker
 (define-public (unlist-item (nft <nft-trait>) (token-id uint))
   (let 
     (
@@ -75,6 +94,16 @@
   )
 )
 
+;; Purchase an NFT from the marketplace
+;; Arguments:
+;;   nft: The NFT trait reference for the collection
+;;   token-id: The NFT token ID to buy
+;; Returns: (ok true) on success, or an error if:
+;;   - Listing not found (ERR-LISTING-NOT-FOUND)
+;;   - Buyer is the seller (ERR-NOT-AUTHORIZED)
+;;   - NFT is not from the correct core contract (ERR-WRONG-CONTRACT)
+;;   - Insufficient STX balance for purchase
+;; Emits: sold event with token-id, maker, buyer, and price
 (define-public (buy-item (nft <nft-trait>) (token-id uint))
   (let 
     (
@@ -98,6 +127,10 @@
   )
 )
 
+;; Get marketplace listing details for a token
+;; Arguments:
+;;   token-id: The NFT token ID to look up
+;; Returns: (ok (optional { maker: principal, price: uint })) - Listing info if exists
 (define-read-only (get-listing (token-id uint))
   (ok (map-get? listings { token-id: token-id }))
 )
@@ -106,6 +139,15 @@
 ;; Staking Functions
 ;; ------------------------------------------
 
+;; Stake an NFT to earn reward tokens
+;; Arguments:
+;;   nft-contract: The NFT trait reference for the collection
+;;   token-id: The NFT token ID to stake
+;; Returns: (ok true) on success, or panics if:
+;;   - Contract caller is not the user (ERR-NOT-AUTHORIZED)
+;;   - NFT is not from the correct core contract (ERR-WRONG-CONTRACT)
+;; Note: Automatically claims pending rewards before staking
+;; Updates: Increases staked-balance and resets last-reward-block
 (define-public (stake (nft-contract <nft-trait>) (token-id uint))
   (let
     (
@@ -134,6 +176,16 @@
   )
 )
 
+;; Unstake an NFT and receive it back
+;; Arguments:
+;;   nft-contract: The NFT trait reference for the collection
+;;   token-id: The NFT token ID to unstake
+;; Returns: (ok true) on success, or an error if:
+;;   - Token is not staked (ERR-NOT-STAKED)
+;;   - Caller is not the staker (ERR-NOT-OWNER)
+;;   - NFT is not from the correct core contract (ERR-WRONG-CONTRACT)
+;; Note: Automatically claims pending rewards before unstaking
+;; Updates: Decreases staked-balance and resets last-reward-block
 (define-public (unstake (nft-contract <nft-trait>) (token-id uint))
   (let
     (
@@ -163,6 +215,11 @@
   )
 )
 
+;; Claim accumulated staking rewards
+;; Returns: (ok pending-rewards) on success, or an error if:
+;;   - User has no staked NFTs (ERR-NOT-STAKED)
+;;   - No rewards available to claim
+;; Note: Updates last-reward-block to current block height
 (define-public (claim-rewards)
   (let
     (
@@ -182,14 +239,27 @@
   )
 )
 
+;; Get the staker address for a specific token
+;; Arguments:
+;;   token-id: The NFT token ID to look up
+;; Returns: (ok (optional principal)) - The staker's address if staked
 (define-read-only (get-staker (token-id uint))
   (ok (map-get? stakers token-id))
 )
 
+;; Get staking information for a user
+;; Arguments:
+;;   user: The address to look up
+;; Returns: (ok { staked-balance: uint, last-reward-block: uint }) - Staking info
 (define-read-only (get-staking-info (user principal))
   (ok (map-get? staking-info user))
 )
 
+;; Calculate pending rewards for a user
+;; Arguments:
+;;   user: The address to calculate rewards for
+;; Returns: uint - The amount of reward tokens pending
+;; Formula: staked-balance * blocks-passed * REWARD-PER-BLOCK
 (define-read-only (calculate-rewards (user principal))
   (let
     (
