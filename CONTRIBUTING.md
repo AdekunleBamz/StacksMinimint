@@ -50,6 +50,45 @@ npm run frontend:test
 - Run `npm run frontend:test` when changing frontend business logic.
 - **Note**: Mention any checks you could not run in your PR description.
 
+### Clarity Contract Guidelines
+
+When contributing to smart contracts, follow these additional guidelines:
+
+#### Code Style
+- Use descriptive names for functions and variables (e.g., `get-last-token-id` not `gtid`)
+- Group related constants together with clear section comments
+- Add inline comments for complex logic or non-obvious operations
+- Use `define-constant` for values used multiple times
+
+#### Documentation
+- Add doc comments to all public functions with `;;` prefix
+- Document arguments, return values, and possible error conditions
+- Update README if adding new public functions
+- Include example usage for new features
+
+#### Error Handling
+- Use standardized error codes (u100-u199 range)
+- Add new error codes to the error code section with documentation
+- Return descriptive errors that help users understand what went wrong
+
+#### Gas Optimization
+- Minimize data-map operations in loops
+- Use `try!` instead of `unwrap!` when error handling is needed
+- Consider using `let` bindings to avoid repeated computations
+- Profile gas costs with `clarinet cost-analysis` before merging
+
+#### Security
+- Never use `unwrap-panic` in production code without careful consideration
+- Validate all inputs from external callers
+- Use `asserts!` to enforce invariants before state changes
+- Consider reentrancy implications (though Clarity is synchronous)
+
+#### Testing
+- Add tests for all new public functions
+- Test both success and error paths
+- Include edge cases (max values, zero values, boundary conditions)
+- Use Clarinet's simulation environment for integration tests
+
 ### Accessibility Checklist
 - [ ] Verify keyboard navigation for interactive controls.
 - [ ] Use semantic roles/labels for dialogs and status text.
