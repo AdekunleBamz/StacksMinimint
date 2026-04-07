@@ -1,45 +1,80 @@
-# Dependencies
+# =============================================================================
+# StacksMinimint .gitignore
+# =============================================================================
+# This file defines which files and directories should be ignored by Git.
+# Organized by category for easy maintenance.
+# =============================================================================
+
+# --- Dependencies ---
 node_modules/
+package-lock.json
+!package-lock.json
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Environment files
+# --- Environment Files ---
 .env
 .env.local
 .env.*.local
+.env.production
 
-# Settings
-settings/Mainnet.toml
-settings/Testnet.toml
-
-# Build outputs
+# --- Build Outputs ---
 dist/
 .cache/
 build/
+.next/
+out/
 
-# Deployment
+# --- Deployment ---
 deployments/
 
-# Test files
+# --- Settings (Network-specific) ---
+settings/Mainnet.toml
+settings/Testnet.toml
+
+# --- Test and Debug Files ---
 test-wallets.json
 frontend/build_output*.txt
+coverage/
+*.lcov
 
-# Backup directories
+# --- Backup Directories ---
 scripts.backup-before-desktop-sync-*/
+*.bak
+*.backup
 
-# IDE and editor files
+# --- IDE and Editor Files ---
 .vscode/
 .idea/
 *.swp
 *.swo
+*.swn
+*~
+.project
+.classpath
+.settings/
 
-# Coverage reports
-coverage/
+# --- Operating System Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Logs
+# --- Logs ---
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# --- Temporary Files ---
+*.tmp
+*.temp
+.temp/
+tmp/
+
+# --- Misc ---
+*.pem
+*.key
