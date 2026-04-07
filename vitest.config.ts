@@ -4,37 +4,53 @@ import {
   getClarinetVitestsArgv,
 } from "@stacks/clarinet-sdk/vitest";
 
-/*
-  In this file, Vitest is configured so that it works seamlessly with Clarinet and the Simnet.
-
-  The `vitest-environment-clarinet` will initialise the clarinet-sdk
-  and make the `simnet` object available globally in the test files.
-
-  `vitestSetupFilePath` points to a file in the `@stacks/clarinet-sdk` package that does two things:
-    - run `before` hooks to initialize the simnet and `after` hooks to collect costs and coverage reports.
-    - load custom vitest matchers to work with Clarity values (such as `expect(...).toBeUint()`)
-
-  The `getClarinetVitestsArgv()` will parse options passed to the command `vitest run --`
-    - vitest run -- --manifest ./Clarinet.toml  # pass a custom path
-    - vitest run -- --coverage --costs          # collect coverage and cost reports
-*/
-
+/**
+ * StacksMinimint Vitest Configuration
+ * 
+ * This configuration enables testing of Clarity smart contracts using Vitest
+ * with the Clarinet SDK's simnet environment.
+ * 
+ * Key features:
+ * - Simnet environment for local contract testing
+ * - Custom matchers for Clarity types (e.g., expect(...).toBeUint())
+ * - Automatic cost and coverage reporting
+ * 
+ * Usage:
+ * - Run tests: npm test
+ * - Run with coverage: npm test -- --coverage
+ * - Run specific test: npm test -- path/to/test.ts
+ */
 export default defineConfig({
   test: {
-    // use vitest-environment-clarinet
+    // Use clarinet environment for Clarity contract testing
     environment: "clarinet",
+    
+    // Use fork pool for better isolation between test files
     pool: "forks",
-    // clarinet handles test isolation by resetting the simnet between tests
+    
+    // Clarinet handles test isolation by resetting the simnet between tests
+    // Setting to false improves test performance
     isolate: false,
+    
+    // Setup files run before each test file
     setupFiles: [
       vitestSetupFilePath,
-      // custom setup files can be added here
+      // Add custom setup files here if needed
     ],
+    
+    // Clarinet-specific environment options
     environmentOptions: {
       clarinet: {
         ...getClarinetVitestsArgv(),
-        // add or override options
+        // Override or add clarinet options here
       },
+    },
+    
+    // Include coverage configuration
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json", "html"],
+      exclude: ["node_modules/", "contracts/archive/"],
     },
   },
 });
