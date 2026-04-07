@@ -3,9 +3,13 @@
     "npx prettier --write"
   ],
   "*.{js,jsx,ts,tsx}": [
-    "npx prettier --write"
+    "npx prettier --write",
+    "eslint --fix"
   ],
   "*.{json,md,css}": [
     "npx prettier --write"
+  ],
+  "contracts/**/*.clar": [
+    "npm run contracts:check"
   ]
 }
