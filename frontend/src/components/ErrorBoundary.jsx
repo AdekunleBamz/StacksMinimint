@@ -12,13 +12,51 @@ import PropTypes from 'prop-types';
 import './ErrorBoundary.css';
 
 /**
+ * Error messages for common error types to provide user-friendly feedback.
+ * @type {Object.<string, string>}
+ */
+const ERROR_MESSAGES = {
+  default: 'The application encountered an unexpected error.',
+  network: 'Unable to connect to the network. Please check your internet connection.',
+  wallet: 'Wallet connection failed. Please try reconnecting your wallet.',
+  contract: 'Contract interaction failed. Please try again.',
+  timeout: 'Request timed out. Please try again.'
+};
+
+/**
+ * Determines the appropriate error message based on the error type.
+ * @param {Error} error - The error object to analyze.
+ * @returns {string} A user-friendly error message.
+ */
+function getErrorMessage(error) {
+  if (!error) return ERROR_MESSAGES.default;
+
+  const message = error.message?.toLowerCase() || '';
+
+  if (message.includes('network') || message.includes('fetch') || message.includes('connection')) {
+    return ERROR_MESSAGES.network;
+  }
+  if (message.includes('wallet') || message.includes('connect') || message.includes('disconnected')) {
+    return ERROR_MESSAGES.wallet;
+  }
+  if (message.includes('contract') || message.includes('transaction') || message.includes('clar')) {
+    return ERROR_MESSAGES.contract;
+  }
+  if (message.includes('timeout') || message.includes('timed out')) {
+    return ERROR_MESSAGES.timeout;
+  }
+
+  return ERROR_MESSAGES.default;
+}
+
+/**
  * A standard React Error Boundary component to catch JavaScript errors
  * anywhere in their child component tree.
  */
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false, error: null, errorInfo: null };
   }
 
   static getDerivedStateFromError(error) {
@@ -27,31 +65,59 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
+    // Log error to console for debugging
+    console.error('ErrorBoundary caught an error:', error);
+    console.error('Error Info:', errorInfo);
+
+    // Store error info for display
+    this.setState({ errorInfo });
+
+    // In production, you might want to log to an error reporting service
+    // Example: logErrorToService(error, errorInfo);
   }
+
+  handleReset = () => {
+    this.setState({ hasError: false, error: null, errorInfo: null });
+  };
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
+      const userMessage = getErrorMessage(this.state.error);
+      const isDevelopment = process.env.NODE_ENV === 'development';
+
       return (
         <div className="error-boundary" role="alert" aria-live="assertive">
-          <h2 className="error-boundary__title">Something went wrong.</h2>
-          <p className="error-boundary__message">
-            The application encountered an unexpected error. Please try refreshing the page.
-          </p>
-          {this.state.error && (
-            <pre className="error-boundary__details">
-              {this.state.error.toString()}
-            </pre>
+          <div className="error-boundary__icon" aria-hidden="true">⚠️</div>
+          <h2 className="error-boundary__title">Something went wrong</h2>
+          <p className="error-boundary__message">{userMessage}</p>
+
+          {/* Show detailed error info only in development */}
+          {isDevelopment && this.state.error && (
+            <details className="error-boundary__details">
+              <summary>Technical Details (Development Only)</summary>
+              <pre>
+                {this.state.error.toString()}
+                {this.state.errorInfo?.componentStack}
+              </pre>
+            </details>
           )}
-          <button
-            type="button"
-            onClick={() => window.location.reload()}
-            className="error-boundary__button"
-          >
-            Refresh Page
-          </button>
+
+          <div className="error-boundary__actions">
+            <button
+              type="button"
+              onClick={this.handleReset}
+              className="error-boundary__button error-boundary__button--secondary"
+            >
+              Try Again
+            </button>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="error-boundary__button"
+            >
+              Refresh Page
+            </button>
+          </div>
         </div>
       );
     }
