@@ -31,20 +31,38 @@
 ;; Maps for metadata
 (define-map token-uris uint (string-ascii 256))
 
-;; --- SIP-009 Functions ---
+;; --- SIP-009 Read-Only Functions ---
 
+;; Get the last minted token ID
+;; Returns: (ok uint) - The highest token ID minted so far
 (define-read-only (get-last-token-id)
   (ok (var-get last-token-id))
 )
 
+;; Get the metadata URI for a specific token
+;; Arguments:
+;;   token-id: The NFT token ID to look up
+;; Returns: (ok (optional (string-ascii 256))) - The token's metadata URI if set
 (define-read-only (get-token-uri (token-id uint))
   (ok (map-get? token-uris token-id))
 )
 
+;; Get the current owner of a token
+;; Arguments:
+;;   token-id: The NFT token ID
+;; Returns: (ok (optional principal)) - The owner's address if token exists
 (define-read-only (get-owner (token-id uint))
   (ok (nft-get-owner? minimint token-id))
 )
 
+;; Transfer an NFT to another address
+;; Arguments:
+;;   token-id: The NFT token ID to transfer
+;;   sender: The current owner authorizing the transfer
+;;   recipient: The address to receive the NFT
+;; Returns: (ok true) on success, or an error if:
+;;   - Contract is paused (ERR-PAUSED)
+;;   - Sender is not authorized (ERR-NOT-AUTHORIZED)
 (define-public (transfer (token-id uint) (sender principal) (recipient principal))
   (begin
     (asserts! (not (var-get is-paused)) ERR-PAUSED)
@@ -59,6 +77,14 @@
 
 ;; --- Core Functions (Mint & Metadata) ---
 
+;; Mint a new NFT with metadata URI
+;; Arguments:
+;;   uri: The metadata URI (IPFS or HTTPS URL, max 256 chars)
+;; Returns: (ok token-id) on success, or an error if:
+;;   - Contract is paused (ERR-PAUSED)
+;;   - Max supply reached (ERR-SOLD-OUT)
+;;   - Insufficient STX for mint fee
+;; Emits: mint event with recipient, token-id, and fee
 (define-public (mint (uri (string-ascii 256)))
   (let
     (
@@ -83,6 +109,12 @@
   )
 )
 
+;; Burn an NFT, removing it from circulation
+;; Arguments:
+;;   token-id: The NFT token ID to burn
+;; Returns: (ok true) on success, or an error if:
+;;   - Caller is not the token owner (ERR-NOT-OWNER)
+;; Emits: burn event with owner and token-id
 (define-public (burn (token-id uint))
   (begin
     (asserts! (is-eq (some tx-sender) (nft-get-owner? minimint token-id)) ERR-NOT-OWNER)
@@ -92,7 +124,14 @@
   )
 )
 
-;; Admin Functions
+;; --- Admin Functions ---
+
+;; Update the metadata URI for an existing token (admin only)
+;; Arguments:
+;;   token-id: The NFT token ID to update
+;;   uri: The new metadata URI
+;; Returns: (ok true) on success, or an error if:
+;;   - Caller is not the contract owner (ERR-NOT-AUTHORIZED)
 (define-public (set-token-uri (token-id uint) (uri (string-ascii 256)))
   (begin
     (asserts! (is-eq tx-sender (var-get contract-owner)) ERR-NOT-AUTHORIZED)
@@ -101,6 +140,11 @@
   )
 )
 
+;; Transfer contract ownership to a new address (admin only)
+;; Arguments:
+;;   new-owner: The address to receive ownership
+;; Returns: (ok true) on success, or an error if:
+;;   - Caller is not the current owner (ERR-NOT-AUTHORIZED)
 (define-public (transfer-ownership (new-owner principal))
   (begin
     (asserts! (is-eq tx-sender (var-get contract-owner)) ERR-NOT-AUTHORIZED)
