@@ -13,12 +13,35 @@
 
 (impl-trait .sip-009-nft-trait-v-i27.sip-009-nft-trait)
 
+;; --- Error Codes ---
+;; Standardized error codes for consistent error handling across the ecosystem.
+;; Each error returns a Response type: (err uXXX)
+
+;; ERR-NOT-AUTHORIZED (u100): Caller lacks permission for the requested action.
+;; Used when tx-sender is not the contract caller or authorized hub contract.
 (define-constant ERR-NOT-AUTHORIZED (err u100))
+
+;; ERR-NOT-OWNER (u101): Caller is not the owner of the specified NFT.
+;; Used in transfer and burn functions to enforce ownership checks.
 (define-constant ERR-NOT-OWNER (err u101))
+
+;; ERR-SOLD-OUT (u102): Maximum supply has been reached, no more mints allowed.
+;; Returned when attempting to mint beyond MAX-SUPPLY.
 (define-constant ERR-SOLD-OUT (err u102))
+
+;; ERR-PAUSED (u103): Contract is in paused state, write operations disabled.
+;; Returned when trying to mint, transfer, or burn while is-paused is true.
 (define-constant ERR-PAUSED (err u103))
 
-(define-constant MINT-FEE u1000) ;; 0.001 STX
+;; --- Constants ---
+;; Immutable configuration values for the contract.
+
+;; MINT-FEE: Fee charged per mint operation in micro-STX.
+;; u1000 = 0.001 STX (1 STX = 1,000,000 micro-STX).
+(define-constant MINT-FEE u1000)
+
+;; MAX-SUPPLY: Maximum number of NFTs that can ever be minted.
+;; u10000 = 10,000 total NFTs in the collection.
 (define-constant MAX-SUPPLY u10000)
 
 (define-non-fungible-token minimint uint)
