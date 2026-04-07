@@ -1,6 +1,7 @@
 # This file contains git commit SHAs that should be ignored by git blame.
-# These are typically formatting or refactoring commits that change many lines
-# but don't contain meaningful code changes.
-#
+# Useful for skipping formatting commits, large refactors, etc.
+# 
 # To use this file:
 # git config blame.ignoreRevsFile .git-blame-ignore-revs
+#
+# Format: One commit SHA per line, optionally followed by a comment.
