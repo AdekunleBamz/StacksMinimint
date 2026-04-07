@@ -1,9 +1,33 @@
 {
-    "framework": "vite",
-    "rewrites": [
+  "$schema": "https://openapi.vercel.io/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run frontend:build",
+  "outputDirectory": "frontend/dist",
+  "devCommand": "npm run frontend:dev",
+  "installCommand": "npm install && npm run frontend:install",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
-    ]
+      ]
+    }
+  ]
 }
