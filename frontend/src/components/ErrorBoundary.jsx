@@ -83,13 +83,17 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       const userMessage = getErrorMessage(this.state.error);
+      const rawMessage = this.state.error?.message?.trim();
       const isDevelopment = process.env.NODE_ENV === 'development';
 
       return (
         <div className="error-boundary" role="alert" aria-live="assertive">
           <div className="error-boundary__icon" aria-hidden="true">⚠️</div>
-          <h2 className="error-boundary__title">Something went wrong</h2>
+          <h2 className="error-boundary__title">Something went wrong.</h2>
           <p className="error-boundary__message">{userMessage}</p>
+          {rawMessage && (
+            <p className="error-boundary__message">{rawMessage}</p>
+          )}
 
           {/* Show detailed error info only in development */}
           {isDevelopment && this.state.error && (
