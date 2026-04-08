@@ -8,6 +8,7 @@
  * @module useToast
  */
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { MAX_TOASTS, TOAST_DURATION } from '../constants'
 
 export function useToast() {
   const [toasts, setToasts] = useState([])
@@ -24,7 +25,7 @@ export function useToast() {
     }
   }, [])
 
-  const addToast = useCallback((message, type = 'info', duration = 5000) => {
+  const addToast = useCallback((message, type = 'info', duration = TOAST_DURATION) => {
     if (!message) {
       return null
     }
@@ -33,9 +34,9 @@ export function useToast() {
     const id = toastIdRef.current
     const toast = { id, message, type }
     
-    setToasts(prev => [...prev, toast])
+    setToasts(prev => [...prev, toast].slice(-MAX_TOASTS))
 
-    const safeDuration = Number.isFinite(duration) ? Math.max(duration, 0) : 5000
+    const safeDuration = Number.isFinite(duration) ? Math.max(duration, 0) : TOAST_DURATION
 
     if (safeDuration > 0) {
       const timer = setTimeout(() => {
