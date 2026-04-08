@@ -35,7 +35,7 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
 }
 
 // Preset skeleton layouts
-function CardSkeleton() {
+export function CardSkeleton() {
   return (
     <div className="skeleton-card">
       <LoadingSkeleton variant="image" height={200} />
@@ -48,7 +48,7 @@ function CardSkeleton() {
   )
 }
 
-function ListItemSkeleton() {
+export function ListItemSkeleton() {
   return (
     <div className="skeleton-list-item">
       <LoadingSkeleton variant="avatar" />
