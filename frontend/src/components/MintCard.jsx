@@ -28,6 +28,7 @@ export function MintCard({
   const tokenUriValidation = validateTokenURI(tokenURI)
   const hasTokenURI = tokenURI.trim().length > 0
   const isTokenUriValid = tokenUriValidation.isValid
+  const visibleContractError = typeof contractError === 'string' ? contractError.trim() : contractError
 
   const handleMint = useCallback(async (e) => {
     e.preventDefault()
@@ -126,9 +127,9 @@ export function MintCard({
         </div>
       )}
 
-      {contractError && (
+      {visibleContractError && (
         <div className="mint-card__alert mint-card__alert--error" role="alert">
-          {contractError}
+          {visibleContractError}
         </div>
       )}
 
