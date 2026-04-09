@@ -14,7 +14,7 @@ import { useClipboard } from '../hooks'
 
 export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
   const { copied, copy } = useClipboard()
-  const hasText = Boolean(text)
+  const hasText = typeof text === 'string' ? text.trim().length > 0 : Boolean(text)
 
   const handleCopy = useCallback(async () => {
     if (!hasText) return
