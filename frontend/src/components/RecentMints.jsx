@@ -61,7 +61,9 @@ export function RecentMints({ items = [] }) {
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
           const timestampMs = getMintTimestampMs(mint.timestamp)
-          const txId = mint.txId || mint.txHash
+          const txId = [mint.txId, mint.txHash]
+            .map((value) => (typeof value === 'string' ? value.trim() : value))
+            .find(Boolean)
           const minterAddress = mint.minter || mint.address || 'Unknown'
           const tokenLabel = mint.tokenId == null ? 'Pending' : `#${mint.tokenId}`
           const receiptLabel = mint.tokenId == null ? 'Submitted ↗' : 'Minted ↗'
