@@ -14,9 +14,10 @@ import { formatExactTime, formatLimit, formatSTX } from '../utils/collection'
 
 export function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
   const [lastUpdated, setLastUpdated] = useState(new Date())
-  const safeRecentActivityCount = typeof recentActivityCount === 'number'
-    ? Math.max(recentActivityCount, 0)
-    : recentActivityCount
+  const parsedRecentActivityCount = Number(recentActivityCount)
+  const safeRecentActivityCount = Number.isFinite(parsedRecentActivityCount)
+    ? Math.max(parsedRecentActivityCount, 0)
+    : 0
 
   useEffect(() => {
     if (contractInfo) {
