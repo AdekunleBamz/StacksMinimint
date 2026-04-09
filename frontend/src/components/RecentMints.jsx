@@ -67,12 +67,14 @@ export function RecentMints({ items = [] }) {
           const minterAddress = [mint.minter, mint.address]
             .map((value) => (typeof value === 'string' ? value.trim() : value))
             .find(Boolean) || 'Unknown'
-          const tokenLabel = mint.tokenId == null ? 'Pending' : `#${mint.tokenId}`
-          const receiptLabel = mint.tokenId == null ? 'Submitted ↗' : 'Minted ↗'
-          const explorerLabel = mint.tokenId == null
+          const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
+          const isPendingToken = tokenId === '' || tokenId == null
+          const tokenLabel = isPendingToken ? 'Pending' : `#${tokenId}`
+          const receiptLabel = isPendingToken ? 'Submitted ↗' : 'Minted ↗'
+          const explorerLabel = isPendingToken
             ? 'View submitted transaction on Explorer'
-            : `View transaction for token #${mint.tokenId} on Explorer`
-          const mintKey = txId || `${mint.tokenId ?? 'pending'}-${mint.timestamp}`
+            : `View transaction for token #${tokenId} on Explorer`
+          const mintKey = txId || `${tokenId ?? 'pending'}-${mint.timestamp}`
           return (
             <div key={mintKey} className="mint-item" role="listitem">
               <div className="mint-item__avatar">
