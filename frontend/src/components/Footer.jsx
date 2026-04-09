@@ -8,9 +8,10 @@
  */
 
 import './Footer.css'
-import { CONTRACT_ADDRESS, CONTRACT_NAME, NETWORK } from '../constants'
+import { CONTRACT_ADDRESS, CONTRACT_NAME, HUB_CONTRACT_ADDRESS, HUB_CONTRACT_NAME, NETWORK } from '../constants'
 
 const coreContractPrincipal = `${CONTRACT_ADDRESS}.${CONTRACT_NAME}`
+const hubContractPrincipal = `${HUB_CONTRACT_ADDRESS}.${HUB_CONTRACT_NAME}`
 
 const FOOTER_LINKS = {
   project: [
@@ -26,6 +27,7 @@ const FOOTER_LINKS = {
   resources: [
     { label: 'Stacks Docs', href: 'https://docs.stacks.co/' },
     { label: 'Core Contract', href: `https://explorer.hiro.so/address/${coreContractPrincipal}?chain=${NETWORK}` },
+    { label: 'Hub Contract', href: `https://explorer.hiro.so/address/${hubContractPrincipal}?chain=${NETWORK}` },
     { label: 'GitHub', href: 'https://github.com/AdekunleBamz/StacksMinimint' },
     { label: 'SIP-009 NFT Standard', href: 'https://docs.stacks.co/reference/sips/sip009' }
   ]
