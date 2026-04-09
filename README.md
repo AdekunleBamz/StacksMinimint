@@ -44,7 +44,7 @@ Stored in the `contracts/` directory, the ecosystem consists of two active compo
 The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-total-supply`, `set-token-uri`, and related read-onlys) is preserved on `minimint-hub-v-i27`.
 
 > [!NOTE]
-> The frontend is configured to target the `minimint-core` deployment by default. Update `frontend/src/constants/index.js` if you are pointing at a versioned Clarinet contract such as `minimint-core-v-i27`.
+> The frontend is configured to target the tracked `minimint-core-v-i27` and `minimint-hub-v-i27` contracts by default. Use environment overrides when you need to point the app at a different deployment.
 
 ---
 
@@ -169,9 +169,9 @@ npm run frontend:check
 |----------|-------------|---------|
 | `VITE_STX_NETWORK` | Network (mainnet/testnet) | mainnet |
 | `VITE_CONTRACT_ADDRESS` | Core contract address | Mainnet deployer |
-| `VITE_CONTRACT_NAME` | Core contract name | minimint-core-v-i28 |
+| `VITE_CONTRACT_NAME` | Core contract name | minimint-core-v-i27 |
 | `VITE_HUB_CONTRACT_ADDRESS` | Hub contract address | Mainnet deployer |
-| `VITE_HUB_CONTRACT_NAME` | Hub contract name | minimint-hub-v-i28 |
+| `VITE_HUB_CONTRACT_NAME` | Hub contract name | minimint-hub-v-i27 |
 | `VITE_MINT_FEE` | Mint fee in micro-STX | 1000000 |
 
 ---
