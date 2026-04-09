@@ -28,12 +28,12 @@ import {
 import { userSession } from './useStacksWallet';
 import { validateTokenURI } from '../utils/collection';
 
-const parseUint = (value) => {
+export const parseUint = (value) => {
   if (typeof value === 'bigint') {
-    return Number(value);
+    return value >= 0n ? Number(value) : 0;
   }
   if (typeof value === 'number') {
-    return Number.isFinite(value) ? value : 0;
+    return Number.isFinite(value) ? Math.max(value, 0) : 0;
   }
   if (typeof value === 'string' && /^\d+$/.test(value)) {
     return Number(value);
