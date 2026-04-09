@@ -172,7 +172,7 @@ export function MintCard({
               aria-invalid={hasTokenURI && !isTokenUriValid}
               required
               autoComplete="off"
-              disabled={isMinting || isSoldOut || contractInfo?.isPaused}
+              disabled={isMinting || isSoldOut || walletLimitReached || contractInfo?.isPaused}
             />
             <span id="tokenURIHint" className="form-hint">
               Paste an ipfs:// CID or secure https:// link to your metadata JSON
