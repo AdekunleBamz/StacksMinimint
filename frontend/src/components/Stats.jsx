@@ -7,7 +7,7 @@
  * @module Stats
  */
 
-import { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import './Stats.css'
 import { formatExactTime, formatLimit, formatSTX } from '../utils/collection'
