@@ -293,7 +293,8 @@ export function validateTokenURI(value) {
  * @returns {Object} The submission record.
  */
 export function createSubmissionRecord({ txId, tokenURI, address }) {
-  const fallbackId = `local-${Date.now()}-${String(address || 'unknown')}`
+  const normalizedAddress = typeof address === 'string' ? address.trim() : address
+  const fallbackId = `local-${Date.now()}-${String(normalizedAddress || 'unknown')}`
   return {
     id: txId || fallbackId,
     txId,
