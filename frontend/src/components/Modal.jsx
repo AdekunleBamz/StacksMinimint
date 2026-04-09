@@ -50,12 +50,16 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
     <div 
       className="modal-overlay" 
       onClick={handleOverlayClick}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={title ? titleId : undefined}
-      aria-label={title ? undefined : 'Dialog'}
     >
-      <div ref={modalRef} className={`modal modal--${size}`} tabIndex={-1}>
+      <div
+        ref={modalRef}
+        className={`modal modal--${size}`}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={title ? titleId : undefined}
+        aria-label={title ? undefined : 'Dialog'}
+      >
         <div className="modal__header">
           {title && <h2 id={titleId} className="modal__title">{title}</h2>}
           <button 
