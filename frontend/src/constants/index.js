@@ -22,9 +22,9 @@ export const NETWORK = envNetwork === 'mainnet' || envNetwork === 'testnet'
   ? envNetwork
   : DEFAULT_NETWORK; // 'mainnet' or 'testnet'
 
-// Default to the deployed v-i28 contracts and allow env overrides.
+// Default to the tracked v-i27 contracts and allow env overrides.
 export const CONTRACT_ADDRESS = import.meta.env?.VITE_CONTRACT_ADDRESS || MAINNET_DEPLOYER;
-export const CONTRACT_NAME = import.meta.env?.VITE_CONTRACT_NAME || 'minimint-core-v-i28';
+export const CONTRACT_NAME = import.meta.env?.VITE_CONTRACT_NAME || 'minimint-core-v-i27';
 export const HUB_CONTRACT_ADDRESS = import.meta.env?.VITE_HUB_CONTRACT_ADDRESS || MAINNET_DEPLOYER;
 export const HUB_CONTRACT_NAME = import.meta.env?.VITE_HUB_CONTRACT_NAME || 'minimint-hub-v-i28';
 
