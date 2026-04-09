@@ -121,9 +121,9 @@ npm test -- contracts/minimint-core.test.ts
 
 | Contract | Address |
 |----------|---------|
-| Core | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-core-v-i28` |
-| Hub | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-hub-v-i28` |
-| Token | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-token-v-i28` |
+| Core | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-core-v-i27` |
+| Hub | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-hub-v-i27` |
+| Token | `SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT.minimint-token-v-i27` |
 
 ## 🔒 Security
 
