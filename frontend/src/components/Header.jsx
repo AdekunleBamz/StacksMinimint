@@ -18,12 +18,13 @@ import { NETWORK } from '../constants'
 
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
-  const hasAccount = typeof account === 'string' ? account.trim().length > 0 : Boolean(account)
+  const normalizedAccount = typeof account === 'string' ? account.trim() : account
+  const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
   const chainName = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
 
   const handleCopy = useCallback(() => {
-    if (account) copy(account)
-  }, [account, copy])
+    if (normalizedAccount) copy(normalizedAccount)
+  }, [normalizedAccount, copy])
 
   return (
     <header className="header">
@@ -40,11 +41,11 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               type="button"
               className="header__address-wrapper"
               onClick={handleCopy}
-              title={account}
+              title={normalizedAccount}
               aria-label="Copy wallet address"
             >
               <span className="header__address-label">Wallet</span>
-              <span className="header__address" aria-hidden="true">{formatAddress(account)}</span>
+              <span className="header__address" aria-hidden="true">{formatAddress(normalizedAccount)}</span>
               <span className="header__copy-hint" aria-hidden="true">Copy</span>
               {copied && <span className="header__copied-toast" role="status" aria-live="polite">Copied!</span>}
             </button>
