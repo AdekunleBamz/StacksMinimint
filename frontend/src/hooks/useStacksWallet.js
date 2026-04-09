@@ -15,12 +15,17 @@ import { NETWORK } from '../contract';
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 export const userSession = new UserSession({ appConfig });
 
-function getStacksAddress(data) {
+export function getStacksAddress(data) {
   if (!data?.profile?.stxAddress) return null
 
-  return NETWORK === 'mainnet'
-    ? data.profile.stxAddress.mainnet || null
-    : data.profile.stxAddress.testnet || null
+  const address = NETWORK === 'mainnet'
+    ? data.profile.stxAddress.mainnet
+    : data.profile.stxAddress.testnet
+
+  if (typeof address !== 'string') return null
+
+  const normalizedAddress = address.trim()
+  return normalizedAddress || null
 }
 
 export function useStacksWallet() {
