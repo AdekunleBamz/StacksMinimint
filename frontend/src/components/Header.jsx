@@ -18,6 +18,7 @@ import { NETWORK } from '../constants'
 
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
+  const hasAccount = typeof account === 'string' ? account.trim().length > 0 : Boolean(account)
   const chainName = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
 
   const handleCopy = useCallback(() => {
@@ -32,7 +33,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
       </div>
 
       <div className="header__wallet">
-        {account ? (
+        {hasAccount ? (
           <>
             <span className="header__chain">{chainName}</span>
             <button
