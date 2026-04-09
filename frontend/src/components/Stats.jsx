@@ -14,6 +14,9 @@ import { formatExactTime, formatLimit, formatSTX } from '../utils/collection'
 
 export function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
   const [lastUpdated, setLastUpdated] = useState(new Date())
+  const safeRecentActivityCount = typeof recentActivityCount === 'number'
+    ? Math.max(recentActivityCount, 0)
+    : recentActivityCount
 
   useEffect(() => {
     if (contractInfo) {
@@ -37,7 +40,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       : remainingSupply === 0 && maxSupply !== null
         ? { label: 'Sold out', tone: 'critical' }
         : { label: 'Ready', tone: 'success' }
-    const receiptLabel = recentActivityCount === 1 ? 'local receipt' : 'local receipts'
+    const receiptLabel = safeRecentActivityCount === 1 ? 'local receipt' : 'local receipts'
 
     const stats = [
       {
@@ -63,7 +66,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
     ]
 
     return { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel, totalSupply }
-  }, [contractInfo, isConnected, recentActivityCount])
+  }, [contractInfo, isConnected, safeRecentActivityCount])
 
   if (isLoading) {
     return (
@@ -94,7 +97,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         </span>
         <div className="stats__session" aria-live="polite">
           <span>{isConnected ? 'Wallet connected' : 'Connect wallet to mint'}</span>
-          <span>{recentActivityCount} {receiptLabel}</span>
+          <span>{safeRecentActivityCount} {receiptLabel}</span>
         </div>
         <div className="stats__timestamp" aria-live="polite">
           Last updated:{' '}
