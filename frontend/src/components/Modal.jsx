@@ -7,7 +7,7 @@
  * @module Modal
  */
 
-import { useEffect, useId, useRef } from 'react'
+import React, { useEffect, useId, useRef } from 'react'
 import PropTypes from 'prop-types'
 import './Modal.css'
 
