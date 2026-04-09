@@ -64,7 +64,9 @@ export function RecentMints({ items = [] }) {
           const txId = [mint.txId, mint.txHash]
             .map((value) => (typeof value === 'string' ? value.trim() : value))
             .find(Boolean)
-          const minterAddress = mint.minter || mint.address || 'Unknown'
+          const minterAddress = [mint.minter, mint.address]
+            .map((value) => (typeof value === 'string' ? value.trim() : value))
+            .find(Boolean) || 'Unknown'
           const tokenLabel = mint.tokenId == null ? 'Pending' : `#${mint.tokenId}`
           const receiptLabel = mint.tokenId == null ? 'Submitted ↗' : 'Minted ↗'
           const explorerLabel = mint.tokenId == null
