@@ -18,13 +18,22 @@ export const userSession = new UserSession({ appConfig });
 export function getStacksAddress(data) {
   if (!data?.profile?.stxAddress) return null
 
-  const address = NETWORK === 'mainnet'
+  const preferredAddress = NETWORK === 'mainnet'
     ? data.profile.stxAddress.mainnet
     : data.profile.stxAddress.testnet
 
-  if (typeof address !== 'string') return null
+  const fallbackAddress = NETWORK === 'mainnet'
+    ? data.profile.stxAddress.testnet
+    : data.profile.stxAddress.mainnet
 
-  const normalizedAddress = address.trim()
+  const candidateAddress =
+    typeof preferredAddress === 'string' && preferredAddress.trim()
+      ? preferredAddress
+      : fallbackAddress
+
+  if (typeof candidateAddress !== 'string') return null
+
+  const normalizedAddress = candidateAddress.trim()
   return normalizedAddress || null
 }
 
