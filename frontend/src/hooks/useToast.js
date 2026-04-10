@@ -34,7 +34,23 @@ export function useToast() {
     const id = toastIdRef.current
     const toast = { id, message, type }
     
-    setToasts(prev => [...prev, toast].slice(-MAX_TOASTS))
+    setToasts(prev => {
+      const nextToasts = [...prev, toast]
+      if (nextToasts.length <= MAX_TOASTS) {
+        return nextToasts
+      }
+
+      const trimmedToasts = nextToasts.slice(-MAX_TOASTS)
+      const removedToasts = nextToasts.slice(0, nextToasts.length - MAX_TOASTS)
+      removedToasts.forEach((removedToast) => {
+        const staleTimer = timersRef.current.get(removedToast.id)
+        if (staleTimer) {
+          clearTimeout(staleTimer)
+          timersRef.current.delete(removedToast.id)
+        }
+      })
+      return trimmedToasts
+    })
 
     const safeDuration = Number.isFinite(duration) ? Math.max(duration, 0) : TOAST_DURATION
 
