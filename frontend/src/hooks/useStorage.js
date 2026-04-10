@@ -9,13 +9,14 @@
 import { useCallback, useEffect, useState } from 'react'
 
 export function useLocalStorage(key, initialValue) {
-  const hasValidKey = typeof key === 'string' && key.length > 0
+  const normalizedKey = typeof key === 'string' ? key.trim() : ''
+  const hasValidKey = normalizedKey.length > 0
 
   // Get stored value or use initial
   const [storedValue, setStoredValue] = useState(() => {
     try {
       if (typeof window === 'undefined' || !hasValidKey) return initialValue
-      const item = window.localStorage.getItem(key)
+      const item = window.localStorage.getItem(normalizedKey)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
       console.warn(`Error reading localStorage key "${key}":`, error)
@@ -29,32 +30,32 @@ export function useLocalStorage(key, initialValue) {
       if (typeof window === 'undefined' || !hasValidKey) return
       setStoredValue((currentValue) => {
         const valueToStore = value instanceof Function ? value(currentValue) : value
-        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+        window.localStorage.setItem(normalizedKey, JSON.stringify(valueToStore))
         return valueToStore
       })
     } catch (error) {
       console.warn(`Error setting localStorage key "${key}":`, error)
     }
-  }, [key, hasValidKey])
+  }, [normalizedKey, hasValidKey])
 
   // Remove from localStorage
   const removeValue = useCallback(() => {
     try {
       if (typeof window === 'undefined' || !hasValidKey) return
-      window.localStorage.removeItem(key)
+      window.localStorage.removeItem(normalizedKey)
       setStoredValue(initialValue)
     } catch (error) {
       console.warn(`Error removing localStorage key "${key}":`, error)
     }
-  }, [key, initialValue, hasValidKey])
+  }, [normalizedKey, initialValue, hasValidKey])
 
   useEffect(() => {
     if (typeof window === 'undefined' || !hasValidKey) return
 
     const handleStorage = (event) => {
-      if (event.key !== key && event.key !== null) return
+      if (event.key !== normalizedKey && event.key !== null) return
       try {
-        const nextValue = window.localStorage.getItem(key)
+        const nextValue = window.localStorage.getItem(normalizedKey)
         setStoredValue(nextValue ? JSON.parse(nextValue) : initialValue)
       } catch (error) {
         console.warn(`Error syncing localStorage key "${key}":`, error)
@@ -63,19 +64,19 @@ export function useLocalStorage(key, initialValue) {
 
     window.addEventListener('storage', handleStorage)
     return () => window.removeEventListener('storage', handleStorage)
-  }, [key, initialValue, hasValidKey])
+  }, [normalizedKey, initialValue, hasValidKey])
 
   useEffect(() => {
     if (typeof window === 'undefined' || !hasValidKey) return
 
     try {
-      const item = window.localStorage.getItem(key)
+      const item = window.localStorage.getItem(normalizedKey)
       setStoredValue(item ? JSON.parse(item) : initialValue)
     } catch (error) {
       console.warn(`Error reloading localStorage key "${key}":`, error)
       setStoredValue(initialValue)
     }
-  }, [key, initialValue, hasValidKey])
+  }, [normalizedKey, initialValue, hasValidKey])
 
   return [storedValue, setValue, removeValue]
 }
@@ -87,12 +88,13 @@ export function useLocalStorage(key, initialValue) {
 export default { useLocalStorage, useSessionStorage }
 
 export function useSessionStorage(key, initialValue) {
-  const hasValidKey = typeof key === 'string' && key.length > 0
+  const normalizedKey = typeof key === 'string' ? key.trim() : ''
+  const hasValidKey = normalizedKey.length > 0
 
   const [storedValue, setStoredValue] = useState(() => {
     try {
       if (typeof window === 'undefined' || !hasValidKey) return initialValue
-      const item = window.sessionStorage.getItem(key)
+      const item = window.sessionStorage.getItem(normalizedKey)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
       console.warn(`Error reading sessionStorage key "${key}":`, error)
@@ -105,33 +107,33 @@ export function useSessionStorage(key, initialValue) {
       if (typeof window === 'undefined' || !hasValidKey) return
       setStoredValue((currentValue) => {
         const valueToStore = value instanceof Function ? value(currentValue) : value
-        window.sessionStorage.setItem(key, JSON.stringify(valueToStore))
+        window.sessionStorage.setItem(normalizedKey, JSON.stringify(valueToStore))
         return valueToStore
       })
     } catch (error) {
       console.warn(`Error setting sessionStorage key "${key}":`, error)
     }
-  }, [key, hasValidKey])
+  }, [normalizedKey, hasValidKey])
 
   const removeValue = useCallback(() => {
     try {
       if (typeof window === 'undefined' || !hasValidKey) return
-      window.sessionStorage.removeItem(key)
+      window.sessionStorage.removeItem(normalizedKey)
       setStoredValue(initialValue)
     } catch (error) {
       console.warn(`Error removing sessionStorage key "${key}":`, error)
     }
-  }, [key, initialValue, hasValidKey])
+  }, [normalizedKey, initialValue, hasValidKey])
 
   useEffect(() => {
     if (typeof window === 'undefined' || !hasValidKey) return
 
     const handleStorage = (event) => {
       if (event.storageArea !== window.sessionStorage) return
-      if (event.key !== key && event.key !== null) return
+      if (event.key !== normalizedKey && event.key !== null) return
 
       try {
-        const nextValue = window.sessionStorage.getItem(key)
+        const nextValue = window.sessionStorage.getItem(normalizedKey)
         setStoredValue(nextValue ? JSON.parse(nextValue) : initialValue)
       } catch (error) {
         console.warn(`Error syncing sessionStorage key "${key}":`, error)
@@ -140,19 +142,19 @@ export function useSessionStorage(key, initialValue) {
 
     window.addEventListener('storage', handleStorage)
     return () => window.removeEventListener('storage', handleStorage)
-  }, [key, initialValue, hasValidKey])
+  }, [normalizedKey, initialValue, hasValidKey])
 
   useEffect(() => {
     if (typeof window === 'undefined' || !hasValidKey) return
 
     try {
-      const item = window.sessionStorage.getItem(key)
+      const item = window.sessionStorage.getItem(normalizedKey)
       setStoredValue(item ? JSON.parse(item) : initialValue)
     } catch (error) {
       console.warn(`Error reloading sessionStorage key "${key}":`, error)
       setStoredValue(initialValue)
     }
-  }, [key, initialValue, hasValidKey])
+  }, [normalizedKey, initialValue, hasValidKey])
 
   return [storedValue, setValue, removeValue]
 }
