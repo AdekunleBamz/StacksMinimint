@@ -75,11 +75,11 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
    ```
    > **Note**: Installs dependencies in the `frontend/` directory.
 
-3. **Automation Scripts Setup:**
+3. **Automation Scripts Setup (Optional):**
    ```bash
    npm run scripts:install
    ```
-   > **Note**: Required for wallet generation and contract interaction scripts.
+   > **Note**: This command expects a `scripts/package.json`. If your checkout does not include the automation package yet, skip this step.
 
 4. **Environment Configuration:**
    ```bash
