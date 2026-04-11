@@ -29,14 +29,20 @@ import { userSession } from './useStacksWallet';
 import { validateTokenURI } from '../utils/collection';
 
 export const parseUint = (value) => {
+  const MAX_SAFE_UINT = BigInt(Number.MAX_SAFE_INTEGER);
+
   if (typeof value === 'bigint') {
-    return value >= 0n ? Number(value) : 0;
+    if (value < 0n) return 0;
+    return value > MAX_SAFE_UINT ? Number.MAX_SAFE_INTEGER : Number(value);
   }
   if (typeof value === 'number') {
-    return Number.isFinite(value) ? Math.max(value, 0) : 0;
+    if (!Number.isFinite(value)) return 0;
+    if (value <= 0) return 0;
+    return Math.min(Math.floor(value), Number.MAX_SAFE_INTEGER);
   }
   if (typeof value === 'string' && /^\d+$/.test(value)) {
-    return Number(value);
+    const parsed = BigInt(value);
+    return parsed > MAX_SAFE_UINT ? Number.MAX_SAFE_INTEGER : Number(parsed);
   }
   return 0;
 };
