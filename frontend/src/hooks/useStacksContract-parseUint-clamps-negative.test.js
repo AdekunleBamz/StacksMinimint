@@ -9,10 +9,12 @@ describe('parseUint', () => {
 
   it('floors decimal numbers before returning the value', () => {
     expect(parseUint(4.99)).toBe(4)
+    expect(parseUint(12.9)).toBe(12)
   })
 
   it('caps huge inputs at Number.MAX_SAFE_INTEGER', () => {
     expect(parseUint('90071992547409931234')).toBe(Number.MAX_SAFE_INTEGER)
     expect(parseUint(90071992547409931234n)).toBe(Number.MAX_SAFE_INTEGER)
+    expect(parseUint(Number.MAX_SAFE_INTEGER + 20)).toBe(Number.MAX_SAFE_INTEGER)
   })
 })
