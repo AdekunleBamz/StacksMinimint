@@ -1,21 +1,17 @@
-# Scripts
+# Automation Scripts
 
-This directory contains utility scripts for the StacksMinimint project.
+This directory is reserved for optional automation tooling (wallet generation, funding flows, and interaction helpers).
 
-## Available Scripts
+The root scripts in `package.json` (`scripts:wallets`, `scripts:distribute`, `scripts:interact`, etc.) run only when this folder includes its own `package.json`.
 
-- `deploy.ts` - Contract deployment script
-- `test.ts` - Contract testing script
-- `generate-wallets.js` - Generate test wallets
-
-## Usage
+## Typical Workflow
 
 ```bash
-# Run deployment
-npm run deploy
-
-# Run tests
-npm run test
+# Install the optional automation package when present
+npm run scripts:install
 
 # Generate wallets
-npm run scripts:generate-wallets
+npm run scripts:wallets
+
+# Distribute test STX
+npm run scripts:distribute
