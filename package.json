@@ -20,12 +20,12 @@
     "frontend:check": "npm --prefix frontend run check",
     "frontend:test": "npm --prefix frontend run test",
     "frontend:test:watch": "npm --prefix frontend run test:watch",
-    "scripts:install": "npm --prefix scripts install",
-    "scripts:wallets": "npm --prefix scripts run generate:wallets",
-    "scripts:distribute": "npm --prefix scripts run distribute:stx",
-    "scripts:interact": "npm --prefix scripts run interact:core",
-    "scripts:interact:token": "npm --prefix scripts run interact:token",
-    "scripts:consolidate": "npm --prefix scripts run consolidate"
+    "scripts:install": "[ -f scripts/package.json ] && npm --prefix scripts install || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
+    "scripts:wallets": "[ -f scripts/package.json ] && npm --prefix scripts run generate:wallets || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
+    "scripts:distribute": "[ -f scripts/package.json ] && npm --prefix scripts run distribute:stx || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
+    "scripts:interact": "[ -f scripts/package.json ] && npm --prefix scripts run interact:core || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
+    "scripts:interact:token": "[ -f scripts/package.json ] && npm --prefix scripts run interact:token || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
+    "scripts:consolidate": "[ -f scripts/package.json ] && npm --prefix scripts run consolidate || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)"
   },
   "keywords": [
     "stacks",
