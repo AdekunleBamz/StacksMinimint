@@ -114,6 +114,11 @@ Run the root validation flow (contracts + tests):
 npm run check
 ```
 
+Run a faster pre-push validation flow:
+```bash
+npm run check:fast
+```
+
 ### Frontend Development
 
 Start the local development server:
@@ -129,6 +134,11 @@ npm run frontend:build
 Run frontend unit tests:
 ```bash
 npm run frontend:test
+```
+
+Run frontend smoke tests:
+```bash
+npm run frontend:smoke
 ```
 
 Run frontend static checks:
