@@ -29,16 +29,12 @@ frontend/src/
 
 ### 3. Automation Layer
 
-Node.js scripts for contract interaction and automation:
+Optional Node.js scripts for contract interaction and automation:
 
 ```
 scripts/
-├── 0-check-balances.js    # Balance checking utility
-├── 1-generate.js          # Wallet generation
-├── 2-distribute.js        # Fund distribution
-├── 3-interact.js          # General interaction
-├── 4-token-interact.js    # Token-specific operations
-└── 5-consolidate.js       # Fund consolidation
+├── README.md              # Script usage and expected commands
+└── (optional package)     # Wallet generation and interaction helpers
 ```
 
 ## Data Flow
