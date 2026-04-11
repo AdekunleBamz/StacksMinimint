@@ -35,15 +35,17 @@ export const parseUint = (value) => {
     if (value < 0n) return 0;
     return value > MAX_SAFE_UINT ? Number.MAX_SAFE_INTEGER : Number(value);
   }
+
   if (typeof value === 'number') {
-    if (!Number.isFinite(value)) return 0;
-    if (value <= 0) return 0;
+    if (!Number.isFinite(value) || value < 0) return 0;
     return Math.min(Math.floor(value), Number.MAX_SAFE_INTEGER);
   }
+
   if (typeof value === 'string' && /^\d+$/.test(value)) {
     const parsed = BigInt(value);
     return parsed > MAX_SAFE_UINT ? Number.MAX_SAFE_INTEGER : Number(parsed);
   }
+
   return 0;
 };
 
