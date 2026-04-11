@@ -6,4 +6,13 @@ describe('parseUint', () => {
     expect(parseUint(-4)).toBe(0)
     expect(parseUint(-4n)).toBe(0)
   })
+
+  it('floors decimal numbers before returning the value', () => {
+    expect(parseUint(4.99)).toBe(4)
+  })
+
+  it('caps huge inputs at Number.MAX_SAFE_INTEGER', () => {
+    expect(parseUint('90071992547409931234')).toBe(Number.MAX_SAFE_INTEGER)
+    expect(parseUint(90071992547409931234n)).toBe(Number.MAX_SAFE_INTEGER)
+  })
 })
