@@ -27,7 +27,10 @@ export function useLocalStorage(key, initialValue) {
   // Update localStorage when value changes
   const setValue = useCallback((value) => {
     try {
-      if (typeof window === 'undefined' || !hasValidKey) return
+      if (typeof window === 'undefined' || !hasValidKey) {
+        setStoredValue((currentValue) => (value instanceof Function ? value(currentValue) : value))
+        return
+      }
       setStoredValue((currentValue) => {
         const valueToStore = value instanceof Function ? value(currentValue) : value
         window.localStorage.setItem(normalizedKey, JSON.stringify(valueToStore))
@@ -41,7 +44,10 @@ export function useLocalStorage(key, initialValue) {
   // Remove from localStorage
   const removeValue = useCallback(() => {
     try {
-      if (typeof window === 'undefined' || !hasValidKey) return
+      if (typeof window === 'undefined' || !hasValidKey) {
+        setStoredValue(initialValue)
+        return
+      }
       window.localStorage.removeItem(normalizedKey)
       setStoredValue(initialValue)
     } catch (error) {
@@ -104,7 +110,10 @@ export function useSessionStorage(key, initialValue) {
 
   const setValue = useCallback((value) => {
     try {
-      if (typeof window === 'undefined' || !hasValidKey) return
+      if (typeof window === 'undefined' || !hasValidKey) {
+        setStoredValue((currentValue) => (value instanceof Function ? value(currentValue) : value))
+        return
+      }
       setStoredValue((currentValue) => {
         const valueToStore = value instanceof Function ? value(currentValue) : value
         window.sessionStorage.setItem(normalizedKey, JSON.stringify(valueToStore))
@@ -117,7 +126,10 @@ export function useSessionStorage(key, initialValue) {
 
   const removeValue = useCallback(() => {
     try {
-      if (typeof window === 'undefined' || !hasValidKey) return
+      if (typeof window === 'undefined' || !hasValidKey) {
+        setStoredValue(initialValue)
+        return
+      }
       window.sessionStorage.removeItem(normalizedKey)
       setStoredValue(initialValue)
     } catch (error) {
