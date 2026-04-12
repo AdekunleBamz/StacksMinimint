@@ -32,7 +32,7 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', cla
       className={`copy-btn ${copied ? 'copy-btn--copied' : ''} ${className}`}
       onClick={handleCopy}
       aria-label={copied ? successLabel : label}
-      disabled={!hasText}
+      disabled={!hasText || copied}
     >
       {copied ? (
         <>
