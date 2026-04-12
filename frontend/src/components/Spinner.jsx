@@ -15,7 +15,7 @@ export function Spinner({ size = 'medium', tone = 'primary', className = '' }) {
       className={`spinner spinner--${size} spinner--${tone} ${className}`}
       role="status"
       aria-live="polite"
-      aria-label="Loading"
+      aria-label="Loading content"
     >
       <span className="spinner__ring" aria-hidden="true"></span>
     </span>
