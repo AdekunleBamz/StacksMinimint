@@ -16,11 +16,12 @@ import logo from '../assets/logo.png'
 import { formatAddress } from '../utils/collection'
 import { NETWORK } from '../constants'
 
+const CHAIN_NAME = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
+
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = typeof account === 'string' ? account.trim() : account
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
-  const chainName = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
 
   const handleCopy = useCallback(() => {
     if (normalizedAccount) copy(normalizedAccount)
@@ -36,7 +37,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
       <div className="header__wallet">
         {hasAccount ? (
           <>
-            <span className="header__chain">{chainName}</span>
+            <span className="header__chain">{CHAIN_NAME}</span>
             <button
               type="button"
               className="header__address-wrapper"
