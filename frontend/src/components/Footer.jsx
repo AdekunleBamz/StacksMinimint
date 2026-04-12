@@ -33,9 +33,9 @@ const FOOTER_LINKS = {
   ]
 }
 
-export function Footer() {
-  const currentYear = new Date().getFullYear()
+const CURRENT_YEAR = new Date().getFullYear()
 
+export function Footer() {
   return (
     <footer className="footer">
       <div className="footer__content">
@@ -110,7 +110,7 @@ export function Footer() {
 
       <div className="footer__bottom">
         <p className="footer__copyright">
-          © {currentYear} StacksMinimint. Open source under MIT.
+          © {CURRENT_YEAR} StacksMinimint. Open source under MIT.
         </p>
         <p className="footer__credit">
           Built for Stacks NFT drops
