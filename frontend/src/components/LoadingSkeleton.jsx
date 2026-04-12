@@ -22,9 +22,9 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
 
   return (
     <>
-      {skeletons.map((i) => (
+      {skeletons.map((index) => (
         <div
-          key={i}
+          key={index}
           className={`skeleton skeleton--${variant} ${className}`}
           style={getStyle()}
           aria-hidden="true"
