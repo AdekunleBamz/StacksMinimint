@@ -33,7 +33,7 @@ export function Card({
       className={`card card--${variant} card--padding-${padding} ${hover ? 'card--hover' : ''} ${onClick ? 'card--clickable' : ''} ${className}`}
       onClick={onClick}
       onKeyDown={handleKeyDown}
-      role={onClick ? 'button' : undefined}
+      role={onClick ? 'button' : 'region'}
       tabIndex={onClick ? 0 : undefined}
       aria-label={onClick ? ariaLabel : undefined}
       aria-describedby={ariaDescriptionId}
