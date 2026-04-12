@@ -18,7 +18,7 @@ export function Badge({
   className = '' 
 }) {
   return (
-    <span className={`badge badge--${variant} badge--${size} ${className}`}>
+    <span className={`badge badge--${variant} badge--${size} ${className}`} role="status">
       {dot && <span className="badge__dot" aria-hidden="true" />}
       {children}
     </span>
