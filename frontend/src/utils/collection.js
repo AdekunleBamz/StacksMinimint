@@ -131,7 +131,8 @@ export function getMetadataLabel(uri) {
 
   if (kind === 'https' || kind === 'http') {
     try {
-      return new URL(normalized).hostname.replace(/^www\./, '')
+      const hostname = new URL(normalized).hostname.replace(/^www\./, '')
+      return hostname || 'Web metadata'
     } catch {
       return 'Web metadata'
     }
