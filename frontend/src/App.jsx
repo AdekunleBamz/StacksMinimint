@@ -9,6 +9,7 @@
 
 import { useState, useEffect } from 'react'
 import { useWallet, useContract, useToast } from './hooks'
+import { SCROLL_THRESHOLD, MAX_RECENT_MINTS } from './constants'
 import { 
   Header, 
   MintCard, 
@@ -31,7 +32,7 @@ function App() {
 
   useEffect(() => {
     const checkScrollTop = () => {
-      const shouldShow = window.scrollY > 400
+      const shouldShow = window.scrollY > SCROLL_THRESHOLD
       setShowScroll(prev => (prev === shouldShow ? prev : shouldShow))
     }
     checkScrollTop()
