@@ -177,6 +177,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  touch-action: manipulation;
 }
 
 .header__btn:focus-visible {
