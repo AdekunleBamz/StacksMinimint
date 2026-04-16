@@ -15,10 +15,11 @@ export function Badge({
   variant = 'default', 
   size = 'medium',
   dot = false,
-  className = '' 
+  className = '',
+  title
 }) {
   return (
-    <span className={`badge badge--${variant} badge--${size} ${className}`} role="status">
+    <span className={`badge badge--${variant} badge--${size} ${className}`} role="status" title={title}>
       {dot && <span className="badge__dot" aria-hidden="true" />}
       {children}
     </span>
@@ -40,7 +41,8 @@ Badge.propTypes = {
   ]),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   dot: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  title: PropTypes.string
 }
 
 /**
