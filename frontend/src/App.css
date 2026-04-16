@@ -129,6 +129,7 @@
 .content-grid__main {
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 .content-grid__sidebar {
