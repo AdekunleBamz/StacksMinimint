@@ -64,6 +64,7 @@
   letter-spacing: 0.075em;
   line-height: 1.4;
   margin: 0 0 1.5rem 0;
+  user-select: none;
 }
 
 .footer__list {
