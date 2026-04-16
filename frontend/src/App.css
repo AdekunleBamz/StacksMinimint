@@ -221,7 +221,7 @@
   background: rgba(139, 92, 246, 1);
   border-color: rgba(139, 92, 246, 0.5);
   box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.5);
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .back-to-top:focus-visible {
