@@ -54,7 +54,7 @@ function App() {
     const result = await mint(tokenURI)
     if (result) {
       showToast('Transaction submitted to Stacks.', 'success')
-      setRecentMints(prev => [result, ...prev].slice(0, 5))
+      setRecentMints(prev => [result, ...prev].slice(0, MAX_RECENT_MINTS))
     }
     return result
   }
