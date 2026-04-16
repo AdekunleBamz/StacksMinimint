@@ -43,7 +43,7 @@ export function useStacksWallet() {
   const [isConnecting, setIsConnecting] = useState(false);
 
   const connect = useCallback(() => {
-    if (isConnecting) return;
+    if (isConnecting || address) return;
     setIsConnecting(true);
     try {
       showConnect({
@@ -70,7 +70,7 @@ export function useStacksWallet() {
       console.error('Failed to open wallet connect modal:', error);
       setIsConnecting(false);
     }
-  }, [isConnecting]);
+  }, [isConnecting, address]);
 
   const disconnect = useCallback(() => {
     userSession.signUserOut();
