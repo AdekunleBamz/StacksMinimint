@@ -79,6 +79,7 @@ lerna-debug.log*
 *.temp
 .temp/
 tmp/
+.tmp-vitest/
 
 # --- Misc ---
 *.pem
