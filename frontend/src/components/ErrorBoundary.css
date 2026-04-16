@@ -53,6 +53,7 @@
   font-weight: 600;
   line-height: 1.35;
   font-family: inherit;
+  touch-action: manipulation;
 }
 
 .error-boundary__button:hover {
