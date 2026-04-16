@@ -64,12 +64,6 @@ export function useAsync(asyncFn, options = {}) {
    * @returns {Promise<T>} The result of the async function
    */
   const execute = useCallback(async (...args) => {
-    // Cancel previous request if still pending
-    if (promiseRef.current) {
-      // In a real implementation, you might want to use AbortController
-      // For now, we just track that a new request is starting
-    }
-
     const promise = asyncFn(...args);
     promiseRef.current = promise;
 
