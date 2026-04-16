@@ -39,7 +39,7 @@ export function useTransactionStatus(txId) {
         signal: controller.signal
       });
       if (!response.ok) {
-        throw new Error('Failed to fetch transaction status');
+        throw new Error(`Transaction fetch failed with status ${response.status}`);
       }
       const data = await response.json();
       setStatus(data.tx_status);
