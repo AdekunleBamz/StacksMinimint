@@ -71,6 +71,7 @@
   font-variant-numeric: tabular-nums;
   line-height: 1.4;
   text-align: right;
+  user-select: none;
 }
 
 /* Animated stripe effect for indeterminate state */
