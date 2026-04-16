@@ -113,6 +113,7 @@
   overflow-y: auto;
   scrollbar-gutter: stable;
   flex: 1;
+  user-select: text;
 }
 
 @media (max-width: 640px) {
