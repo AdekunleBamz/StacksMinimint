@@ -38,6 +38,7 @@
   background: linear-gradient(90deg, #8b5cf6, #ec4899);
   z-index: 9999;
   animation: load-bar 1.5s ease-out forwards;
+  pointer-events: none;
 }
 
 @keyframes load-bar {
