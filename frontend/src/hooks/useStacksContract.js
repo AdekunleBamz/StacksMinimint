@@ -81,7 +81,8 @@ export function useStacksContract(address) {
         mintFee: MINT_FEE,
       }));
     } catch (fetchError) {
-      console.warn('Failed to fetch contract info:', fetchError);
+      // Non-critical: contract info will just stay at defaults
+      console.warn('Failed to fetch contract info:', fetchError.message ?? fetchError);
     }
   }, [address, stacksNetwork]);
 
