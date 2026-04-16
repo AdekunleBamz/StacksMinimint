@@ -315,6 +315,7 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
  */
 export function getCardAccent(seed) {
   const input = String(seed || 'minimint')
+  const secondaryHueOffset = 42
   let hash = 0
 
   for (let index = 0; index < input.length; index += 1) {
@@ -322,7 +323,7 @@ export function getCardAccent(seed) {
   }
 
   const hue = Math.abs(hash) % 360
-  const secondaryHue = (hue + 42) % 360
+  const secondaryHue = (hue + secondaryHueOffset) % 360
 
   return {
     primary: `hsl(${hue} 72% 58%)`,
