@@ -10,6 +10,7 @@
   letter-spacing: 0.015em;
   border-radius: 9999px;
   white-space: nowrap;
+  user-select: none;
 }
 
 /* Sizes */
