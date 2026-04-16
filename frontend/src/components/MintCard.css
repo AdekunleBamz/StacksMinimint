@@ -136,6 +136,7 @@
   font-size: 0.9375rem;
   line-height: 1.45;
   transition: all 0.2s ease;
+  caret-color: #8b5cf6;
 }
 
 .form-input::placeholder {
