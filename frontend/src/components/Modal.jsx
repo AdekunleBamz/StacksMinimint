@@ -7,7 +7,7 @@
  * @module Modal
  */
 
-import { useEffect, useId, useRef } from 'react'
+import { useCallback, useEffect, useId, useRef } from 'react'
 import PropTypes from 'prop-types'
 import './Modal.css'
 
@@ -15,11 +15,11 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const modalRef = useRef(null)
   const titleId = useId()
 
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = useCallback((e) => {
     if (e.target === e.currentTarget) {
       onClose()
     }
-  }
+  }, [onClose])
 
   useEffect(() => {
     if (!isOpen) return
