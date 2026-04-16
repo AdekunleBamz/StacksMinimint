@@ -83,6 +83,7 @@
   line-height: 1.5;
   text-wrap: pretty;
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .toast__close {
