@@ -7,7 +7,7 @@
  * 
  * @module ThemeContext
  */
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useCallback, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const ThemeContext = createContext();
@@ -34,9 +34,9 @@ export function ThemeProvider({ children }) {
     }
   }, [theme]);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
