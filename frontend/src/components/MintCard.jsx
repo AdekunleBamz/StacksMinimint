@@ -61,7 +61,7 @@ export function MintCard({
     } catch (error) {
       setMintStatus({ 
         type: 'error', 
-        message: error.message || 'Failed to mint NFT' 
+        message: error?.message || 'Failed to mint NFT' 
       })
     } finally {
       setIsMinting(false)
