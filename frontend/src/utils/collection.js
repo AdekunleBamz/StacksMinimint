@@ -18,7 +18,8 @@ const ASCII_PATTERN = /^[\x20-\x7E]*$/
  * @returns {string} The formatted STX amount.
  */
 export function formatSTX(microstx) {
-  const amount = Number(microstx)
+  const input = typeof microstx === 'string' ? microstx.trim() : microstx
+  const amount = Number(input)
   if (microstx === null || microstx === undefined || Number.isNaN(amount) || !Number.isFinite(amount)) {
     return '0'
   }
