@@ -87,9 +87,11 @@
   border-radius: 0.5rem;
   color: #9ca3af;
   cursor: pointer;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: manipulation;
   transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
