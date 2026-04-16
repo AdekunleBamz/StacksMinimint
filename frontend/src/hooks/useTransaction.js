@@ -59,7 +59,7 @@ export function useTransactionStatus(txId) {
   useEffect(() => {
     if (txId) {
       checkStatus();
-      const interval = setInterval(checkStatus, 10000); // Check every 10 seconds
+      const interval = setInterval(checkStatus, 10_000); // Check every 10 seconds
       return () => clearInterval(interval);
     }
 
