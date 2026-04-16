@@ -7,7 +7,7 @@
  * @module Gallery
  */
 
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import './Gallery.css'
 import { getTokenExplorerUrl } from '../contract'
 import { formatAddress } from '../utils/collection'
@@ -59,20 +59,20 @@ export function Gallery() {
     return () => clearTimeout(timeoutId)
   }, [])
 
-  const handleNftClick = (nft) => {
+  const handleNftClick = useCallback((nft) => {
     setSelectedNft(nft)
-  }
+  }, [])
 
-  const handleSearchKeyDown = (event) => {
+  const handleSearchKeyDown = useCallback((event) => {
     if (event.key === 'Escape' && searchTerm) {
       event.preventDefault()
       setSearchTerm('')
     }
-  }
+  }, [searchTerm])
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedNft(null)
-  }
+  }, [])
 
   useEffect(() => {
     if (!selectedNft) return
