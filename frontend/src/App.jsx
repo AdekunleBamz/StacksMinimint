@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     const checkScrollTop = () => {
-      const shouldShow = window.pageYOffset > 400
+      const shouldShow = window.scrollY > 400
       setShowScroll(prev => (prev === shouldShow ? prev : shouldShow))
     }
     checkScrollTop()
