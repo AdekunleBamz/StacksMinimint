@@ -33,6 +33,7 @@
 .stats__state {
   display: inline-flex;
   align-items: center;
+  user-select: none;
   min-height: 2.15rem;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
