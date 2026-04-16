@@ -27,6 +27,7 @@ const FOCUSABLE_SELECTOR = [
  * @returns {HTMLElement[]} Array of focusable elements
  */
 function getFocusableElements(container) {
+  if (!container) return []
   const elements = container.querySelectorAll(FOCUSABLE_SELECTOR);
   return Array.from(elements).filter(
     el => !el.hasAttribute('disabled') && el.offsetParent !== null
