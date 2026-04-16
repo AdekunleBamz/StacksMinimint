@@ -68,13 +68,12 @@ body::before {
 
 body::after {
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 58%);
+  opacity: 0.35;
 }
 
 :focus-visible {
   outline: 2px solid #8b5cf6;
   outline-offset: 3px;
-}
-  opacity: 0.35;
 }
 
 #root {
