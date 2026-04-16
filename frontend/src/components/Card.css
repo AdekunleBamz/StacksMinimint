@@ -62,6 +62,10 @@
   cursor: pointer;
 }
 
+.card--clickable:active {
+  transform: scale(0.98);
+}
+
 .card--clickable:focus-visible {
   outline: none;
   border-color: #8b5cf6;
