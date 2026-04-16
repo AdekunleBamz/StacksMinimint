@@ -128,6 +128,7 @@
   border-radius: 1.15rem;
   background: rgba(15, 23, 42, 0.68);
   border: 1px solid rgba(148, 163, 184, 0.1);
+  min-width: 0;
 }
 
 .stat-card__label {
