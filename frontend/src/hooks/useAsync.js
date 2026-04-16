@@ -78,7 +78,6 @@ export function useAsync(asyncFn, options = {}) {
     try {
       const data = await promise;
 
-      // Only update state if component is still mounted and this is the latest request
       if (mountedRef.current && promiseRef.current === promise) {
         setState({
           data,
@@ -92,21 +91,20 @@ export function useAsync(asyncFn, options = {}) {
       }
 
       return data;
-    } catch (error) {
-      // Only update state if component is still mounted and this is the latest request
+    } catch (err) {
       if (mountedRef.current && promiseRef.current === promise) {
         setState({
           data: null,
-          error,
+          error: err,
           isLoading: false,
           isSuccess: false,
           isError: true
         });
 
-        onError?.(error);
+        onError?.(err);
       }
 
-      throw error;
+      throw err;
     }
   }, [asyncFn, onError, onSuccess]);
 
