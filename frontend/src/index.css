@@ -144,7 +144,7 @@ button:active {
   outline: none;
   box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
   border-radius: 0.75rem;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.15s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
