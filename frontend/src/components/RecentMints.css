@@ -112,8 +112,10 @@
   flex-shrink: 0;
 }
 
-.mint-item__badge--pending {
-  background: rgba(234, 179, 8, 0.15);
+.mint-item__badge a {
+  color: inherit;
+  text-decoration: none;
+}
   border-color: rgba(234, 179, 8, 0.35);
   color: #fcd34d;
 }
