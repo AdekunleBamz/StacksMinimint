@@ -7,7 +7,7 @@
  * @module App
  */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useWallet, useContract, useToast } from './hooks'
 import { SCROLL_THRESHOLD, MAX_RECENT_MINTS } from './constants'
 import { 
@@ -46,9 +46,9 @@ function App() {
     document.title = isConnected ? `Connected - ${baseTitle}` : baseTitle
   }, [isConnected])
 
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  }, []), [])
 
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
