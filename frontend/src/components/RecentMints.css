@@ -41,7 +41,8 @@
   background: rgba(30, 30, 50, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.125rem;
-  transition: all 0.2s ease;
+  contain: layout style;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .mint-item:hover {
