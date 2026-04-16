@@ -9,6 +9,7 @@
  */
 
 import PropTypes from 'prop-types'
+import { useCallback } from 'react'
 import './Card.css'
 
 export function Card({ 
@@ -21,12 +22,12 @@ export function Card({
   ariaLabel,
   ariaDescriptionId
 }) {
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault()
       onClick(e)
     }
-  }
+  }, [onClick])
 
   return (
     <div 
