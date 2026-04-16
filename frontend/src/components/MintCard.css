@@ -137,8 +137,9 @@
   color: #f3f4f6;
   font-size: 0.9375rem;
   line-height: 1.45;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   caret-color: #8b5cf6;
+  width: 100%;
 }
 
 .form-input::placeholder {
