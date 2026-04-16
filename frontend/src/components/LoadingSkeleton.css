@@ -11,6 +11,7 @@
   );
   background-size: 200% 100%;
   animation: shimmer 1.35s infinite;
+  will-change: background-position;
 }
 
 @keyframes shimmer {
