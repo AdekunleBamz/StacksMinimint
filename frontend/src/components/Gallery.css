@@ -260,6 +260,9 @@
   line-height: 1.35;
   color: #f3f4f6;
   margin: 0 0 0.5rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .nft-card__owner {
