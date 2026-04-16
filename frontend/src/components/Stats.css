@@ -101,6 +101,7 @@
   border-radius: inherit;
   background: linear-gradient(90deg, #8b5cf6, #ec4899);
   transition: width 0.3s ease;
+  will-change: width;
 }
 
 .progress-text {
