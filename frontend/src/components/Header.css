@@ -32,6 +32,7 @@
   font-size: 1.5rem;
   color: #8b5cf6;
   animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 @keyframes pulse {
