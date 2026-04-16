@@ -114,12 +114,12 @@ export function Gallery() {
   const filteredLabel = filteredNfts.length === 1 ? 'item' : 'items'
   const totalLabel = nfts.length === 1 ? 'item' : 'items'
 
-  const handleCardKeyDown = (event, nft) => {
+  const handleCardKeyDown = useCallback((event, nft) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       handleNftClick(nft)
     }
-  }
+  }, [handleNftClick])
 
   if (isLoading) {
     return (
