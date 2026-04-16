@@ -296,14 +296,15 @@ export function validateTokenURI(value) {
 export function createSubmissionRecord({ txId, tokenURI, address }) {
   const normalizedTxId = typeof txId === 'string' ? txId.trim() : txId
   const normalizedAddress = typeof address === 'string' ? address.trim() : address
+  const normalizedTokenURI = typeof tokenURI === 'string' ? tokenURI.trim() : tokenURI
   const fallbackId = `local-${Date.now()}-${String(normalizedAddress || 'unknown')}`
   return {
     id: normalizedTxId || fallbackId,
     txId: normalizedTxId,
-    tokenURI,
+    tokenURI: normalizedTokenURI,
     address,
-    metadataKind: getMetadataKind(tokenURI),
-    metadataLabel: getMetadataLabel(tokenURI),
+    metadataKind: getMetadataKind(normalizedTokenURI),
+    metadataLabel: getMetadataLabel(normalizedTokenURI),
     createdAt: Date.now()
   }
 }
