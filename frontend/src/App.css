@@ -69,6 +69,7 @@
   text-align: center;
   padding: 4rem 0;
   position: relative;
+  isolation: isolate;
 }
 
 .hero__content {
