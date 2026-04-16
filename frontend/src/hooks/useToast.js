@@ -27,6 +27,8 @@ export function useToast() {
 
   const addToast = useCallback((message, type = 'info', duration = TOAST_DURATION) => {
     const normalizedMessage = typeof message === 'string' ? message.trim() : message
+    const validTypes = ['success', 'error', 'warning', 'info']
+    const safeType = validTypes.includes(type) ? type : 'info'
 
     if (!normalizedMessage) {
       return null
@@ -34,7 +36,7 @@ export function useToast() {
 
     toastIdRef.current += 1
     const id = toastIdRef.current
-    const toast = { id, message: normalizedMessage, type }
+    const toast = { id, message: normalizedMessage, type: safeType }
     
     setToasts(prev => {
       const nextToasts = [...prev, toast]
