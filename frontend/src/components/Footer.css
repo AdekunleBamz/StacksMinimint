@@ -49,6 +49,7 @@
   line-height: 1.75;
   margin: 0;
   text-wrap: balance;
+  word-break: break-word;
 }
 
 .footer__column {
