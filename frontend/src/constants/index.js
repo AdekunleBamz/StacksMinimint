@@ -58,6 +58,9 @@ export const MAINNET_LABEL = 'Stacks Mainnet';
 /** Display name for testnet network */
 export const TESTNET_LABEL = 'Stacks Testnet';
 
+/** Display name for local devnet */
+export const DEVNET_LABEL = 'Devnet';
+
 // --- Explorer URLs ---
 // Base URLs for Stacks explorers.
 
