@@ -113,6 +113,7 @@ export function getMetadataKind(uri) {
   if (normalized.startsWith('ipfs://')) return 'ipfs'
   if (normalized.startsWith('https://')) return 'https'
   if (normalized.startsWith('http://')) return 'http'
+  if (normalized.startsWith('ar://')) return 'arweave'
   return 'unknown'
 }
 
