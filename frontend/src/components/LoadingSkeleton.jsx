@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 import './LoadingSkeleton.css'
 
 export function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
-  const safeCount = Number.isInteger(count) && count > 0 ? count : 1
+  const safeCount = Number.isInteger(count) && count > 0 ? Math.min(count, 50) : 1
   const skeletons = Array.from({ length: safeCount }, (_, i) => i)
 
   const getStyle = () => {
