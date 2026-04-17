@@ -131,6 +131,10 @@ export function getMetadataLabel(uri) {
     return 'IPFS metadata'
   }
 
+  if (kind === 'arweave') {
+    return 'Arweave metadata'
+  }
+
   if (kind === 'https' || kind === 'http') {
     try {
       const hostname = new URL(normalized).hostname.replace(/^www\./, '')
