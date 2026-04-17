@@ -73,6 +73,7 @@ export function formatRelativeTime(timestamp) {
 
   const now = Date.now()
   const diff = Math.max(now - normalizedTime, 0)
+  if (diff === 0 || normalizedTime > now) return 'Just now'
   const minutes = Math.floor(diff / 60000)
   const hours = Math.floor(diff / 3600000)
   const days = Math.floor(diff / 86400000)
