@@ -49,6 +49,20 @@ export function isValidStacksAddress(address) {
 }
 
 /**
+ * Truncates a long string (e.g. transaction ID) keeping start and end visible.
+ * @param {string} str - The string to truncate.
+ * @param {number} [startChars=6] - Characters to keep at start.
+ * @param {number} [endChars=4] - Characters to keep at end.
+ * @returns {string} Truncated string or original if short enough.
+ */
+export function truncateMiddle(str, startChars = 6, endChars = 4) {
+  if (!str || typeof str !== 'string') return '';
+  const s = str.trim();
+  if (s.length <= startChars + endChars) return s;
+  return `${s.slice(0, startChars)}…${s.slice(-endChars)}`;
+}
+
+/**
  * Default export for strings utilities.
  */
-export default { truncateAddress, capitalize, isValidStacksAddress }
+export default { truncateAddress, capitalize, isValidStacksAddress, truncateMiddle }
