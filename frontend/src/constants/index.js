@@ -28,7 +28,7 @@ export const CONTRACT_NAME = import.meta.env?.VITE_CONTRACT_NAME || 'minimint-co
 export const HUB_CONTRACT_ADDRESS = import.meta.env?.VITE_HUB_CONTRACT_ADDRESS || MAINNET_DEPLOYER;
 export const HUB_CONTRACT_NAME = import.meta.env?.VITE_HUB_CONTRACT_NAME || 'minimint-hub-v-i27';
 
-export const MINT_FEE = Number.isFinite(envMintFee) ? envMintFee : SDK_MINT_FEE; // micro-STX
+export const MINT_FEE = Number.isInteger(envMintFee) && envMintFee >= 0 ? envMintFee : SDK_MINT_FEE; // micro-STX
 
 export const FUNCTIONS = SDK_FUNCTIONS;
 export const STACKS_NETWORK_CONFIG = SDK_STACKS_NETWORK_CONFIG;
