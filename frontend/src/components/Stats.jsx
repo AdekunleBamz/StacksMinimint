@@ -12,6 +12,9 @@ import PropTypes from 'prop-types'
 import './Stats.css'
 import { formatExactTime, formatLimit, formatSTX } from '../utils/collection'
 
+/** Number of skeleton stat cards to show while collection data is loading. */
+const STATS_SKELETON_COUNT = 4;
+
 export function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
   const [lastUpdated, setLastUpdated] = useState(new Date())
   const parsedRecentActivityCount = Number(recentActivityCount)
@@ -75,7 +78,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         <h2 className="stats__title">Collection Stats</h2>
         <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
-          {[1, 2, 3, 4].map((item) => (
+          {Array.from({ length: STATS_SKELETON_COUNT }, (_, i) => i).map((item) => (
             <div key={item} className="stat-card stat-card--skeleton" role="listitem">
               <div className="skeleton skeleton--value"></div>
               <div className="skeleton skeleton--label"></div>
