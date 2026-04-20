@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 import './LoadingSkeleton.css'
 
 /** Maximum allowed skeleton count to prevent runaway rendering. */
-const SKELETON_MAX_COUNT = 50;
+const SKELETON_MAX_COUNT = 40;
 
 export function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
   const safeCount = Number.isInteger(count) && count > 0 ? Math.min(count, SKELETON_MAX_COUNT) : 1
