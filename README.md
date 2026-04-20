@@ -107,7 +107,7 @@ npm run contracts:console
 
 Execute contract tests:
 ```bash
-npm test
+npm run test
 ```
 
 Run the root validation flow (contracts + tests):
