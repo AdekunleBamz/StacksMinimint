@@ -49,4 +49,15 @@ describe('getStacksAddress', () => {
       }
     })).toBe('SP2MAINNETVALUE1234567890')
   })
+
+  it('falls back to a trimmed alternate address when preferred address is non-string', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          mainnet: 0,
+          testnet: ' ST2FALLBACKVALUE1234567890 '
+        }
+      }
+    })).toBe('ST2FALLBACKVALUE1234567890')
+  })
 })
