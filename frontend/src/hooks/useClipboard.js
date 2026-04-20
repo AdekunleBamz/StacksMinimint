@@ -20,6 +20,7 @@ export function useClipboard(timeout = 2000) {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState(null);
   const timerRef = useRef(null);
+  const safeTimeout = typeof timeout === 'number' && timeout > 0 ? timeout : 2000;
 
   const copy = useCallback(async (text) => {
     if (text === null || text === undefined) return;
@@ -48,7 +49,7 @@ export function useClipboard(timeout = 2000) {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
-      timerRef.current = setTimeout(() => setCopied(false), timeout);
+      timerRef.current = setTimeout(() => setCopied(false), safeTimeout);
     } catch (err) {
       console.error('Failed to copy text: ', err);
       setError(err);
