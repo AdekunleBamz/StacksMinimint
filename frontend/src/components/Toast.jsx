@@ -17,19 +17,20 @@ export function Toast({ message, type = 'info', onClose }) {
     warning: '⚠',
     info: 'ℹ'
   }
-  const icon = icons[type] || icons.info
+  const safeType = icons[type] ? type : 'info'
+  const icon = icons[safeType]
 
   return (
     <div
-      className={`toast toast--${type}`}
-      role={type === 'error' ? 'alert' : 'status'}
-      aria-live={type === 'error' ? 'assertive' : 'polite'}
+      className={`toast toast--${safeType}`}
+      role={safeType === 'error' ? 'alert' : 'status'}
+      aria-live={safeType === 'error' ? 'assertive' : 'polite'}
       aria-atomic="true"
     >
       <span className="toast__icon" aria-hidden="true">{icon}</span>
       <span className="toast__message">{message}</span>
       {onClose && (
-        <button type="button" className="toast__close" onClick={onClose} aria-label={`Dismiss ${type} notification`}>
+        <button type="button" className="toast__close" onClick={onClose} aria-label={`Dismiss ${safeType} notification`}>
           ×
         </button>
       )}
