@@ -14,6 +14,8 @@ const MEDIA_QUERY_MOBILE = '(max-width: 640px)';
 const MEDIA_QUERY_TABLET = '(min-width: 641px) and (max-width: 1024px)';
 /** Media query string for desktop screen widths (1025px and above). */
 const MEDIA_QUERY_DESKTOP = '(min-width: 1025px)';
+/** Media query string for large desktop screen widths (1440px and above). */
+const MEDIA_QUERY_LARGE_DESKTOP = '(min-width: 1440px)';
 /** Media query string to detect the user's preference for dark color scheme. */
 const MEDIA_QUERY_DARK_MODE = '(prefers-color-scheme: dark)';
 /** Media query string to detect the user's preference for reduced motion. */
@@ -70,6 +72,10 @@ export function usePrefersDarkMode() {
 
 export function usePrefersReducedMotion() {
   return useMediaQuery(MEDIA_QUERY_REDUCED_MOTION)
+}
+
+export function useIsLargeDesktop() {
+  return useMediaQuery(MEDIA_QUERY_LARGE_DESKTOP)
 }
 
 /**
