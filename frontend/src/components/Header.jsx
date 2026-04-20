@@ -55,6 +55,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               className="header__btn header__btn--disconnect"
               onClick={onDisconnect}
               aria-label="Disconnect wallet"
+              title="Disconnect your Stacks wallet"
             >
               Disconnect
             </button>
