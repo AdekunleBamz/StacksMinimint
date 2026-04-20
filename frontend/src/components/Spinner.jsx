@@ -10,12 +10,13 @@ import PropTypes from 'prop-types'
 import './Spinner.css'
 
 export function Spinner({ size = 'medium', tone = 'primary', className = '', label = 'Loading content' }) {
+  const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Loading'
   return (
     <span
       className={`spinner spinner--${size} spinner--${tone} ${className}`}
       role="status"
       aria-live="polite"
-      aria-label={label}
+      aria-label={safeLabel}
     >
       <span className="spinner__ring" aria-hidden="true"></span>
     </span>
