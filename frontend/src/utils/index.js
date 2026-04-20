@@ -9,13 +9,18 @@
 export {
   truncateAddress,
   capitalize,
-  isValidStacksAddress
+  isValidStacksAddress,
+  truncateMiddle,
+  isBlank,
+  slugify,
+  pluralize
 } from './strings';
 
 // Collection utilities
 export {
   MAX_TOKEN_URI_LENGTH,
   formatSTX,
+  formatSTXCompact,
   formatAddress,
   formatLimit,
   formatRelativeTime,
