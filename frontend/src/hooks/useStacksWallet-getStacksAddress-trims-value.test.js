@@ -79,4 +79,15 @@ describe('getStacksAddress', () => {
   it('returns null when stxAddress itself is null', () => {
     expect(getStacksAddress({ profile: { stxAddress: null } })).toBeNull()
   })
+
+  it('trims fallback wallet addresses containing tab/newline characters', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          mainnet: '',
+          testnet: '\n\tST2TRIMMEDFALLBACK1234567890\t\n'
+        }
+      }
+    })).toBe('ST2TRIMMEDFALLBACK1234567890')
+  })
 })
