@@ -10,7 +10,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { STACKS_NETWORK_CONFIG, NETWORK } from '../constants';
 
 /** Polling interval in ms for checking transaction confirmation status. */
-const TX_POLL_INTERVAL_MS = 10_000;
+const TX_POLL_INTERVAL_MS = 8_000;
 
 /**
  * Hook to track the status of a Stacks transaction.
