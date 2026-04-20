@@ -27,4 +27,15 @@ describe('getStacksAddress', () => {
     expect(getStacksAddress(null)).toBeNull()
     expect(getStacksAddress({})).toBeNull()
   })
+
+  it('returns null when both network addresses are non-string values', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          mainnet: 123,
+          testnet: false
+        }
+      }
+    })).toBeNull()
+  })
 })
