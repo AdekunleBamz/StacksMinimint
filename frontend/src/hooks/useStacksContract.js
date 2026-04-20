@@ -156,6 +156,11 @@ export function useStacksContract(address) {
     isLoading,
     error,
     contractInfo,
+    isSoldOut: contractInfo.totalSupply >= contractInfo.maxSupply,
+    remainingSupply: Math.max(0, contractInfo.maxSupply - contractInfo.totalSupply),
+    progressPct: contractInfo.maxSupply > 0
+      ? Math.min(100, Math.round((contractInfo.totalSupply / contractInfo.maxSupply) * 100))
+      : 0,
     refetch: fetchContractInfo
   };
 }
