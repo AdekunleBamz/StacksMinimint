@@ -65,6 +65,43 @@ export function truncateMiddle(str, startChars = 6, endChars = 4) {
 }
 
 /**
+ * Returns true if the value is null, undefined, or a whitespace-only string.
+ * @param {any} str - The value to check.
+ * @returns {boolean}
+ */
+export function isBlank(str) {
+  if (str === null || str === undefined) return true;
+  return typeof str === 'string' && str.trim().length === 0;
+}
+
+/**
+ * Converts a string to a URL-friendly slug.
+ * @param {string} str - The string to slugify.
+ * @returns {string} The slugified string.
+ */
+export function slugify(str) {
+  if (!str || typeof str !== 'string') return '';
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Returns the singular or plural form of a word based on count.
+ * @param {number} count - The count to check.
+ * @param {string} singular - The singular form.
+ * @param {string} [plural] - The plural form (defaults to singular + 's').
+ * @returns {string} The appropriate form.
+ */
+export function pluralize(count, singular, plural) {
+  const safePlural = typeof plural === 'string' ? plural : `${singular}s`;
+  return count === 1 ? singular : safePlural;
+}
+
+/**
  * Default export for strings utilities.
  */
-export default { truncateAddress, capitalize, isValidStacksAddress, truncateMiddle }
+export default { truncateAddress, capitalize, isValidStacksAddress, truncateMiddle, isBlank, slugify, pluralize }
