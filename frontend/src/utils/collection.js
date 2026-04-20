@@ -11,6 +11,8 @@
  */
 export const MAX_TOKEN_URI_LENGTH = 256
 const ASCII_PATTERN = /^[\x20-\x7E]*$/
+/** Divisor to convert micro-STX to STX (1 STX = 1,000,000 micro-STX). */
+const STX_MICRO_DIVISOR = 1_000_000;
 
 /**
  * Formats a micro-STX amount into a human-readable STX string.
@@ -27,7 +29,7 @@ export function formatSTX(microstx) {
   return new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 0,
     maximumFractionDigits: 6,
-  }).format(amount / 1e6)
+  }).format(amount / STX_MICRO_DIVISOR)
 }
 
 /**
