@@ -82,6 +82,9 @@ export const TX_STATUS = Object.freeze({
   CANCELLED: 'cancelled',
 });
 
+/** Minimum number of characters required for a Stacks address to display truncated */
+export const MIN_DISPLAY_ADDRESS_LENGTH = 10;
+
 // --- Network Labels ---
 // Human-readable labels for network display.
 
