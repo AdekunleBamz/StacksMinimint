@@ -13,7 +13,9 @@ export {
   truncateMiddle,
   isBlank,
   slugify,
-  pluralize
+  pluralize,
+  zeroPad,
+  isNumericString
 } from './strings';
 
 // Collection utilities
