@@ -158,7 +158,8 @@ export function useAsync(asyncFn, options = {}) {
     reset,
     clearError,
     retry,
-    hasRun: state.executionCount > 0
+    hasRun: state.executionCount > 0,
+    setData: useCallback((value) => setState(prev => ({ ...prev, data: value })), []),
   };
 }
 
