@@ -168,5 +168,5 @@ export function useSessionStorage(key, initialValue) {
     }
   }, [normalizedKey, initialValue, hasValidKey])
 
-  return [storedValue, setValue, removeValue]
+  return [storedValue, setValue, removeValue, { hasValue: storedValue !== null && storedValue !== undefined }]
 }
