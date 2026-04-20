@@ -10,15 +10,16 @@
 import PropTypes from 'prop-types'
 import './Toast.css'
 
+const TOAST_ICONS = {
+  success: '✓',
+  error: '✕',
+  warning: '⚠',
+  info: 'ℹ'
+}
+
 export function Toast({ message, type = 'info', onClose }) {
-  const icons = {
-    success: '✓',
-    error: '✕',
-    warning: '⚠',
-    info: 'ℹ'
-  }
-  const safeType = icons[type] ? type : 'info'
-  const icon = icons[safeType]
+  const safeType = TOAST_ICONS[type] ? type : 'info'
+  const icon = TOAST_ICONS[safeType]
 
   return (
     <div
