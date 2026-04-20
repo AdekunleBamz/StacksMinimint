@@ -11,6 +11,9 @@ import { useCallback, useEffect, useId, useRef } from 'react'
 import PropTypes from 'prop-types'
 import './Modal.css'
 
+/** ARIA label used for dialogs that have no explicit title. */
+const MODAL_DEFAULT_ARIA_LABEL = 'Dialog';
+
 export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const modalRef = useRef(null)
   const titleId = useId()
@@ -58,7 +61,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? titleId : undefined}
-        aria-label={title ? undefined : 'Dialog'}
+        aria-label={title ? undefined : MODAL_DEFAULT_ARIA_LABEL}
       >
         <div className="modal__header">
           {title && <h2 id={titleId} className="modal__title">{title}</h2>}
