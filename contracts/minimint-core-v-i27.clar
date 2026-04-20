@@ -52,6 +52,7 @@
 (define-data-var is-paused bool false)
 
 ;; Maps for metadata
+;; token-uris: maps token-id to its ASCII metadata URI (max 256 chars, SIP-009 compliant)
 (define-map token-uris uint (string-ascii 256))
 
 ;; --- SIP-009 Read-Only Functions ---
