@@ -178,7 +178,7 @@ npm run frontend:check
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `VITE_STX_NETWORK` | Network (mainnet/testnet) | mainnet |
+| `VITE_STX_NETWORK` | Network (mainnet/testnet) | `mainnet` |
 | `VITE_CONTRACT_ADDRESS` | Core contract address | Mainnet deployer |
 | `VITE_CONTRACT_NAME` | Core contract name | minimint-core-v-i27 |
 | `VITE_HUB_CONTRACT_ADDRESS` | Hub contract address | Mainnet deployer |
