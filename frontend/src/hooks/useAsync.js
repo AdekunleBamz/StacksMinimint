@@ -44,7 +44,9 @@ export function useAsync(asyncFn, options = {}) {
     error: null,
     isLoading: false,
     isSuccess: false,
-    isError: false
+    isError: false,
+    executionCount: 0,
+    lastExecutedAt: null
   });
 
   const mountedRef = useRef(true);
@@ -75,7 +77,9 @@ export function useAsync(asyncFn, options = {}) {
       isLoading: true,
       isError: false,
       isSuccess: false,
-      error: null
+      error: null,
+      executionCount: prev.executionCount + 1,
+      lastExecutedAt: Date.now()
     }));
 
     try {
@@ -120,7 +124,9 @@ export function useAsync(asyncFn, options = {}) {
       error: null,
       isLoading: false,
       isSuccess: false,
-      isError: false
+      isError: false,
+      executionCount: 0,
+      lastExecutedAt: null
     });
   }, []);
 
@@ -134,7 +140,8 @@ export function useAsync(asyncFn, options = {}) {
   return {
     ...state,
     execute,
-    reset
+    reset,
+    hasRun: state.executionCount > 0
   };
 }
 
