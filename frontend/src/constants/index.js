@@ -44,10 +44,10 @@ export const MAX_RECENT_MINTS = 5;
 export const SCROLL_THRESHOLD = 400;
 
 /** Toast notification auto-dismiss duration in milliseconds */
-export const TOAST_DURATION = 5000;
+export const TOAST_DURATION = 4500;
 
 /** Maximum number of toasts to display simultaneously */
-export const MAX_TOASTS = 3;
+export const MAX_TOASTS = 4;
 
 // --- Network Labels ---
 // Human-readable labels for network display.
