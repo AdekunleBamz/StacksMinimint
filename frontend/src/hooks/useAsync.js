@@ -64,6 +64,9 @@ export function useAsync(asyncFn, options = {}) {
    * @returns {Promise<T>} The result of the async function
    */
   const execute = useCallback(async (...args) => {
+    if (typeof asyncFn !== 'function') {
+      throw new Error('useAsync: asyncFn must be a function');
+    }
     const promise = asyncFn(...args);
     promiseRef.current = promise;
 
