@@ -117,3 +117,13 @@ export function zeroPad(num, length = 2) {
   const safeLen = Number.isInteger(length) && length > 0 ? length : 2;
   return s.padStart(safeLen, '0');
 }
+
+/**
+ * Returns true if the string is a valid numeric string (integer or decimal).
+ * @param {any} value - The value to test.
+ * @returns {boolean}
+ */
+export function isNumericString(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  return /^-?\d+(\.\d+)?$/.test(value.trim());
+}
