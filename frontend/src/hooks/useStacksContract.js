@@ -97,7 +97,7 @@ export function useStacksContract(address) {
     }
 
     if (!address) {
-      setError('Wallet address is unavailable. Reconnect and try again.');
+      setError('Wallet address is unavailable — reconnect and try again.');
       return null;
     }
 
