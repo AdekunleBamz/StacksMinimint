@@ -14,6 +14,11 @@ import { Spinner } from './Spinner'
 import { getExplorerUrl } from '../contract'
 import { formatSTX, MAX_TOKEN_URI_LENGTH, validateTokenURI } from '../utils/collection'
 
+/** Wallet prompt message shown while waiting for the user to confirm a mint. */
+const MINT_PENDING_MESSAGE = 'Confirm this mint in your wallet to continue.';
+/** Message shown when a mint transaction is cancelled or rejected. */
+const MINT_CANCELLED_MESSAGE = 'Mint cancelled or rejected in wallet.';
+
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -41,14 +46,14 @@ export function MintCard({
     }
 
     setIsMinting(true)
-    setMintStatus({ type: 'pending', message: 'Confirm this mint in your wallet to continue.' })
+    setMintStatus({ type: 'pending', message: MINT_PENDING_MESSAGE })
 
     try {
       const result = await onMint(normalizedTokenURI)
       if (!result) {
         setMintStatus({
           type: 'warning',
-          message: 'Mint cancelled or rejected in wallet.'
+          message: MINT_CANCELLED_MESSAGE
         })
         return
       }
