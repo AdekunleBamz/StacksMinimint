@@ -15,6 +15,12 @@ const ASCII_PATTERN = /^[\x20-\x7E]*$/
 const STX_MICRO_DIVISOR = 1_000_000;
 /** Threshold (ms) used to detect whether a timestamp is already in milliseconds. */
 const UNIX_MS_THRESHOLD = 1_000_000_000_000;
+/** Duration of one minute in milliseconds. */
+const TIME_MINUTE_MS = 60_000;
+/** Duration of one hour in milliseconds. */
+const TIME_HOUR_MS = 3_600_000;
+/** Duration of one day in milliseconds. */
+const TIME_DAY_MS = 86_400_000;
 
 /**
  * Formats a micro-STX amount into a human-readable STX string.
@@ -78,9 +84,9 @@ export function formatRelativeTime(timestamp) {
   const now = Date.now()
   const diff = Math.max(now - normalizedTime, 0)
   if (diff === 0 || normalizedTime > now) return 'Just now'
-  const minutes = Math.floor(diff / 60000)
-  const hours = Math.floor(diff / 3600000)
-  const days = Math.floor(diff / 86400000)
+  const minutes = Math.floor(diff / TIME_MINUTE_MS)
+  const hours = Math.floor(diff / TIME_HOUR_MS)
+  const days = Math.floor(diff / TIME_DAY_MS)
 
   if (minutes < 1) return 'Just now'
   if (minutes < 60) return `${minutes}m ago`
