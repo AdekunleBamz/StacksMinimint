@@ -8,6 +8,9 @@
  */
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+/** Off-screen CSS left position to hide the fallback textarea from view. */
+const CLIPBOARD_OFFSCREEN_OFFSET = '-9999px';
+
 /**
  * A custom hook for copying text to the clipboard with status feedback.
  * @param {number} timeout - Delay in milliseconds before resetting the copied status.
@@ -34,7 +37,7 @@ export function useClipboard(timeout = 2000) {
         textarea.value = value;
         textarea.setAttribute('readonly', '');
         textarea.style.position = 'absolute';
-        textarea.style.left = '-9999px';
+        textarea.style.left = CLIPBOARD_OFFSCREEN_OFFSET;
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand('copy');
