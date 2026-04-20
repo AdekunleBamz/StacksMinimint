@@ -67,6 +67,9 @@ export const MAX_RETRIES = 3;
 /** Maximum number of transaction submission attempts before surfacing an error */
 export const TX_RETRY_LIMIT = 2;
 
+/** Number of items to display per page in paginated lists */
+export const DEFAULT_PAGINATION_SIZE = 12;
+
 // --- Network Labels ---
 // Human-readable labels for network display.
 
