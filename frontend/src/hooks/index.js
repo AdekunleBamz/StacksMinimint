@@ -17,7 +17,9 @@ export {
   useIsLargeDesktop,
   useHighContrast,
   usePrefersDarkMode,
-  usePrefersReducedMotion
+  usePrefersReducedMotion,
+  useIsLandscape,
+  useIsPortrait
 } from './useMediaQuery'
 export { useTransactionStatus } from './useTransaction'
 export { useClipboard } from './useClipboard'
