@@ -105,6 +105,7 @@ export function useStacksWallet() {
     isSignedIn: Boolean(address),
     displayAddress: address ? formatAddress(address) : null,
     isConnecting,
+    isDisconnected: !Boolean(address) && !isConnecting,
     connect,
     disconnect,
     network: NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET
