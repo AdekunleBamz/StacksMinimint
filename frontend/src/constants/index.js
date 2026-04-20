@@ -38,7 +38,7 @@ export const MAX_SUPPLY = 10000;
 // Values used for consistent UI behavior across components.
 
 /** Maximum number of recent mints to display in the activity feed */
-export const MAX_RECENT_MINTS = 5;
+export const MAX_RECENT_MINTS = 6;
 
 /** Scroll threshold (in pixels) to show the back-to-top button */
 export const SCROLL_THRESHOLD = 400;
