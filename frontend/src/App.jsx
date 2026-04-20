@@ -26,6 +26,8 @@ import './App.css'
 const APP_BASE_TITLE = 'StacksMinimint - NFT Minting on Stacks';
 /** Document title prefix shown when a wallet is connected. */
 const APP_CONNECTED_TITLE_PREFIX = 'Connected';
+/** Toast message shown when a mint transaction is successfully submitted. */
+const MINT_SUCCESS_TOAST_MESSAGE = 'Transaction submitted to Stacks.';
 
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
@@ -58,7 +60,7 @@ function App() {
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
     if (result) {
-      showToast('Transaction submitted to Stacks.', 'success')
+      showToast(MINT_SUCCESS_TOAST_MESSAGE, 'success')
       setRecentMints(prev => [result, ...prev].slice(0, MAX_RECENT_MINTS))
     }
     return result
