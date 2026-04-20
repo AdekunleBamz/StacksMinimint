@@ -11,9 +11,10 @@ import './Spinner.css'
 
 export function Spinner({ size = 'medium', tone = 'primary', className = '', label = 'Loading content' }) {
   const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Loading'
+  const composedClass = ['spinner', `spinner--${size}`, `spinner--${tone}`, className].filter(Boolean).join(' ')
   return (
     <span
-      className={`spinner spinner--${size} spinner--${tone} ${className}`}
+      className={composedClass}
       role="status"
       aria-live="polite"
       aria-label={safeLabel}
