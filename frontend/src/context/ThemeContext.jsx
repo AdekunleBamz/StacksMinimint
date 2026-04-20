@@ -38,8 +38,11 @@ export function ThemeProvider({ children }) {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   }, []);
 
+  const setLight = useCallback(() => setTheme('light'), []);
+  const setDark = useCallback(() => setTheme('dark'), []);
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isDark: theme === 'dark', isLight: theme === 'light' }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setLight, setDark, isDark: theme === 'dark', isLight: theme === 'light' }}>
       {children}
     </ThemeContext.Provider>
   );
