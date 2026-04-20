@@ -48,4 +48,8 @@ describe('parseUint', () => {
   it('returns zero for empty strings', () => {
     expect(parseUint('')).toBe(0)
   })
+
+  it('preserves Number.MAX_SAFE_INTEGER exactly', () => {
+    expect(parseUint(Number.MAX_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER)
+  })
 })
