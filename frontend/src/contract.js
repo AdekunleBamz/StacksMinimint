@@ -34,7 +34,11 @@ function getBaseExplorerUrl(type, identifier) {
   if (normalizedIdentifier == null || normalizedIdentifier === '') {
     return `${baseUrl}?chain=${NETWORK}`;
   }
-  return `${baseUrl}/${type}/${encodeURIComponent(normalizedIdentifier)}?chain=${NETWORK}`;
+  const encodedIdentifier =
+    typeof normalizedIdentifier === 'string'
+      ? normalizedIdentifier
+      : String(normalizedIdentifier);
+  return `${baseUrl}/${type}/${encodeURIComponent(encodedIdentifier)}?chain=${NETWORK}`;
 }
 
 export function getExplorerUrl(txId) {
