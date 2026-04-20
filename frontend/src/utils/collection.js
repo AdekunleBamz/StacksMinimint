@@ -432,3 +432,14 @@ export function formatSTXCompact(microstx) {
   if (stx >= 1_000) return `${(stx / 1_000).toFixed(1)}K STX`
   return `${stx.toFixed(2)} STX`
 }
+
+/**
+ * Returns true if the given token ID is within valid NFT range.
+ * @param {any} id - The token ID to validate.
+ * @param {number} [maxSupply=10000] - Maximum allowed supply.
+ * @returns {boolean}
+ */
+export function isValidTokenId(id, maxSupply = 10000) {
+  const numId = Number(id);
+  return Number.isInteger(numId) && numId >= 1 && numId <= maxSupply;
+}
