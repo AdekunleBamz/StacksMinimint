@@ -15,6 +15,8 @@ import { useClipboard } from '../hooks'
 export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
   const { copied, copy } = useClipboard()
   const hasText = typeof text === 'string' ? text.trim().length > 0 : Boolean(text)
+  const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Copy'
+  const safeSuccessLabel = typeof successLabel === 'string' && successLabel.trim() ? successLabel.trim() : 'Copied!'
 
   const handleCopy = useCallback(async () => {
     if (!hasText) return
@@ -31,8 +33,8 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', cla
       type="button"
       className={`copy-btn ${copied ? 'copy-btn--copied' : ''} ${className}`}
       onClick={handleCopy}
-      aria-label={copied ? successLabel : label}
-      title={copied ? successLabel : label}
+      aria-label={copied ? safeSuccessLabel : safeLabel}
+      title={copied ? safeSuccessLabel : safeLabel}
       disabled={!hasText || copied}
     >
       {copied ? (
@@ -40,7 +42,7 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', cla
           <svg className="copy-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <polyline points="20 6 9 17 4 12" />
           </svg>
-          <span>{successLabel}</span>
+          <span>{safeSuccessLabel}</span>
         </>
       ) : (
         <>
@@ -48,7 +50,7 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', cla
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
             <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
           </svg>
-          <span>{label}</span>
+          <span>{safeLabel}</span>
         </>
       )}
     </button>
