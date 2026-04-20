@@ -22,4 +22,9 @@ describe('parseUint', () => {
     expect(parseUint('123abc')).toBe(0)
     expect(parseUint('12.3')).toBe(0)
   })
+
+  it('returns zero for non-finite number input', () => {
+    expect(parseUint(Number.POSITIVE_INFINITY)).toBe(0)
+    expect(parseUint(Number.NaN)).toBe(0)
+  })
 })
