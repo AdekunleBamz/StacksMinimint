@@ -71,6 +71,7 @@ export function useAsync(asyncFn, options = {}) {
     }
     const promise = asyncFn(...args);
     promiseRef.current = promise;
+    lastArgsRef.current = args;
 
     setState(prev => ({
       ...prev,
@@ -137,6 +138,13 @@ export function useAsync(asyncFn, options = {}) {
     setState(prev => ({ ...prev, error: null, isError: false }));
   }, []);
 
+  /**
+   * Re-execute the async function using the last known arguments.
+   * @returns {Promise<T>}
+   */
+  const lastArgsRef = useRef([]);
+  const retry = useCallback(() => execute(...lastArgsRef.current), [execute]);
+
   // Execute immediately if requested
   useEffect(() => {
     if (immediate) {
@@ -149,6 +157,7 @@ export function useAsync(asyncFn, options = {}) {
     execute,
     reset,
     clearError,
+    retry,
     hasRun: state.executionCount > 0
   };
 }
