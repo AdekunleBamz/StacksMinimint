@@ -100,6 +100,10 @@ export function useToast() {
     }
   }, [])
 
+  const persistent = useCallback((message, type = 'info') => {
+    return addToast(message, type, 0);
+  }, [addToast])
+
   return {
     toasts,
     addToast,
@@ -109,6 +113,7 @@ export function useToast() {
     error,
     warning,
     info,
+    persistent,
     clearAll,
     count: toasts.length,
     hasToasts: toasts.length > 0,
