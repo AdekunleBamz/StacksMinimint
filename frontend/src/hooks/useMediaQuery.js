@@ -14,6 +14,10 @@ const MEDIA_QUERY_MOBILE = '(max-width: 640px)';
 const MEDIA_QUERY_TABLET = '(min-width: 641px) and (max-width: 1024px)';
 /** Media query string for desktop screen widths (1025px and above). */
 const MEDIA_QUERY_DESKTOP = '(min-width: 1025px)';
+/** Media query string to detect the user's preference for dark color scheme. */
+const MEDIA_QUERY_DARK_MODE = '(prefers-color-scheme: dark)';
+/** Media query string to detect the user's preference for reduced motion. */
+const MEDIA_QUERY_REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
 
 export function useMediaQuery(query) {
   const hasValidQuery = typeof query === 'string' && query.length > 0
@@ -61,11 +65,11 @@ export function useIsDesktop() {
 }
 
 export function usePrefersDarkMode() {
-  return useMediaQuery('(prefers-color-scheme: dark)')
+  return useMediaQuery(MEDIA_QUERY_DARK_MODE)
 }
 
 export function usePrefersReducedMotion() {
-  return useMediaQuery('(prefers-reduced-motion: reduce)')
+  return useMediaQuery(MEDIA_QUERY_REDUCED_MOTION)
 }
 
 /**
