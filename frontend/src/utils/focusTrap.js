@@ -40,7 +40,7 @@ function getFocusableElements(container) {
  * 
  * @param {HTMLElement} container - The container to trap focus within
  * @param {Object} [options] - Configuration options
- * @param {boolean} [options.initialFocus] - Selector or element to focus initially
+   * @param {string|HTMLElement} [options.initialFocus] - CSS selector or element to focus initially
  * @param {boolean} [options.escapeDeactivates=true] - Whether Escape key deactivates trap
  * @param {function} [options.onDeactivate] - Callback when trap is deactivated
  * @returns {Object} Focus trap instance with activate/deactivate methods
@@ -158,8 +158,8 @@ export function createFocusTrap(container, options = {}) {
 
   return {
     activate,
-    deactivate,
-    get isActive() { return isActive; }
+    get isActive() { return isActive; },
+    deactivate
   };
 }
 
