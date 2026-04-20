@@ -64,6 +64,9 @@ export const MAX_TOASTS = 4;
 /** Maximum number of times to retry a failed network request before giving up */
 export const MAX_RETRIES = 3;
 
+/** Maximum number of transaction submission attempts before surfacing an error */
+export const TX_RETRY_LIMIT = 2;
+
 // --- Network Labels ---
 // Human-readable labels for network display.
 
