@@ -65,7 +65,15 @@ export function useClipboard(timeout = 2000) {
     };
   }, []);
 
-  return { copied, copy, error };
+  const reset = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    setCopied(false);
+    setError(null);
+  }, []);
+
+  return { copied, copy, error, reset };
 }
 
 export default useClipboard;
