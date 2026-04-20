@@ -111,6 +111,7 @@ export function useToast() {
     info,
     clearAll,
     count: toasts.length,
+    hasToasts: toasts.length > 0,
   }
 }
 
