@@ -335,6 +335,16 @@ const CARD_ACCENT_SECONDARY_HUE_OFFSET = 42;
 const CARD_ACCENT_DEFAULT_SEED = 'minimint';
 /** Prefix for locally generated submission IDs when no transaction ID is available. */
 const SUBMISSION_ID_PREFIX = 'local-';
+/** Saturation percentage for the primary card accent color. */
+const CARD_ACCENT_PRIMARY_SATURATION = 72;
+/** Lightness percentage for the primary card accent color. */
+const CARD_ACCENT_PRIMARY_LIGHTNESS = 58;
+/** Saturation percentage for the secondary card accent color. */
+const CARD_ACCENT_SECONDARY_SATURATION = 78;
+/** Lightness percentage for the secondary card accent color. */
+const CARD_ACCENT_SECONDARY_LIGHTNESS = 64;
+/** Alpha value for the glow effect applied to the primary card accent color. */
+const CARD_ACCENT_GLOW_ALPHA = 0.25;
  * @param {string} seed - The seed string for hashing.
  * @returns {Object} The accent color object.
  */
@@ -351,9 +361,9 @@ export function getCardAccent(seed) {
   const secondaryHue = (hue + secondaryHueOffset) % 360
 
   return {
-    primary: `hsl(${hue} 72% 58%)`,
-    secondary: `hsl(${secondaryHue} 78% 64%)`,
-    glow: `hsla(${hue} 72% 58% / 0.25)`
+    primary: `hsl(${hue} ${CARD_ACCENT_PRIMARY_SATURATION}% ${CARD_ACCENT_PRIMARY_LIGHTNESS}%)`,
+    secondary: `hsl(${secondaryHue} ${CARD_ACCENT_SECONDARY_SATURATION}% ${CARD_ACCENT_SECONDARY_LIGHTNESS}%)`,
+    glow: `hsla(${hue} ${CARD_ACCENT_PRIMARY_SATURATION}% ${CARD_ACCENT_PRIMARY_LIGHTNESS}% / ${CARD_ACCENT_GLOW_ALPHA})`
   }
 }
 
