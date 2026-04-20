@@ -18,12 +18,13 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
   const [isVisible, setIsVisible] = useState(false)
   const timerRef = useRef(null)
   const tooltipId = useId()
+  const safeDelay = typeof delay === 'number' && delay >= 0 ? delay : TOOLTIP_DEFAULT_DELAY_MS
 
   const showTooltip = () => {
     if (timerRef.current) {
       clearTimeout(timerRef.current)
     }
-    timerRef.current = setTimeout(() => setIsVisible(true), delay)
+    timerRef.current = setTimeout(() => setIsVisible(true), safeDelay)
   }
 
   const hideTooltip = () => {
