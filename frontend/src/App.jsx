@@ -27,7 +27,7 @@ const APP_BASE_TITLE = 'StacksMinimint - NFT Minting on Stacks';
 /** Document title prefix shown when a wallet is connected. */
 const APP_CONNECTED_TITLE_PREFIX = 'Connected';
 /** Toast message shown when a mint transaction is successfully submitted. */
-const MINT_SUCCESS_TOAST_MESSAGE = 'Transaction submitted to Stacks.';
+const MINT_SUCCESS_TOAST_MESSAGE = 'Transaction sent to Stacks.';
 
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
