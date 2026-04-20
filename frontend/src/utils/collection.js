@@ -349,6 +349,8 @@ const CARD_ACCENT_SECONDARY_SATURATION = 78;
 const CARD_ACCENT_SECONDARY_LIGHTNESS = 64;
 /** Alpha value for the glow effect applied to the primary card accent color. */
 const CARD_ACCENT_GLOW_ALPHA = 0.25;
+/** Number of degrees in a full hue circle, used to wrap computed hue values. */
+const HUE_CIRCLE_DEGREES = 360;
  * @param {string} seed - The seed string for hashing.
  * @returns {Object} The accent color object.
  */
@@ -361,8 +363,8 @@ export function getCardAccent(seed) {
     hash = input.charCodeAt(index) + ((hash << 5) - hash)
   }
 
-  const hue = Math.abs(hash) % 360
-  const secondaryHue = (hue + secondaryHueOffset) % 360
+  const hue = Math.abs(hash) % HUE_CIRCLE_DEGREES
+  const secondaryHue = (hue + secondaryHueOffset) % HUE_CIRCLE_DEGREES
 
   return {
     primary: `hsl(${hue} ${CARD_ACCENT_PRIMARY_SATURATION}% ${CARD_ACCENT_PRIMARY_LIGHTNESS}%)`,
