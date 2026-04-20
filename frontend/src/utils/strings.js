@@ -137,3 +137,16 @@ export function isAlphanumeric(value) {
   if (typeof value !== 'string' || !value.trim()) return false;
   return /^[a-z0-9]+$/i.test(value.trim());
 }
+
+/**
+ * Clamps a string to a maximum length, appending an ellipsis if truncated.
+ * @param {string} str - The string to clamp.
+ * @param {number} [maxLength=100] - Maximum character count before truncation.
+ * @returns {string}
+ */
+export function clampString(str, maxLength = 100) {
+  if (!str || typeof str !== 'string') return '';
+  const safeMax = Number.isInteger(maxLength) && maxLength > 0 ? maxLength : 100;
+  if (str.length <= safeMax) return str;
+  return `${str.slice(0, safeMax)}…`;
+}
