@@ -13,12 +13,14 @@ import './Tooltip.css'
 
 /** Default delay in ms before the tooltip becomes visible after hover or focus. */
 const TOOLTIP_DEFAULT_DELAY_MS = 300;
+/** Maximum clamped delay in ms to prevent excessively long tooltip delays. */
+const TOOLTIP_MAX_DELAY_MS = 5000;
 
 export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_DEFAULT_DELAY_MS }) {
   const [isVisible, setIsVisible] = useState(false)
   const timerRef = useRef(null)
   const tooltipId = useId()
-  const safeDelay = typeof delay === 'number' && delay >= 0 ? delay : TOOLTIP_DEFAULT_DELAY_MS
+  const safeDelay = typeof delay === 'number' && delay >= 0 ? Math.min(delay, TOOLTIP_MAX_DELAY_MS) : TOOLTIP_DEFAULT_DELAY_MS
 
   const showTooltip = () => {
     if (timerRef.current) {
