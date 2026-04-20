@@ -62,7 +62,7 @@ export function useTransactionStatus(txId) {
   useEffect(() => {
     if (txId) {
       checkStatus();
-      const interval = setInterval(checkStatus, TX_POLL_INTERVAL_MS); // Check every 10 seconds
+      const interval = setInterval(checkStatus, TX_POLL_INTERVAL_MS); // Check every 8 seconds
       return () => clearInterval(interval);
     }
 
@@ -79,7 +79,7 @@ export function useTransactionStatus(txId) {
     };
   }, []);
 
-  return { status, error, isLoading, refetch: checkStatus };
+  return { status, error, isLoading, refetch: checkStatus, isConfirmed: status === 'success', isPending: status === 'pending' };
 }
 
 /**
