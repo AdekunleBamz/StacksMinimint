@@ -9,7 +9,9 @@
 
 import {
   NETWORK,
-  STACKS_NETWORK_CONFIG
+  STACKS_NETWORK_CONFIG,
+  CONTRACT_ADDRESS,
+  CONTRACT_NAME
 } from './constants';
 
 export {
@@ -51,4 +53,14 @@ export function getTokenExplorerUrl(tokenId) {
 
 export function getAddressExplorerUrl(address) {
   return getBaseExplorerUrl('address', address);
+}
+
+/**
+ * Generates a contract explorer URL for the current deployed contract.
+ * @returns {string} The full explorer URL for the contract.
+ */
+export function getContractExplorerUrl() {
+  const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
+  const baseUrl = networkConfig.explorerUrl;
+  return `${baseUrl}/txid/${encodeURIComponent(`${CONTRACT_ADDRESS}.${CONTRACT_NAME}`)}?chain=${NETWORK}`;
 }
