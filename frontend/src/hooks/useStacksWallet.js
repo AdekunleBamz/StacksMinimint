@@ -11,6 +11,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { AppConfig, UserSession, showConnect } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { NETWORK } from '../contract';
+import { formatAddress } from '../utils/collection';
 
 /** Permissions granted to this app when the user connects their Stacks wallet. */
 const WALLET_APP_PERMISSIONS = ['store_write', 'publish_data'];
@@ -101,6 +102,8 @@ export function useStacksWallet() {
     address,
     userData,
     isConnected: Boolean(address),
+    isSignedIn: Boolean(address),
+    displayAddress: address ? formatAddress(address) : null,
     isConnecting,
     connect,
     disconnect,
