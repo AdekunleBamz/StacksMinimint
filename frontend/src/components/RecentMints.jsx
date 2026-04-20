@@ -12,6 +12,9 @@ import './RecentMints.css'
 import { formatAddress, formatExactTime, formatRelativeTime } from '../utils/collection'
 import { getExplorerUrl } from '../contract'
 
+/** Number of skeleton placeholder rows to show while recent mints are loading. */
+const RECENT_MINTS_SKELETON_COUNT = 3;
+
 function getMintTimestampMs(timestamp) {
   const numericTimestamp = Number(timestamp)
   if (!Number.isFinite(numericTimestamp)) return Date.now()
@@ -27,7 +30,7 @@ export function RecentMints({ items = [] }) {
       <section className="recent-mints">
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__list" role="list" aria-label="Loading recent mint activity">
-          {[1, 2, 3].map((i) => (
+          {Array.from({ length: RECENT_MINTS_SKELETON_COUNT }, (_, i) => i).map((i) => (
             <div key={i} className="mint-item mint-item--skeleton" role="listitem">
               <div className="skeleton skeleton--avatar"></div>
               <div className="mint-item__info">
