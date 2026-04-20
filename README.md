@@ -4,6 +4,7 @@
 [![Clarity](https://img.shields.io/badge/Clarity-v2.0-blue.svg)](https://clarity-lang.org/)
 [![Stacks](https://img.shields.io/badge/Built%20with-Stacks-purple.svg)](https://stacks.co/)
 [![Hiro](https://img.shields.io/badge/Tools-Clarinet-orange.svg)](https://hiro.so/)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 **StacksMinimint** is a high-performance, modular NFT minting and rewards ecosystem built specifically for the Stacks blockchain. Leveraging Clarity smart contracts and the Nakamoto release capabilities, it provides a seamless experience for both collectors and developers.
 
