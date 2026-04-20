@@ -44,8 +44,8 @@ export function isValidStacksAddress(address) {
   if (!address || typeof address !== 'string') return false;
   const normalizedAddress = address.trim();
   // Stacks addresses start with SP or ST and are 39-41 characters long
-  const stacksAddressRegex = /^(S[PT])[0-9A-Z]{37,39}$/;
-  return stacksAddressRegex.test(normalizedAddress);
+  const STACKS_ADDRESS_PATTERN = /^(S[PT])[0-9A-Z]{37,39}$/;
+  return STACKS_ADDRESS_PATTERN.test(normalizedAddress);
 }
 
 /**
