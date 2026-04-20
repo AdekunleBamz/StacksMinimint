@@ -15,7 +15,9 @@ export {
   slugify,
   pluralize,
   zeroPad,
-  isNumericString
+  isNumericString,
+  isAlphanumeric,
+  clampString
 } from './strings';
 
 // Collection utilities
