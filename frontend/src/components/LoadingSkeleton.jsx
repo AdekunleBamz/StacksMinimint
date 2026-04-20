@@ -10,8 +10,11 @@
 import PropTypes from 'prop-types'
 import './LoadingSkeleton.css'
 
+/** Maximum allowed skeleton count to prevent runaway rendering. */
+const SKELETON_MAX_COUNT = 50;
+
 export function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
-  const safeCount = Number.isInteger(count) && count > 0 ? Math.min(count, 50) : 1
+  const safeCount = Number.isInteger(count) && count > 0 ? Math.min(count, SKELETON_MAX_COUNT) : 1
   const skeletons = Array.from({ length: safeCount }, (_, i) => i)
 
   const getStyle = () => {
