@@ -74,6 +74,14 @@ export const DEFAULT_PAGINATION_SIZE = 12;
 export const NFT_ID_MIN = 1;
 export const NFT_ID_MAX = MAX_SUPPLY;
 
+/** Transaction lifecycle status codes */
+export const TX_STATUS = Object.freeze({
+  PENDING: 'pending',
+  SUCCESS: 'success',
+  FAILED: 'failed',
+  CANCELLED: 'cancelled',
+});
+
 // --- Network Labels ---
 // Human-readable labels for network display.
 
