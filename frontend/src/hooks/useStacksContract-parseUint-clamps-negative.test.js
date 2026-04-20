@@ -36,4 +36,8 @@ describe('parseUint', () => {
   it('parses digit strings with leading zeros', () => {
     expect(parseUint('00042')).toBe(42)
   })
+
+  it('returns zero for negative numeric strings', () => {
+    expect(parseUint('-1')).toBe(0)
+  })
 })
