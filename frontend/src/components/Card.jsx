@@ -31,12 +31,19 @@ export function Card({
 
   return (
     <div 
-      className={`card card--${variant} card--padding-${padding} ${hover ? 'card--hover' : ''} ${onClick ? 'card--clickable' : ''} ${className}`}
+      className={[
+        'card',
+        `card--${variant}`,
+        `card--padding-${padding}`,
+        hover ? 'card--hover' : '',
+        onClick ? 'card--clickable' : '',
+        className
+      ].filter(Boolean).join(' ')}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
       tabIndex={onClick ? 0 : undefined}
-      aria-label={onClick ? ariaLabel : ariaLabel}
+      aria-label={ariaLabel}
       aria-describedby={ariaDescriptionId}
     >
       {children}
@@ -46,7 +53,7 @@ export function Card({
 
 export function CardHeader({ children, className = '' }) {
   return (
-    <div className={`card__header ${className}`}>
+    <div className={['card__header', className].filter(Boolean).join(' ')}>
       {children}
     </div>
   )
@@ -54,7 +61,7 @@ export function CardHeader({ children, className = '' }) {
 
 export function CardBody({ children, className = '' }) {
   return (
-    <div className={`card__body ${className}`}>
+    <div className={['card__body', className].filter(Boolean).join(' ')}>
       {children}
     </div>
   )
@@ -62,7 +69,7 @@ export function CardBody({ children, className = '' }) {
 
 export function CardFooter({ children, className = '' }) {
   return (
-    <div className={`card__footer ${className}`}>
+    <div className={['card__footer', className].filter(Boolean).join(' ')}>
       {children}
     </div>
   )
