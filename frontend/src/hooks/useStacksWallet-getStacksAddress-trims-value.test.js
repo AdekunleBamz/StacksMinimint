@@ -71,4 +71,8 @@ describe('getStacksAddress', () => {
       }
     })).toBeNull()
   })
+
+  it('returns null when stxAddress map is missing', () => {
+    expect(getStacksAddress({ profile: {} })).toBeNull()
+  })
 })
