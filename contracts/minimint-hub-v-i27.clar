@@ -51,6 +51,7 @@
 ;; REWARD-PER-BLOCK: Reward tokens minted per block per staked NFT.
 ;; u1000000 = 1.0 MMT tokens (assuming 6 decimal places).
 ;; Formula: rewards = staked_balance * blocks_passed * REWARD-PER-BLOCK
+;; Adjust this constant only through a contract upgrade, not at runtime.
 (define-constant REWARD-PER-BLOCK u1000000)
 
 ;; contract-owner: Tracks the administrative owner of this contract.
