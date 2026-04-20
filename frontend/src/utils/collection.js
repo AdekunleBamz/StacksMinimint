@@ -175,7 +175,7 @@ export function getMetadataGatewayUrl(uri) {
     if (!path || /\s/.test(path)) {
       return null
     }
-    return `https://ipfs.io/ipfs/${path}`
+    return `${IPFS_GATEWAY_BASE_URL}${path}`
   }
 
   if (lowered.startsWith('https://') || lowered.startsWith('http://')) {
@@ -327,7 +327,8 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
 }
 
 /**
- * Generates a deterministic color palette based on a seed string.
+/** Base URL of the public IPFS HTTP gateway for fetching IPFS content. */
+const IPFS_GATEWAY_BASE_URL = 'https://ipfs.io/ipfs/';
  * @param {string} seed - The seed string for hashing.
  * @returns {Object} The accent color object.
  */
