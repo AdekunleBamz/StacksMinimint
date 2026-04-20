@@ -13,6 +13,9 @@ import { getTokenExplorerUrl } from '../contract'
 import { formatAddress } from '../utils/collection'
 import { useLocalStorage } from '../hooks'
 
+/** Delay in ms before mock NFT data is shown, simulating a network load. */
+const GALLERY_MOCK_LOAD_DELAY_MS = 500;
+
 export function Gallery() {
   const [nfts, setNfts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -54,7 +57,7 @@ export function Gallery() {
     const timeoutId = setTimeout(() => {
       setNfts(mockNfts)
       setIsLoading(false)
-    }, 500)
+    }, GALLERY_MOCK_LOAD_DELAY_MS)
 
     return () => clearTimeout(timeoutId)
   }, [])
