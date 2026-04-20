@@ -84,7 +84,7 @@ export function useLocalStorage(key, initialValue) {
     }
   }, [normalizedKey, initialValue, hasValidKey])
 
-  return [storedValue, setValue, removeValue, { hasValue: storedValue !== null && storedValue !== undefined }]
+  return [storedValue, setValue, removeValue, { hasValue: storedValue !== null && storedValue !== undefined, isReady: typeof window !== 'undefined' }]
 }
 
 /**
