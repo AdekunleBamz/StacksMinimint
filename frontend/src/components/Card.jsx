@@ -36,7 +36,7 @@ export function Card({
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
       tabIndex={onClick ? 0 : undefined}
-      aria-label={onClick ? ariaLabel : undefined}
+      aria-label={onClick ? ariaLabel : ariaLabel}
       aria-describedby={ariaDescriptionId}
     >
       {children}
