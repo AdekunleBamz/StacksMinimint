@@ -314,7 +314,7 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
   const normalizedTxId = typeof txId === 'string' ? txId.trim() : txId
   const normalizedAddress = typeof address === 'string' ? address.trim() : address
   const normalizedTokenURI = typeof tokenURI === 'string' ? tokenURI.trim() : tokenURI
-  const fallbackId = `local-${Date.now()}-${String(normalizedAddress || 'unknown')}`
+  const fallbackId = `${SUBMISSION_ID_PREFIX}${Date.now()}-${String(normalizedAddress || 'unknown')}`
   return {
     id: normalizedTxId || fallbackId,
     txId: normalizedTxId,
@@ -333,6 +333,8 @@ const IPFS_GATEWAY_BASE_URL = 'https://ipfs.io/ipfs/';
 const CARD_ACCENT_SECONDARY_HUE_OFFSET = 42;
 /** Fallback seed string used when no seed is provided to getCardAccent. */
 const CARD_ACCENT_DEFAULT_SEED = 'minimint';
+/** Prefix for locally generated submission IDs when no transaction ID is available. */
+const SUBMISSION_ID_PREFIX = 'local-';
  * @param {string} seed - The seed string for hashing.
  * @returns {Object} The accent color object.
  */
