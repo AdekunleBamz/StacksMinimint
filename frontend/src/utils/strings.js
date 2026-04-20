@@ -58,8 +58,10 @@ export function isValidStacksAddress(address) {
 export function truncateMiddle(str, startChars = 6, endChars = 4) {
   if (!str || typeof str !== 'string') return '';
   const s = str.trim();
-  if (s.length <= startChars + endChars) return s;
-  return `${s.slice(0, startChars)}…${s.slice(-endChars)}`;
+  const safeStart = Number.isInteger(startChars) && startChars >= 0 ? startChars : 6;
+  const safeEnd = Number.isInteger(endChars) && endChars >= 0 ? endChars : 4;
+  if (s.length <= safeStart + safeEnd) return s;
+  return `${s.slice(0, safeStart)}…${s.slice(-safeEnd)}`;
 }
 
 /**
