@@ -127,3 +127,13 @@ export function isNumericString(value) {
   if (typeof value !== 'string' || !value.trim()) return false;
   return /^-?\d+(\.\d+)?$/.test(value.trim());
 }
+
+/**
+ * Returns true if the string contains only alphanumeric characters.
+ * @param {any} value - The value to test.
+ * @returns {boolean}
+ */
+export function isAlphanumeric(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  return /^[a-z0-9]+$/i.test(value.trim());
+}
