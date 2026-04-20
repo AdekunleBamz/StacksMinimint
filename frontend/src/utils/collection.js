@@ -318,7 +318,8 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
   const normalizedTxId = typeof txId === 'string' ? txId.trim() : txId
   const normalizedAddress = typeof address === 'string' ? address.trim() : address
   const normalizedTokenURI = typeof tokenURI === 'string' ? tokenURI.trim() : tokenURI
-  const fallbackId = `${SUBMISSION_ID_PREFIX}${Date.now()}-${String(normalizedAddress || 'unknown')}`
+  const safeAddress = normalizedAddress || 'unknown'
+  const fallbackId = `${SUBMISSION_ID_PREFIX}${Date.now()}-${safeAddress}`
   return {
     id: normalizedTxId || fallbackId,
     txId: normalizedTxId,
