@@ -32,4 +32,8 @@ describe('parseUint', () => {
     expect(parseUint(12345n)).toBe(12345)
     expect(parseUint(0n)).toBe(0)
   })
+
+  it('parses digit strings with leading zeros', () => {
+    expect(parseUint('00042')).toBe(42)
+  })
 })
