@@ -17,12 +17,14 @@ import { useLocalStorage } from '../hooks'
 const GALLERY_MOCK_LOAD_DELAY_MS = 500;
 /** Number of skeleton placeholder cards to show while the gallery is loading. */
 const GALLERY_SKELETON_COUNT = 4;
+/** localStorage key used to persist the gallery view mode (grid or list). */
+const GALLERY_VIEW_STORAGE_KEY = 'gallery-view-mode';
 
 export function Gallery() {
   const [nfts, setNfts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [selectedNft, setSelectedNft] = useState(null)
-  const [viewMode, setViewMode] = useLocalStorage('gallery-view-mode', 'grid')
+  const [viewMode, setViewMode] = useLocalStorage(GALLERY_VIEW_STORAGE_KEY, 'grid')
   const [searchTerm, setSearchTerm] = useState('')
   const closeButtonRef = useRef(null)
   const gridId = useId()
