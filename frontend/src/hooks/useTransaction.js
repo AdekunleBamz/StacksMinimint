@@ -9,6 +9,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { STACKS_NETWORK_CONFIG, NETWORK } from '../constants';
 
+/** Polling interval in ms for checking transaction confirmation status. */
+const TX_POLL_INTERVAL_MS = 10_000;
+
 /**
  * Hook to track the status of a Stacks transaction.
  * @param {string} txId - The transaction ID to track.
@@ -59,7 +62,7 @@ export function useTransactionStatus(txId) {
   useEffect(() => {
     if (txId) {
       checkStatus();
-      const interval = setInterval(checkStatus, 10_000); // Check every 10 seconds
+      const interval = setInterval(checkStatus, TX_POLL_INTERVAL_MS); // Check every 10 seconds
       return () => clearInterval(interval);
     }
 
