@@ -20,6 +20,8 @@ const MEDIA_QUERY_LARGE_DESKTOP = '(min-width: 1440px)';
 const MEDIA_QUERY_DARK_MODE = '(prefers-color-scheme: dark)';
 /** Media query string to detect the user's preference for reduced motion. */
 const MEDIA_QUERY_REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
+/** Media query string to detect high-contrast mode activation. */
+const MEDIA_QUERY_HIGH_CONTRAST = '(forced-colors: active)';
 
 export function useMediaQuery(query) {
   const hasValidQuery = typeof query === 'string' && query.length > 0
@@ -76,6 +78,10 @@ export function usePrefersReducedMotion() {
 
 export function useIsLargeDesktop() {
   return useMediaQuery(MEDIA_QUERY_LARGE_DESKTOP)
+}
+
+export function useHighContrast() {
+  return useMediaQuery(MEDIA_QUERY_HIGH_CONTRAST)
 }
 
 /**
