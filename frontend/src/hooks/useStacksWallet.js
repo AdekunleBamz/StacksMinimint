@@ -12,7 +12,10 @@ import { AppConfig, UserSession, showConnect } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { NETWORK } from '../contract';
 
-const appConfig = new AppConfig(['store_write', 'publish_data']);
+/** Permissions granted to this app when the user connects their Stacks wallet. */
+const WALLET_APP_PERMISSIONS = ['store_write', 'publish_data'];
+
+const appConfig = new AppConfig(WALLET_APP_PERMISSIONS);
 export const userSession = new UserSession({ appConfig });
 
 export function getStacksAddress(data) {
