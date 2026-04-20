@@ -60,4 +60,15 @@ describe('getStacksAddress', () => {
       }
     })).toBe('ST2FALLBACKVALUE1234567890')
   })
+
+  it('returns null when both network addresses are blank strings', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          mainnet: '   ',
+          testnet: '\n\t'
+        }
+      }
+    })).toBeNull()
+  })
 })
