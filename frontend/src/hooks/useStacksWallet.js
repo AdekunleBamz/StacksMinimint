@@ -14,6 +14,8 @@ import { NETWORK } from '../contract';
 
 /** Permissions granted to this app when the user connects their Stacks wallet. */
 const WALLET_APP_PERMISSIONS = ['store_write', 'publish_data'];
+/** Display name used for this application in the wallet connect modal. */
+const WALLET_APP_NAME = 'StacksMinimint';
 
 const appConfig = new AppConfig(WALLET_APP_PERMISSIONS);
 export const userSession = new UserSession({ appConfig });
@@ -51,7 +53,7 @@ export function useStacksWallet() {
     try {
       showConnect({
         appDetails: {
-          name: 'StacksMinimint',
+          name: WALLET_APP_NAME,
           icon: typeof window !== 'undefined' ? window.location.origin + '/favicon.png' : '',
         },
         redirectTo: '/',
