@@ -109,7 +109,8 @@ export function useToast() {
     error,
     warning,
     info,
-    clearAll
+    clearAll,
+    count: toasts.length,
   }
 }
 
