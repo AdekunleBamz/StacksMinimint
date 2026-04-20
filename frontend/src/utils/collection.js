@@ -13,6 +13,8 @@ export const MAX_TOKEN_URI_LENGTH = 256
 const ASCII_PATTERN = /^[\x20-\x7E]*$/
 /** Divisor to convert micro-STX to STX (1 STX = 1,000,000 micro-STX). */
 const STX_MICRO_DIVISOR = 1_000_000;
+/** Threshold (ms) used to detect whether a timestamp is already in milliseconds. */
+const UNIX_MS_THRESHOLD = 1_000_000_000_000;
 
 /**
  * Formats a micro-STX amount into a human-readable STX string.
@@ -71,7 +73,7 @@ export function formatRelativeTime(timestamp) {
   if (timestamp === null || timestamp === undefined) return 'Just now'
   const time = Number(timestamp)
   if (Number.isNaN(time) || !Number.isFinite(time)) return 'Just now'
-  const normalizedTime = time < 1_000_000_000_000 ? time * 1000 : time
+  const normalizedTime = time < UNIX_MS_THRESHOLD ? time * 1000 : time
 
   const now = Date.now()
   const diff = Math.max(now - normalizedTime, 0)
@@ -95,7 +97,7 @@ export function formatExactTime(timestamp) {
   if (timestamp === null || timestamp === undefined) return 'Unknown time'
   const time = Number(timestamp)
   if (Number.isNaN(time) || !Number.isFinite(time)) return 'Unknown time'
-  const normalizedTime = time < 1_000_000_000_000 ? time * 1000 : time
+  const normalizedTime = time < UNIX_MS_THRESHOLD ? time * 1000 : time
 
   return new Intl.DateTimeFormat(undefined, {
     dateStyle: 'medium',
