@@ -117,6 +117,7 @@ export function useToast() {
     clearAll,
     count: toasts.length,
     hasToasts: toasts.length > 0,
+    latestToast: toasts.length > 0 ? toasts[toasts.length - 1] : null,
   }
 }
 
