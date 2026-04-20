@@ -161,6 +161,7 @@ export function useStacksContract(address) {
     progressPct: contractInfo.maxSupply > 0
       ? Math.min(100, Math.round((contractInfo.totalSupply / contractInfo.maxSupply) * 100))
       : 0,
+    hasError: Boolean(error),
     refetch: fetchContractInfo
   };
 }
