@@ -56,4 +56,8 @@ describe('parseUint', () => {
   it('returns zero for object input values', () => {
     expect(parseUint({ value: 1 })).toBe(0)
   })
+
+  it('returns zero for symbol input values', () => {
+    expect(parseUint(Symbol('amount'))).toBe(0)
+  })
 })
