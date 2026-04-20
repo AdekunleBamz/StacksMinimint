@@ -8,6 +8,13 @@
  */
 import { useState, useEffect } from 'react'
 
+/** Media query string for mobile screen widths (max 640px). */
+const MEDIA_QUERY_MOBILE = '(max-width: 640px)';
+/** Media query string for tablet screen widths (641px to 1024px). */
+const MEDIA_QUERY_TABLET = '(min-width: 641px) and (max-width: 1024px)';
+/** Media query string for desktop screen widths (1025px and above). */
+const MEDIA_QUERY_DESKTOP = '(min-width: 1025px)';
+
 export function useMediaQuery(query) {
   const hasValidQuery = typeof query === 'string' && query.length > 0
 
@@ -42,15 +49,15 @@ export function useMediaQuery(query) {
 
 // Preset breakpoints
 export function useIsMobile() {
-  return useMediaQuery('(max-width: 640px)')
+  return useMediaQuery(MEDIA_QUERY_MOBILE)
 }
 
 export function useIsTablet() {
-  return useMediaQuery('(min-width: 641px) and (max-width: 1024px)')
+  return useMediaQuery(MEDIA_QUERY_TABLET)
 }
 
 export function useIsDesktop() {
-  return useMediaQuery('(min-width: 1025px)')
+  return useMediaQuery(MEDIA_QUERY_DESKTOP)
 }
 
 export function usePrefersDarkMode() {
