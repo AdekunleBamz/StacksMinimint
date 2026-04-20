@@ -331,11 +331,13 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
 const IPFS_GATEWAY_BASE_URL = 'https://ipfs.io/ipfs/';
 /** Hue offset applied to the secondary accent color to differentiate it from primary. */
 const CARD_ACCENT_SECONDARY_HUE_OFFSET = 42;
+/** Fallback seed string used when no seed is provided to getCardAccent. */
+const CARD_ACCENT_DEFAULT_SEED = 'minimint';
  * @param {string} seed - The seed string for hashing.
  * @returns {Object} The accent color object.
  */
 export function getCardAccent(seed) {
-  const input = String(seed || 'minimint')
+  const input = String(seed || CARD_ACCENT_DEFAULT_SEED)
   const secondaryHueOffset = CARD_ACCENT_SECONDARY_HUE_OFFSET
   let hash = 0
 
