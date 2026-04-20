@@ -20,7 +20,7 @@ export function Badge({
 }) {
   return (
     <span
-      className={`badge badge--${variant} badge--${size} ${className}`}
+      className={['badge', `badge--${variant}`, `badge--${size}`, className].filter(Boolean).join(' ')}
       role="status"
       title={title}
       aria-label={typeof title === 'string' ? title : undefined}
