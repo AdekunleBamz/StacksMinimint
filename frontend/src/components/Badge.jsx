@@ -19,7 +19,12 @@ export function Badge({
   title
 }) {
   return (
-    <span className={`badge badge--${variant} badge--${size} ${className}`} role="status" title={title}>
+    <span
+      className={`badge badge--${variant} badge--${size} ${className}`}
+      role="status"
+      title={title}
+      aria-label={typeof title === 'string' ? title : undefined}
+    >
       {dot && <span className="badge__dot" aria-hidden="true" />}
       {children}
     </span>
