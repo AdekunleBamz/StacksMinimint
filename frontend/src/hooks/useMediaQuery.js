@@ -84,6 +84,19 @@ export function useHighContrast() {
   return useMediaQuery(MEDIA_QUERY_HIGH_CONTRAST)
 }
 
+/** Media query string for landscape orientation. */
+const MEDIA_QUERY_LANDSCAPE = '(orientation: landscape)';
+/** Media query string for portrait orientation. */
+const MEDIA_QUERY_PORTRAIT = '(orientation: portrait)';
+
+export function useIsLandscape() {
+  return useMediaQuery(MEDIA_QUERY_LANDSCAPE);
+}
+
+export function useIsPortrait() {
+  return useMediaQuery(MEDIA_QUERY_PORTRAIT);
+}
+
 /**
  * Default export for useMediaQuery hook and presets.
  */
