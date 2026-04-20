@@ -105,3 +105,15 @@ export function pluralize(count, singular, plural) {
  * Default export for strings utilities.
  */
 export default { truncateAddress, capitalize, isValidStacksAddress, truncateMiddle, isBlank, slugify, pluralize }
+
+/**
+ * Pads a number with leading zeros to reach a minimum length.
+ * @param {number} num - The number to pad.
+ * @param {number} [length=2] - Minimum desired string length.
+ * @returns {string} Zero-padded number string.
+ */
+export function zeroPad(num, length = 2) {
+  const s = String(Math.abs(Math.trunc(Number(num) || 0)));
+  const safeLen = Number.isInteger(length) && length > 0 ? length : 2;
+  return s.padStart(safeLen, '0');
+}
