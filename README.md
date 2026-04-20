@@ -86,7 +86,7 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
    ```bash
    cp .env.example .env
    ```
-   Edit `.env` to configure your network (mainnet/testnet) and contract addresses.
+   Edit `.env` to configure your network (mainnet/testnet), core contract address, and hub contract address.
    See [Environment Variables](#-environment-variables) for available options.
 
 ---
