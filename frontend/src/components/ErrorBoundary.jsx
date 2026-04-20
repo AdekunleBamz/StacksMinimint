@@ -91,7 +91,7 @@ class ErrorBoundary extends React.Component {
           <div className="error-boundary__icon" aria-hidden="true">⚠️</div>
           <h2 className="error-boundary__title">Something went wrong.</h2>
           <p className="error-boundary__message">{userMessage}</p>
-          {rawMessage && (
+          {rawMessage && rawMessage !== userMessage && (
             <p className="error-boundary__message">{rawMessage}</p>
           )}
 
