@@ -14,12 +14,14 @@ import { formatExactTime, formatLimit, formatSTX } from '../utils/collection'
 
 /** Number of skeleton stat cards to show while collection data is loading. */
 const STATS_SKELETON_COUNT = 4;
+/** Minimum receipt count returned by the contract; negative values are clamped to this. */
+const STATS_MIN_RECEIPT_COUNT = 0;
 
 export function Stats({ contractInfo, isLoading, isConnected = false, recentActivityCount = 0 }) {
   const [lastUpdated, setLastUpdated] = useState(new Date())
   const parsedRecentActivityCount = Number(recentActivityCount)
   const safeRecentActivityCount = Number.isFinite(parsedRecentActivityCount)
-    ? Math.max(parsedRecentActivityCount, 0)
+    ? Math.max(parsedRecentActivityCount, STATS_MIN_RECEIPT_COUNT)
     : 0
 
   useEffect(() => {
