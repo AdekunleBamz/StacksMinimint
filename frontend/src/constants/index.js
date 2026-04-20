@@ -43,11 +43,26 @@ export const MAX_RECENT_MINTS = 6;
 /** Scroll threshold (in pixels) to show the back-to-top button */
 export const SCROLL_THRESHOLD = 400;
 
+/** Debounce delay in ms for scroll event handlers */
+export const SCROLL_DEBOUNCE_MS = 100;
+
+/** Minimum allowed custom mint fee in micro-STX (0 means default applies) */
+export const MIN_MINT_FEE = 0;
+
 /** Toast notification auto-dismiss duration in milliseconds */
 export const TOAST_DURATION = 4500;
 
+/** Maximum time in milliseconds to wait for a wallet transaction to confirm */
+export const TRANSACTION_TIMEOUT_MS = 120_000;
+
+/** Timeout in milliseconds before the clipboard copy status resets */
+export const CLIPBOARD_TIMEOUT_MS = 2000;
+
 /** Maximum number of toasts to display simultaneously */
 export const MAX_TOASTS = 4;
+
+/** Maximum number of times to retry a failed network request before giving up */
+export const MAX_RETRIES = 3;
 
 // --- Network Labels ---
 // Human-readable labels for network display.
@@ -66,6 +81,9 @@ export const DEVNET_LABEL = 'Devnet';
 
 /** Hiro Explorer base URL */
 export const HIRO_EXPLORER_URL = 'https://explorer.stacks.co';
+
+/** Duration in milliseconds for standard UI transition animations */
+export const ANIMATION_DURATION_MS = 200;
 
 // --- Contract Function Names ---
 // Standardized function names for contract calls.
