@@ -88,6 +88,9 @@ export const MIN_DISPLAY_ADDRESS_LENGTH = 10;
 /** Polling interval in ms for watching mint activity from the API */
 export const MINT_ACTIVITY_POLL_INTERVAL_MS = 30_000;
 
+/** Delay in ms before showing a loading spinner to avoid flash for fast responses */
+export const LOADING_DEBOUNCE_MS = 200;
+
 // --- Network Labels ---
 // Human-readable labels for network display.
 
