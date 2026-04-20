@@ -22,6 +22,11 @@ import {
 } from './components'
 import './App.css'
 
+/** Base document title shown at all times including when wallet is disconnected. */
+const APP_BASE_TITLE = 'StacksMinimint - NFT Minting on Stacks';
+/** Document title prefix shown when a wallet is connected. */
+const APP_CONNECTED_TITLE_PREFIX = 'Connected';
+
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
@@ -42,8 +47,8 @@ function App() {
 
   // Update document title based on connection state
   useEffect(() => {
-    const baseTitle = 'StacksMinimint - NFT Minting on Stacks'
-    document.title = isConnected ? `Connected - ${baseTitle}` : baseTitle
+    const baseTitle = APP_BASE_TITLE
+    document.title = isConnected ? `${APP_CONNECTED_TITLE_PREFIX} - ${baseTitle}` : baseTitle
   }, [isConnected])
 
   const scrollToTop = useCallback(() => {
