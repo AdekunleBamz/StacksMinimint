@@ -84,7 +84,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       const userMessage = getErrorMessage(this.state.error);
       const rawMessage = this.state.error?.message?.trim();
-      const isDevelopment = process.env.NODE_ENV === 'development';
+      const isDevelopment = process.env.NODE_ENV !== 'production';
 
       return (
         <div className="error-boundary" role="alert" aria-live="assertive">
