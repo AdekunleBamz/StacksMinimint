@@ -1,6 +1,7 @@
 ;; StacksMinimint - Reward Token (MMT)
 ;; --------------------------------------------------------
 ;; SIP-010 reward token used by the hub contract for staking payouts.
+;; Mint is restricted to the hub contract; owner may update the token URI.
 
 (impl-trait .sip-010-trait-ft-standard-v-i27.sip-010-trait)
 
