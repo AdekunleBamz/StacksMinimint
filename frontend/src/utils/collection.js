@@ -21,6 +21,10 @@ const TIME_MINUTE_MS = 60_000;
 const TIME_HOUR_MS = 3_600_000;
 /** Duration of one day in milliseconds. */
 const TIME_DAY_MS = 86_400_000;
+/** Minutes per hour, used as a threshold in relative time formatting. */
+const TIME_MINUTES_PER_HOUR = 60;
+/** Hours per day, used as a threshold in relative time formatting. */
+const TIME_HOURS_PER_DAY = 24;
 
 /**
  * Formats a micro-STX amount into a human-readable STX string.
@@ -89,8 +93,8 @@ export function formatRelativeTime(timestamp) {
   const days = Math.floor(diff / TIME_DAY_MS)
 
   if (minutes < 1) return 'Just now'
-  if (minutes < 60) return `${minutes}m ago`
-  if (hours < 24) return `${hours}h ago`
+  if (minutes < TIME_MINUTES_PER_HOUR) return `${minutes}m ago`
+  if (hours < TIME_HOURS_PER_DAY) return `${hours}h ago`
   return `${days}d ago`
 }
 
