@@ -14,7 +14,7 @@ import { formatAddress } from '../utils/collection'
 import { useLocalStorage } from '../hooks'
 
 /** Delay in ms before mock NFT data is shown, simulating a network load. */
-const GALLERY_MOCK_LOAD_DELAY_MS = 500;
+const GALLERY_MOCK_LOAD_DELAY_MS = 400;
 /** Number of skeleton placeholder cards to show while the gallery is loading. */
 const GALLERY_SKELETON_COUNT = 4;
 /** localStorage key used to persist the gallery view mode (grid or list). */
