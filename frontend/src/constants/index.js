@@ -70,6 +70,10 @@ export const TX_RETRY_LIMIT = 2;
 /** Number of items to display per page in paginated lists */
 export const DEFAULT_PAGINATION_SIZE = 12;
 
+/** NFT token ID range boundaries */
+export const NFT_ID_MIN = 1;
+export const NFT_ID_MAX = MAX_SUPPLY;
+
 // --- Network Labels ---
 // Human-readable labels for network display.
 
