@@ -130,6 +130,13 @@ export function useAsync(asyncFn, options = {}) {
     });
   }, []);
 
+  /**
+   * Clear the current error without resetting the rest of the state.
+   */
+  const clearError = useCallback(() => {
+    setState(prev => ({ ...prev, error: null, isError: false }));
+  }, []);
+
   // Execute immediately if requested
   useEffect(() => {
     if (immediate) {
@@ -141,6 +148,7 @@ export function useAsync(asyncFn, options = {}) {
     ...state,
     execute,
     reset,
+    clearError,
     hasRun: state.executionCount > 0
   };
 }
