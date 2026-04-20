@@ -10,6 +10,10 @@
  * Maximum character length for a token URI accepted by the contract.
  */
 export const MAX_TOKEN_URI_LENGTH = 256
+/**
+ * Maximum number of recent mint activity entries to retain in memory per session.
+ */
+export const MAX_ACTIVITY_ENTRIES = 50
 const ASCII_PATTERN = /^[\x20-\x7E]*$/
 /** Divisor to convert micro-STX to STX (1 STX = 1,000,000 micro-STX). */
 const STX_MICRO_DIVISOR = 1_000_000;
@@ -42,6 +46,24 @@ export function formatSTX(microstx) {
     minimumFractionDigits: 0,
     maximumFractionDigits: 6,
   }).format(amount / STX_MICRO_DIVISOR)
+}
+
+/**
+ * Formats a micro-STX amount as a compact human-readable string (e.g., "1.5K STX").
+ * Useful for space-constrained UI elements such as cards and badges.
+ * @param {string|number} microstx - The amount in micro-STX.
+ * @returns {string} The compact STX string.
+ */
+export function formatSTXCompact(microstx) {
+  const input = typeof microstx === 'string' ? microstx.trim() : microstx
+  const amount = Number(input)
+  if (microstx === null || microstx === undefined || Number.isNaN(amount) || !Number.isFinite(amount)) {
+    return '0 STX'
+  }
+  const stx = amount / STX_MICRO_DIVISOR
+  if (stx >= 1_000_000) return `${(stx / 1_000_000).toFixed(1)}M STX`
+  if (stx >= 1_000) return `${(stx / 1_000).toFixed(1)}K STX`
+  return `${stx.toFixed(2)} STX`
 }
 
 /**
@@ -95,7 +117,8 @@ export function formatRelativeTime(timestamp) {
   if (minutes < 1) return 'Just now'
   if (minutes < TIME_MINUTES_PER_HOUR) return `${minutes}m ago`
   if (hours < TIME_HOURS_PER_DAY) return `${hours}h ago`
-  return `${days}d ago`
+  if (days < 30) return `${days}d ago`
+  return `${Math.floor(days / 30)}mo ago`
 }
 
 /**
@@ -199,7 +222,7 @@ export function validateTokenURI(value) {
   const kind = getMetadataKind(normalized)
   const characterCount = normalized.length
   const isAsciiOnly = ASCII_PATTERN.test(normalized)
-  const isSecureScheme = kind === 'ipfs' || kind === 'https'
+  const isSecureScheme = kind === 'ipfs' || kind === 'https' || kind === 'arweave'
   const isValid = Boolean(normalized) && isSecureScheme && isAsciiOnly && characterCount <= MAX_TOKEN_URI_LENGTH
 
   if (!normalized) {
@@ -370,7 +393,8 @@ export function getCardAccent(seed) {
   return {
     primary: `hsl(${hue} ${CARD_ACCENT_PRIMARY_SATURATION}% ${CARD_ACCENT_PRIMARY_LIGHTNESS}%)`,
     secondary: `hsl(${secondaryHue} ${CARD_ACCENT_SECONDARY_SATURATION}% ${CARD_ACCENT_SECONDARY_LIGHTNESS}%)`,
-    glow: `hsla(${hue} ${CARD_ACCENT_PRIMARY_SATURATION}% ${CARD_ACCENT_PRIMARY_LIGHTNESS}% / ${CARD_ACCENT_GLOW_ALPHA})`
+    glow: `hsla(${hue} ${CARD_ACCENT_PRIMARY_SATURATION}% ${CARD_ACCENT_PRIMARY_LIGHTNESS}% / ${CARD_ACCENT_GLOW_ALPHA})`,
+    hue
   }
 }
 
