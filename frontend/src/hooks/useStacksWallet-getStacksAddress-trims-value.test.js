@@ -38,4 +38,15 @@ describe('getStacksAddress', () => {
       }
     })).toBeNull()
   })
+
+  it('prefers a non-empty mainnet address when both are present', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          mainnet: ' SP2MAINNETVALUE1234567890 ',
+          testnet: ' ST2TESTNETVALUE1234567890 '
+        }
+      }
+    })).toBe('SP2MAINNETVALUE1234567890')
+  })
 })
