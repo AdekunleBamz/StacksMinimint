@@ -44,7 +44,7 @@ export function Footer() {
           <span className="footer__title">StacksMinimint</span>
           <p className="footer__description">
             Mint lightweight NFTs on Stacks with a wallet-first flow,
-            clear on-chain feedback, and collection context that stays visible.
+            clear on-chain feedback, and collection context at a glance.
           </p>
         </div>
 
