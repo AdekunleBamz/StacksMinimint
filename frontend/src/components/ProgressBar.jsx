@@ -11,8 +11,9 @@ import PropTypes from 'prop-types'
 import './ProgressBar.css'
 
 export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
-  const safeMax = max > 0 ? max : 100
-  const boundedValue = Math.min(Math.max(value, 0), safeMax)
+  const safeMax = typeof max === 'number' && max > 0 ? max : 100
+  const safeValue = typeof value === 'number' && Number.isFinite(value) ? value : 0
+  const boundedValue = Math.min(Math.max(safeValue, 0), safeMax)
   const percentage = Math.min(Math.max((boundedValue / safeMax) * 100, 0), 100)
 
   return (
