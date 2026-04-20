@@ -15,6 +15,8 @@ import { useLocalStorage } from '../hooks'
 
 /** Delay in ms before mock NFT data is shown, simulating a network load. */
 const GALLERY_MOCK_LOAD_DELAY_MS = 500;
+/** Number of skeleton placeholder cards to show while the gallery is loading. */
+const GALLERY_SKELETON_COUNT = 4;
 
 export function Gallery() {
   const [nfts, setNfts] = useState([])
@@ -131,7 +133,7 @@ export function Gallery() {
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
         <div className={`gallery__grid gallery__grid--${safeViewMode}`}>
-          {[1, 2, 3, 4].map((i) => (
+          {Array.from({ length: GALLERY_SKELETON_COUNT }, (_, i) => i).map((i) => (
             <div key={i} className="nft-card nft-card--skeleton">
               <div className="skeleton skeleton--image"></div>
               <div className="nft-card__info">
