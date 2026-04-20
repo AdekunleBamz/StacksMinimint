@@ -55,7 +55,7 @@ export function useClipboard(timeout = 2000) {
       setError(err);
       setCopied(false);
     }
-  }, [timeout]);
+  }, [safeTimeout]);
 
   useEffect(() => {
     return () => {
