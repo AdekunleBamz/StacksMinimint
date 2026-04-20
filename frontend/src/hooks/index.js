@@ -4,6 +4,7 @@
  * Centralizes all custom hook exports for clean imports
  * throughout the application.
  */
+export { useTheme } from '../context/ThemeContext'
 export { useStacksWallet as useWallet } from './useStacksWallet'
 export { useStacksContract as useContract } from './useStacksContract'
 export { useToast } from './useToast'
@@ -14,6 +15,7 @@ export {
   useIsTablet,
   useIsDesktop,
   useIsLargeDesktop,
+  useHighContrast,
   usePrefersDarkMode,
   usePrefersReducedMotion
 } from './useMediaQuery'
