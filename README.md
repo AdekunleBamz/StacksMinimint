@@ -17,6 +17,7 @@
 - [Development Setup](#-development-setup)
 - [Getting Started](#-getting-started)
 - [Contract Details](#-contract-details)
+- [Environment Variables](#-environment-variables)
 - [Contributing](#-contributing)
 - [License](#-license)
 
