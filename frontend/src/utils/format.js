@@ -22,3 +22,5 @@ export const formatOwnerCount = (n) => n + " owners";
 export const formatListingPrice = (stx) => stx.toFixed(2) + " STX";
 
 export const formatBidAmount = (stx) => "Bid: " + stx + " STX";
+
+export const formatMintDate = (ts) => new Date(ts).toLocaleDateString();
