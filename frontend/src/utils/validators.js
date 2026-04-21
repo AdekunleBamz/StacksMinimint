@@ -28,3 +28,5 @@ export const isValidSupplyLimit = (v) => Number.isInteger(Number(v)) && Number(v
 export const isValidMintBatch = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 10;
 
 export const isValidRarityTier = (v) => ["common","rare","epic","legendary"].includes(v);
+
+export const isValidRevealDelay = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
