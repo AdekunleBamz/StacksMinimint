@@ -24,3 +24,5 @@ export const formatListingPrice = (stx) => stx.toFixed(2) + " STX";
 export const formatBidAmount = (stx) => "Bid: " + stx + " STX";
 
 export const formatMintDate = (ts) => new Date(ts).toLocaleDateString();
+
+export const formatTxStatus = (s) => s.charAt(0).toUpperCase() + s.slice(1);
