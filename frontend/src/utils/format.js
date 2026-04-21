@@ -12,3 +12,5 @@ export const formatRarity = (tier) => tier.charAt(0).toUpperCase() + tier.slice(
 export const formatCID = (cid) => cid ? cid.slice(0,10) + "..." : "";
 
 export const formatBlocksRemaining = (n) => n + " blocks";
+
+export const formatTraitValue = (v) => String(v);
