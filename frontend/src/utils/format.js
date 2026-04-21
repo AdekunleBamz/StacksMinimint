@@ -1,7 +1,11 @@
 
 export const formatTokenId = (id) => "#" + id;
 
-export const formatMintPrice = (stx) => stx + " STX";
+export const formatMintPrice = (stx) => {
+  const amount = Number(stx);
+  if (!Number.isFinite(amount)) return '0 STX';
+  return `${amount} STX`;
+};
 
 export const formatSupply = (minted, max) => minted + " / " + max;
 
