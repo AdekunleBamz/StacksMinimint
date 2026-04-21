@@ -26,3 +26,5 @@ export const formatBidAmount = (stx) => "Bid: " + stx + " STX";
 export const formatMintDate = (ts) => new Date(ts).toLocaleDateString();
 
 export const formatTxStatus = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+export const formatNFTName = (name, id) => name + " #" + id;
