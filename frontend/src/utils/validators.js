@@ -30,3 +30,5 @@ export const isValidMintBatch = (v) => Number.isInteger(Number(v)) && Number(v) 
 export const isValidRarityTier = (v) => ["common","rare","epic","legendary"].includes(v);
 
 export const isValidRevealDelay = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
+
+export const isValidProvenanceHash = (v) => typeof v === "string" && v.length === 64;
