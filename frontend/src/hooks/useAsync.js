@@ -87,13 +87,14 @@ export function useAsync(asyncFn, options = {}) {
       const data = await promise;
 
       if (mountedRef.current && promiseRef.current === promise) {
-        setState({
+        setState((prev) => ({
+          ...prev,
           data,
           error: null,
           isLoading: false,
           isSuccess: true,
           isError: false
-        });
+        }));
 
         onSuccess?.(data);
       }
@@ -101,13 +102,14 @@ export function useAsync(asyncFn, options = {}) {
       return data;
     } catch (err) {
       if (mountedRef.current && promiseRef.current === promise) {
-        setState({
+        setState((prev) => ({
+          ...prev,
           data: null,
           error: err,
           isLoading: false,
           isSuccess: false,
           isError: true
-        });
+        }));
 
         onError?.(err);
       }
