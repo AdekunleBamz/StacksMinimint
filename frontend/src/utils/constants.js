@@ -1,2 +1,4 @@
 
 export const NFT_CONTRACT_ADDRESS = "SP000000000000000000002Q6VF78"
+
+export const NFT_CONTRACT_NAME = "minimint-nft"
