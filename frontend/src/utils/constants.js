@@ -32,3 +32,5 @@ export const EXPLORER_BASE_URL = "https://explorer.stacks.co"
 export const TOKEN_SYMBOL = "MINI"
 
 export const COLLECTION_NAME = "MiniMint"
+
+export const TRAIT_RARITY_TIERS = ["common","rare","epic","legendary"]
