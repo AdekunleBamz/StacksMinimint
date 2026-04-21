@@ -24,11 +24,12 @@ const MEDIA_QUERY_REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
 const MEDIA_QUERY_HIGH_CONTRAST = '(forced-colors: active)';
 
 export function useMediaQuery(query) {
-  const hasValidQuery = typeof query === 'string' && query.length > 0
+  const normalizedQuery = typeof query === 'string' ? query.trim() : ''
+  const hasValidQuery = normalizedQuery.length > 0
 
   const [matches, setMatches] = useState(() => {
     if (typeof window !== 'undefined' && hasValidQuery) {
-      return window.matchMedia(query).matches
+      return window.matchMedia(normalizedQuery).matches
     }
     return false
   })
@@ -36,7 +37,7 @@ export function useMediaQuery(query) {
   useEffect(() => {
     if (typeof window === 'undefined' || !hasValidQuery) return
 
-    const mediaQuery = window.matchMedia(query)
+    const mediaQuery = window.matchMedia(normalizedQuery)
     
     const handler = (event) => {
       setMatches(event.matches)
@@ -50,7 +51,7 @@ export function useMediaQuery(query) {
     return () => {
       mediaQuery.removeEventListener('change', handler)
     }
-  }, [query, hasValidQuery])
+  }, [normalizedQuery, hasValidQuery])
 
   return matches
 }
