@@ -32,3 +32,5 @@ export const isValidRarityTier = (v) => ["common","rare","epic","legendary"].inc
 export const isValidRevealDelay = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
 
 export const isValidProvenanceHash = (v) => typeof v === "string" && v.length === 64;
+
+export const isValidTokenSymbol = (v) => typeof v === "string" && /^[A-Z]{2,8}$/.test(v);
