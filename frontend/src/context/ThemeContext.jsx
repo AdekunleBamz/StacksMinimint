@@ -17,7 +17,7 @@ export function ThemeProvider({ children }) {
     if (typeof window === 'undefined') return 'dark';
     try {
       const savedTheme = window.localStorage.getItem('theme');
-      if (savedTheme) return savedTheme;
+      if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
     } catch (error) {
       console.warn('Unable to access stored theme', error);
     }
