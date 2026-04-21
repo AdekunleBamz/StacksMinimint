@@ -354,7 +354,6 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
   }
 }
 
-/**
 /** Base URL of the public IPFS HTTP gateway for fetching IPFS content. */
 const IPFS_GATEWAY_BASE_URL = 'https://ipfs.io/ipfs/';
 /** Hue offset applied to the secondary accent color to differentiate it from primary. */
@@ -375,8 +374,10 @@ const CARD_ACCENT_SECONDARY_LIGHTNESS = 64;
 const CARD_ACCENT_GLOW_ALPHA = 0.25;
 /** Number of degrees in a full hue circle, used to wrap computed hue values. */
 const HUE_CIRCLE_DEGREES = 360;
+/**
+ * Generates deterministic card accent colors from a seed value.
  * @param {string} seed - The seed string for hashing.
- * @returns {Object} The accent color object.
+ * @returns {{primary: string, secondary: string, glow: string, hue: number}} The accent color object.
  */
 export function getCardAccent(seed) {
   const input = String(seed || CARD_ACCENT_DEFAULT_SEED)
