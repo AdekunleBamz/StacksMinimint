@@ -8,3 +8,5 @@ export const formatSupply = (minted, max) => minted + " / " + max;
 export const formatRoyalty = (bps) => (bps / 100).toFixed(1) + "%";
 
 export const formatRarity = (tier) => tier.charAt(0).toUpperCase() + tier.slice(1);
+
+export const formatCID = (cid) => cid ? cid.slice(0,10) + "..." : "";
