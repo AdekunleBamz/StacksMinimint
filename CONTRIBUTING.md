@@ -52,7 +52,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ## Code Style
 
-- JavaScript: follow the existing ESLint configuration.
+- JavaScript: follow the existing module and naming patterns used in `frontend/src`.
 - Clarity: adhere to the coding patterns in `contracts/`.
 - Prefer named exports over default exports in utility modules.
 - Guard function arguments defensively at module boundaries.
