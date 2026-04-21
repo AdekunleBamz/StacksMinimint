@@ -12,3 +12,5 @@ export const isValidMetadataVersion = (v) => Number.isInteger(Number(v)) && Numb
 export const isValidBlockHeight = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
 
 export const isValidCollectionName = (v) => typeof v === "string" && v.trim().length >= 1;
+
+export const isValidTxId = (v) => typeof v === "string" && /^0x[0-9a-f]{64}$/i.test(v);
