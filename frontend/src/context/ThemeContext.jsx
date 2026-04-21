@@ -25,7 +25,7 @@ export function ThemeProvider({ children }) {
   });
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
     document.documentElement.setAttribute('data-theme', theme);
     try {
       window.localStorage.setItem('theme', theme);
