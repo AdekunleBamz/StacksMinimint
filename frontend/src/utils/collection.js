@@ -417,23 +417,6 @@ export default {
 }
 
 /**
- * Returns a compact STX value string for micro-STX amounts.
- * @param {string|number} microstx - The amount in micro-STX.
- * @returns {string} Compact STX display string (e.g. "1.5K STX")
- */
-export function formatSTXCompact(microstx) {
-  const input = typeof microstx === 'string' ? microstx.trim() : microstx
-  const amount = Number(input)
-  if (microstx === null || microstx === undefined || Number.isNaN(amount) || !Number.isFinite(amount)) {
-    return '0 STX'
-  }
-  const stx = amount / STX_MICRO_DIVISOR
-  if (stx >= 1_000_000) return `${(stx / 1_000_000).toFixed(1)}M STX`
-  if (stx >= 1_000) return `${(stx / 1_000).toFixed(1)}K STX`
-  return `${stx.toFixed(2)} STX`
-}
-
-/**
  * Returns true if the given token ID is within valid NFT range.
  * @param {any} id - The token ID to validate.
  * @param {number} [maxSupply=10000] - Maximum allowed supply.
