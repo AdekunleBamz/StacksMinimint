@@ -102,4 +102,5 @@ export function useIsPortrait() {
 /**
  * Default export for useMediaQuery hook and presets.
  */
-export default { useMediaQuery, useIsMobile, useIsTablet, useIsDesktop, useIsLargeDesktop, usePrefersDarkMode, usePrefersReducedMotion }
+<<<<<<< HEAD
+export default { useMediaQuery, useIsMobile, useIsTablet, useIsDesktop, useIsLargeDesktop, useHighContrast, usePrefersDarkMode, usePrefersReducedMotion }
