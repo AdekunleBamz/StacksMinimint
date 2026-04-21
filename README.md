@@ -35,7 +35,7 @@
 
 ## 📐 System Architecture
 
-Stored in the `contracts/` directory, the ecosystem consists of two active components:
+Stored in the `contracts/` directory, the ecosystem consists of three active components:
 
 | Contract | Purpose | Standard |
 |----------|---------|----------|
