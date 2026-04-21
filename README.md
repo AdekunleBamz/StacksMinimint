@@ -40,6 +40,7 @@ Stored in the `contracts/` directory, the ecosystem consists of two active compo
 | Contract | Purpose | Standard |
 |----------|---------|----------|
 | `minimint-core-v-i27` | Base implementation, mint controller, and metadata management | SIP-009 |
+| `minimint-token-v-i27` | Reward token contract used by staking and payout flows | SIP-010 |
 | `minimint-hub-v-i27` | Central escrow for staking + marketplace, and consolidated SIP-010 reward token logic | SIP-010 + Custom |
 
 The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-total-supply`, `set-token-uri`, and related read-onlys) is preserved on `minimint-hub-v-i27`.
