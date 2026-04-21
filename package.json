@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Modular NFT minting and rewards protocol on Stacks with Clarity contracts and a React frontend",
   "author": "StacksMinimint Contributors",
+  "main": "index.js",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
