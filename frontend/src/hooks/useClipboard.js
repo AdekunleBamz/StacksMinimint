@@ -41,8 +41,11 @@ export function useClipboard(timeout = 2000) {
         textarea.style.left = CLIPBOARD_OFFSCREEN_OFFSET;
         document.body.appendChild(textarea);
         textarea.select();
-        document.execCommand('copy');
+        const copiedSuccessfully = document.execCommand('copy');
         document.body.removeChild(textarea);
+        if (!copiedSuccessfully) {
+          throw new Error('Fallback clipboard copy command failed');
+        }
       }
       setCopied(true);
       setError(null);
