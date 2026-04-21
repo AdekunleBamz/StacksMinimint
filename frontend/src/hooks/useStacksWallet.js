@@ -55,7 +55,7 @@ export function useStacksWallet() {
       showConnect({
         appDetails: {
           name: WALLET_APP_NAME,
-          icon: typeof window !== 'undefined' ? window.location.origin + '/favicon.png' : '',
+          icon: typeof window !== 'undefined' ? new URL('/favicon.png', window.location.origin).toString() : '',
         },
         redirectTo: '/',
         onFinish: () => {
