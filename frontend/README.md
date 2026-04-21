@@ -50,7 +50,7 @@ Copy `.env.example` to `.env` and configure:
 - `VITE_STX_NETWORK` - Network (mainnet/testnet)
 - `VITE_CONTRACT_ADDRESS` - Contract address
 - `VITE_CONTRACT_NAME` - Contract name
-- `VITE_TOKEN_SYMBOL` - Reward token display symbol
+- `VITE_HUB_CONTRACT_NAME` - Hub contract name
 
 ## License
 
