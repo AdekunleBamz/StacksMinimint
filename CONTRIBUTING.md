@@ -45,7 +45,6 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 - Run Clarinet checks before submitting contract changes: `clarinet check`
 - Run frontend tests: `npm run frontend:test`
-- Run a quick pre-push validation pass: `npm run check:fast`
 - Keep commits small and focused — one logical change per commit.
 - Open a pull request against `main` with a clear description.
 
