@@ -20,3 +20,5 @@ export const formatCollectionSize = (n) => n.toLocaleString() + " items";
 export const formatOwnerCount = (n) => n + " owners";
 
 export const formatListingPrice = (stx) => stx.toFixed(2) + " STX";
+
+export const formatBidAmount = (stx) => "Bid: " + stx + " STX";
