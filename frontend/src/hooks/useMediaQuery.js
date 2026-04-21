@@ -27,14 +27,14 @@ export function useMediaQuery(query) {
   const hasValidQuery = typeof query === 'string' && query.length > 0
 
   const [matches, setMatches] = useState(() => {
-    if (typeof window !== 'undefined' && hasValidQuery) {
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function' && hasValidQuery) {
       return window.matchMedia(query).matches
     }
     return false
   })
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !hasValidQuery) return
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function' || !hasValidQuery) return
 
     const mediaQuery = window.matchMedia(query)
     
