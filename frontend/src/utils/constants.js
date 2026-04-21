@@ -14,3 +14,5 @@ export const IPFS_GATEWAY_URL = "https://gateway.pinata.cloud/ipfs/"
 export const METADATA_VERSION = 1
 
 export const REVEAL_DELAY_BLOCKS = 144
+
+export const ROYALTY_BASIS_POINTS = 500
