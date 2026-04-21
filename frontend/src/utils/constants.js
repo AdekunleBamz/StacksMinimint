@@ -34,3 +34,5 @@ export const TOKEN_SYMBOL = "MINI"
 export const COLLECTION_NAME = "MiniMint"
 
 export const TRAIT_RARITY_TIERS = ["common","rare","epic","legendary"]
+
+export const ANIMATION_REVEAL_MS = 1200
