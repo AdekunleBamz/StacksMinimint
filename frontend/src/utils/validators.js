@@ -34,3 +34,5 @@ export const isValidRevealDelay = (v) => Number.isInteger(Number(v)) && Number(v
 export const isValidProvenanceHash = (v) => typeof v === "string" && v.length === 64;
 
 export const isValidTokenSymbol = (v) => typeof v === "string" && /^[A-Z]{2,8}$/.test(v);
+
+export const isValidMintPrice = (v) => !isNaN(Number(v)) && Number(v) >= 0;
