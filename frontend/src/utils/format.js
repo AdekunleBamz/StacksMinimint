@@ -18,3 +18,5 @@ export const formatTraitValue = (v) => String(v);
 export const formatCollectionSize = (n) => n.toLocaleString() + " items";
 
 export const formatOwnerCount = (n) => n + " owners";
+
+export const formatListingPrice = (stx) => stx.toFixed(2) + " STX";
