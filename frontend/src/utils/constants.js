@@ -8,3 +8,5 @@ export const NFT_MINT_PRICE_STX = 10
 export const MAX_SUPPLY = 10000
 
 export const MINT_BATCH_LIMIT = 5
+
+export const IPFS_GATEWAY_URL = "https://gateway.pinata.cloud/ipfs/"
