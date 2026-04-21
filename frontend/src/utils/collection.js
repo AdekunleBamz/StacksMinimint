@@ -347,7 +347,7 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
     id: normalizedTxId || fallbackId,
     txId: normalizedTxId,
     tokenURI: normalizedTokenURI,
-    address,
+    address: normalizedAddress,
     metadataKind: getMetadataKind(normalizedTokenURI),
     metadataLabel: getMetadataLabel(normalizedTokenURI),
     createdAt: Date.now()
