@@ -28,8 +28,8 @@ export function useMediaQuery(query) {
   const hasValidQuery = normalizedQuery.length > 0
 
   const [matches, setMatches] = useState(() => {
-    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function' && hasValidQuery) {
-      return window.matchMedia(query).matches
+    if (typeof window !== 'undefined' && hasValidQuery) {
+      return window.matchMedia(normalizedQuery).matches
     }
     return false
   })
@@ -52,10 +52,7 @@ export function useMediaQuery(query) {
         mediaQuery.removeEventListener('change', handler)
       }
     }
-
-    mediaQuery.addListener(handler)
-    return () => mediaQuery.removeListener(handler)
-  }, [query, hasValidQuery])
+  }, [normalizedQuery, hasValidQuery])
 
   return matches
 }
