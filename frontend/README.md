@@ -15,7 +15,7 @@ npm run dev
 npm run build
 
 # Run tests
-npm test
+npm run test
 ```
 
 ## Project Structure
