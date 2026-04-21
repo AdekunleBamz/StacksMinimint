@@ -30,3 +30,5 @@ export const STACKS_API_BASE_URL = "https://stacks-node-api.mainnet.stacks.co"
 export const EXPLORER_BASE_URL = "https://explorer.stacks.co"
 
 export const TOKEN_SYMBOL = "MINI"
+
+export const COLLECTION_NAME = "MiniMint"
