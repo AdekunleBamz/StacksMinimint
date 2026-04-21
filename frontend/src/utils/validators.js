@@ -20,3 +20,5 @@ export const isValidTraitName = (v) => typeof v === "string" && v.trim().length 
 export const isValidListingPrice = (v) => !isNaN(Number(v)) && Number(v) > 0;
 
 export const isValidBidAmount = (v) => !isNaN(Number(v)) && Number(v) > 0;
+
+export const isValidOwnerAddress = (v) => typeof v === "string" && v.length >= 30;
