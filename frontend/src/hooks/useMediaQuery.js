@@ -28,7 +28,7 @@ export function useMediaQuery(query) {
   const hasValidQuery = normalizedQuery.length > 0
 
   const [matches, setMatches] = useState(() => {
-    if (typeof window !== 'undefined' && hasValidQuery) {
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function' && hasValidQuery) {
       return window.matchMedia(normalizedQuery).matches
     }
     return false
