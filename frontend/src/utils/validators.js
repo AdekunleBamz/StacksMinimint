@@ -22,3 +22,5 @@ export const isValidListingPrice = (v) => !isNaN(Number(v)) && Number(v) > 0;
 export const isValidBidAmount = (v) => !isNaN(Number(v)) && Number(v) > 0;
 
 export const isValidOwnerAddress = (v) => typeof v === "string" && v.length >= 30;
+
+export const isValidSupplyLimit = (v) => Number.isInteger(Number(v)) && Number(v) >= 1;
