@@ -23,7 +23,7 @@ export function useClipboard(timeout = 2000) {
   const safeTimeout = typeof timeout === 'number' && timeout > 0 ? timeout : 2000;
 
   const copy = useCallback(async (text) => {
-    if (text === null || text === undefined) return;
+    if (text === null || text === undefined) return false;
     const value = String(text);
     setError(null);
 
