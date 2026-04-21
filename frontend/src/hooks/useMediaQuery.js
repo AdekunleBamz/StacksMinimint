@@ -52,6 +52,11 @@ export function useMediaQuery(query) {
         mediaQuery.removeEventListener('change', handler)
       }
     }
+
+    if (typeof mediaQuery.addListener === 'function') {
+      mediaQuery.addListener(handler)
+      return () => mediaQuery.removeListener(handler)
+    }
   }, [normalizedQuery, hasValidQuery])
 
   return matches
