@@ -20,3 +20,5 @@ export const ROYALTY_BASIS_POINTS = 500
 export const MAX_PER_WALLET = 20
 
 export const WHITELIST_BLOCK_START = 100000
+
+export const PUBLIC_MINT_BLOCK = 105000
