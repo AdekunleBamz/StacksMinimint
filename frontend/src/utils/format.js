@@ -32,3 +32,5 @@ export const formatNFTName = (name, id) => name + " #" + id;
 export const formatIPFSUrl = (cid) => "ipfs://" + cid;
 
 export const formatGatewayUrl = (cid) => "https://ipfs.io/ipfs/" + cid;
+
+export const formatMicroStx = (v) => (v / 1e6).toFixed(6) + " STX";
