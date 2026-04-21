@@ -14,3 +14,5 @@ export const formatCID = (cid) => cid ? cid.slice(0,10) + "..." : "";
 export const formatBlocksRemaining = (n) => n + " blocks";
 
 export const formatTraitValue = (v) => String(v);
+
+export const formatCollectionSize = (n) => n.toLocaleString() + " items";
