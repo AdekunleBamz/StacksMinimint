@@ -34,3 +34,5 @@ export const formatIPFSUrl = (cid) => "ipfs://" + cid;
 export const formatGatewayUrl = (cid) => "https://ipfs.io/ipfs/" + cid;
 
 export const formatMicroStx = (v) => (v / 1e6).toFixed(6) + " STX";
+
+export const formatBlockTime = (ms) => Math.round(ms / 60000) + " min";
