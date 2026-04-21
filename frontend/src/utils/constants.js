@@ -24,3 +24,5 @@ export const WHITELIST_BLOCK_START = 100000
 export const PUBLIC_MINT_BLOCK = 105000
 
 export const PROVENANCE_HASH_ALGORITHM = "sha256"
+
+export const STACKS_API_BASE_URL = "https://stacks-node-api.mainnet.stacks.co"
