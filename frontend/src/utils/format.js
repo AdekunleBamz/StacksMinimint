@@ -30,3 +30,5 @@ export const formatTxStatus = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 export const formatNFTName = (name, id) => name + " #" + id;
 
 export const formatIPFSUrl = (cid) => "ipfs://" + cid;
+
+export const formatGatewayUrl = (cid) => "https://ipfs.io/ipfs/" + cid;
