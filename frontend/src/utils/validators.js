@@ -26,3 +26,5 @@ export const isValidOwnerAddress = (v) => typeof v === "string" && v.length >= 3
 export const isValidSupplyLimit = (v) => Number.isInteger(Number(v)) && Number(v) >= 1;
 
 export const isValidMintBatch = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 10;
+
+export const isValidRarityTier = (v) => ["common","rare","epic","legendary"].includes(v);
