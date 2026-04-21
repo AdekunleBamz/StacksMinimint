@@ -36,3 +36,5 @@ export const isValidProvenanceHash = (v) => typeof v === "string" && v.length ==
 export const isValidTokenSymbol = (v) => typeof v === "string" && /^[A-Z]{2,8}$/.test(v);
 
 export const isValidMintPrice = (v) => !isNaN(Number(v)) && Number(v) >= 0;
+
+export const isValidMaxPerWallet = (v) => Number.isInteger(Number(v)) && Number(v) >= 1;
