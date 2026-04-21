@@ -150,7 +150,7 @@ export function useAsync(asyncFn, options = {}) {
   // Execute immediately if requested
   useEffect(() => {
     if (immediate) {
-      execute();
+      void execute().catch(() => {});
     }
   }, [immediate, execute]);
 
