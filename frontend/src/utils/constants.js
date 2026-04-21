@@ -10,3 +10,5 @@ export const MAX_SUPPLY = 10000
 export const MINT_BATCH_LIMIT = 5
 
 export const IPFS_GATEWAY_URL = "https://gateway.pinata.cloud/ipfs/"
+
+export const METADATA_VERSION = 1
