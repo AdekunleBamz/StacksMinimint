@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatBlocksRemaining, formatCID, formatCollectionSize, formatListingPrice, formatMintPrice, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
+import { formatBidAmount, formatBlocksRemaining, formatCID, formatCollectionSize, formatListingPrice, formatMintPrice, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -29,6 +29,10 @@ describe('format guards', () => {
 
   it('formats listing prices with fixed decimals', () => {
     expect(formatListingPrice(1.5)).toBe('1.50 STX')
+  })
+
+  it('formats bid amount labels', () => {
+    expect(formatBidAmount(3)).toBe('Bid: 3 STX')
   })
 
   it('returns safe fallbacks for empty rarity and tx status values', () => {
