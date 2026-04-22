@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { createSubmissionRecord, formatAddress, formatExactTime, formatLimit, formatRelativeTime, formatSTX, formatSTXCompact, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, validateTokenURI } from './collection'
+import { createSubmissionRecord, formatAddress, formatExactTime, formatLimit, formatRelativeTime, formatSTX, formatSTXCompact, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, isValidTokenId, validateTokenURI } from './collection'
 
 // Regression note: preserve collection behavior coverage.
 // Scope note: validates collection behavior for regressions.
@@ -170,6 +170,12 @@ describe('collection utility', () => {
     it('captures arweave metadata labels on submissions', () => {
       const record = createSubmissionRecord({ txId: '0xabc', tokenURI: 'ar://abc', address: 'SP123' })
       expect(record.metadataLabel).toBe('Arweave metadata')
+    })
+  })
+
+  describe('isValidTokenId', () => {
+    it('accepts token ids inside the default supply range', () => {
+      expect(isValidTokenId(1)).toBe(true)
     })
   })
 
