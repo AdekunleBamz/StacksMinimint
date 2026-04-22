@@ -131,6 +131,7 @@ describe('collection utility', () => {
       const result = validateTokenURI('ftp://example.com')
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Unsupported scheme')
+      expect(result.helper).toContain('ar://')
     })
 
     it('asks users to upgrade http metadata URLs', () => {

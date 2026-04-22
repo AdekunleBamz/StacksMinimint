@@ -275,7 +275,7 @@ export function validateTokenURI(value) {
       isValid: false,
       tone: 'warning',
       label: 'Unsupported scheme',
-      helper: 'Only ipfs:// and https:// metadata URLs are accepted in this UI.',
+      helper: 'Only ipfs://, ar://, and https:// metadata URLs are accepted in this UI.',
       characterCount
     }
   }
