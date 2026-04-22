@@ -65,6 +65,10 @@ describe('collection utility', () => {
     it('leaves short addresses untruncated', () => {
       expect(formatAddress('SP123', 4, 4)).toBe('SP123')
     })
+
+    it('returns an empty label for non-string addresses', () => {
+      expect(formatAddress(12345)).toBe('')
+    })
   })
 
   describe('formatLimit', () => {
