@@ -28,6 +28,10 @@ describe('getStacksAddress', () => {
     expect(getStacksAddress({})).toBeNull()
   })
 
+  it('returns null when profile is null', () => {
+    expect(getStacksAddress({ profile: null })).toBeNull()
+  })
+
   it('returns null when both network addresses are non-string values', () => {
     expect(getStacksAddress({
       profile: {
