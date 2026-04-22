@@ -53,6 +53,10 @@ describe('parseUint', () => {
     expect(parseUint('+12')).toBe(0)
   })
 
+  it('returns zero for exponential numeric strings', () => {
+    expect(parseUint('1e3')).toBe(0)
+  })
+
   it('returns zero for empty strings', () => {
     expect(parseUint('')).toBe(0)
   })
