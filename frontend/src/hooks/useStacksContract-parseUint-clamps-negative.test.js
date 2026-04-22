@@ -28,6 +28,10 @@ describe('parseUint', () => {
     expect(parseUint(Number.NaN)).toBe(0)
   })
 
+  it('normalizes negative zero number input', () => {
+    expect(parseUint(-0)).toBe(0)
+  })
+
   it('preserves exact bigint values inside the safe integer range', () => {
     expect(parseUint(12345n)).toBe(12345)
     expect(parseUint(0n)).toBe(0)

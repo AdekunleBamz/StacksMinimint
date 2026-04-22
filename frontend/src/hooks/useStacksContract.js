@@ -37,7 +37,7 @@ export const parseUint = (value) => {
   }
 
   if (typeof value === 'number') {
-    if (!Number.isFinite(value) || value < 0) return 0;
+    if (!Number.isFinite(value) || value <= 0) return 0;
     return Math.min(Math.floor(value), Number.MAX_SAFE_INTEGER);
   }
 
