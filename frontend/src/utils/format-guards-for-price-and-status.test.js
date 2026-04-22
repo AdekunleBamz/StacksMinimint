@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatBidAmount, formatBlocksRemaining, formatCID, formatCollectionSize, formatListingPrice, formatMintPrice, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
+import { formatBidAmount, formatBlocksRemaining, formatCID, formatCollectionSize, formatListingPrice, formatMintPrice, formatNFTName, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -33,6 +33,10 @@ describe('format guards', () => {
 
   it('formats bid amount labels', () => {
     expect(formatBidAmount(3)).toBe('Bid: 3 STX')
+  })
+
+  it('formats NFT names with token ids', () => {
+    expect(formatNFTName('MiniMint', 9)).toBe('MiniMint #9')
   })
 
   it('returns safe fallbacks for empty rarity and tx status values', () => {
