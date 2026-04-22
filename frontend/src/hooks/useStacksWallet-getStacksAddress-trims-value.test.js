@@ -23,6 +23,16 @@ describe('getStacksAddress', () => {
     })).toBe('ST2PABCD1234EFGH5678IJKL9012MNOP3456QRST')
   })
 
+  it('falls back when the preferred network address is missing', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          testnet: ' ST2ONLYFALLBACK1234567890 '
+        }
+      }
+    })).toBe('ST2ONLYFALLBACK1234567890')
+  })
+
   it('returns null when no profile data exists', () => {
     expect(getStacksAddress(null)).toBeNull()
     expect(getStacksAddress({})).toBeNull()
