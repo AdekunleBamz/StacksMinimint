@@ -70,6 +70,10 @@ describe('collection utility', () => {
     it('treats whitespace-only metadata as empty', () => {
       expect(getMetadataKind('   ')).toBe('empty')
     })
+
+    it('detects arweave metadata schemes', () => {
+      expect(getMetadataKind('ar://abc')).toBe('arweave')
+    })
   })
 
   describe('validateTokenURI', () => {
