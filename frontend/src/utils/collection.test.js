@@ -161,6 +161,11 @@ describe('collection utility', () => {
       const record = createSubmissionRecord({ txId: ' 0xabc ', tokenURI: 'ipfs://cid', address: 'SP123' })
       expect(record.txId).toBe('0xabc')
     })
+
+    it('trims token URIs before storing submissions', () => {
+      const record = createSubmissionRecord({ txId: '0xabc', tokenURI: ' ipfs://cid ', address: 'SP123' })
+      expect(record.tokenURI).toBe('ipfs://cid')
+    })
   })
 
   describe('formatRelativeTime', () => {
