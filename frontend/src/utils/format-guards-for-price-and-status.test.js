@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatListingPrice, formatMintPrice, formatRarity, formatTokenId, formatTxStatus } from './format'
+import { formatListingPrice, formatMintPrice, formatRarity, formatSupply, formatTokenId, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -13,6 +13,10 @@ describe('format guards', () => {
 
   it('formats finite mint prices with STX units', () => {
     expect(formatMintPrice(2)).toBe('2 STX')
+  })
+
+  it('formats minted supply counts', () => {
+    expect(formatSupply(4, 100)).toBe('4 / 100')
   })
 
   it('falls back for invalid listing price values', () => {
