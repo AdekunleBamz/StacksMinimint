@@ -33,6 +33,16 @@ describe('getStacksAddress', () => {
     })).toBe('ST2ONLYFALLBACK1234567890')
   })
 
+  it('returns null when the preferred address is blank and no fallback exists', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          mainnet: '   '
+        }
+      }
+    })).toBeNull()
+  })
+
   it('returns null when no profile data exists', () => {
     expect(getStacksAddress(null)).toBeNull()
     expect(getStacksAddress({})).toBeNull()
