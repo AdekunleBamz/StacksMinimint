@@ -83,6 +83,10 @@ describe('collection utility', () => {
     it('uses fallback labels for blank limits', () => {
       expect(formatLimit('   ')).toBe('Not set')
     })
+
+    it('keeps zero limits visible', () => {
+      expect(formatLimit(0)).toBe('0')
+    })
   })
 
   describe('getMetadataKind', () => {
