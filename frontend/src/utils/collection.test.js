@@ -140,6 +140,10 @@ describe('collection utility', () => {
     it('normalizes ipfs://ipfs paths to a single gateway prefix', () => {
       expect(getMetadataGatewayUrl('ipfs://ipfs/QmExample')).toBe('https://ipfs.io/ipfs/QmExample')
     })
+
+    it('does not invent gateways for arweave metadata', () => {
+      expect(getMetadataGatewayUrl('ar://abc')).toBeNull()
+    })
   })
 
   describe('getMetadataLabel', () => {
