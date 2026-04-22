@@ -65,6 +65,10 @@ describe('parseUint', () => {
     expect(parseUint(Number.MAX_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER)
   })
 
+  it('preserves max safe integer strings exactly', () => {
+    expect(parseUint(String(Number.MAX_SAFE_INTEGER))).toBe(Number.MAX_SAFE_INTEGER)
+  })
+
   it('returns zero for object input values', () => {
     expect(parseUint({ value: 1 })).toBe(0)
   })
