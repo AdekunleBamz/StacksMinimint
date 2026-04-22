@@ -101,6 +101,10 @@ describe('getStacksAddress', () => {
     expect(getStacksAddress({ profile: {} })).toBeNull()
   })
 
+  it('returns null when stxAddress is not an address map', () => {
+    expect(getStacksAddress({ profile: { stxAddress: 'SP2NOTAMAP1234567890' } })).toBeNull()
+  })
+
   it('returns null when stxAddress itself is null', () => {
     expect(getStacksAddress({ profile: { stxAddress: null } })).toBeNull()
   })
