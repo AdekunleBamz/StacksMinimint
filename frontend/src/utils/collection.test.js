@@ -190,6 +190,11 @@ describe('collection utility', () => {
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Unsupported characters')
     })
+
+    it('counts characters after trimming token URIs', () => {
+      const result = validateTokenURI('  ipfs://cid  ')
+      expect(result.characterCount).toBe('ipfs://cid'.length)
+    })
   })
 
   describe('getMetadataGatewayUrl', () => {
