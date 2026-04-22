@@ -185,6 +185,10 @@ describe('collection utility', () => {
       expect(getMetadataLabel('  https://www.example.com/meta.json  ')).toBe('example.com')
     })
 
+    it('uses a web fallback label for malformed web URLs', () => {
+      expect(getMetadataLabel('https://')).toBe('Web metadata')
+    })
+
     it('labels IPFS metadata clearly', () => {
       expect(getMetadataLabel('ipfs://bafy')).toBe('IPFS metadata')
     })
