@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatBidAmount, formatBlocksRemaining, formatCID, formatCollectionSize, formatGatewayUrl, formatIPFSUrl, formatListingPrice, formatMintPrice, formatNFTName, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
+import { formatBidAmount, formatBlocksRemaining, formatCID, formatCollectionSize, formatGatewayUrl, formatIPFSUrl, formatListingPrice, formatMicroStx, formatMintPrice, formatNFTName, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -45,6 +45,10 @@ describe('format guards', () => {
 
   it('formats IPFS gateway URLs from CIDs', () => {
     expect(formatGatewayUrl('bafy')).toBe('https://ipfs.io/ipfs/bafy')
+  })
+
+  it('formats micro-STX values with fixed precision', () => {
+    expect(formatMicroStx(1500000)).toBe('1.500000 STX')
   })
 
   it('returns safe fallbacks for empty rarity and tx status values', () => {
