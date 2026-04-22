@@ -104,6 +104,10 @@ describe('collection utility', () => {
     it('detects arweave metadata schemes', () => {
       expect(getMetadataKind('ar://abc')).toBe('arweave')
     })
+
+    it('marks unknown metadata schemes explicitly', () => {
+      expect(getMetadataKind('ftp://example.com/meta.json')).toBe('unknown')
+    })
   })
 
   describe('validateTokenURI', () => {
