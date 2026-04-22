@@ -65,6 +65,11 @@ describe('parseUint', () => {
     expect(parseUint(Symbol('amount'))).toBe(0)
   })
 
+  it('returns zero for boolean input values', () => {
+    expect(parseUint(true)).toBe(0)
+    expect(parseUint(false)).toBe(0)
+  })
+
   it('returns zero for whitespace-only strings', () => {
     expect(parseUint('   ')).toBe(0)
   })
