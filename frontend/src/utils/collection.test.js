@@ -269,6 +269,12 @@ describe('collection utility', () => {
     it('returns deterministic accent colors for the same seed', () => {
       expect(getCardAccent('seed-value')).toEqual(getCardAccent('seed-value'))
     })
+
+    it('keeps generated accent hues within the color wheel', () => {
+      const accent = getCardAccent('seed-value')
+      expect(accent.hue).toBeGreaterThanOrEqual(0)
+      expect(accent.hue).toBeLessThan(360)
+    })
   })
 
   describe('isValidTokenId', () => {
