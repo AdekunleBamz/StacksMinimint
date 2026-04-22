@@ -29,6 +29,10 @@ describe('collection utility', () => {
     it('formats million-scale compact STX amounts', () => {
       expect(formatSTXCompact(1500000000000)).toBe('1.5M STX')
     })
+
+    it('returns zero compact STX for invalid values', () => {
+      expect(formatSTXCompact(Number.NaN)).toBe('0 STX')
+    })
   })
 
   describe('formatAddress', () => {
