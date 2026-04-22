@@ -73,6 +73,10 @@ describe('parseUint', () => {
     expect(parseUint(Number.MAX_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER)
   })
 
+  it('preserves max safe bigint inputs exactly', () => {
+    expect(parseUint(BigInt(Number.MAX_SAFE_INTEGER))).toBe(Number.MAX_SAFE_INTEGER)
+  })
+
   it('preserves max safe integer strings exactly', () => {
     expect(parseUint(String(Number.MAX_SAFE_INTEGER))).toBe(Number.MAX_SAFE_INTEGER)
   })
