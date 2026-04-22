@@ -73,6 +73,11 @@ describe('parseUint', () => {
     expect(parseUint({ value: 1 })).toBe(0)
   })
 
+  it('returns zero for nullish input values', () => {
+    expect(parseUint(null)).toBe(0)
+    expect(parseUint(undefined)).toBe(0)
+  })
+
   it('returns zero for symbol input values', () => {
     expect(parseUint(Symbol('amount'))).toBe(0)
   })
