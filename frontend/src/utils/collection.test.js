@@ -31,6 +31,10 @@ describe('collection utility', () => {
       expect(formatSTXCompact(1500000)).toBe('1.50 STX')
     })
 
+    it('trims compact STX string inputs', () => {
+      expect(formatSTXCompact(' 2500000 ')).toBe('2.50 STX')
+    })
+
     it('formats thousand-scale compact STX amounts', () => {
       expect(formatSTXCompact(1500000000)).toBe('1.5K STX')
     })
