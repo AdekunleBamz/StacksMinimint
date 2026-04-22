@@ -175,6 +175,10 @@ describe('collection utility', () => {
       expect(getMetadataGatewayUrl('ipfs://ipfs/QmExample')).toBe('https://ipfs.io/ipfs/QmExample')
     })
 
+    it('returns null for blank IPFS gateway paths', () => {
+      expect(getMetadataGatewayUrl('ipfs://   ')).toBeNull()
+    })
+
     it('does not invent gateways for arweave metadata', () => {
       expect(getMetadataGatewayUrl('ar://abc')).toBeNull()
     })
