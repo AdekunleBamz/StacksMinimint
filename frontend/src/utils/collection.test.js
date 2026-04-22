@@ -25,6 +25,10 @@ describe('collection utility', () => {
     it('formats thousand-scale compact STX amounts', () => {
       expect(formatSTXCompact(1500000000)).toBe('1.5K STX')
     })
+
+    it('formats million-scale compact STX amounts', () => {
+      expect(formatSTXCompact(1500000000000)).toBe('1.5M STX')
+    })
   })
 
   describe('formatAddress', () => {
