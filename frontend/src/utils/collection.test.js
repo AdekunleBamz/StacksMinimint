@@ -174,6 +174,11 @@ describe('collection utility', () => {
       expect(result.label).toBe('Arweave metadata ready')
     })
 
+    it('marks valid arweave metadata with a success tone', () => {
+      const result = validateTokenURI('ar://abc')
+      expect(result.tone).toBe('success')
+    })
+
     it('rejects metadata URIs above the contract limit', () => {
       const result = validateTokenURI(`ipfs://${'a'.repeat(260)}`)
       expect(result.isValid).toBe(false)
