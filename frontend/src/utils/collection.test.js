@@ -116,6 +116,12 @@ describe('collection utility', () => {
       expect(result.isValid).toBe(true)
       expect(result.label).toBe('Arweave metadata ready')
     })
+
+    it('rejects metadata URIs above the contract limit', () => {
+      const result = validateTokenURI(`ipfs://${'a'.repeat(260)}`)
+      expect(result.isValid).toBe(false)
+      expect(result.label).toBe('URI too long')
+    })
   })
 
   describe('getMetadataGatewayUrl', () => {
