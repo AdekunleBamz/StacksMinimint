@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatListingPrice, formatMintPrice, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTxStatus } from './format'
+import { formatCID, formatListingPrice, formatMintPrice, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -34,5 +34,9 @@ describe('format guards', () => {
 
   it('trims rarity labels before title casing', () => {
     expect(formatRarity(' rare ')).toBe('Rare')
+  })
+
+  it('shortens CID labels for compact display', () => {
+    expect(formatCID('bafybeigdyrzt')).toBe('bafybeigdy...')
   })
 })
