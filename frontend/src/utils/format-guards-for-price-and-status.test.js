@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatBlocksRemaining, formatCID, formatListingPrice, formatMintPrice, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
+import { formatBlocksRemaining, formatCID, formatCollectionSize, formatListingPrice, formatMintPrice, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -50,5 +50,9 @@ describe('format guards', () => {
 
   it('stringifies trait values for display', () => {
     expect(formatTraitValue(42)).toBe('42')
+  })
+
+  it('formats collection sizes with item units', () => {
+    expect(formatCollectionSize(1200)).toBe('1,200 items')
   })
 })
