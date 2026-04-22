@@ -112,7 +112,9 @@ describe('collection utility', () => {
     })
 
     it('accepts arweave metadata URIs', () => {
-      expect(validateTokenURI('ar://abc').isValid).toBe(true)
+      const result = validateTokenURI('ar://abc')
+      expect(result.isValid).toBe(true)
+      expect(result.label).toBe('Arweave metadata ready')
     })
   })
 

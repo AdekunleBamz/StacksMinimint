@@ -326,7 +326,7 @@ export function validateTokenURI(value) {
     kind,
     isValid: true,
     tone: 'success',
-    label: kind === 'ipfs' ? 'IPFS metadata ready' : 'HTTPS metadata ready',
+    label: kind === 'ipfs' ? 'IPFS metadata ready' : kind === 'arweave' ? 'Arweave metadata ready' : 'HTTPS metadata ready',
     helper: 'This URI passes the local checks and is ready for wallet confirmation.',
     characterCount
   }
