@@ -111,6 +111,12 @@ describe('collection utility', () => {
   })
 
   describe('validateTokenURI', () => {
+    it('reports required metadata for empty token URIs', () => {
+      const result = validateTokenURI('')
+      expect(result.isValid).toBe(false)
+      expect(result.label).toBe('Metadata required')
+    })
+
     it('accepts secure ipfs and https links', () => {
       expect(validateTokenURI('ipfs://cid').isValid).toBe(true)
       expect(validateTokenURI('https://example.com/meta.json').isValid).toBe(true)
