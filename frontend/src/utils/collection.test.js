@@ -53,6 +53,10 @@ describe('collection utility', () => {
     it('uses fallback labels for null limits', () => {
       expect(formatLimit(null, 'Unlimited')).toBe('Unlimited')
     })
+
+    it('uses fallback labels for blank limits', () => {
+      expect(formatLimit('   ')).toBe('Not set')
+    })
   })
 
   describe('getMetadataKind', () => {
