@@ -279,6 +279,11 @@ describe('collection utility', () => {
     it('includes the configured alpha in accent glows', () => {
       expect(getCardAccent('seed-value').glow).toContain('/ 0.25')
     })
+
+    it('keeps secondary accent colors distinct from primary colors', () => {
+      const accent = getCardAccent('seed-value')
+      expect(accent.secondary).not.toBe(accent.primary)
+    })
   })
 
   describe('isValidTokenId', () => {
