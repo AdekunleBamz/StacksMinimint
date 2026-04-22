@@ -89,4 +89,8 @@ describe('parseUint', () => {
   it('returns zero for whitespace-only strings', () => {
     expect(parseUint('   ')).toBe(0)
   })
+
+  it('returns zero for padded numeric strings', () => {
+    expect(parseUint(' 42 ')).toBe(0)
+  })
 })
