@@ -11,6 +11,10 @@ describe('format guards', () => {
     expect(formatMintPrice(undefined)).toBe('0 STX')
   })
 
+  it('formats finite mint prices with STX units', () => {
+    expect(formatMintPrice(2)).toBe('2 STX')
+  })
+
   it('falls back for invalid listing price values', () => {
     expect(formatListingPrice('not-a-number')).toBe('0.00 STX')
   })
