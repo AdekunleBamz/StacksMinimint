@@ -37,6 +37,10 @@ describe('parseUint', () => {
     expect(parseUint('00042')).toBe(42)
   })
 
+  it('parses the zero string as zero', () => {
+    expect(parseUint('0')).toBe(0)
+  })
+
   it('returns zero for negative numeric strings', () => {
     expect(parseUint('-1')).toBe(0)
   })
