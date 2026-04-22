@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, validateTokenURI } from './collection'
+import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, formatSTXCompact, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, validateTokenURI } from './collection'
 
 // Regression note: preserve collection behavior coverage.
 // Scope note: validates collection behavior for regressions.
@@ -14,6 +14,12 @@ describe('collection utility', () => {
     it('returns zero for non-finite inputs', () => {
       expect(formatSTX(Number.POSITIVE_INFINITY)).toBe('0')
       expect(formatSTX(Number.NEGATIVE_INFINITY)).toBe('0')
+    })
+  })
+
+  describe('formatSTXCompact', () => {
+    it('formats regular STX compact amounts', () => {
+      expect(formatSTXCompact(1500000)).toBe('1.50 STX')
     })
   })
 
