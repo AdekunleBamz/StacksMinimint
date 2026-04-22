@@ -258,6 +258,11 @@ describe('collection utility', () => {
       const record = createSubmissionRecord({ tokenURI: 'ipfs://cid', address: 'SP123' })
       expect(record.id).toContain('local-')
     })
+
+    it('uses unknown in local ids when address is blank', () => {
+      const record = createSubmissionRecord({ tokenURI: 'ipfs://cid', address: '   ' })
+      expect(record.id).toContain('unknown')
+    })
   })
 
   describe('isValidTokenId', () => {
