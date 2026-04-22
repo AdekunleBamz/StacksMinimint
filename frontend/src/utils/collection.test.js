@@ -253,6 +253,11 @@ describe('collection utility', () => {
       const record = createSubmissionRecord({ txId: '0xabc', tokenURI: 'ar://abc', address: 'SP123' })
       expect(record.metadataLabel).toBe('Arweave metadata')
     })
+
+    it('creates a local id when tx id is missing', () => {
+      const record = createSubmissionRecord({ tokenURI: 'ipfs://cid', address: 'SP123' })
+      expect(record.id).toContain('local-')
+    })
   })
 
   describe('isValidTokenId', () => {
