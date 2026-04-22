@@ -122,6 +122,10 @@ describe('collection utility', () => {
     it('extracts host labels from padded web URLs', () => {
       expect(getMetadataLabel('  https://www.example.com/meta.json  ')).toBe('example.com')
     })
+
+    it('labels arweave metadata clearly', () => {
+      expect(getMetadataLabel('ar://abc')).toBe('Arweave metadata')
+    })
   })
 
   describe('formatRelativeTime', () => {
