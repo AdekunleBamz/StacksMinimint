@@ -178,6 +178,10 @@ describe('collection utility', () => {
     it('does not invent gateways for arweave metadata', () => {
       expect(getMetadataGatewayUrl('ar://abc')).toBeNull()
     })
+
+    it('passes through trimmed HTTPS gateway URLs', () => {
+      expect(getMetadataGatewayUrl('  https://example.com/meta.json  ')).toBe('https://example.com/meta.json')
+    })
   })
 
   describe('getMetadataLabel', () => {
