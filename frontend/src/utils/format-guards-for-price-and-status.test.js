@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatBidAmount, formatBlocksRemaining, formatBlockTime, formatCID, formatCollectionSize, formatGatewayUrl, formatIPFSUrl, formatListingPrice, formatMicroStx, formatMintPrice, formatNFTName, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitValue, formatTxStatus } from './format'
+import { formatBidAmount, formatBlocksRemaining, formatBlockTime, formatCID, formatCollectionSize, formatGatewayUrl, formatIPFSUrl, formatListingPrice, formatMicroStx, formatMintPrice, formatNFTName, formatOwnerCount, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTraitCount, formatTraitValue, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -53,6 +53,10 @@ describe('format guards', () => {
 
   it('formats block times in minutes', () => {
     expect(formatBlockTime(120000)).toBe('2 min')
+  })
+
+  it('formats trait count labels', () => {
+    expect(formatTraitCount(6)).toBe('6 traits')
   })
 
   it('returns safe fallbacks for empty rarity and tx status values', () => {
