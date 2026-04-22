@@ -22,6 +22,10 @@ describe('parseUint', () => {
     expect(parseUint(Number.MAX_SAFE_INTEGER + 20)).toBe(Number.MAX_SAFE_INTEGER)
   })
 
+  it('clamps bigint inputs just above the safe integer limit', () => {
+    expect(parseUint(BigInt(Number.MAX_SAFE_INTEGER) + 1n)).toBe(Number.MAX_SAFE_INTEGER)
+  })
+
   it('returns zero for non-digit numeric strings', () => {
     expect(parseUint('123abc')).toBe(0)
     expect(parseUint('12.3')).toBe(0)
