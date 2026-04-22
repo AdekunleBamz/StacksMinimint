@@ -12,6 +12,10 @@ describe('parseUint', () => {
     expect(parseUint(12.9)).toBe(12)
   })
 
+  it('floors fractional uints below one to zero', () => {
+    expect(parseUint(0.99)).toBe(0)
+  })
+
   it('caps huge inputs at Number.MAX_SAFE_INTEGER', () => {
     expect(parseUint('90071992547409931234')).toBe(Number.MAX_SAFE_INTEGER)
     expect(parseUint(90071992547409931234n)).toBe(Number.MAX_SAFE_INTEGER)
