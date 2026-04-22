@@ -70,6 +70,10 @@ describe('parseUint', () => {
     expect(parseUint(false)).toBe(0)
   })
 
+  it('returns zero for array input values', () => {
+    expect(parseUint([1])).toBe(0)
+  })
+
   it('returns zero for whitespace-only strings', () => {
     expect(parseUint('   ')).toBe(0)
   })
