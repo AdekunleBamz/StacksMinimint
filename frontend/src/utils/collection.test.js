@@ -275,6 +275,10 @@ describe('collection utility', () => {
       expect(accent.hue).toBeGreaterThanOrEqual(0)
       expect(accent.hue).toBeLessThan(360)
     })
+
+    it('includes the configured alpha in accent glows', () => {
+      expect(getCardAccent('seed-value').glow).toContain('/ 0.25')
+    })
   })
 
   describe('isValidTokenId', () => {
