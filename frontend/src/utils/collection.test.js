@@ -110,6 +110,10 @@ describe('collection utility', () => {
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('Remove URL credentials')
     })
+
+    it('accepts arweave metadata URIs', () => {
+      expect(validateTokenURI('ar://abc').isValid).toBe(true)
+    })
   })
 
   describe('getMetadataGatewayUrl', () => {
