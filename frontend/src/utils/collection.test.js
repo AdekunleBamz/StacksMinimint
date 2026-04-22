@@ -11,6 +11,10 @@ describe('collection utility', () => {
       expect(formatSTX(2500000)).toBe('2.5')
     })
 
+    it('trims numeric string microstx values', () => {
+      expect(formatSTX(' 2500000 ')).toBe('2.5')
+    })
+
     it('returns zero for non-finite inputs', () => {
       expect(formatSTX(Number.POSITIVE_INFINITY)).toBe('0')
       expect(formatSTX(Number.NEGATIVE_INFINITY)).toBe('0')
