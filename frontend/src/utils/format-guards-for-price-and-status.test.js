@@ -64,6 +64,10 @@ describe('format guards', () => {
     expect(formatTxStatus('')).toBe('Unknown')
   })
 
+  it('trims transaction status labels before title casing', () => {
+    expect(formatTxStatus(' pending ')).toBe('Pending')
+  })
+
   it('trims rarity labels before title casing', () => {
     expect(formatRarity(' rare ')).toBe('Rare')
   })
