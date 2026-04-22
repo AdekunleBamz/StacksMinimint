@@ -49,6 +49,10 @@ describe('parseUint', () => {
     expect(parseUint('12.00')).toBe(0)
   })
 
+  it('returns zero for plus-prefixed numeric strings', () => {
+    expect(parseUint('+12')).toBe(0)
+  })
+
   it('returns zero for empty strings', () => {
     expect(parseUint('')).toBe(0)
   })
