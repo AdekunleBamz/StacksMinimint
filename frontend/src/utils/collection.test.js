@@ -42,6 +42,11 @@ describe('collection utility', () => {
     it('returns zero compact STX for invalid values', () => {
       expect(formatSTXCompact(Number.NaN)).toBe('0 STX')
     })
+
+    it('returns zero compact STX for nullish values', () => {
+      expect(formatSTXCompact(null)).toBe('0 STX')
+      expect(formatSTXCompact(undefined)).toBe('0 STX')
+    })
   })
 
   describe('formatAddress', () => {
