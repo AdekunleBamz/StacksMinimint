@@ -166,6 +166,11 @@ describe('collection utility', () => {
       const record = createSubmissionRecord({ txId: '0xabc', tokenURI: ' ipfs://cid ', address: 'SP123' })
       expect(record.tokenURI).toBe('ipfs://cid')
     })
+
+    it('captures arweave metadata labels on submissions', () => {
+      const record = createSubmissionRecord({ txId: '0xabc', tokenURI: 'ar://abc', address: 'SP123' })
+      expect(record.metadataLabel).toBe('Arweave metadata')
+    })
   })
 
   describe('formatRelativeTime', () => {
