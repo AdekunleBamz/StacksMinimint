@@ -27,6 +27,10 @@ describe('format guards', () => {
     expect(formatListingPrice('not-a-number')).toBe('0.00 STX')
   })
 
+  it('formats listing prices with fixed decimals', () => {
+    expect(formatListingPrice(1.5)).toBe('1.50 STX')
+  })
+
   it('returns safe fallbacks for empty rarity and tx status values', () => {
     expect(formatRarity('')).toBe('')
     expect(formatTxStatus('')).toBe('Unknown')
