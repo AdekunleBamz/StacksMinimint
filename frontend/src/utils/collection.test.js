@@ -61,6 +61,10 @@ describe('collection utility', () => {
     it('trims surrounding spaces before formatting addresses', () => {
       expect(formatAddress('  SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT  ', 4, 4)).toBe('SP5K...9TJT')
     })
+
+    it('leaves short addresses untruncated', () => {
+      expect(formatAddress('SP123', 4, 4)).toBe('SP123')
+    })
   })
 
   describe('formatLimit', () => {
