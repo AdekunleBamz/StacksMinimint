@@ -1,8 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { formatListingPrice, formatMintPrice, formatRarity, formatTxStatus } from './format'
+import { formatListingPrice, formatMintPrice, formatRarity, formatTokenId, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
+  it('formats token ids with a hash prefix', () => {
+    expect(formatTokenId(7)).toBe('#7')
+  })
+
   it('falls back for invalid mint price values', () => {
     expect(formatMintPrice(undefined)).toBe('0 STX')
   })
