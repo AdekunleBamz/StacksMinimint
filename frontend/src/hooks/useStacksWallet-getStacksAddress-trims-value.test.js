@@ -23,6 +23,17 @@ describe('getStacksAddress', () => {
     })).toBe('ST2PABCD1234EFGH5678IJKL9012MNOP3456QRST')
   })
 
+  it('falls back when the preferred address is newline-only', () => {
+    expect(getStacksAddress({
+      profile: {
+        stxAddress: {
+          mainnet: '\n\n',
+          testnet: 'ST2NEWLINEFALLBACK1234567890'
+        }
+      }
+    })).toBe('ST2NEWLINEFALLBACK1234567890')
+  })
+
   it('falls back when the preferred network address is missing', () => {
     expect(getStacksAddress({
       profile: {
