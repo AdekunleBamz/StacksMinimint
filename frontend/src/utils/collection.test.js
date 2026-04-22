@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatAddress, formatExactTime, formatRelativeTime, formatSTX, formatSTXCompact, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, validateTokenURI } from './collection'
+import { formatAddress, formatExactTime, formatLimit, formatRelativeTime, formatSTX, formatSTXCompact, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, validateTokenURI } from './collection'
 
 // Regression note: preserve collection behavior coverage.
 // Scope note: validates collection behavior for regressions.
@@ -42,6 +42,12 @@ describe('collection utility', () => {
 
     it('trims surrounding spaces before formatting addresses', () => {
       expect(formatAddress('  SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT  ', 4, 4)).toBe('SP5K...9TJT')
+    })
+  })
+
+  describe('formatLimit', () => {
+    it('formats numeric limits as strings', () => {
+      expect(formatLimit(25)).toBe('25')
     })
   })
 
