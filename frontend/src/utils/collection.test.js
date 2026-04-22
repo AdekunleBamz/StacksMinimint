@@ -177,6 +177,10 @@ describe('collection utility', () => {
     it('accepts token ids inside the default supply range', () => {
       expect(isValidTokenId(1)).toBe(true)
     })
+
+    it('rejects token ids above custom supply caps', () => {
+      expect(isValidTokenId(11, 10)).toBe(false)
+    })
   })
 
   describe('formatRelativeTime', () => {
