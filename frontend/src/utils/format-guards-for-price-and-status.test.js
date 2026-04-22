@@ -31,4 +31,8 @@ describe('format guards', () => {
     expect(formatRarity('')).toBe('')
     expect(formatTxStatus('')).toBe('Unknown')
   })
+
+  it('trims rarity labels before title casing', () => {
+    expect(formatRarity(' rare ')).toBe('Rare')
+  })
 })
