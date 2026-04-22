@@ -122,6 +122,12 @@ describe('collection utility', () => {
       expect(result.isValid).toBe(false)
       expect(result.label).toBe('URI too long')
     })
+
+    it('rejects non-ASCII metadata URIs', () => {
+      const result = validateTokenURI('ipfs://cid🔥')
+      expect(result.isValid).toBe(false)
+      expect(result.label).toBe('Unsupported characters')
+    })
   })
 
   describe('getMetadataGatewayUrl', () => {
