@@ -244,6 +244,11 @@ describe('collection utility', () => {
       expect(record.tokenURI).toBe('ipfs://cid')
     })
 
+    it('trims addresses before storing submissions', () => {
+      const record = createSubmissionRecord({ txId: '0xabc', tokenURI: 'ipfs://cid', address: ' SP123 ' })
+      expect(record.address).toBe('SP123')
+    })
+
     it('captures arweave metadata labels on submissions', () => {
       const record = createSubmissionRecord({ txId: '0xabc', tokenURI: 'ar://abc', address: 'SP123' })
       expect(record.metadataLabel).toBe('Arweave metadata')
