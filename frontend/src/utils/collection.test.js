@@ -127,6 +127,11 @@ describe('collection utility', () => {
       expect(result.label).toBe('HTTPS metadata ready')
     })
 
+    it('labels valid IPFS metadata as ready', () => {
+      const result = validateTokenURI('ipfs://cid')
+      expect(result.label).toBe('IPFS metadata ready')
+    })
+
     it('accepts uppercase secure schemes', () => {
       expect(validateTokenURI('IPFS://cid').isValid).toBe(true)
       expect(validateTokenURI('HTTPS://example.com/meta.json').isValid).toBe(true)
