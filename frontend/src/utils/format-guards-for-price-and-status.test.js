@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatCID, formatListingPrice, formatMintPrice, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTxStatus } from './format'
+import { formatBlocksRemaining, formatCID, formatListingPrice, formatMintPrice, formatRarity, formatRoyalty, formatSupply, formatTokenId, formatTxStatus } from './format'
 
 // Regression note: preserve formatter guards for invalid values.
 describe('format guards', () => {
@@ -42,5 +42,9 @@ describe('format guards', () => {
 
   it('returns empty CID labels for missing values', () => {
     expect(formatCID('')).toBe('')
+  })
+
+  it('formats remaining block labels', () => {
+    expect(formatBlocksRemaining(12)).toBe('12 blocks')
   })
 })
