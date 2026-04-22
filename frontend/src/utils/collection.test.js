@@ -185,6 +185,10 @@ describe('collection utility', () => {
       expect(getMetadataLabel('  https://www.example.com/meta.json  ')).toBe('example.com')
     })
 
+    it('labels IPFS metadata clearly', () => {
+      expect(getMetadataLabel('ipfs://bafy')).toBe('IPFS metadata')
+    })
+
     it('labels arweave metadata clearly', () => {
       expect(getMetadataLabel('ar://abc')).toBe('Arweave metadata')
     })
