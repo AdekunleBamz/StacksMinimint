@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { createSubmissionRecord, formatAddress, formatExactTime, formatLimit, formatRelativeTime, formatSTX, formatSTXCompact, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, isValidTokenId, validateTokenURI } from './collection'
+import { createSubmissionRecord, formatAddress, formatExactTime, formatLimit, formatRelativeTime, formatSTX, formatSTXCompact, getCardAccent, getMetadataGatewayUrl, getMetadataKind, getMetadataLabel, isValidTokenId, validateTokenURI } from './collection'
 
 // Regression note: preserve collection behavior coverage.
 // Scope note: validates collection behavior for regressions.
@@ -262,6 +262,12 @@ describe('collection utility', () => {
     it('uses unknown in local ids when address is blank', () => {
       const record = createSubmissionRecord({ tokenURI: 'ipfs://cid', address: '   ' })
       expect(record.id).toContain('unknown')
+    })
+  })
+
+  describe('getCardAccent', () => {
+    it('returns deterministic accent colors for the same seed', () => {
+      expect(getCardAccent('seed-value')).toEqual(getCardAccent('seed-value'))
     })
   })
 
