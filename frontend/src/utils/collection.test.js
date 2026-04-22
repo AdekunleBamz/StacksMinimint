@@ -49,6 +49,10 @@ describe('collection utility', () => {
     it('formats numeric limits as strings', () => {
       expect(formatLimit(25)).toBe('25')
     })
+
+    it('uses fallback labels for null limits', () => {
+      expect(formatLimit(null, 'Unlimited')).toBe('Unlimited')
+    })
   })
 
   describe('getMetadataKind', () => {
