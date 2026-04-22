@@ -19,6 +19,11 @@ describe('collection utility', () => {
       expect(formatSTX(Number.POSITIVE_INFINITY)).toBe('0')
       expect(formatSTX(Number.NEGATIVE_INFINITY)).toBe('0')
     })
+
+    it('returns zero for nullish STX inputs', () => {
+      expect(formatSTX(null)).toBe('0')
+      expect(formatSTX(undefined)).toBe('0')
+    })
   })
 
   describe('formatSTXCompact', () => {
