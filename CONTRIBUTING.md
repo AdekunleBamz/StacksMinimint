@@ -44,7 +44,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 ## Development Workflow
 
 - Run Clarinet checks before submitting contract changes: `clarinet check`
-- Run frontend tests: `cd frontend && npm test`
+- Run frontend tests: `npm run frontend:test`
 - Keep commits small and focused — one logical change per commit.
 - Open a pull request against `main` with a clear description.
 
