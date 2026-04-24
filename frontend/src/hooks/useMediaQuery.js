@@ -45,11 +45,15 @@ export function useMediaQuery(query) {
     // Set initial value
     setMatches(mediaQuery.matches)
 
-    mediaQuery.addEventListener('change', handler)
-
-    return () => {
-      mediaQuery.removeEventListener('change', handler)
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handler)
+      return () => {
+        mediaQuery.removeEventListener('change', handler)
+      }
     }
+
+    mediaQuery.addListener(handler)
+    return () => mediaQuery.removeListener(handler)
   }, [query, hasValidQuery])
 
   return matches
