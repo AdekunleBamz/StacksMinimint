@@ -83,7 +83,9 @@ export function useStacksWallet() {
     setUserData(null);
     setAddress(null);
     setIsConnecting(false);
-    window.sessionStorage.removeItem('stacks-wallet-session');
+    if (typeof window !== 'undefined') {
+      window.sessionStorage.removeItem('stacks-wallet-session');
+    }
   }, []);
 
   useEffect(() => {
