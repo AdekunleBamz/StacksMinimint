@@ -39,7 +39,7 @@ frontend/
 - `npm run preview` - Preview production build
 - `npm run test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
-- `npm run check` - Run static type checking
+- `npm run check` - Run production build validation
 
 ## Environment Variables
 
