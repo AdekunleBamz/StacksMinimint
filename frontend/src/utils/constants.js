@@ -19,6 +19,10 @@ export const REVEAL_DELAY_BLOCKS = 144
 
 export const ROYALTY_BASIS_POINTS = 500
 
+export const MIN_ROYALTY_BASIS_POINTS = 0
+
+export const MAX_ROYALTY_BASIS_POINTS = 10000
+
 export const MAX_PER_WALLET = 20
 
 export const WHITELIST_BLOCK_START = 100000
