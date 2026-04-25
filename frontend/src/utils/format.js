@@ -54,3 +54,16 @@ export const formatMicroStx = (v) => (v / 1e6).toFixed(6) + " STX";
 export const formatBlockTime = (ms) => Math.round(ms / 60000) + " min";
 
 export const formatTraitCount = (n) => n + " traits";
+
+/**
+ * Calculates the total mint cost for a given quantity of NFTs.
+ * @param {number} quantity - Number of NFTs to mint
+ * @param {number} pricePerNFT - Price in STX per NFT (default: 10 STX)
+ * @returns {string} Formatted total cost with STX unit
+ */
+export const calculateTotalMintCost = (quantity, pricePerNFT = 10) => {
+  const qty = Number.isInteger(Number(quantity)) && Number(quantity) > 0 ? Number(quantity) : 0;
+  const price = Number.isFinite(Number(pricePerNFT)) ? Number(pricePerNFT) : 10;
+  const total = qty * price;
+  return formatMintPrice(total);
+};
