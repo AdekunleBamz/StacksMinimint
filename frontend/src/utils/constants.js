@@ -5,6 +5,8 @@ export const NFT_CONTRACT_NAME = "minimint-nft"
 
 export const NFT_MINT_PRICE_STX = 10
 
+export const NFT_MINT_PRICE_MICROSTX = NFT_MINT_PRICE_STX * 1_000_000
+
 export const MAX_SUPPLY = 10000
 
 export const MINT_BATCH_LIMIT = 5
