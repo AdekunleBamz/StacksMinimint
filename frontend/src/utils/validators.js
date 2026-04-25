@@ -1,4 +1,4 @@
-import { MIN_ROYALTY_BASIS_POINTS, MAX_ROYALTY_BASIS_POINTS } from './constants.js';
+import { MIN_ROYALTY_BASIS_POINTS, MAX_ROYALTY_BASIS_POINTS, MAX_SUPPLY } from './constants.js';
 
 export const isValidTokenId = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
 
@@ -41,3 +41,10 @@ export const isValidTokenSymbol = (v) => typeof v === "string" && /^[A-Z]{2,8}$/
 export const isValidMintPrice = (v) => !isNaN(Number(v)) && Number(v) >= 0;
 
 export const isValidMaxPerWallet = (v) => Number.isInteger(Number(v)) && Number(v) >= 1;
+
+/**
+ * Validates that a token ID is within the collection's supply range.
+ * @param {number} tokenId - The token ID to validate
+ * @returns {boolean} True if token ID is valid and within supply limits
+ */
+export const isValidTokenIdInSupply = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= MAX_SUPPLY;
