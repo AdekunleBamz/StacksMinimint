@@ -62,6 +62,10 @@ describe('strings utility', () => {
       expect(capitalize('stacks chain')).toBe('Stacks chain');
     });
 
+    it('should trim tab prefixes before capitalization', () => {
+      expect(capitalize('\tstacks')).toBe('Stacks');
+    });
+
     it('should return an empty string for whitespace-only values', () => {
       expect(capitalize('   ')).toBe('');
     });
