@@ -16,6 +16,7 @@ Include in your report:
 - A clear description of the vulnerability
 - Steps to reproduce
 - Potential impact
+- Affected network and contract identifier
 - Any suggested mitigations (optional)
 
 ### Response Timeline
