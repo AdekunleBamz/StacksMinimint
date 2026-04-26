@@ -12,17 +12,19 @@ import './ProgressBar.css'
 
 export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
   const MAX_PERCENTAGE = 100
+  const SUPPORTED_COLORS = ['primary', 'success', 'warning', 'danger', 'gradient', 'striped']
   const safeMax = typeof max === 'number' && max > 0 ? max : MAX_PERCENTAGE
   const safeValue = typeof value === 'number' && Number.isFinite(value) ? value : 0
+  const safeColor = SUPPORTED_COLORS.includes(color) ? color : 'primary'
   const boundedValue = Math.min(Math.max(safeValue, 0), safeMax)
   const percentage = Math.min(Math.max((boundedValue / safeMax) * MAX_PERCENTAGE, 0), MAX_PERCENTAGE)
   const formattedPercentage = percentage.toFixed(1)
 
   return (
-    <div className={`progress progress--${size}`} data-size={size} data-color={color}>
+    <div className={`progress progress--${size}`} data-size={size} data-color={safeColor}>
       <div className="progress__bar">
         <div 
-          className={`progress__fill progress__fill--${color}`}
+          className={`progress__fill progress__fill--${safeColor}`}
           style={{ width: `${percentage}%` }}
           role="progressbar"
           aria-label={ariaLabel}
