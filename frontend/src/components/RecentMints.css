@@ -49,7 +49,7 @@
   background: rgba(40, 40, 60, 0.8);
   border-color: rgba(139, 92, 246, 0.4);
   box-shadow: -4px 4px 15px rgba(139, 92, 246, 0.1);
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 
 .mint-item__avatar {
@@ -117,6 +117,14 @@
   color: inherit;
   text-decoration: none;
 }
+
+.mint-item__badge a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.25);
+  border-radius: 9999px;
+}
+
+.mint-item__badge--pending {
   border-color: rgba(234, 179, 8, 0.35);
   color: #fcd34d;
 }
@@ -201,6 +209,11 @@
   .mint-item__avatar {
     width: 40px;
     height: 40px;
+  }
+
+  .mint-item__badge {
+    min-width: auto;
+    padding-inline: 0.625rem;
   }
 }
 

@@ -21,13 +21,20 @@ function getMintTimestampMs(timestamp) {
   return numericTimestamp > 1_000_000_000_000 ? numericTimestamp : numericTimestamp * 1000
 }
 
+function getFirstNonEmpty(values, fallback = null) {
+  const normalized = values
+    .map((value) => (typeof value === 'string' ? value.trim() : value))
+    .find(Boolean)
+  return normalized ?? fallback
+}
+
 export function RecentMints({ items = [] }) {
   const isLoading = items === null
   const recentMints = Array.isArray(items) ? items : []
 
   if (isLoading) {
     return (
-      <section className="recent-mints">
+      <section className="recent-mints" aria-label="Recent mints loading">
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__list" role="list" aria-label="Loading recent mint activity">
           {Array.from({ length: RECENT_MINTS_SKELETON_COUNT }, (_, i) => i).map((i) => (
@@ -46,7 +53,7 @@ export function RecentMints({ items = [] }) {
 
   if (recentMints.length === 0) {
     return (
-      <section className="recent-mints">
+      <section className="recent-mints" aria-label="Recent mints empty state">
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__empty" role="status" aria-live="polite">
           <span className="recent-mints__empty-icon" aria-hidden="true">🎨</span>
@@ -58,18 +65,14 @@ export function RecentMints({ items = [] }) {
   }
 
   return (
-      <section className="recent-mints">
+      <section className="recent-mints" aria-label="Recent mints">
         <h2 className="recent-mints__title">Recent Mints</h2>
-      <p className="recent-mints__subtitle">Local receipts appear here as soon as a wallet submission is sent.</p>
+      <p className="recent-mints__subtitle">Fresh activity appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
           const timestampMs = getMintTimestampMs(mint.timestamp)
-          const txId = [mint.txId, mint.txHash]
-            .map((value) => (typeof value === 'string' ? value.trim() : value))
-            .find(Boolean)
-          const minterAddress = [mint.minter, mint.address]
-            .map((value) => (typeof value === 'string' ? value.trim() : value))
-            .find(Boolean) || 'Unknown'
+          const txId = getFirstNonEmpty([mint.txId, mint.txHash])
+          const minterAddress = getFirstNonEmpty([mint.minter, mint.address], 'Unknown')
           const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
           const isPendingToken = tokenId === '' || tokenId == null
           const tokenLabel = isPendingToken ? 'Pending' : `#${tokenId}`
@@ -79,7 +82,7 @@ export function RecentMints({ items = [] }) {
             : `View transaction for token #${tokenId} on Explorer`
           const mintKey = txId || `${tokenId ?? 'pending'}-${mint.timestamp}`
           return (
-            <div key={mintKey} className="mint-item" role="listitem">
+            <div key={mintKey} className="mint-item" role="listitem" aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
                 <span>{tokenLabel}</span>
               </div>
