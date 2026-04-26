@@ -104,5 +104,9 @@ describe('strings utility', () => {
     it('should reject addresses with invalid prefix letters', () => {
       expect(isValidStacksAddress('SX5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT')).toBe(false);
     });
+
+    it('should reject addresses that are too short', () => {
+      expect(isValidStacksAddress('SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJ')).toBe(false);
+    });
   });
 });
