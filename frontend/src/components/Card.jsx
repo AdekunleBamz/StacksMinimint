@@ -23,6 +23,7 @@ export function Card({
   ariaDescriptionId
 }) {
   const safeAriaLabel = typeof ariaLabel === 'string' && ariaLabel.trim() ? ariaLabel.trim() : undefined
+  const titleText = safeAriaLabel || (onClick ? 'Interactive card' : undefined)
   const handleKeyDown = useCallback((e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault()
@@ -48,7 +49,7 @@ export function Card({
       aria-keyshortcuts={onClick ? 'Enter Space' : undefined}
       aria-label={safeAriaLabel}
       aria-describedby={ariaDescriptionId}
-      title={safeAriaLabel}
+      title={titleText}
     >
       {children}
     </div>
