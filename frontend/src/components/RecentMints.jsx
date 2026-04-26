@@ -21,6 +21,13 @@ function getMintTimestampMs(timestamp) {
   return numericTimestamp > 1_000_000_000_000 ? numericTimestamp : numericTimestamp * 1000
 }
 
+function getFirstNonEmpty(values, fallback = null) {
+  const normalized = values
+    .map((value) => (typeof value === 'string' ? value.trim() : value))
+    .find(Boolean)
+  return normalized ?? fallback
+}
+
 export function RecentMints({ items = [] }) {
   const isLoading = items === null
   const recentMints = Array.isArray(items) ? items : []
@@ -64,12 +71,8 @@ export function RecentMints({ items = [] }) {
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
           const timestampMs = getMintTimestampMs(mint.timestamp)
-          const txId = [mint.txId, mint.txHash]
-            .map((value) => (typeof value === 'string' ? value.trim() : value))
-            .find(Boolean)
-          const minterAddress = [mint.minter, mint.address]
-            .map((value) => (typeof value === 'string' ? value.trim() : value))
-            .find(Boolean) || 'Unknown'
+          const txId = getFirstNonEmpty([mint.txId, mint.txHash])
+          const minterAddress = getFirstNonEmpty([mint.minter, mint.address], 'Unknown')
           const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
           const isPendingToken = tokenId === '' || tokenId == null
           const tokenLabel = isPendingToken ? 'Pending' : `#${tokenId}`
