@@ -25,6 +25,8 @@ export function Badge({
       data-variant={variant}
       data-size={size}
       role="status"
+      aria-live="polite"
+      aria-atomic="true"
       title={safeTitle}
       aria-label={safeTitle}
     >
