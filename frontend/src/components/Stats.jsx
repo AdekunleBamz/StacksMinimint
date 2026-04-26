@@ -93,21 +93,28 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
   }
 
   return (
-    <section className="stats" aria-label="Collection statistics">
+    <section className="stats" aria-label="Collection statistics" title="Collection statistics and mint readiness">
       <h2 className="stats__title">Collection Stats</h2>
       <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
 
       <div className="stats__headline">
-        <span className={`stats__state stats__state--${collectionState.tone}`}>
+        <span
+          className={`stats__state stats__state--${collectionState.tone}`}
+          title={`Collection status: ${collectionState.label}`}
+        >
           {collectionState.label}
         </span>
         <div className="stats__session" aria-live="polite">
-          <span>{isConnected ? 'Wallet connected' : 'Connect wallet to mint'}</span>
-          <span>{safeRecentActivityCount} {receiptLabel}</span>
+          <span title={isConnected ? 'Your wallet is connected and ready for minting' : 'Connect a wallet to unlock mint actions'}>
+            {isConnected ? 'Wallet connected' : 'Connect wallet to mint'}
+          </span>
+          <span title={`${safeRecentActivityCount} ${receiptLabel} in this browser session`}>
+            {safeRecentActivityCount} {receiptLabel}
+          </span>
         </div>
         <div className="stats__timestamp" aria-live="polite">
           Last updated:{' '}
-          <time dateTime={lastUpdated.toISOString()}>
+          <time dateTime={lastUpdated.toISOString()} title="Last contract snapshot update">
             {formatExactTime(lastUpdated.getTime())}
           </time>
         </div>
@@ -133,8 +140,12 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           />
         </div>
         <div className="progress-text">
-          <span>{roundedProgress}% of configured supply minted</span>
-          <span>{remainingSupply === null ? 'Supply limit not configured' : `${remainingSupply} items remaining`}</span>
+          <span title="Percent of configured collection supply that is minted">
+            {roundedProgress}% of configured supply minted
+          </span>
+          <span title="Remaining collection supply based on configured max">
+            {remainingSupply === null ? 'Supply limit not configured' : `${remainingSupply} items remaining`}
+          </span>
         </div>
       </div>
 
@@ -142,7 +153,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         {stats.map((stat) => (
           <li key={stat.label} className="stat-card">
             <span className="stat-card__label">{stat.label}</span>
-            <span className="stat-card__value">{stat.value}</span>
+            <span className="stat-card__value" title={stat.detail}>{stat.value}</span>
             <p className="stat-card__detail">{stat.detail}</p>
           </li>
         ))}

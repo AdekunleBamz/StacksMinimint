@@ -72,8 +72,8 @@
   padding: 0.4rem 0.7rem;
   min-height: 2rem;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.62);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.2);
   font-variant-numeric: tabular-nums;
   line-height: 1.25;
 }
@@ -107,8 +107,8 @@
 .progress-text {
   display: flex;
   justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: 0.55rem;
+  gap: 1rem;
+  margin-top: 0.65rem;
   color: #94a3b8;
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
@@ -206,7 +206,7 @@
 
 .stats__footnote {
   margin: 1rem 0 0;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.76rem;
   line-height: 1.6;
   max-width: 32rem;
