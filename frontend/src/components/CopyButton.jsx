@@ -33,6 +33,7 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', cla
     <button
       type="button"
       className={['copy-btn', copied ? 'copy-btn--copied' : '', className].filter(Boolean).join(' ')}
+      data-state={copied ? 'copied' : 'idle'}
       onClick={handleCopy}
       aria-label={copied ? safeSuccessLabel : safeLabel}
       title={copied ? safeSuccessLabel : safeLabel}
