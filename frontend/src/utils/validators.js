@@ -60,3 +60,5 @@ export const isPositiveFinite = (v) => Number.isFinite(Number(v)) && Number(v) >
 export const isValidBatchTotal = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 50;
 
 export const isValidTraitCount = (v) => Number.isInteger(Number(v)) && Number(v) >= 0 && Number(v) <= 64;
+
+export const isValidExplorerUrl = (v) => typeof v === "string" && /^https:\/\//i.test(v.trim());
