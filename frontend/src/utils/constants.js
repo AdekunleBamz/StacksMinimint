@@ -50,3 +50,5 @@ export const PLACEHOLDER_IMAGE_CID = "QmPlaceholder"
 export const DEFAULT_PAGE_SIZE = 20
 
 export const METADATA_FETCH_TIMEOUT_MS = 12000
+
+export const MAX_RECENT_TX = 25
