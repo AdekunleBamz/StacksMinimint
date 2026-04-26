@@ -14,7 +14,8 @@ import { useClipboard } from '../hooks'
 
 export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
   const { copied, copy } = useClipboard()
-  const hasText = typeof text === 'string' ? text.trim().length > 0 : Boolean(text)
+  const copyValue = typeof text === 'string' ? text : text == null ? '' : String(text)
+  const hasText = copyValue.trim().length > 0
   const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Copy'
   const safeSuccessLabel = typeof successLabel === 'string' && successLabel.trim() ? successLabel.trim() : 'Copied!'
 
@@ -22,11 +23,11 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', cla
     if (!hasText) return
 
     try {
-      await copy(text)
+      await copy(copyValue)
     } catch (err) {
       console.error('Failed to copy:', err)
     }
-  }, [text, hasText, copy])
+  }, [copyValue, hasText, copy])
 
   return (
     <button
