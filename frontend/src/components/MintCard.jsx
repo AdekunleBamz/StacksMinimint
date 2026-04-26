@@ -148,6 +148,7 @@ export function MintCard({
             aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet to mint'}
             aria-busy={isConnecting}
             disabled={isConnecting}
+            title={isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to unlock minting'}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
