@@ -93,7 +93,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
   }
 
   return (
-    <section className="stats" aria-label="Collection statistics">
+    <section className="stats" aria-label="Collection statistics" title="Collection statistics and mint readiness">
       <h2 className="stats__title">Collection Stats</h2>
       <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
 
@@ -114,7 +114,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         </div>
         <div className="stats__timestamp" aria-live="polite">
           Last updated:{' '}
-          <time dateTime={lastUpdated.toISOString()}>
+          <time dateTime={lastUpdated.toISOString()} title="Last contract snapshot update">
             {formatExactTime(lastUpdated.getTime())}
           </time>
         </div>
