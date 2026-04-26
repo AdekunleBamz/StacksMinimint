@@ -85,3 +85,8 @@ export const formatCollectionTitle = (name) => String(name || "Untitled Collecti
 export const formatFloorPrice = (stx) => "Floor " + Number(stx).toFixed(2) + " STX";
 
 export const formatMintBatch = (qty) => "Batch x" + Number(qty);
+
+export const formatAddressShort = (addr) => {
+  const s = String(addr || "").trim();
+  return s.length > 10 ? s.slice(0, 6) + "..." + s.slice(-4) : s;
+};
