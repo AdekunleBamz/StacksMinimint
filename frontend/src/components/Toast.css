@@ -109,7 +109,7 @@
 }
 
 .toast__close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .toast__close:focus-visible {
