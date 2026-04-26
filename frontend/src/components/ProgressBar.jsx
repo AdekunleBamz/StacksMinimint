@@ -33,7 +33,7 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
         />
       </div>
       {showLabel && (
-        <span className="progress__label" aria-live="polite">
+        <span className="progress__label" aria-live="polite" title={`${formattedPercentage}%`}>
           {formattedPercentage}%
         </span>
       )}
