@@ -52,7 +52,7 @@
 
 /* Hover effect */
 .card--hover:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: rgba(139, 92, 246, 0.3);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
@@ -63,13 +63,13 @@
 }
 
 .card--clickable:active {
-  transform: scale(0.98);
+  transform: translateY(1px) scale(0.99);
 }
 
 .card--clickable:focus-visible {
   outline: none;
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.38);
+  border-color: #c4b5fd;
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.38);
 }
 
 /* Card sections */
@@ -80,7 +80,7 @@
 }
 
 .card__body {
-  /* Default styles */
+  line-height: 1.6;
 }
 
 .card__footer {

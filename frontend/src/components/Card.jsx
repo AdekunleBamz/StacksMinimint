@@ -22,6 +22,8 @@ export function Card({
   ariaLabel,
   ariaDescriptionId
 }) {
+  const safeAriaLabel = typeof ariaLabel === 'string' && ariaLabel.trim() ? ariaLabel.trim() : undefined
+  const titleText = safeAriaLabel || (onClick ? 'Interactive card' : undefined)
   const handleKeyDown = useCallback((e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault()
@@ -39,12 +41,15 @@ export function Card({
         onClick ? 'card--clickable' : '',
         className
       ].filter(Boolean).join(' ')}
+      data-clickable={onClick ? 'true' : 'false'}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
       tabIndex={onClick ? 0 : undefined}
-      aria-label={ariaLabel}
+      aria-keyshortcuts={onClick ? 'Enter Space' : undefined}
+      aria-label={safeAriaLabel}
       aria-describedby={ariaDescriptionId}
+      title={titleText}
     >
       {children}
     </div>
