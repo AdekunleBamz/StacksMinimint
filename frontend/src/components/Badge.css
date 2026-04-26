@@ -111,5 +111,6 @@
 @media (prefers-reduced-motion: reduce) {
   .badge__dot {
     animation: none;
+    opacity: 0.9;
   }
 }
