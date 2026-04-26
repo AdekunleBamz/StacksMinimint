@@ -16,6 +16,6 @@ describe('Header', () => {
       })
     )
 
-    expect(markup).toContain('aria-label="Copy wallet address"')
+    expect(markup).toContain('aria-label="Copy wallet address to clipboard"')
   })
 })

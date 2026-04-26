@@ -17,6 +17,7 @@ import { formatAddress } from '../utils/collection'
 import { NETWORK } from '../constants'
 
 const CHAIN_NAME = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
+const CHAIN_TOOLTIP = `Connected network: ${CHAIN_NAME}`
 
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
@@ -35,20 +36,29 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
       </div>
 
       <div className="header__wallet">
+        <span className="header__sr-status" role="status" aria-live="polite">
+          {hasAccount ? 'Wallet connected' : 'Wallet disconnected'}
+        </span>
         {hasAccount ? (
           <>
-            <span className="header__chain">{CHAIN_NAME}</span>
+            <span className="header__chain" title={CHAIN_TOOLTIP}>
+              {CHAIN_NAME}
+            </span>
             <button
               type="button"
               className="header__address-wrapper"
               onClick={handleCopy}
               title={normalizedAccount}
-              aria-label="Copy wallet address"
+              aria-label="Copy wallet address to clipboard"
             >
               <span className="header__address-label">Wallet</span>
               <span className="header__address" aria-hidden="true">{formatAddress(normalizedAccount)}</span>
               <span className="header__copy-hint" aria-hidden="true">Copy</span>
-              {copied && <span className="header__copied-toast" role="status" aria-live="polite">Copied!</span>}
+              {copied && (
+                <span className="header__copied-toast" role="status" aria-live="polite" aria-atomic="true">
+                  Copied to clipboard
+                </span>
+              )}
             </button>
             <button
               type="button"
