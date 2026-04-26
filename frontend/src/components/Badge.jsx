@@ -22,6 +22,8 @@ export function Badge({
   return (
     <span
       className={['badge', `badge--${variant}`, `badge--${size}`, className].filter(Boolean).join(' ')}
+      data-variant={variant}
+      data-size={size}
       role="status"
       title={safeTitle}
       aria-label={safeTitle}
