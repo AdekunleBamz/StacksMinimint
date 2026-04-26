@@ -199,7 +199,7 @@
 .header__btn:focus-visible {
   outline: none;
   outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.35);
 }
 
 .header__btn--connect {
