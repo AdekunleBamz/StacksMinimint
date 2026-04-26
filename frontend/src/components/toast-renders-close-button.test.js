@@ -17,5 +17,6 @@ describe('Toast', () => {
 
     expect(markup).toContain('toast__close')
     expect(markup).toContain('Dismiss success notification')
+    expect(markup).toContain('title="Dismiss success notification"')
   })
 })
