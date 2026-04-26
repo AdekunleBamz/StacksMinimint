@@ -20,6 +20,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const safeSize = MODAL_SIZES.includes(size) ? size : 'medium'
   const modalRef = useRef(null)
   const titleId = useId()
+  const bodyId = useId()
 
   const handleOverlayClick = useCallback((e) => {
     if (e.target === e.currentTarget) {
@@ -80,7 +81,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
             </svg>
           </button>
         </div>
-        <div className="modal__body" aria-live="polite">
+        <div id={bodyId} className="modal__body" aria-live="polite">
           {children}
         </div>
       </div>
