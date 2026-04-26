@@ -45,6 +45,7 @@ export function Card({
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
       tabIndex={onClick ? 0 : undefined}
+      aria-keyshortcuts={onClick ? 'Enter Space' : undefined}
       aria-label={safeAriaLabel}
       aria-describedby={ariaDescriptionId}
       title={safeAriaLabel}
