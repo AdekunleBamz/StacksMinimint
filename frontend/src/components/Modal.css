@@ -100,9 +100,13 @@
   color: #f3f4f6;
 }
 
+.modal__close:active {
+  transform: translateY(1px);
+}
+
 .modal__close:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.35);
 }
 
 .modal__close svg {
@@ -116,6 +120,8 @@
   scrollbar-gutter: stable;
   flex: 1;
   user-select: text;
+  line-height: 1.6;
+  color: #e5e7eb;
 }
 
 @media (max-width: 640px) {

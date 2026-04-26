@@ -4,16 +4,16 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
 describe('Modal', () => {
-  it('applies dialog semantics to the modal panel instead of the overlay', () => {
+  it('wires dialog description to the modal body region', () => {
     const markup = renderToStaticMarkup(
       React.createElement(Modal, {
         isOpen: true,
         onClose: () => {},
-        title: 'Details'
-      }, 'Body')
+        title: 'Mint details',
+        children: React.createElement('p', null, 'Body content')
+      })
     )
 
-    expect(markup).toContain('<div class="modal-overlay" role="presentation">')
-    expect(markup).toMatch(/class="modal modal--medium" tabindex="-1" role="dialog"/)
+    expect(markup).toContain('aria-describedby=')
   })
 })

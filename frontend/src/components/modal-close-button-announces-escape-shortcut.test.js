@@ -4,16 +4,16 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { Modal } from './Modal'
 
 describe('Modal', () => {
-  it('applies dialog semantics to the modal panel instead of the overlay', () => {
+  it('adds aria-keyshortcuts metadata on the close control', () => {
     const markup = renderToStaticMarkup(
       React.createElement(Modal, {
         isOpen: true,
         onClose: () => {},
-        title: 'Details'
-      }, 'Body')
+        title: 'Settings',
+        children: React.createElement('p', null, 'Body content')
+      })
     )
 
-    expect(markup).toContain('<div class="modal-overlay" role="presentation">')
-    expect(markup).toMatch(/class="modal modal--medium" tabindex="-1" role="dialog"/)
+    expect(markup).toContain('aria-keyshortcuts="Escape"')
   })
 })
