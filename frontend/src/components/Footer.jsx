@@ -37,9 +37,9 @@ const CURRENT_YEAR = new Date().getFullYear()
 
 export function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" aria-label="Site footer">
       <div className="footer__content">
-        <div className="footer__brand">
+        <div className="footer__brand" aria-label="StacksMinimint brand summary">
           <span className="footer__logo" aria-hidden="true">◆</span>
           <span className="footer__title">StacksMinimint</span>
           <p className="footer__description">
@@ -51,59 +51,68 @@ export function Footer() {
         <div className="footer__links">
           <div className="footer__column">
             <h3 className="footer__heading">Project</h3>
-            <ul className="footer__list">
-              {FOOTER_LINKS.project.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="footer__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${link.label} (opens in a new tab)`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Project links">
+              <ul className="footer__list">
+                {FOOTER_LINKS.project.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="footer__link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${link.label} (opens in a new tab)`}
+                      title={`${link.label} (opens in a new tab)`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <div className="footer__column">
             <h3 className="footer__heading">Community</h3>
-            <ul className="footer__list">
-              {FOOTER_LINKS.community.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="footer__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${link.label} (opens in a new tab)`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Community links">
+              <ul className="footer__list">
+                {FOOTER_LINKS.community.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="footer__link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${link.label} (opens in a new tab)`}
+                      title={`${link.label} (opens in a new tab)`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <div className="footer__column">
             <h3 className="footer__heading">Resources</h3>
-            <ul className="footer__list">
-              {FOOTER_LINKS.resources.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="footer__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${link.label} (opens in a new tab)`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Resource links">
+              <ul className="footer__list">
+                {FOOTER_LINKS.resources.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="footer__link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${link.label} (opens in a new tab)`}
+                      title={`${link.label} (opens in a new tab)`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
@@ -113,7 +122,7 @@ export function Footer() {
           © {CURRENT_YEAR} StacksMinimint. Open source under MIT.
         </p>
         <p className="footer__credit">
-          Built for Stacks NFT drops
+          Built for Stacks NFT collections
         </p>
       </div>
     </footer>
