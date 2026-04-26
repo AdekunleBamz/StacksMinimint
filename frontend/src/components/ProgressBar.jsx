@@ -19,7 +19,7 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
   const formattedPercentage = percentage.toFixed(1)
 
   return (
-    <div className={`progress progress--${size}`}>
+    <div className={`progress progress--${size}`} data-size={size} data-color={color}>
       <div className="progress__bar">
         <div 
           className={`progress__fill progress__fill--${color}`}
