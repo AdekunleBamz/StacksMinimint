@@ -18,6 +18,8 @@ npm run build
 npm run test
 ```
 
+From the repository root, use `npm run frontend:test` for the same test command.
+
 ## Project Structure
 
 ```
