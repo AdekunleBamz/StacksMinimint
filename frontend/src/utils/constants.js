@@ -48,3 +48,5 @@ export const ANIMATION_REVEAL_MS = 1200
 export const PLACEHOLDER_IMAGE_CID = "QmPlaceholder"
 
 export const DEFAULT_PAGE_SIZE = 20
+
+export const METADATA_FETCH_TIMEOUT_MS = 12000
