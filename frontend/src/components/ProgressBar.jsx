@@ -48,7 +48,7 @@ ProgressBar.propTypes = {
   max: PropTypes.number,
   showLabel: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'danger']),
+  color: PropTypes.oneOf(['primary', 'success', 'warning', 'danger', 'gradient', 'striped']),
   ariaLabel: PropTypes.string
 }
 
