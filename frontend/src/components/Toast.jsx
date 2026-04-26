@@ -20,6 +20,9 @@ const TOAST_ICONS = {
 export function Toast({ message, type = 'info', onClose }) {
   const safeType = TOAST_ICONS[type] ? type : 'info'
   const icon = TOAST_ICONS[safeType]
+  const safeMessage = typeof message === 'string' && message.trim().length > 0
+    ? message.trim()
+    : 'Notification received.'
 
   return (
     <div
@@ -29,7 +32,7 @@ export function Toast({ message, type = 'info', onClose }) {
       aria-atomic="true"
     >
       <span className="toast__icon" aria-hidden="true">{icon}</span>
-      <span className="toast__message">{message}</span>
+      <span className="toast__message">{safeMessage}</span>
       {onClose && (
         <button type="button" className="toast__close" onClick={onClose} aria-label={`Dismiss ${safeType} notification`}>
           ×
