@@ -35,7 +35,13 @@ export function Toast({ message, type = 'info', onClose }) {
       <span className="toast__icon" aria-hidden="true">{icon}</span>
       <span className="toast__message" title={safeMessage}>{safeMessage}</span>
       {onClose && (
-        <button type="button" className="toast__close" onClick={onClose} aria-label={`Dismiss ${safeType} notification`}>
+        <button
+          type="button"
+          className="toast__close"
+          onClick={onClose}
+          aria-label={`Dismiss ${safeType} notification`}
+          title={`Dismiss ${safeType} notification`}
+        >
           ×
         </button>
       )}
