@@ -217,7 +217,7 @@ export function MintCard({
             )}
           </button>
 
-          <p id="mintActionMessage" className="mint-card__helper" aria-live="polite">
+          <p id="mintActionMessage" className="mint-card__helper" aria-live="polite" aria-atomic="true">
             {mintActionMessage}
           </p>
 
