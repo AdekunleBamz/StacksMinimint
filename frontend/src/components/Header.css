@@ -115,6 +115,10 @@
   border-color: rgba(139, 92, 246, 0.32);
 }
 
+.header__address-wrapper:active {
+  transform: translateY(1px);
+}
+
 .header__address-wrapper:focus-visible {
   outline: none;
   border-color: rgba(139, 92, 246, 0.6);
