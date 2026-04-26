@@ -46,3 +46,5 @@ export const TRAIT_RARITY_TIERS = ["common","rare","epic","legendary"]
 export const ANIMATION_REVEAL_MS = 1200
 
 export const PLACEHOLDER_IMAGE_CID = "QmPlaceholder"
+
+export const DEFAULT_PAGE_SIZE = 20
