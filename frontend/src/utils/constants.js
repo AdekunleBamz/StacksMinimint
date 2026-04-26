@@ -54,3 +54,5 @@ export const METADATA_FETCH_TIMEOUT_MS = 12000
 export const MAX_RECENT_TX = 25
 
 export const MINT_TX_CONFIRMATIONS = 1
+
+export const IPFS_FETCH_RETRIES = 2
