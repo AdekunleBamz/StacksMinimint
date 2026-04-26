@@ -56,3 +56,5 @@ export const isValidTokenURI = (v) => typeof v === "string" && /^(ipfs|https):\/
 export const isValidMintPriceMicrostx = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
 
 export const isPositiveFinite = (v) => Number.isFinite(Number(v)) && Number(v) > 0;
+
+export const isValidBatchTotal = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 50;
