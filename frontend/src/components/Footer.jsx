@@ -37,7 +37,7 @@ const CURRENT_YEAR = new Date().getFullYear()
 
 export function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" aria-label="Site footer">
       <div className="footer__content">
         <div className="footer__brand">
           <span className="footer__logo" aria-hidden="true">◆</span>
