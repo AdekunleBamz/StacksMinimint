@@ -47,6 +47,13 @@
   flex-shrink: 0;
 }
 
+.copy-btn__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 16ch;
+}
+
 /* Icon only variant */
 .copy-btn--icon-only {
   padding: 0.5rem;
