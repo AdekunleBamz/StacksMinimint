@@ -22,6 +22,7 @@ export function Card({
   ariaLabel,
   ariaDescriptionId
 }) {
+  const safeAriaLabel = typeof ariaLabel === 'string' && ariaLabel.trim() ? ariaLabel.trim() : undefined
   const handleKeyDown = useCallback((e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault()
@@ -43,8 +44,9 @@ export function Card({
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
       tabIndex={onClick ? 0 : undefined}
-      aria-label={ariaLabel}
+      aria-label={safeAriaLabel}
       aria-describedby={ariaDescriptionId}
+      title={safeAriaLabel}
     >
       {children}
     </div>
