@@ -33,6 +33,11 @@ describe('strings utility', () => {
       expect(truncateAddress(address, -1, 4)).toBe('SP5K...9TJT');
     });
 
+    it('should fallback to default end count when end is invalid', () => {
+      const address = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT';
+      expect(truncateAddress(address, 4, -1)).toBe('SP5K...9TJT');
+    });
+
     it('should return an empty string for invalid inputs', () => {
       expect(truncateAddress(null)).toBe('');
       expect(truncateAddress(undefined)).toBe('');
