@@ -79,3 +79,5 @@ export const formatPercentFromBps = (bps) => (Number(bps) / 100).toFixed(2) + "%
 export const formatRevealDelay = (blocks) => Number(blocks) + " blocks to reveal";
 
 export const formatTokenSymbol = (symbol) => String(symbol || "").trim().toUpperCase();
+
+export const formatCollectionTitle = (name) => String(name || "Untitled Collection").trim();
