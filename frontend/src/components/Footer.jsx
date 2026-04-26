@@ -39,7 +39,7 @@ export function Footer() {
   return (
     <footer className="footer" aria-label="Site footer">
       <div className="footer__content">
-        <div className="footer__brand">
+        <div className="footer__brand" aria-label="StacksMinimint brand summary">
           <span className="footer__logo" aria-hidden="true">◆</span>
           <span className="footer__title">StacksMinimint</span>
           <p className="footer__description">
