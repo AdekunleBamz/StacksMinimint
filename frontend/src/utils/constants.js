@@ -58,3 +58,5 @@ export const MINT_TX_CONFIRMATIONS = 1
 export const IPFS_FETCH_RETRIES = 2
 
 export const REVEAL_ANIMATION_STAGGER_MS = 120
+
+export const SUPPORTED_METADATA_SCHEMES = ["ipfs://", "https://"]
