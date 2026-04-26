@@ -54,3 +54,5 @@ export const isValidWalletLimit = (v) => Number.isInteger(Number(v)) && Number(v
 export const isValidTokenURI = (v) => typeof v === "string" && /^(ipfs|https):\/\//i.test(v.trim());
 
 export const isValidMintPriceMicrostx = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
+
+export const isPositiveFinite = (v) => Number.isFinite(Number(v)) && Number(v) > 0;
