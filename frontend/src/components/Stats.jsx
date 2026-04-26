@@ -140,8 +140,12 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           />
         </div>
         <div className="progress-text">
-          <span>{roundedProgress}% of configured supply minted</span>
-          <span>{remainingSupply === null ? 'Supply limit not configured' : `${remainingSupply} items remaining`}</span>
+          <span title="Percent of configured collection supply that is minted">
+            {roundedProgress}% of configured supply minted
+          </span>
+          <span title="Remaining collection supply based on configured max">
+            {remainingSupply === null ? 'Supply limit not configured' : `${remainingSupply} items remaining`}
+          </span>
         </div>
       </div>
 
