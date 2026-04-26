@@ -153,7 +153,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         {stats.map((stat) => (
           <li key={stat.label} className="stat-card">
             <span className="stat-card__label">{stat.label}</span>
-            <span className="stat-card__value">{stat.value}</span>
+            <span className="stat-card__value" title={stat.detail}>{stat.value}</span>
             <p className="stat-card__detail">{stat.detail}</p>
           </li>
         ))}
