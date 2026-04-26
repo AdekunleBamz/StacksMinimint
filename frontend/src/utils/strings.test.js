@@ -19,6 +19,10 @@ describe('strings utility', () => {
       expect(truncateAddress(address)).toBe('SP5K');
     });
 
+    it('should trim surrounding whitespace before truncation', () => {
+      expect(truncateAddress('  SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT  ')).toBe('SP5K...9TJT');
+    });
+
     it('should support truncation with no suffix characters', () => {
       const address = 'SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT';
       expect(truncateAddress(address, 4, 0)).toBe('SP5K...');
