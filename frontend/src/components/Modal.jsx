@@ -67,6 +67,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
         aria-labelledby={title ? titleId : undefined}
         aria-describedby={bodyId}
         aria-label={title ? undefined : MODAL_DEFAULT_ARIA_LABEL}
+        title={title || MODAL_DEFAULT_ARIA_LABEL}
       >
         <div className="modal__header">
           {title && <h2 id={titleId} className="modal__title">{title}</h2>}
