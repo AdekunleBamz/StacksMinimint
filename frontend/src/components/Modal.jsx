@@ -57,6 +57,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
     <div 
       className="modal-overlay" 
       onClick={handleOverlayClick}
+      role="presentation"
     >
       <div
         ref={modalRef}
