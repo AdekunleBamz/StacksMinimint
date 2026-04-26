@@ -8,6 +8,6 @@ import { Footer } from './Footer'
 describe('Footer', () => {
   it('renders closing build credit copy', () => {
     const markup = renderToStaticMarkup(React.createElement(Footer))
-    expect(markup).toContain('Built for Stacks NFT drops')
+    expect(markup).toContain('Built for Stacks NFT collections')
   })
 })
