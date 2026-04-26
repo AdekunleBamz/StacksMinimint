@@ -15,6 +15,8 @@ export function Spinner({ size = 'medium', tone = 'primary', className = '', lab
   return (
     <span
       className={composedClass}
+      data-size={size}
+      data-tone={tone}
       role="status"
       aria-live="polite"
       aria-atomic="true"
