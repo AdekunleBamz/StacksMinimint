@@ -18,6 +18,7 @@ export function Spinner({ size = 'medium', tone = 'primary', className = '', lab
       role="status"
       aria-live="polite"
       aria-label={safeLabel}
+      title={safeLabel}
     >
       <span className="spinner__ring" aria-hidden="true"></span>
     </span>
