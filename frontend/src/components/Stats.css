@@ -107,8 +107,8 @@
 .progress-text {
   display: flex;
   justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: 0.55rem;
+  gap: 1rem;
+  margin-top: 0.65rem;
   color: #94a3b8;
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
