@@ -51,59 +51,65 @@ export function Footer() {
         <div className="footer__links">
           <div className="footer__column">
             <h3 className="footer__heading">Project</h3>
-            <ul className="footer__list">
-              {FOOTER_LINKS.project.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="footer__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${link.label} (opens in a new tab)`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Project links">
+              <ul className="footer__list">
+                {FOOTER_LINKS.project.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="footer__link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${link.label} (opens in a new tab)`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <div className="footer__column">
             <h3 className="footer__heading">Community</h3>
-            <ul className="footer__list">
-              {FOOTER_LINKS.community.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="footer__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${link.label} (opens in a new tab)`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Community links">
+              <ul className="footer__list">
+                {FOOTER_LINKS.community.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="footer__link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${link.label} (opens in a new tab)`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <div className="footer__column">
             <h3 className="footer__heading">Resources</h3>
-            <ul className="footer__list">
-              {FOOTER_LINKS.resources.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="footer__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${link.label} (opens in a new tab)`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Resource links">
+              <ul className="footer__list">
+                {FOOTER_LINKS.resources.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="footer__link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${link.label} (opens in a new tab)`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
