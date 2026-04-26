@@ -18,7 +18,10 @@ export function Badge({
   className = '',
   title
 }) {
-  const safeTitle = typeof title === 'string' && title.trim() ? title.trim() : undefined
+  const fallbackTitle = typeof children === 'string' || typeof children === 'number'
+    ? String(children).trim()
+    : undefined
+  const safeTitle = typeof title === 'string' && title.trim() ? title.trim() : fallbackTitle
   return (
     <span
       className={['badge', `badge--${variant}`, `badge--${size}`, className].filter(Boolean).join(' ')}
