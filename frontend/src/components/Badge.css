@@ -53,9 +53,9 @@
 }
 
 .badge--warning {
-  background: rgba(234, 179, 8, 0.2);
-  border: 1px solid rgba(234, 179, 8, 0.4);
-  color: #fcd34d;
+  background: rgba(234, 179, 8, 0.24);
+  border: 1px solid rgba(234, 179, 8, 0.45);
+  color: #fde68a;
 }
 
 .badge--danger {
