@@ -250,9 +250,10 @@
 
   .header__copied-toast {
     top: auto;
-    bottom: -2.15rem;
+    bottom: -2.35rem;
     left: 0;
     transform: none;
+    box-shadow: 0 8px 18px -14px rgba(16, 185, 129, 0.9);
   }
 }
 
