@@ -82,7 +82,7 @@ export function RecentMints({ items = [] }) {
             : `View transaction for token #${tokenId} on Explorer`
           const mintKey = txId || `${tokenId ?? 'pending'}-${mint.timestamp}`
           return (
-            <div key={mintKey} className="mint-item" role="listitem">
+            <div key={mintKey} className="mint-item" role="listitem" aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
                 <span>{tokenLabel}</span>
               </div>
