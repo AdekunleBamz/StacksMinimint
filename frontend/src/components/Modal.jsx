@@ -65,6 +65,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? titleId : undefined}
+        aria-describedby={bodyId}
         aria-label={title ? undefined : MODAL_DEFAULT_ARIA_LABEL}
       >
         <div className="modal__header">
