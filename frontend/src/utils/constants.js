@@ -56,3 +56,5 @@ export const MAX_RECENT_TX = 25
 export const MINT_TX_CONFIRMATIONS = 1
 
 export const IPFS_FETCH_RETRIES = 2
+
+export const REVEAL_ANIMATION_STAGGER_MS = 120
