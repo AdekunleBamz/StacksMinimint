@@ -58,6 +58,10 @@ describe('strings utility', () => {
       expect(capitalize('  stacks')).toBe('Stacks');
     });
 
+    it('should preserve internal spacing after capitalization', () => {
+      expect(capitalize('stacks chain')).toBe('Stacks chain');
+    });
+
     it('should return an empty string for whitespace-only values', () => {
       expect(capitalize('   ')).toBe('');
     });
