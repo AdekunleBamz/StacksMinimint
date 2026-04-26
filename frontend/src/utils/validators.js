@@ -48,3 +48,5 @@ export const isValidMaxPerWallet = (v) => Number.isInteger(Number(v)) && Number(
  * @returns {boolean} True if token ID is valid and within supply limits
  */
 export const isValidTokenIdInSupply = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= MAX_SUPPLY;
+
+export const isValidWalletLimit = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 1000;
