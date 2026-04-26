@@ -100,5 +100,9 @@ describe('strings utility', () => {
       expect(isValidStacksAddress(null)).toBe(false);
       expect(isValidStacksAddress(100)).toBe(false);
     });
+
+    it('should reject addresses with invalid prefix letters', () => {
+      expect(isValidStacksAddress('SX5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT')).toBe(false);
+    });
   });
 });
