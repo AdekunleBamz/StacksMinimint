@@ -35,6 +35,9 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
       </div>
 
       <div className="header__wallet">
+        <span className="header__sr-status" role="status" aria-live="polite">
+          {hasAccount ? 'Wallet connected' : 'Wallet disconnected'}
+        </span>
         {hasAccount ? (
           <>
             <span className="header__chain">{CHAIN_NAME}</span>

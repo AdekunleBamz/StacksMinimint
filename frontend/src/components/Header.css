@@ -68,6 +68,17 @@
   min-width: 0;
 }
 
+.header__sr-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .header__chain {
   padding: 0.375rem 0.75rem;
   background: rgba(139, 92, 246, 0.15);
