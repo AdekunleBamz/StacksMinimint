@@ -71,3 +71,5 @@ export const calculateTotalMintCost = (quantity, pricePerNFT = 10) => {
 export const formatMintCount = (count) => Number(count) + " mint" + (Number(count) === 1 ? "" : "s");
 
 export const formatWhitelistWindow = (start, end) => "WL " + Number(start) + "-" + Number(end);
+
+export const formatOwnerTag = (address) => "Owner: " + String(address || "");
