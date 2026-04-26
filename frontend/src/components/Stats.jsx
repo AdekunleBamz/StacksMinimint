@@ -98,7 +98,10 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
 
       <div className="stats__headline">
-        <span className={`stats__state stats__state--${collectionState.tone}`}>
+        <span
+          className={`stats__state stats__state--${collectionState.tone}`}
+          title={`Collection status: ${collectionState.label}`}
+        >
           {collectionState.label}
         </span>
         <div className="stats__session" aria-live="polite">
