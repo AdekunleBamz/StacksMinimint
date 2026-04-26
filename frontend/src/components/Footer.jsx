@@ -61,6 +61,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${link.label} (opens in a new tab)`}
+                      title={`${link.label} (opens in a new tab)`}
                     >
                       {link.label}
                     </a>
@@ -82,6 +83,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${link.label} (opens in a new tab)`}
+                      title={`${link.label} (opens in a new tab)`}
                     >
                       {link.label}
                     </a>
@@ -103,6 +105,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${link.label} (opens in a new tab)`}
+                      title={`${link.label} (opens in a new tab)`}
                     >
                       {link.label}
                     </a>
