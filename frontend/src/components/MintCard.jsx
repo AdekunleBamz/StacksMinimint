@@ -140,7 +140,7 @@ export function MintCard({
 
       {!isConnected ? (
         <div className="mint-card__connect">
-          <p>Connect a Stacks wallet to start minting</p>
+          <p>Connect your Stacks wallet to start minting.</p>
           <button
             type="button"
             className="mint-card__btn"
@@ -148,6 +148,7 @@ export function MintCard({
             aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet to mint'}
             aria-busy={isConnecting}
             disabled={isConnecting}
+            title={isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to unlock minting'}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
@@ -168,6 +169,7 @@ export function MintCard({
               inputMode="url"
               enterKeyHint="go"
               spellCheck={false}
+              aria-label="Token URI metadata URL"
               onChange={(e) => {
                 setTokenURI(e.target.value)
                 if (mintStatus) {
@@ -192,6 +194,7 @@ export function MintCard({
             type="submit"
             className="mint-card__btn mint-card__btn--primary"
             aria-describedby="mintActionMessage"
+            title={mintActionMessage}
             disabled={
               !isTokenUriValid ||
               isMinting || 
@@ -214,7 +217,7 @@ export function MintCard({
             )}
           </button>
 
-          <p id="mintActionMessage" className="mint-card__helper" aria-live="polite">
+          <p id="mintActionMessage" className="mint-card__helper" aria-live="polite" aria-atomic="true">
             {mintActionMessage}
           </p>
 
