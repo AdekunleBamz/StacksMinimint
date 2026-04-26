@@ -185,6 +185,7 @@ npm run frontend:check
 | `VITE_CONTRACT_NAME` | Core contract name | minimint-core-v-i27 |
 | `VITE_HUB_CONTRACT_ADDRESS` | Hub contract address | Mainnet deployer |
 | `VITE_HUB_CONTRACT_NAME` | Hub contract name | minimint-hub-v-i27 |
+| `VITE_TOKEN_SYMBOL` | Reward token ticker shown in UI | MINIMINT |
 | `VITE_MINT_FEE` | Mint fee in micro-STX | 1000 |
 
 ---
