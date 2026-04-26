@@ -16,6 +16,7 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
   const safeValue = typeof value === 'number' && Number.isFinite(value) ? value : 0
   const boundedValue = Math.min(Math.max(safeValue, 0), safeMax)
   const percentage = Math.min(Math.max((boundedValue / safeMax) * MAX_PERCENTAGE, 0), MAX_PERCENTAGE)
+  const formattedPercentage = percentage.toFixed(1)
 
   return (
     <div className={`progress progress--${size}`}>
@@ -28,11 +29,12 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
           aria-valuenow={boundedValue}
           aria-valuemin={0}
           aria-valuemax={safeMax}
+          aria-valuetext={`${formattedPercentage}%`}
         />
       </div>
       {showLabel && (
         <span className="progress__label" aria-live="polite">
-          {percentage.toFixed(1)}%
+          {formattedPercentage}%
         </span>
       )}
     </div>
