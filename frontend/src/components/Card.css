@@ -52,7 +52,7 @@
 
 /* Hover effect */
 .card--hover:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: rgba(139, 92, 246, 0.3);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
