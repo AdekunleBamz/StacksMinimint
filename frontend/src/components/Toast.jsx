@@ -32,7 +32,7 @@ export function Toast({ message, type = 'info', onClose }) {
       aria-atomic="true"
     >
       <span className="toast__icon" aria-hidden="true">{icon}</span>
-      <span className="toast__message">{safeMessage}</span>
+      <span className="toast__message" title={safeMessage}>{safeMessage}</span>
       {onClose && (
         <button type="button" className="toast__close" onClick={onClose} aria-label={`Dismiss ${safeType} notification`}>
           ×
