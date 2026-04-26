@@ -99,3 +99,11 @@
     background-position: 0 0;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .progress__fill,
+  .progress__fill--striped {
+    transition: none;
+    animation: none;
+  }
+}
