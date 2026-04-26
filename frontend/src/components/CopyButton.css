@@ -31,7 +31,7 @@
 
 .copy-btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.95), 0 0 0 4px rgba(139, 92, 246, 0.45);
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.95), 0 0 0 4px rgba(196, 181, 253, 0.45);
 }
 
 .copy-btn:disabled {
