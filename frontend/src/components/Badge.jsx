@@ -18,12 +18,13 @@ export function Badge({
   className = '',
   title
 }) {
+  const safeTitle = typeof title === 'string' && title.trim() ? title.trim() : undefined
   return (
     <span
       className={['badge', `badge--${variant}`, `badge--${size}`, className].filter(Boolean).join(' ')}
       role="status"
-      title={title}
-      aria-label={typeof title === 'string' ? title : undefined}
+      title={safeTitle}
+      aria-label={safeTitle}
     >
       {dot && <span className="badge__dot" aria-hidden="true" />}
       {children}
