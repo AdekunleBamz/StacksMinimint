@@ -50,3 +50,5 @@ export const isValidMaxPerWallet = (v) => Number.isInteger(Number(v)) && Number(
 export const isValidTokenIdInSupply = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= MAX_SUPPLY;
 
 export const isValidWalletLimit = (v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 1000;
+
+export const isValidTokenURI = (v) => typeof v === "string" && /^(ipfs|https):\/\//i.test(v.trim());
