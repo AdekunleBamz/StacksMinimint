@@ -194,6 +194,7 @@ export function MintCard({
             type="submit"
             className="mint-card__btn mint-card__btn--primary"
             aria-describedby="mintActionMessage"
+            title={mintActionMessage}
             disabled={
               !isTokenUriValid ||
               isMinting || 
