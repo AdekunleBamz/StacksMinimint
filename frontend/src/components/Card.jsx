@@ -40,6 +40,7 @@ export function Card({
         onClick ? 'card--clickable' : '',
         className
       ].filter(Boolean).join(' ')}
+      data-clickable={onClick ? 'true' : 'false'}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
