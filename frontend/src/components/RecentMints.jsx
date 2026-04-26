@@ -27,7 +27,7 @@ export function RecentMints({ items = [] }) {
 
   if (isLoading) {
     return (
-      <section className="recent-mints">
+      <section className="recent-mints" aria-label="Recent mints loading">
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__list" role="list" aria-label="Loading recent mint activity">
           {Array.from({ length: RECENT_MINTS_SKELETON_COUNT }, (_, i) => i).map((i) => (
@@ -46,7 +46,7 @@ export function RecentMints({ items = [] }) {
 
   if (recentMints.length === 0) {
     return (
-      <section className="recent-mints">
+      <section className="recent-mints" aria-label="Recent mints empty state">
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__empty" role="status" aria-live="polite">
           <span className="recent-mints__empty-icon" aria-hidden="true">🎨</span>
@@ -58,7 +58,7 @@ export function RecentMints({ items = [] }) {
   }
 
   return (
-      <section className="recent-mints">
+      <section className="recent-mints" aria-label="Recent mints">
         <h2 className="recent-mints__title">Recent Mints</h2>
       <p className="recent-mints__subtitle">Fresh activity appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
