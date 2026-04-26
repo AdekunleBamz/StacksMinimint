@@ -73,3 +73,5 @@ export const formatMintCount = (count) => Number(count) + " mint" + (Number(coun
 export const formatWhitelistWindow = (start, end) => "WL " + Number(start) + "-" + Number(end);
 
 export const formatOwnerTag = (address) => "Owner: " + String(address || "");
+
+export const formatPercentFromBps = (bps) => (Number(bps) / 100).toFixed(2) + "%";
