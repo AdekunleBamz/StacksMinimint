@@ -49,7 +49,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               className="header__address-wrapper"
               onClick={handleCopy}
               title={normalizedAccount}
-              aria-label="Copy wallet address"
+              aria-label="Copy wallet address to clipboard"
             >
               <span className="header__address-label">Wallet</span>
               <span className="header__address" aria-hidden="true">{formatAddress(normalizedAccount)}</span>
