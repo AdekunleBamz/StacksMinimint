@@ -95,5 +95,10 @@ describe('strings utility', () => {
       expect(isValidStacksAddress('SP123')).toBe(false);
       expect(isValidStacksAddress('bad-address')).toBe(false);
     });
+
+    it('should reject non-string address inputs', () => {
+      expect(isValidStacksAddress(null)).toBe(false);
+      expect(isValidStacksAddress(100)).toBe(false);
+    });
   });
 });
