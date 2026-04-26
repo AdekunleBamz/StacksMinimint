@@ -100,6 +100,10 @@
   color: #f3f4f6;
 }
 
+.modal__close:active {
+  transform: translateY(1px);
+}
+
 .modal__close:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
