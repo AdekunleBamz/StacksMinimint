@@ -138,6 +138,7 @@ Run frontend unit tests:
 ```bash
 npm run frontend:test
 ```
+This command runs `npm run test` inside `frontend/` from the repo root.
 
 Run frontend smoke tests:
 ```bash
