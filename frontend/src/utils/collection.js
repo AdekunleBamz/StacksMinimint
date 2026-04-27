@@ -370,6 +370,10 @@ export function validateTokenURI(value) {
   }
 }
 
+export function normalizeSubmissionAddress(address) {
+  return typeof address === 'string' ? address.trim() : address
+}
+
 /**
  * Creates a record for a pending or complete submission.
  * @param {Object} params - The submission parameters.
@@ -377,7 +381,7 @@ export function validateTokenURI(value) {
  */
 export function createSubmissionRecord({ txId, tokenURI, address }) {
   const normalizedTxId = typeof txId === 'string' ? txId.trim() : txId
-  const normalizedAddress = typeof address === 'string' ? address.trim() : address
+  const normalizedAddress = normalizeSubmissionAddress(address)
   const normalizedTokenURI = typeof tokenURI === 'string' ? tokenURI.trim() : tokenURI
   const safeAddress = normalizedAddress || 'unknown'
   const fallbackId = `${SUBMISSION_ID_PREFIX}${Date.now()}-${safeAddress}`
