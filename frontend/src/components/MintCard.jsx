@@ -19,6 +19,11 @@ const MINT_PENDING_MESSAGE = 'Check your wallet to confirm this mint.';
 /** Message shown when a mint transaction is cancelled or rejected. */
 const MINT_CANCELLED_MESSAGE = 'Mint was cancelled or rejected in the wallet.';
 
+export function normalizeMintMetricValue(value, fallback = 0) {
+  const parsedValue = Number(value)
+  return Number.isFinite(parsedValue) ? parsedValue : fallback
+}
+
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -73,13 +78,11 @@ export function MintCard({
     }
   }, [tokenURI, onMint])
 
-  const parsedTotalSupply = Number(contractInfo?.totalSupply)
   const parsedMaxSupply = Number(contractInfo?.maxSupply)
-  const parsedWalletMinted = Number(contractInfo?.walletMinted)
   const parsedMaxPerWallet = Number(contractInfo?.maxPerWallet)
-  const totalSupply = Number.isFinite(parsedTotalSupply) ? parsedTotalSupply : 0
+  const totalSupply = normalizeMintMetricValue(contractInfo?.totalSupply)
+  const walletMinted = normalizeMintMetricValue(contractInfo?.walletMinted)
   const maxSupply = Number.isFinite(parsedMaxSupply) ? parsedMaxSupply : null
-  const walletMinted = Number.isFinite(parsedWalletMinted) ? parsedWalletMinted : 0
   const maxPerWallet = Number.isFinite(parsedMaxPerWallet) ? parsedMaxPerWallet : null
   const isSoldOut = maxSupply !== null && totalSupply >= maxSupply
   const walletLimitReached = maxPerWallet !== null && walletMinted >= maxPerWallet
