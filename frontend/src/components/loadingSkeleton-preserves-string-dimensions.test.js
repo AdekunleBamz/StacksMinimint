@@ -13,5 +13,7 @@ describe('LoadingSkeleton', () => {
 
     expect(markup).toContain('width:50%')
     expect(markup).toContain('height:2rem')
+    expect(markup).toContain('data-width-set="true"')
+    expect(markup).toContain('data-height-set="true"')
   })
 })
