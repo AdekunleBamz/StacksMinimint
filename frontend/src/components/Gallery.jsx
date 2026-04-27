@@ -134,7 +134,7 @@ export function Gallery() {
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
-        <div className={`gallery__grid gallery__grid--${safeViewMode}`}>
+        <div className={`gallery__grid gallery__grid--${safeViewMode}`} data-view-mode={safeViewMode}>
           {Array.from({ length: GALLERY_SKELETON_COUNT }, (_, i) => i).map((i) => (
             <div key={i} className="nft-card nft-card--skeleton">
               <div className="skeleton skeleton--image"></div>
