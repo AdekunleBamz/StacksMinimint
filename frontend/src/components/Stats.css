@@ -37,6 +37,7 @@
   min-height: 2.15rem;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
+  border: 1px solid transparent;
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -46,16 +47,19 @@
 
 .stats__state--success {
   background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.26);
   color: #bbf7d0;
 }
 
 .stats__state--warning {
   background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.26);
   color: #fde68a;
 }
 
 .stats__state--critical {
   background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.26);
   color: #fecaca;
 }
 
