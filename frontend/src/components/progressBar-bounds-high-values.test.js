@@ -13,5 +13,6 @@ describe('ProgressBar', () => {
 
     expect(markup).toContain('width:100%')
     expect(markup).toContain('aria-valuenow="100"')
+    expect(markup).toContain('data-valuenow="100"')
   })
 })
