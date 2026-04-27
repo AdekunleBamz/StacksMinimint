@@ -33,6 +33,7 @@ function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
   const { showToast, toasts, removeToast } = useToast()
+  const connectionState = isConnected ? 'connected' : isConnecting ? 'connecting' : 'disconnected'
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
@@ -68,7 +69,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <div className="app">
+      <div className="app" data-connection-state={connectionState}>
         <div className="page-load-bar" aria-hidden="true"></div>
         <a className="skip-link" href="#main-content">
           Skip to main content
