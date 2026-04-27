@@ -114,4 +114,8 @@
   .card--hover:hover {
     transform: none;
   }
+
+  .card--clickable:active {
+    transform: none;
+  }
 }
