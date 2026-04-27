@@ -18,6 +18,7 @@ const MODAL_SIZES = ['small', 'medium', 'large'];
 
 export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const safeSize = MODAL_SIZES.includes(size) ? size : 'medium'
+  const hasBody = children != null
   const modalRef = useRef(null)
   const titleId = useId()
   const bodyId = useId()
@@ -56,12 +57,15 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   return (
     <div 
       className="modal-overlay" 
+      data-state="open"
       onClick={handleOverlayClick}
       role="presentation"
     >
       <div
         ref={modalRef}
         className={`modal modal--${safeSize}`}
+        data-size={safeSize}
+        data-title-present={title ? 'true' : 'false'}
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
@@ -85,7 +89,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
             </svg>
           </button>
         </div>
-        <div id={bodyId} className="modal__body" aria-live="polite">
+        <div id={bodyId} className="modal__body" data-has-body={hasBody ? 'true' : 'false'} aria-live="polite">
           {children}
         </div>
       </div>

@@ -18,5 +18,6 @@ describe('Modal', () => {
 
     expect(markup).toContain('role="dialog"')
     expect(markup).toContain('Mint details')
+    expect(markup).toContain('data-has-body="true"')
   })
 })

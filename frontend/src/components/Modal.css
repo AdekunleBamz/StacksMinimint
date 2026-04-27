@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 2rem;
+  padding: 2.25rem;
   animation: fadeIn 0.2s ease;
   overscroll-behavior: contain;
 }
@@ -85,7 +85,7 @@
   border: none;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 0.5rem;
-  color: #9ca3af;
+  color: #cbd5e1;
   cursor: pointer;
   flex-shrink: 0;
   display: flex;
@@ -120,7 +120,7 @@
   scrollbar-gutter: stable;
   flex: 1;
   user-select: text;
-  line-height: 1.6;
+  line-height: 1.62;
   color: #e5e7eb;
 }
 
