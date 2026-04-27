@@ -23,6 +23,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = typeof account === 'string' ? account.trim() : account
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
+  const accountLength = hasAccount && typeof normalizedAccount === 'string' ? normalizedAccount.length : 0
 
   const handleCopy = useCallback(() => {
     if (normalizedAccount) copy(normalizedAccount)
@@ -54,6 +55,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               className="header__address-wrapper"
               data-copy-state={copied ? 'copied' : 'idle'}
               data-copy-available={hasAccount ? 'true' : 'false'}
+              data-account-length={String(accountLength)}
               onClick={handleCopy}
               title={normalizedAccount}
               aria-label="Copy wallet address to clipboard"
