@@ -20,6 +20,7 @@
   line-height: 1.7;
   max-width: 32rem;
   text-wrap: pretty;
+  overflow-wrap: anywhere;
 }
 
 .stats__headline {
