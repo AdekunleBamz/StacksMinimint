@@ -82,6 +82,11 @@
   background: rgba(139, 92, 246, 0.22);
 }
 
+.gallery__clear-search:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .gallery__results {
   margin: 0 0 1.25rem;
   color: #94a3b8;
