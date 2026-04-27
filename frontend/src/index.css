@@ -39,6 +39,7 @@ body {
     radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.12), transparent 26%),
     linear-gradient(180deg, #060816, #090d1d 36%, #060816);
   color: var(--text);
+  accent-color: var(--accent);
   letter-spacing: -0.015em;
   min-height: 100vh;
   overflow-x: hidden;
