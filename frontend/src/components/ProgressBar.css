@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   gap: 0.95rem;
   width: 100%;
-  min-height: 1.25rem;
+  min-height: 1.5rem;
 }
 
 .progress__bar {
