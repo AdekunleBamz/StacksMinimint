@@ -122,6 +122,7 @@
   user-select: text;
   line-height: 1.62;
   color: #e5e7eb;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 640px) {
