@@ -60,6 +60,7 @@
 /* Clickable */
 .card--clickable {
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .card--clickable:active {
