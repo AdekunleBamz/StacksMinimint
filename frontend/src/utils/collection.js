@@ -35,6 +35,16 @@ const TIME_HOURS_PER_DAY = 24;
  * @param {string|number} microstx - The amount in micro-STX.
  * @returns {string} The formatted STX amount.
  */
+export function normalizeMicrostxInput(microstx) {
+  const input = typeof microstx === 'string' ? microstx.trim() : microstx
+  const amount = Number(input)
+  if (microstx === null || microstx === undefined || Number.isNaN(amount) || !Number.isFinite(amount)) {
+    return null
+  }
+
+  return amount
+}
+
 export function formatSTX(microstx) {
   const input = typeof microstx === 'string' ? microstx.trim() : microstx
   const amount = Number(input)
