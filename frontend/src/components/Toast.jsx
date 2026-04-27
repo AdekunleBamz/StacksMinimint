@@ -33,6 +33,7 @@ export function Toast({ message, type = 'info', onClose }) {
       aria-live={safeType === 'error' ? 'assertive' : 'polite'}
       aria-atomic="true"
       aria-label={`${safeType} notification`}
+      title={`${safeType} notification`}
     >
       <span className="toast__icon" aria-hidden="true">{icon}</span>
       <span className="toast__message" title={safeMessage}>{safeMessage}</span>
