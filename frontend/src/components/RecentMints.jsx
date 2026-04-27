@@ -32,6 +32,10 @@ export function getRecentMintTxId(mint) {
   return getFirstNonEmpty([mint?.txId, mint?.txHash])
 }
 
+export function getRecentMintAddress(mint, fallback = 'Unknown') {
+  return getFirstNonEmpty([mint?.minter, mint?.address], fallback)
+}
+
 export function RecentMints({ items = [] }) {
   const isLoading = items === null
   const recentMints = Array.isArray(items) ? items : []
@@ -76,7 +80,7 @@ export function RecentMints({ items = [] }) {
         {recentMints.map((mint) => {
           const timestampMs = normalizeMintTimestamp(mint.timestamp)
           const txId = getRecentMintTxId(mint)
-          const minterAddress = getFirstNonEmpty([mint.minter, mint.address], 'Unknown')
+          const minterAddress = getRecentMintAddress(mint)
           const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
           const isPendingToken = tokenId === '' || tokenId == null
           const tokenLabel = isPendingToken ? 'Pending' : `#${tokenId}`
