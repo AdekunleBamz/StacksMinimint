@@ -18,6 +18,7 @@ export function Badge({
   className = '',
   title
 }) {
+  const tone = typeof variant === 'string' ? variant.split('-')[0] : 'default'
   const fallbackTitle = typeof children === 'string' || typeof children === 'number'
     ? String(children).trim()
     : undefined
@@ -27,6 +28,7 @@ export function Badge({
     <span
       className={['badge', `badge--${variant}`, `badge--${size}`, className].filter(Boolean).join(' ')}
       data-variant={variant}
+      data-tone={tone}
       data-size={size}
       data-dot={dot ? 'true' : 'false'}
       data-label-length={String(labelLength)}
