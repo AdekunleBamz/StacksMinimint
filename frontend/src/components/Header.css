@@ -262,4 +262,8 @@
   .header__logo {
     animation: none;
   }
+
+  .header__copied-toast {
+    animation: none;
+  }
 }
