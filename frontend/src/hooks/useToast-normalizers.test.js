@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { normalizeToastDuration, normalizeToastMessage, normalizeToastType } from './useToast'
+import {
+  normalizeToastDuration,
+  normalizeToastMessage,
+  normalizeToastType,
+  trimToastQueue
+} from './useToast'
 
 describe('useToast helpers', () => {
   it('trims leading and trailing whitespace from toast messages', () => {
@@ -13,5 +18,12 @@ describe('useToast helpers', () => {
 
   it('clamps negative durations to zero', () => {
     expect(normalizeToastDuration(-200)).toBe(0)
+  })
+
+  it('keeps the newest toasts when queue exceeds the configured max', () => {
+    const toasts = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
+    const { trimmedToasts } = trimToastQueue(toasts, 2)
+
+    expect(trimmedToasts).toEqual([{ id: 3 }, { id: 4 }])
   })
 })
