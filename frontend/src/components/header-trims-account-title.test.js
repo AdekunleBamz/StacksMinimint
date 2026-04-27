@@ -15,5 +15,6 @@ describe('Header', () => {
     )
 
     expect(markup).toContain('title="SP3FBR2AGK4B2Y6A4J91G4FJ3P1N5X4K8TB8Z3YQH"')
+    expect(markup).toContain('data-account-length="41"')
   })
 })
