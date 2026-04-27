@@ -114,7 +114,7 @@
 
 .toast__close:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.5);
+  box-shadow: 0 0 0 2px rgba(191, 219, 254, 0.6);
 }
 
 @media (max-width: 480px) {
