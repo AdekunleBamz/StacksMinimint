@@ -374,6 +374,10 @@ export function normalizeSubmissionAddress(address) {
   return typeof address === 'string' ? address.trim() : address
 }
 
+export function normalizeSubmissionTokenURI(tokenURI) {
+  return typeof tokenURI === 'string' ? tokenURI.trim() : tokenURI
+}
+
 /**
  * Creates a record for a pending or complete submission.
  * @param {Object} params - The submission parameters.
@@ -382,7 +386,7 @@ export function normalizeSubmissionAddress(address) {
 export function createSubmissionRecord({ txId, tokenURI, address }) {
   const normalizedTxId = typeof txId === 'string' ? txId.trim() : txId
   const normalizedAddress = normalizeSubmissionAddress(address)
-  const normalizedTokenURI = typeof tokenURI === 'string' ? tokenURI.trim() : tokenURI
+  const normalizedTokenURI = normalizeSubmissionTokenURI(tokenURI)
   const safeAddress = normalizedAddress || 'unknown'
   const fallbackId = `${SUBMISSION_ID_PREFIX}${Date.now()}-${safeAddress}`
   return {
