@@ -130,7 +130,7 @@ export function Gallery() {
 
   if (isLoading) {
     return (
-      <section className="gallery" aria-label="NFT Collection Gallery" aria-busy="true">
+      <section className="gallery" aria-label="NFT Collection Gallery" aria-busy="true" aria-live="polite">
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
