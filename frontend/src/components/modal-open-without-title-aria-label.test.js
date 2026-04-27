@@ -16,5 +16,6 @@ describe('Modal', () => {
     )
 
     expect(markup).toContain('aria-label="Dialog"')
+    expect(markup).toContain('data-title-present="false"')
   })
 })
