@@ -80,3 +80,13 @@
   width: 12px;
   height: 12px;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-btn {
+    transition: none;
+  }
+
+  .copy-btn:active:not(:disabled) {
+    transform: none;
+  }
+}
