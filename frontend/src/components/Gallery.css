@@ -77,7 +77,7 @@
   transition: background 0.2s ease;
 }
 
-.gallery__clear-search:hover {
+.gallery__clear-search:hover:not(:disabled) {
   background: rgba(139, 92, 246, 0.22);
 }
 
