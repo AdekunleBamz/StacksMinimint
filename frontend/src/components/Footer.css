@@ -43,7 +43,7 @@
 }
 
 .footer__description {
-  color: #cbd5e1;
+  color: #dbe4f0;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.75;
@@ -61,7 +61,7 @@
   font-weight: 600;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.085em;
   line-height: 1.4;
   margin: 0 0 1.25rem 0;
   user-select: none;
@@ -89,6 +89,7 @@
 
 .footer__link:hover {
   color: #a78bfa;
+  text-decoration: underline;
 }
 
 .footer__link:focus-visible {
@@ -106,7 +107,7 @@
   align-items: center;
   gap: 1rem;
   padding-top: 2.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   max-width: 1200px;
   margin: 1rem auto 0;
 }

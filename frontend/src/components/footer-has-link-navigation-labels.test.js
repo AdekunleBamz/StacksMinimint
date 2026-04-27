@@ -11,5 +11,8 @@ describe('Footer', () => {
     expect(markup).toContain('aria-label="Project links"')
     expect(markup).toContain('aria-label="Community links"')
     expect(markup).toContain('aria-label="Resource links"')
+    expect(markup).toContain('data-column-count="3"')
+    expect(markup).toContain('data-link-count="3"')
+    expect(markup).toContain('data-link-count="5"')
   })
 })
