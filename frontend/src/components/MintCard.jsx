@@ -71,6 +71,13 @@ export function getMintConnectButtonA11y(isConnecting) {
   }
 }
 
+export function getMintSubmitLabel({ isMinting, isSoldOut, walletLimitReached, mintFee }) {
+  if (isMinting) return 'Minting...'
+  if (isSoldOut) return 'Sold Out'
+  if (walletLimitReached) return 'Wallet Limit Reached'
+  return `Mint for ${formatSTX(mintFee)} STX`
+}
+
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -141,6 +148,12 @@ export function MintCard({
   const mintActionMessage = mintDescriptor.message
   const mintState = mintDescriptor.state
   const connectButtonA11y = getMintConnectButtonA11y(isConnecting)
+  const mintSubmitLabel = getMintSubmitLabel({
+    isMinting,
+    isSoldOut,
+    walletLimitReached,
+    mintFee: contractInfo?.mintFee
+  })
   const txId = mintStatus?.txId
 
   return (
@@ -263,14 +276,14 @@ export function MintCard({
             {isMinting ? (
               <>
                 <Spinner size="small" tone="white" className="mint-card__spinner" />
-                Minting...
+                {mintSubmitLabel}
               </>
             ) : isSoldOut ? (
-              'Sold Out'
+              mintSubmitLabel
             ) : walletLimitReached ? (
-              'Wallet Limit Reached'
+              mintSubmitLabel
             ) : (
-              `Mint for ${formatSTX(contractInfo?.mintFee)} STX`
+              mintSubmitLabel
             )}
           </button>
 
