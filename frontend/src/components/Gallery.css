@@ -12,7 +12,7 @@
   align-items: center;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .gallery__title {
@@ -88,6 +88,13 @@
   font-variant-numeric: tabular-nums;
   line-height: 1.5;
   text-wrap: pretty;
+}
+
+.gallery__loading-copy {
+  margin: -0.5rem 0 1.25rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .gallery__search-hint {
@@ -281,6 +288,7 @@
 /* Skeleton */
 .nft-card--skeleton {
   pointer-events: none;
+  background: rgba(30, 30, 50, 0.5);
 }
 
 .skeleton {
@@ -299,7 +307,7 @@
 
 .skeleton--title {
   height: 20px;
-  width: 70%;
+  width: 66%;
   border-radius: 0.25rem;
   margin-bottom: 0.75rem;
 }
