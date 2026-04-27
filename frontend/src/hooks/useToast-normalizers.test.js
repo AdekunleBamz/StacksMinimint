@@ -22,8 +22,9 @@ describe('useToast helpers', () => {
 
   it('keeps the newest toasts when queue exceeds the configured max', () => {
     const toasts = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
-    const { trimmedToasts } = trimToastQueue(toasts, 2)
+    const { trimmedToasts, removedToasts } = trimToastQueue(toasts, 2)
 
     expect(trimmedToasts).toEqual([{ id: 3 }, { id: 4 }])
+    expect(removedToasts).toEqual([{ id: 1 }, { id: 2 }])
   })
 })
