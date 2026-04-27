@@ -128,6 +128,23 @@ export function normalizeExactTimestamp(timestamp) {
   return time < UNIX_MS_THRESHOLD ? time * 1000 : time
 }
 
+export function getExactTimeDescriptor(timestamp, locale) {
+  const normalizedTime = normalizeExactTimestamp(timestamp)
+  if (normalizedTime === null) {
+    return { label: 'Unknown time', iso: null, isValid: false }
+  }
+
+  const date = new Date(normalizedTime)
+  return {
+    label: new Intl.DateTimeFormat(locale, {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    }).format(date),
+    iso: date.toISOString(),
+    isValid: true
+  }
+}
+
 /**
  * Formats a timestamp into a human-readable date and time string.
  * @param {number} timestamp - The Unix timestamp in milliseconds.
