@@ -151,6 +151,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.2;
+  min-height: 1rem;
   color: #c4b5fd;
   white-space: nowrap;
 }
