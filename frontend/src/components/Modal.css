@@ -151,4 +151,8 @@
   .modal__close {
     transition: none;
   }
+
+  .modal__close:active {
+    transform: none;
+  }
 }
