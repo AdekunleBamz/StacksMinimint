@@ -49,7 +49,7 @@
   border-right-color: rgba(139, 92, 246, 0.3);
   border-bottom-color: rgba(139, 92, 246, 0.3);
   border-left-color: rgba(139, 92, 246, 0.3);
-  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.35));
+  filter: drop-shadow(0 0 7px rgba(139, 92, 246, 0.3));
 }
 
 .spinner--white .spinner__ring {
