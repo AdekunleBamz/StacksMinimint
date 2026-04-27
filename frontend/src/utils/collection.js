@@ -237,7 +237,8 @@ export function validateTokenURI(value) {
       characterCount,
       remainingCharacters,
       isNearLimit,
-      normalizedValue: normalized
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -251,7 +252,8 @@ export function validateTokenURI(value) {
       characterCount,
       remainingCharacters,
       isNearLimit,
-      normalizedValue: normalized
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -265,7 +267,8 @@ export function validateTokenURI(value) {
       characterCount,
       remainingCharacters,
       isNearLimit,
-      normalizedValue: normalized
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -279,7 +282,8 @@ export function validateTokenURI(value) {
       characterCount,
       remainingCharacters,
       isNearLimit,
-      normalizedValue: normalized
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -293,7 +297,8 @@ export function validateTokenURI(value) {
       characterCount,
       remainingCharacters,
       isNearLimit,
-      normalizedValue: normalized
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -312,7 +317,8 @@ export function validateTokenURI(value) {
         characterCount,
         remainingCharacters,
         isNearLimit,
-        normalizedValue: normalized
+        normalizedValue: normalized,
+        secureScheme: isSecureScheme
       }
     }
   }
@@ -330,7 +336,8 @@ export function validateTokenURI(value) {
           characterCount,
           remainingCharacters,
           isNearLimit,
-          normalizedValue: normalized
+          normalizedValue: normalized,
+          secureScheme: isSecureScheme
         }
       }
     } catch {
@@ -343,7 +350,8 @@ export function validateTokenURI(value) {
         characterCount,
         remainingCharacters,
         isNearLimit,
-        normalizedValue: normalized
+        normalizedValue: normalized,
+        secureScheme: isSecureScheme
       }
     }
   }
@@ -357,7 +365,8 @@ export function validateTokenURI(value) {
     characterCount,
     remainingCharacters,
     isNearLimit,
-    normalizedValue: normalized
+    normalizedValue: normalized,
+    secureScheme: isSecureScheme
   }
 }
 
