@@ -19,9 +19,13 @@ import { NETWORK } from '../constants'
 const CHAIN_NAME = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
 const CHAIN_TOOLTIP = `Connected network: ${CHAIN_NAME}`
 
+export function normalizeHeaderAccount(account) {
+  return typeof account === 'string' ? account.trim() : account
+}
+
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
-  const normalizedAccount = typeof account === 'string' ? account.trim() : account
+  const normalizedAccount = normalizeHeaderAccount(account)
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
   const accountLength = hasAccount && typeof normalizedAccount === 'string' ? normalizedAccount.length : 0
 
