@@ -297,3 +297,13 @@
     text-align: left;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .mint-card__btn {
+    transition: none;
+  }
+
+  .mint-card__btn--primary:hover:not(:disabled) {
+    transform: none;
+  }
+}
