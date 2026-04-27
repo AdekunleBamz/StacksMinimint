@@ -107,6 +107,7 @@ export function MintCard({
     <div
       className="mint-card"
       data-connected={isConnected ? 'true' : 'false'}
+      data-minting={isMinting ? 'true' : 'false'}
       data-mint-state={mintState}
       title={`Mint state: ${mintState}`}
     >
