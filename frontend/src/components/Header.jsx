@@ -29,24 +29,30 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   }, [normalizedAccount, copy])
 
   return (
-    <header className="header">
+    <header className="header" data-connected={hasAccount ? 'true' : 'false'}>
       <div className="header__brand">
         <img src={logo} alt="StacksMinimint Logo" className="header__logo" width="32" height="32" />
         <span className="header__title">StacksMinimint</span>
       </div>
 
       <div className="header__wallet">
-        <span className="header__sr-status" role="status" aria-live="polite">
+        <span
+          className="header__sr-status"
+          role="status"
+          aria-live="polite"
+          title={hasAccount ? 'Wallet is connected' : 'Wallet is disconnected'}
+        >
           {hasAccount ? 'Wallet connected' : 'Wallet disconnected'}
         </span>
         {hasAccount ? (
           <>
-            <span className="header__chain" title={CHAIN_TOOLTIP}>
+            <span className="header__chain" title={CHAIN_TOOLTIP} aria-label={CHAIN_NAME}>
               {CHAIN_NAME}
             </span>
             <button
               type="button"
               className="header__address-wrapper"
+              data-copy-state={copied ? 'copied' : 'idle'}
               onClick={handleCopy}
               title={normalizedAccount}
               aria-label="Copy wallet address to clipboard"
@@ -74,6 +80,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
           <button
             type="button"
             className="header__btn header__btn--connect"
+            data-connecting={isConnecting ? 'true' : 'false'}
             onClick={onConnect}
             disabled={isConnecting}
             aria-busy={isConnecting}
