@@ -24,9 +24,25 @@ export {
 } from './constants';
 
 const EXPLORER_VALID_TYPES = ['txid', 'token', 'address']
+const EXPLORER_LABELS = {
+  txid: 'Transaction',
+  token: 'Token',
+  address: 'Address'
+}
 
 export function normalizeExplorerType(type) {
   return EXPLORER_VALID_TYPES.includes(type) ? type : 'txid'
+}
+
+export function getExplorerLinkLabel(type, identifier) {
+  const safeType = normalizeExplorerType(type)
+  const baseLabel = EXPLORER_LABELS[safeType]
+  const normalizedIdentifier = typeof identifier === 'string' ? identifier.trim() : identifier
+  if (normalizedIdentifier == null || normalizedIdentifier === '') {
+    return `Open ${baseLabel} in Explorer`
+  }
+
+  return `${baseLabel}: ${normalizedIdentifier}`
 }
 
 /**
