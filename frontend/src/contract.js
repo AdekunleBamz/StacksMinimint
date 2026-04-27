@@ -23,6 +23,12 @@ export {
   STACKS_NETWORK_CONFIG
 } from './constants';
 
+const EXPLORER_VALID_TYPES = ['txid', 'token', 'address']
+
+export function normalizeExplorerType(type) {
+  return EXPLORER_VALID_TYPES.includes(type) ? type : 'txid'
+}
+
 /**
  * Generates an explorer URL for a given type (txid, token, address).
  * @param {string} type - The type of link ('txid', 'token', 'address').
