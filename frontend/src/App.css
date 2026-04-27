@@ -259,6 +259,10 @@
   .back-to-top:hover {
     transform: none;
   }
+
+  .back-to-top--visible {
+    transform: none;
+  }
 }
 
 @media (max-width: 640px) {
