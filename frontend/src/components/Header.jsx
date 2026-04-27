@@ -23,10 +23,16 @@ export function normalizeHeaderAccount(account) {
   return typeof account === 'string' ? account.trim() : account
 }
 
+export function getHeaderConnectionState({ hasAccount, isConnecting }) {
+  if (hasAccount) return 'connected'
+  return isConnecting ? 'connecting' : 'disconnected'
+}
+
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = normalizeHeaderAccount(account)
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
+  const connectionState = getHeaderConnectionState({ hasAccount, isConnecting })
   const accountLength = hasAccount && typeof normalizedAccount === 'string' ? normalizedAccount.length : 0
 
   const handleCopy = useCallback(() => {
@@ -34,7 +40,12 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   }, [normalizedAccount, copy])
 
   return (
-    <header className="header" data-connected={hasAccount ? 'true' : 'false'} data-connecting={isConnecting ? 'true' : 'false'}>
+    <header
+      className="header"
+      data-connected={hasAccount ? 'true' : 'false'}
+      data-connecting={isConnecting ? 'true' : 'false'}
+      data-connection-state={connectionState}
+    >
       <div className="header__brand">
         <img src={logo} alt="StacksMinimint Logo" className="header__logo" width="32" height="32" />
         <span className="header__title">StacksMinimint</span>
