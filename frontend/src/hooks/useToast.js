@@ -13,6 +13,29 @@ import { MAX_TOASTS, TOAST_DURATION } from '../constants'
 /** Valid toast notification types accepted by addToast. */
 const TOAST_VALID_TYPES = ['success', 'error', 'warning', 'info'];
 
+export function normalizeToastMessage(message) {
+  return typeof message === 'string' ? message.trim() : message
+}
+
+export function normalizeToastType(type) {
+  return TOAST_VALID_TYPES.includes(type) ? type : 'info'
+}
+
+export function normalizeToastDuration(duration, fallback = TOAST_DURATION) {
+  return Number.isFinite(duration) ? Math.max(duration, 0) : fallback
+}
+
+export function trimToastQueue(nextToasts, maxToasts = MAX_TOASTS) {
+  if (nextToasts.length <= maxToasts) {
+    return { trimmedToasts: nextToasts, removedToasts: [] }
+  }
+
+  return {
+    trimmedToasts: nextToasts.slice(-maxToasts),
+    removedToasts: nextToasts.slice(0, nextToasts.length - maxToasts)
+  }
+}
+
 export function useToast() {
   const [toasts, setToasts] = useState([])
   const toastIdRef = useRef(0)
@@ -29,9 +52,8 @@ export function useToast() {
   }, [])
 
   const addToast = useCallback((message, type = 'info', duration = TOAST_DURATION) => {
-    const normalizedMessage = typeof message === 'string' ? message.trim() : message
-    const validTypes = TOAST_VALID_TYPES
-    const safeType = validTypes.includes(type) ? type : 'info'
+    const normalizedMessage = normalizeToastMessage(message)
+    const safeType = normalizeToastType(type)
 
     if (!normalizedMessage) {
       return null
@@ -43,12 +65,8 @@ export function useToast() {
     
     setToasts(prev => {
       const nextToasts = [...prev, toast]
-      if (nextToasts.length <= MAX_TOASTS) {
-        return nextToasts
-      }
+      const { trimmedToasts, removedToasts } = trimToastQueue(nextToasts, MAX_TOASTS)
 
-      const trimmedToasts = nextToasts.slice(-MAX_TOASTS)
-      const removedToasts = nextToasts.slice(0, nextToasts.length - MAX_TOASTS)
       removedToasts.forEach((removedToast) => {
         const staleTimer = timersRef.current.get(removedToast.id)
         if (staleTimer) {
@@ -56,10 +74,11 @@ export function useToast() {
           timersRef.current.delete(removedToast.id)
         }
       })
+
       return trimmedToasts
     })
 
-    const safeDuration = Number.isFinite(duration) ? Math.max(duration, 0) : TOAST_DURATION
+    const safeDuration = normalizeToastDuration(duration, TOAST_DURATION)
 
     if (safeDuration > 0) {
       const timer = setTimeout(() => {
