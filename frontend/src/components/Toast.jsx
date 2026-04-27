@@ -27,10 +27,14 @@ export function Toast({ message, type = 'info', onClose }) {
   return (
     <div
       className={`toast toast--${safeType}`}
+      data-type={safeType}
+      data-dismissible={onClose ? 'true' : 'false'}
+      data-message-length={safeMessage.length}
       role={safeType === 'error' ? 'alert' : 'status'}
       aria-live={safeType === 'error' ? 'assertive' : 'polite'}
       aria-atomic="true"
       aria-label={`${safeType} notification`}
+      title={`${safeType} notification`}
     >
       <span className="toast__icon" aria-hidden="true">{icon}</span>
       <span className="toast__message" title={safeMessage}>{safeMessage}</span>
@@ -40,6 +44,7 @@ export function Toast({ message, type = 'info', onClose }) {
           className="toast__close"
           onClick={onClose}
           aria-label={`Dismiss ${safeType} notification`}
+          aria-keyshortcuts="Escape"
           title={`Dismiss ${safeType} notification`}
         >
           ×

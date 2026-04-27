@@ -10,5 +10,7 @@ describe('Toast', () => {
     const markup = renderToStaticMarkup(React.createElement(Toast, { type: 'info', message: 'FYI' }))
     expect(markup).toContain('role="status"')
     expect(markup).toContain('aria-live="polite"')
+    expect(markup).toContain('data-type="info"')
+    expect(markup).toContain('data-dismissible="false"')
   })
 })
