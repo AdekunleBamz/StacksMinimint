@@ -12,5 +12,6 @@ describe('Stats', () => {
     )
 
     expect(markup.match(/stat-card--skeleton/g)?.length).toBe(4)
+    expect(markup).toContain('data-loading="true"')
   })
 })
