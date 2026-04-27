@@ -78,6 +78,18 @@ export function getAddressExplorerUrl(address) {
   return getBaseExplorerUrl('address', address);
 }
 
+export function getTxExplorerLinkLabel(txId) {
+  return getExplorerLinkLabel('txid', txId)
+}
+
+export function getTokenExplorerLinkLabel(tokenId) {
+  return getExplorerLinkLabel('token', tokenId)
+}
+
+export function getAddressExplorerLinkLabel(address) {
+  return getExplorerLinkLabel('address', address)
+}
+
 /**
  * Generates a contract explorer URL for the current deployed contract.
  * @returns {string} The full explorer URL for the contract.
