@@ -97,6 +97,7 @@
   color: #a8b7c7;
   font-size: 0.85rem;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .gallery__search-hint {
