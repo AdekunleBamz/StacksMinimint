@@ -15,12 +15,14 @@ import './Tooltip.css'
 const TOOLTIP_DEFAULT_DELAY_MS = 300;
 /** Maximum clamped delay in ms to prevent excessively long tooltip delays. */
 const TOOLTIP_MAX_DELAY_MS = 5000;
+const TOOLTIP_POSITIONS = ['top', 'bottom', 'left', 'right']
 
 export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_DEFAULT_DELAY_MS }) {
   const [isVisible, setIsVisible] = useState(false)
   const timerRef = useRef(null)
   const tooltipId = useId()
   const safeDelay = typeof delay === 'number' && delay >= 0 ? Math.min(delay, TOOLTIP_MAX_DELAY_MS) : TOOLTIP_DEFAULT_DELAY_MS
+  const safePosition = TOOLTIP_POSITIONS.includes(position) ? position : 'top'
 
   const showTooltip = () => {
     if (timerRef.current) {
@@ -53,7 +55,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
     >
       {children}
       {isVisible && content && (
-        <div id={tooltipId} className={`tooltip tooltip--${position}`} role="tooltip">
+        <div id={tooltipId} className={`tooltip tooltip--${safePosition}`} role="tooltip">
           {content}
           <div className="tooltip__arrow"></div>
         </div>
