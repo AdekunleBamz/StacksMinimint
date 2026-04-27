@@ -6,7 +6,7 @@
   background: rgba(30, 30, 50, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 /* Padding variants */
@@ -60,6 +60,7 @@
 /* Clickable */
 .card--clickable {
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .card--clickable:active {
@@ -80,7 +81,7 @@
 }
 
 .card__body {
-  line-height: 1.6;
+  line-height: 1.62;
 }
 
 .card__footer {
