@@ -486,6 +486,8 @@ export default {
   isLimitFallback,
   describeLimit,
   formatLimit,
+  normalizeRelativeTimestamp,
+  getRelativeTimeDescriptor,
   formatRelativeTime,
   formatExactTime,
   getMetadataKind,
