@@ -236,7 +236,8 @@ export function validateTokenURI(value) {
       helper: 'Use an ipfs:// or https:// metadata URL. The contract accepts ASCII only, up to 256 characters.',
       characterCount,
       remainingCharacters,
-      isNearLimit
+      isNearLimit,
+      normalizedValue: normalized
     }
   }
 
@@ -249,7 +250,8 @@ export function validateTokenURI(value) {
       helper: 'Remove emoji or other non-ASCII characters before opening the wallet prompt.',
       characterCount,
       remainingCharacters,
-      isNearLimit
+      isNearLimit,
+      normalizedValue: normalized
     }
   }
 
@@ -262,7 +264,8 @@ export function validateTokenURI(value) {
       helper: `Keep the metadata URI within ${MAX_TOKEN_URI_LENGTH} characters to match the contract limit.`,
       characterCount,
       remainingCharacters,
-      isNearLimit
+      isNearLimit,
+      normalizedValue: normalized
     }
   }
 
@@ -275,7 +278,8 @@ export function validateTokenURI(value) {
       helper: 'Use a secure https:// link or an ipfs:// CID before submitting.',
       characterCount,
       remainingCharacters,
-      isNearLimit
+      isNearLimit,
+      normalizedValue: normalized
     }
   }
 
@@ -288,7 +292,8 @@ export function validateTokenURI(value) {
       helper: 'Only ipfs://, ar://, and https:// metadata URLs are accepted in this UI.',
       characterCount,
       remainingCharacters,
-      isNearLimit
+      isNearLimit,
+      normalizedValue: normalized
     }
   }
 
@@ -306,7 +311,8 @@ export function validateTokenURI(value) {
         helper: 'Provide an ipfs:// URI with a CID or CID path and no spaces.',
         characterCount,
         remainingCharacters,
-        isNearLimit
+        isNearLimit,
+        normalizedValue: normalized
       }
     }
   }
@@ -323,7 +329,8 @@ export function validateTokenURI(value) {
           helper: 'Use a public metadata URL without embedded username or password fields.',
           characterCount,
           remainingCharacters,
-          isNearLimit
+          isNearLimit,
+          normalizedValue: normalized
         }
       }
     } catch {
@@ -335,7 +342,8 @@ export function validateTokenURI(value) {
         helper: 'Provide a fully valid https:// URL before submitting to the wallet.',
         characterCount,
         remainingCharacters,
-        isNearLimit
+        isNearLimit,
+        normalizedValue: normalized
       }
     }
   }
@@ -348,7 +356,8 @@ export function validateTokenURI(value) {
     helper: 'This URI passes the local checks and is ready for wallet confirmation.',
     characterCount,
     remainingCharacters,
-    isNearLimit
+    isNearLimit,
+    normalizedValue: normalized
   }
 }
 
