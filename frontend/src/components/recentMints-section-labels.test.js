@@ -14,7 +14,10 @@ describe('RecentMints', () => {
     )
 
     expect(loadingMarkup).toContain('aria-label="Recent mints loading"')
+    expect(loadingMarkup).toContain('data-state="loading"')
     expect(emptyMarkup).toContain('aria-label="Recent mints empty state"')
+    expect(emptyMarkup).toContain('data-state="empty"')
     expect(populatedMarkup).toContain('aria-label="Recent mints"')
+    expect(populatedMarkup).toContain('data-state="ready"')
   })
 })
