@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.95rem;
   width: 100%;
   min-height: 1.25rem;
 }
@@ -65,7 +65,7 @@
 .progress__label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #cbd5e1;
+  color: #d6dfeb;
   min-width: 5ch;
   min-height: 1.25rem;
   letter-spacing: 0.01em;
@@ -88,7 +88,7 @@
     transparent
   );
   background-size: 1rem 1rem;
-  animation: stripes 1s linear infinite;
+  animation: stripes 0.9s linear infinite;
 }
 
 @keyframes stripes {

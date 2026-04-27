@@ -11,5 +11,7 @@ describe('ProgressBar', () => {
 
     expect(markup).toContain('data-size="large"')
     expect(markup).toContain('data-color="danger"')
+    expect(markup).toContain('data-show-label="true"')
+    expect(markup).toContain('data-max="100"')
   })
 })

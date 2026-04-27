@@ -9,5 +9,6 @@ describe('ProgressBar', () => {
   it('renders percentage labels rounded to one decimal place', () => {
     const markup = renderToStaticMarkup(React.createElement(ProgressBar, { value: 1, max: 3 }))
     expect(markup).toContain('33.3%')
+    expect(markup).toContain('data-percentage="33.3"')
   })
 })

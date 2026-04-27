@@ -21,10 +21,12 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
   const formattedPercentage = percentage.toFixed(1)
 
   return (
-    <div className={`progress progress--${size}`} data-size={size} data-color={safeColor}>
+    <div className={`progress progress--${size}`} data-size={size} data-color={safeColor} data-show-label={showLabel ? 'true' : 'false'} data-max={String(safeMax)}>
       <div className="progress__bar">
         <div 
           className={`progress__fill progress__fill--${safeColor}`}
+          data-percentage={formattedPercentage}
+          data-valuenow={String(boundedValue)}
           style={{ width: `${percentage}%` }}
           role="progressbar"
           aria-label={ariaLabel}
