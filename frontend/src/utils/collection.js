@@ -35,17 +35,41 @@ const TIME_HOURS_PER_DAY = 24;
  * @param {string|number} microstx - The amount in micro-STX.
  * @returns {string} The formatted STX amount.
  */
-export function formatSTX(microstx) {
+export function normalizeMicrostxInput(microstx) {
   const input = typeof microstx === 'string' ? microstx.trim() : microstx
   const amount = Number(input)
   if (microstx === null || microstx === undefined || Number.isNaN(amount) || !Number.isFinite(amount)) {
-    return '0'
+    return null
   }
 
-  return new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 6,
-  }).format(amount / STX_MICRO_DIVISOR)
+  return amount
+}
+
+export function getSTXFormatDescriptor(microstx) {
+  const normalizedAmount = normalizeMicrostxInput(microstx)
+  if (normalizedAmount === null) {
+    return {
+      formatted: '0',
+      isValid: false,
+      microstx: 0,
+      stxValue: 0
+    }
+  }
+
+  const stxValue = normalizedAmount / STX_MICRO_DIVISOR
+  return {
+    formatted: new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 6,
+    }).format(stxValue),
+    isValid: true,
+    microstx: normalizedAmount,
+    stxValue
+  }
+}
+
+export function formatSTX(microstx) {
+  return getSTXFormatDescriptor(microstx).formatted
 }
 
 /**
@@ -497,6 +521,8 @@ export function getCardAccent(seed) {
 export default {
   MAX_TOKEN_URI_LENGTH,
   MAX_ACTIVITY_ENTRIES,
+  normalizeMicrostxInput,
+  getSTXFormatDescriptor,
   formatSTX,
   formatAddress,
   getLimitText,
