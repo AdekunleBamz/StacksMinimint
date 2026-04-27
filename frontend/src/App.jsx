@@ -122,6 +122,7 @@ function App() {
         <button
           type="button"
           className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
+          data-visible={showScroll ? 'true' : 'false'}
           onClick={scrollToTop}
           aria-label="Back to top"
           title="Back to top"
