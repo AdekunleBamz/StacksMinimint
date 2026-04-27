@@ -56,6 +56,10 @@ export function getToastStackMetadata(toasts) {
   }
 }
 
+export function appendRecentMintResult(previousItems, nextItem) {
+  return [nextItem, ...previousItems].slice(0, MAX_RECENT_MINTS)
+}
+
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
@@ -91,7 +95,7 @@ function App() {
     const result = await mint(tokenURI)
     if (result) {
       showToast(MINT_SUCCESS_TOAST_MESSAGE, 'success')
-      setRecentMints(prev => [result, ...prev].slice(0, MAX_RECENT_MINTS))
+      setRecentMints(prev => appendRecentMintResult(prev, result))
     }
     return result
   }
