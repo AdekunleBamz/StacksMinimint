@@ -87,7 +87,7 @@ class ErrorBoundary extends React.Component {
       const isDevelopment = process.env.NODE_ENV !== 'production';
 
       return (
-        <div className="error-boundary" role="alert" aria-live="assertive" aria-atomic="true" aria-label="Application error boundary">
+        <div className="error-boundary" data-state="error" role="alert" aria-live="assertive" aria-atomic="true" aria-label="Application error boundary">
           <div className="error-boundary__icon" aria-hidden="true">⚠️</div>
           <h2 className="error-boundary__title">Something went wrong.</h2>
           <p className="error-boundary__message">{userMessage}</p>
