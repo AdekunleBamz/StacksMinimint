@@ -66,10 +66,15 @@
   line-height: 1.35;
   font-family: inherit;
   touch-action: manipulation;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .error-boundary__button:hover {
   background: linear-gradient(135deg, #7c3aed, #4f46e5);
+}
+
+.error-boundary__button:active {
+  transform: translateY(1px);
 }
 
 .error-boundary__button:focus-visible {
