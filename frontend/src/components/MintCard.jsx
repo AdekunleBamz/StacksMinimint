@@ -24,6 +24,11 @@ export function normalizeMintMetricValue(value, fallback = 0) {
   return Number.isFinite(parsedValue) ? parsedValue : fallback
 }
 
+export function normalizeMintLimitValue(value) {
+  const parsedValue = Number(value)
+  return Number.isFinite(parsedValue) ? parsedValue : null
+}
+
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -78,12 +83,10 @@ export function MintCard({
     }
   }, [tokenURI, onMint])
 
-  const parsedMaxSupply = Number(contractInfo?.maxSupply)
-  const parsedMaxPerWallet = Number(contractInfo?.maxPerWallet)
   const totalSupply = normalizeMintMetricValue(contractInfo?.totalSupply)
   const walletMinted = normalizeMintMetricValue(contractInfo?.walletMinted)
-  const maxSupply = Number.isFinite(parsedMaxSupply) ? parsedMaxSupply : null
-  const maxPerWallet = Number.isFinite(parsedMaxPerWallet) ? parsedMaxPerWallet : null
+  const maxSupply = normalizeMintLimitValue(contractInfo?.maxSupply)
+  const maxPerWallet = normalizeMintLimitValue(contractInfo?.maxPerWallet)
   const isSoldOut = maxSupply !== null && totalSupply >= maxSupply
   const walletLimitReached = maxPerWallet !== null && walletMinted >= maxPerWallet
   const mintActionMessage = contractInfo?.isPaused
