@@ -29,11 +29,16 @@ const APP_CONNECTED_TITLE_PREFIX = 'Connected';
 /** Toast message shown when a mint transaction is successfully submitted. */
 const MINT_SUCCESS_TOAST_MESSAGE = 'Transaction sent to Stacks.';
 
+export function getAppConnectionState({ isConnected, isConnecting }) {
+  if (isConnected) return 'connected'
+  return isConnecting ? 'connecting' : 'disconnected'
+}
+
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
   const { showToast, toasts, removeToast } = useToast()
-  const connectionState = isConnected ? 'connected' : isConnecting ? 'connecting' : 'disconnected'
+  const connectionState = getAppConnectionState({ isConnected, isConnecting })
   const hasContractInfo = Boolean(contractInfo)
 
   const [recentMints, setRecentMints] = useState([])
