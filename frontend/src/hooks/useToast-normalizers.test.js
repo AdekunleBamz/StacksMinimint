@@ -20,6 +20,10 @@ describe('useToast helpers', () => {
     expect(normalizeToastDuration(-200)).toBe(0)
   })
 
+  it('falls back to the provided default for non-finite durations', () => {
+    expect(normalizeToastDuration(Number.NaN, 2500)).toBe(2500)
+  })
+
   it('keeps the newest toasts when queue exceeds the configured max', () => {
     const toasts = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
     const { trimmedToasts, removedToasts } = trimToastQueue(toasts, 2)
