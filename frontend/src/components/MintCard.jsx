@@ -19,6 +19,65 @@ const MINT_PENDING_MESSAGE = 'Check your wallet to confirm this mint.';
 /** Message shown when a mint transaction is cancelled or rejected. */
 const MINT_CANCELLED_MESSAGE = 'Mint was cancelled or rejected in the wallet.';
 
+export function normalizeMintMetricValue(value, fallback = 0) {
+  const parsedValue = Number(value)
+  return Number.isFinite(parsedValue) ? parsedValue : fallback
+}
+
+export function normalizeMintLimitValue(value) {
+  const parsedValue = Number(value)
+  return Number.isFinite(parsedValue) ? parsedValue : null
+}
+
+export function getMintStateDescriptor({ isPaused, isSoldOut, walletLimitReached, isTokenUriValid, invalidUriHelper }) {
+  if (isPaused) {
+    return {
+      state: 'paused',
+      message: 'Minting is paused by the collection owner.'
+    }
+  }
+
+  if (isSoldOut) {
+    return {
+      state: 'sold-out',
+      message: 'The collection has sold out.'
+    }
+  }
+
+  if (walletLimitReached) {
+    return {
+      state: 'wallet-limit',
+      message: 'This wallet has reached the configured mint limit.'
+    }
+  }
+
+  if (!isTokenUriValid) {
+    return {
+      state: 'invalid-uri',
+      message: invalidUriHelper
+    }
+  }
+
+  return {
+    state: 'ready',
+    message: 'Ready to mint on Stacks.'
+  }
+}
+
+export function getMintConnectButtonA11y(isConnecting) {
+  return {
+    label: isConnecting ? 'Connecting wallet' : 'Connect wallet to mint',
+    title: isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to unlock minting'
+  }
+}
+
+export function getMintSubmitLabel({ isMinting, isSoldOut, walletLimitReached, mintFee }) {
+  if (isMinting) return 'Minting...'
+  if (isSoldOut) return 'Sold Out'
+  if (walletLimitReached) return 'Wallet Limit Reached'
+  return `Mint for ${formatSTX(mintFee)} STX`
+}
+
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -73,34 +132,28 @@ export function MintCard({
     }
   }, [tokenURI, onMint])
 
-  const parsedTotalSupply = Number(contractInfo?.totalSupply)
-  const parsedMaxSupply = Number(contractInfo?.maxSupply)
-  const parsedWalletMinted = Number(contractInfo?.walletMinted)
-  const parsedMaxPerWallet = Number(contractInfo?.maxPerWallet)
-  const totalSupply = Number.isFinite(parsedTotalSupply) ? parsedTotalSupply : 0
-  const maxSupply = Number.isFinite(parsedMaxSupply) ? parsedMaxSupply : null
-  const walletMinted = Number.isFinite(parsedWalletMinted) ? parsedWalletMinted : 0
-  const maxPerWallet = Number.isFinite(parsedMaxPerWallet) ? parsedMaxPerWallet : null
+  const totalSupply = normalizeMintMetricValue(contractInfo?.totalSupply)
+  const walletMinted = normalizeMintMetricValue(contractInfo?.walletMinted)
+  const maxSupply = normalizeMintLimitValue(contractInfo?.maxSupply)
+  const maxPerWallet = normalizeMintLimitValue(contractInfo?.maxPerWallet)
   const isSoldOut = maxSupply !== null && totalSupply >= maxSupply
   const walletLimitReached = maxPerWallet !== null && walletMinted >= maxPerWallet
-  const mintActionMessage = contractInfo?.isPaused
-    ? 'Minting is paused by the collection owner.'
-    : isSoldOut
-      ? 'The collection has sold out.'
-      : walletLimitReached
-        ? 'This wallet has reached the configured mint limit.'
-        : !isTokenUriValid
-          ? tokenUriValidation.helper
-          : 'Ready to mint on Stacks.'
-  const mintState = contractInfo?.isPaused
-    ? 'paused'
-    : isSoldOut
-      ? 'sold-out'
-      : walletLimitReached
-        ? 'wallet-limit'
-        : !isTokenUriValid
-          ? 'invalid-uri'
-          : 'ready'
+  const mintDescriptor = getMintStateDescriptor({
+    isPaused: contractInfo?.isPaused,
+    isSoldOut,
+    walletLimitReached,
+    isTokenUriValid,
+    invalidUriHelper: tokenUriValidation.helper
+  })
+  const mintActionMessage = mintDescriptor.message
+  const mintState = mintDescriptor.state
+  const connectButtonA11y = getMintConnectButtonA11y(isConnecting)
+  const mintSubmitLabel = getMintSubmitLabel({
+    isMinting,
+    isSoldOut,
+    walletLimitReached,
+    mintFee: contractInfo?.mintFee
+  })
   const txId = mintStatus?.txId
 
   return (
@@ -162,10 +215,10 @@ export function MintCard({
             type="button"
             className="mint-card__btn"
             onClick={onConnect}
-            aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet to mint'}
+            aria-label={connectButtonA11y.label}
             aria-busy={isConnecting}
             disabled={isConnecting}
-            title={isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to unlock minting'}
+            title={connectButtonA11y.title}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
@@ -223,14 +276,14 @@ export function MintCard({
             {isMinting ? (
               <>
                 <Spinner size="small" tone="white" className="mint-card__spinner" />
-                Minting...
+                {mintSubmitLabel}
               </>
             ) : isSoldOut ? (
-              'Sold Out'
+              mintSubmitLabel
             ) : walletLimitReached ? (
-              'Wallet Limit Reached'
+              mintSubmitLabel
             ) : (
-              `Mint for ${formatSTX(contractInfo?.mintFee)} STX`
+              mintSubmitLabel
             )}
           </button>
 
