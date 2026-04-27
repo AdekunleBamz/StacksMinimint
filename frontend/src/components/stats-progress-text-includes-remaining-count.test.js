@@ -16,5 +16,6 @@ describe('Stats', () => {
     )
 
     expect(markup).toContain('7 items remaining')
+    expect(markup).toContain('data-progress="30"')
   })
 })
