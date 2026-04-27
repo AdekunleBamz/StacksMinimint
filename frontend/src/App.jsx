@@ -55,7 +55,7 @@ function App() {
 
   const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, []), [])
+  }, [])
 
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
