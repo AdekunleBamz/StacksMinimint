@@ -53,7 +53,7 @@ export function Footer() {
         <div className="footer__links">
           <div className="footer__column">
             <h3 className="footer__heading">Project</h3>
-            <nav aria-label="Project links">
+            <nav aria-label="Project links" data-link-count={FOOTER_LINKS.project.length}>
               <ul className="footer__list">
                 {FOOTER_LINKS.project.map((link) => (
                   <li key={link.href}>
@@ -75,7 +75,7 @@ export function Footer() {
 
           <div className="footer__column">
             <h3 className="footer__heading">Community</h3>
-            <nav aria-label="Community links">
+            <nav aria-label="Community links" data-link-count={FOOTER_LINKS.community.length}>
               <ul className="footer__list">
                 {FOOTER_LINKS.community.map((link) => (
                   <li key={link.href}>
@@ -97,7 +97,7 @@ export function Footer() {
 
           <div className="footer__column">
             <h3 className="footer__heading">Resources</h3>
-            <nav aria-label="Resource links">
+            <nav aria-label="Resource links" data-link-count={FOOTER_LINKS.resources.length}>
               <ul className="footer__list">
                 {FOOTER_LINKS.resources.map((link) => (
                   <li key={link.href}>
