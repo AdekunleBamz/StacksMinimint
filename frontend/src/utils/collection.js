@@ -117,29 +117,45 @@ export function formatLimit(value, fallback = 'Not set') {
   return getLimitText(value, fallback)
 }
 
+export function normalizeRelativeTimestamp(timestamp) {
+  if (timestamp === null || timestamp === undefined) return null
+  const time = Number(timestamp)
+  if (Number.isNaN(time) || !Number.isFinite(time)) return null
+  return time < UNIX_MS_THRESHOLD ? time * 1000 : time
+}
+
+export function getRelativeTimeDescriptor(timestamp, now = Date.now()) {
+  const normalizedTime = normalizeRelativeTimestamp(timestamp)
+  if (normalizedTime === null) {
+    return { label: 'Just now', unit: 'now', value: 0, isFuture: false }
+  }
+
+  if (normalizedTime > now) {
+    return { label: 'Just now', unit: 'now', value: 0, isFuture: true }
+  }
+
+  const diff = Math.max(now - normalizedTime, 0)
+  const minutes = Math.floor(diff / TIME_MINUTE_MS)
+  const hours = Math.floor(diff / TIME_HOUR_MS)
+  const days = Math.floor(diff / TIME_DAY_MS)
+
+  if (minutes < 1) return { label: 'Just now', unit: 'now', value: 0, isFuture: false }
+  if (minutes < TIME_MINUTES_PER_HOUR) return { label: `${minutes}m ago`, unit: 'minute', value: minutes, isFuture: false }
+  if (hours < TIME_HOURS_PER_DAY) return { label: `${hours}h ago`, unit: 'hour', value: hours, isFuture: false }
+  if (days < 30) return { label: `${days}d ago`, unit: 'day', value: days, isFuture: false }
+
+  const months = Math.floor(days / 30)
+  return { label: `${months}mo ago`, unit: 'month', value: months, isFuture: false }
+}
+
 /**
  * Formats a timestamp into a relative time string (e.g., "5m ago").
  * @param {number} timestamp - The Unix timestamp in milliseconds.
  * @returns {string} The relative time string.
  */
 export function formatRelativeTime(timestamp) {
-  if (timestamp === null || timestamp === undefined) return 'Just now'
-  const time = Number(timestamp)
-  if (Number.isNaN(time) || !Number.isFinite(time)) return 'Just now'
-  const normalizedTime = time < UNIX_MS_THRESHOLD ? time * 1000 : time
-
-  const now = Date.now()
-  const diff = Math.max(now - normalizedTime, 0)
-  if (diff === 0 || normalizedTime > now) return 'Just now'
-  const minutes = Math.floor(diff / TIME_MINUTE_MS)
-  const hours = Math.floor(diff / TIME_HOUR_MS)
-  const days = Math.floor(diff / TIME_DAY_MS)
-
-  if (minutes < 1) return 'Just now'
-  if (minutes < TIME_MINUTES_PER_HOUR) return `${minutes}m ago`
-  if (hours < TIME_HOURS_PER_DAY) return `${hours}h ago`
-  if (days < 30) return `${days}d ago`
-  return `${Math.floor(days / 30)}mo ago`
+  const descriptor = getRelativeTimeDescriptor(timestamp)
+  return descriptor.label
 }
 
 /**
@@ -470,6 +486,8 @@ export default {
   isLimitFallback,
   describeLimit,
   formatLimit,
+  normalizeRelativeTimestamp,
+  getRelativeTimeDescriptor,
   formatRelativeTime,
   formatExactTime,
   getMetadataKind,
