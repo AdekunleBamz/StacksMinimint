@@ -17,13 +17,16 @@ export function Spinner({ size = 'medium', tone = 'primary', className = '', lab
       className={composedClass}
       data-size={size}
       data-tone={tone}
+      data-label-length={String(safeLabel.length)}
+      data-live="polite"
       role="status"
+      aria-busy="true"
       aria-live="polite"
       aria-atomic="true"
       aria-label={safeLabel}
       title={safeLabel}
     >
-      <span className="spinner__ring" aria-hidden="true"></span>
+      <span className="spinner__ring" data-part="ring" aria-hidden="true"></span>
     </span>
   )
 }

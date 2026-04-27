@@ -9,6 +9,7 @@ describe('Spinner', () => {
   it('renders with a status role for assistive technologies', () => {
     const markup = renderToStaticMarkup(React.createElement(Spinner))
     expect(markup).toContain('role="status"')
+    expect(markup).toContain('aria-busy="true"')
     expect(markup).toContain('aria-label="Loading content"')
   })
 })
