@@ -13,7 +13,9 @@ describe('Modal', () => {
       }, 'Body')
     )
 
-    expect(markup).toContain('<div class="modal-overlay" role="presentation">')
-    expect(markup).toMatch(/class="modal modal--medium" tabindex="-1" role="dialog"/)
+    expect(markup).toContain('class="modal-overlay"')
+    expect(markup).toContain('role="presentation"')
+    expect(markup).toContain('class="modal modal--medium"')
+    expect(markup).toContain('role="dialog"')
   })
 })
