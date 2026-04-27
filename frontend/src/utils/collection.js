@@ -473,7 +473,10 @@ export default {
   getMetadataLabel,
   getMetadataGatewayUrl,
   validateTokenURI,
+  normalizeSubmissionAddress,
+  normalizeSubmissionTokenURI,
   createSubmissionRecord,
+  createSubmissionSummary,
   getCardAccent
 }
 
