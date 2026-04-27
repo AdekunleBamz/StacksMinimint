@@ -48,6 +48,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
   return (
     <div 
       className="tooltip-wrapper"
+      data-position={safePosition}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
       onFocus={showTooltip}
