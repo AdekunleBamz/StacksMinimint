@@ -45,6 +45,29 @@ export function normalizeMicrostxInput(microstx) {
   return amount
 }
 
+export function getSTXFormatDescriptor(microstx) {
+  const normalizedAmount = normalizeMicrostxInput(microstx)
+  if (normalizedAmount === null) {
+    return {
+      formatted: '0',
+      isValid: false,
+      microstx: 0,
+      stxValue: 0
+    }
+  }
+
+  const stxValue = normalizedAmount / STX_MICRO_DIVISOR
+  return {
+    formatted: new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 6,
+    }).format(stxValue),
+    isValid: true,
+    microstx: normalizedAmount,
+    stxValue
+  }
+}
+
 export function formatSTX(microstx) {
   const input = typeof microstx === 'string' ? microstx.trim() : microstx
   const amount = Number(input)
