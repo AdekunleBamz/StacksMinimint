@@ -87,7 +87,7 @@ class ErrorBoundary extends React.Component {
       const isDevelopment = process.env.NODE_ENV !== 'production';
 
       return (
-        <div className="error-boundary" role="alert" aria-live="assertive">
+        <div className="error-boundary" role="alert" aria-live="assertive" aria-atomic="true" aria-label="Application error boundary">
           <div className="error-boundary__icon" aria-hidden="true">⚠️</div>
           <h2 className="error-boundary__title">Something went wrong.</h2>
           <p className="error-boundary__message">{userMessage}</p>
@@ -98,7 +98,7 @@ class ErrorBoundary extends React.Component {
           {/* Show detailed error info only in development */}
           {isDevelopment && this.state.error && (
             <details className="error-boundary__details">
-              <summary>Technical Details (Development Only)</summary>
+              <summary>Technical details (development only)</summary>
               <pre>
                 {this.state.error.toString()}
                 {this.state.errorInfo?.componentStack}
@@ -111,6 +111,7 @@ class ErrorBoundary extends React.Component {
               type="button"
               onClick={this.handleReset}
               className="error-boundary__button error-boundary__button--secondary"
+              title="Try rendering this section again"
             >
               Try Again
             </button>
@@ -118,6 +119,7 @@ class ErrorBoundary extends React.Component {
               type="button"
               onClick={() => window.location.reload()}
               className="error-boundary__button"
+              title="Reload the application in this browser tab"
             >
               Refresh Page
             </button>
