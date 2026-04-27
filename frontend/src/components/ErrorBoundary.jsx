@@ -111,6 +111,7 @@ class ErrorBoundary extends React.Component {
               type="button"
               onClick={this.handleReset}
               className="error-boundary__button error-boundary__button--secondary"
+              title="Try rendering this section again"
             >
               Try Again
             </button>
