@@ -9,5 +9,6 @@ describe('Card', () => {
   it('adds hover styling class when hover is enabled', () => {
     const markup = renderToStaticMarkup(React.createElement(Card, { hover: true }, 'Body'))
     expect(markup).toContain('card--hover')
+    expect(markup).toContain('data-hover="true"')
   })
 })
