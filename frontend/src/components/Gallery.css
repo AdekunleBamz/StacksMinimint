@@ -89,6 +89,7 @@
   font-variant-numeric: tabular-nums;
   line-height: 1.5;
   text-wrap: pretty;
+  overflow-wrap: anywhere;
 }
 
 .gallery__loading-copy {
