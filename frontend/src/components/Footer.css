@@ -82,9 +82,11 @@
   text-underline-offset: 0.18em;
   text-decoration-skip-ink: auto;
   font-size: 0.875rem;
+  min-height: 2rem;
   line-height: 1.5;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 }
 
 .footer__link:hover {
