@@ -227,4 +227,8 @@
   .mint-item:hover {
     transform: none;
   }
+
+  .mint-item--skeleton .skeleton {
+    animation: none;
+  }
 }
