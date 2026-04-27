@@ -47,6 +47,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             <button
               type="button"
               className="header__address-wrapper"
+              data-copy-state={copied ? 'copied' : 'idle'}
               onClick={handleCopy}
               title={normalizedAccount}
               aria-label="Copy wallet address to clipboard"
