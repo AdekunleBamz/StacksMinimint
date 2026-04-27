@@ -237,4 +237,8 @@
   .progress-bar__fill {
     transition: none;
   }
+
+  .skeleton {
+    animation: none;
+  }
 }
