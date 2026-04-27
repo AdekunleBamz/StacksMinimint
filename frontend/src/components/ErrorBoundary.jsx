@@ -83,15 +83,17 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       const userMessage = getErrorMessage(this.state.error);
+      const userMessageLength = userMessage.length;
       const rawMessage = this.state.error?.message?.trim();
+      const hasRawMessage = Boolean(rawMessage && rawMessage !== userMessage);
       const isDevelopment = process.env.NODE_ENV !== 'production';
 
       return (
-        <div className="error-boundary" role="alert" aria-live="assertive" aria-atomic="true" aria-label="Application error boundary">
+        <div className="error-boundary" data-state="error" data-message-length={String(userMessageLength)} data-has-raw-message={hasRawMessage ? 'true' : 'false'} role="alert" aria-live="assertive" aria-atomic="true" aria-label="Application error boundary">
           <div className="error-boundary__icon" aria-hidden="true">⚠️</div>
           <h2 className="error-boundary__title">Something went wrong.</h2>
           <p className="error-boundary__message">{userMessage}</p>
-          {rawMessage && rawMessage !== userMessage && (
+          {hasRawMessage && (
             <p className="error-boundary__message">{rawMessage}</p>
           )}
 
@@ -106,7 +108,7 @@ class ErrorBoundary extends React.Component {
             </details>
           )}
 
-          <div className="error-boundary__actions">
+          <div className="error-boundary__actions" data-actions-count="2">
             <button
               type="button"
               onClick={this.handleReset}

@@ -8,5 +8,6 @@ describe('ErrorBoundary', () => {
     const nextState = ErrorBoundary.getDerivedStateFromError(new Error('Boom'))
     expect(nextState.hasError).toBe(true)
     expect(nextState.error).toBeInstanceOf(Error)
+    expect(typeof nextState.errorMessage).toBe('string')
   })
 })
