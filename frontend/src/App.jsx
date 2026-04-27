@@ -137,7 +137,7 @@ function App() {
 
         <Footer />
 
-        <div className="toast-stack" aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
+        <div className="toast-stack" data-toast-count={String(toasts.length)} aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
           {toasts.map((toast) => (
             <Toast
               key={toast.id}
