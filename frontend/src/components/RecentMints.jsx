@@ -65,7 +65,7 @@ export function RecentMints({ items = [] }) {
   }
 
   return (
-      <section className="recent-mints" aria-label="Recent mints" title="Recent wallet mint submissions" data-state="ready">
+      <section className="recent-mints" aria-label="Recent mints" title="Recent wallet mint submissions" data-state="ready" data-count={String(recentMints.length)}>
         <h2 className="recent-mints__title">Recent Mints</h2>
       <p className="recent-mints__subtitle">Fresh activity appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
