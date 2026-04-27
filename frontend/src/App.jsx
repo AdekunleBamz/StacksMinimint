@@ -29,15 +29,48 @@ const APP_CONNECTED_TITLE_PREFIX = 'Connected';
 /** Toast message shown when a mint transaction is successfully submitted. */
 const MINT_SUCCESS_TOAST_MESSAGE = 'Transaction sent to Stacks.';
 
+export function getAppConnectionState({ isConnected, isConnecting }) {
+  if (isConnected) return 'connected'
+  return isConnecting ? 'connecting' : 'disconnected'
+}
+
+export function getAppDocumentTitle(isConnected) {
+  const baseTitle = APP_BASE_TITLE
+  return isConnected ? `${APP_CONNECTED_TITLE_PREFIX} - ${baseTitle}` : baseTitle
+}
+
+export function getBackToTopControlState(showScroll) {
+  return {
+    isVisible: Boolean(showScroll),
+    dataVisible: showScroll ? 'true' : 'false',
+    ariaHidden: !showScroll,
+    tabIndex: showScroll ? 0 : -1
+  }
+}
+
+export function getToastStackMetadata(toasts) {
+  const toastCount = Array.isArray(toasts) ? toasts.length : 0
+  return {
+    count: toastCount,
+    countLabel: String(toastCount)
+  }
+}
+
+export function appendRecentMintResult(previousItems, nextItem) {
+  return [nextItem, ...previousItems].slice(0, MAX_RECENT_MINTS)
+}
+
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
   const { showToast, toasts, removeToast } = useToast()
-  const connectionState = isConnected ? 'connected' : isConnecting ? 'connecting' : 'disconnected'
+  const connectionState = getAppConnectionState({ isConnected, isConnecting })
   const hasContractInfo = Boolean(contractInfo)
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
+  const backToTopState = getBackToTopControlState(showScroll)
+  const toastStackMetadata = getToastStackMetadata(toasts)
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -51,8 +84,7 @@ function App() {
 
   // Update document title based on connection state
   useEffect(() => {
-    const baseTitle = APP_BASE_TITLE
-    document.title = isConnected ? `${APP_CONNECTED_TITLE_PREFIX} - ${baseTitle}` : baseTitle
+    document.title = getAppDocumentTitle(isConnected)
   }, [isConnected])
 
   const scrollToTop = useCallback(() => {
@@ -63,7 +95,7 @@ function App() {
     const result = await mint(tokenURI)
     if (result) {
       showToast(MINT_SUCCESS_TOAST_MESSAGE, 'success')
-      setRecentMints(prev => [result, ...prev].slice(0, MAX_RECENT_MINTS))
+      setRecentMints(prev => appendRecentMintResult(prev, result))
     }
     return result
   }
@@ -121,14 +153,14 @@ function App() {
 
         <button
           type="button"
-          className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
-          data-visible={showScroll ? 'true' : 'false'}
+          className={`back-to-top ${backToTopState.isVisible ? 'back-to-top--visible' : ''}`}
+          data-visible={backToTopState.dataVisible}
           onClick={scrollToTop}
           aria-label="Back to top"
           title="Back to top"
-          aria-hidden={!showScroll}
-          tabIndex={showScroll ? 0 : -1}
-          disabled={!showScroll}
+          aria-hidden={backToTopState.ariaHidden}
+          tabIndex={backToTopState.tabIndex}
+          disabled={!backToTopState.isVisible}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
             <polyline points="18 15 12 9 6 15"></polyline>
@@ -137,7 +169,7 @@ function App() {
 
         <Footer />
 
-        <div className="toast-stack" data-toast-count={String(toasts.length)} aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
+        <div className="toast-stack" data-toast-count={toastStackMetadata.countLabel} aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
           {toasts.map((toast) => (
             <Toast
               key={toast.id}
