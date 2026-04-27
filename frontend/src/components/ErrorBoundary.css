@@ -53,6 +53,12 @@
   color: #cbd5e1;
 }
 
+.error-boundary__details summary:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.8);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
 .error-boundary__button {
   padding: 0.5rem 1.5rem;
   min-height: 2.5rem;
