@@ -29,7 +29,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   }, [normalizedAccount, copy])
 
   return (
-    <header className="header" data-connected={hasAccount ? 'true' : 'false'}>
+    <header className="header" data-connected={hasAccount ? 'true' : 'false'} data-connecting={isConnecting ? 'true' : 'false'}>
       <div className="header__brand">
         <img src={logo} alt="StacksMinimint Logo" className="header__logo" width="32" height="32" />
         <span className="header__title">StacksMinimint</span>
