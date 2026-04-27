@@ -82,6 +82,7 @@
 
 .card__body {
   line-height: 1.62;
+  overflow-wrap: anywhere;
 }
 
 .card__footer {
