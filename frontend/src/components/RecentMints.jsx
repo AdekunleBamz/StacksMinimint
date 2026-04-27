@@ -110,7 +110,7 @@ export function RecentMints({ items = [] }) {
                     {receiptLabel}
                   </a>
                 ) : (
-                  <span aria-live="polite">Pending</span>
+                  <span aria-live="polite" title="Mint submission is pending confirmation">Pending</span>
                 )}
               </div>
             </div>
