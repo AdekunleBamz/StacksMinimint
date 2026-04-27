@@ -34,6 +34,7 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
           className={['skeleton', `skeleton--${safeVariant}`, className].filter(Boolean).join(' ')}
           data-variant={safeVariant}
           data-index={index}
+          role="presentation"
           style={getStyle()}
           aria-hidden="true"
         />
