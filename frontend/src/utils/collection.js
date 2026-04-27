@@ -290,6 +290,31 @@ export function getMetadataGatewayUrl(uri) {
   return null
 }
 
+export function extractGatewayHost(url) {
+  try {
+    return new URL(url).hostname
+  } catch {
+    return null
+  }
+}
+
+export function getMetadataAccessDescriptor(uri) {
+  const kind = getMetadataKind(uri)
+  const label = getMetadataLabel(uri)
+  const gatewayUrl = getMetadataGatewayUrl(uri)
+  const gatewayHost = gatewayUrl ? extractGatewayHost(gatewayUrl) : null
+  const requiresGateway = kind === 'ipfs'
+
+  return {
+    kind,
+    label,
+    gatewayUrl,
+    gatewayHost,
+    isAccessible: Boolean(gatewayUrl),
+    requiresGateway
+  }
+}
+
 /**
  * Validates a token URI against contract and UI constraints.
  * @param {string} value - The URI to validate.
@@ -538,6 +563,8 @@ export default {
   getMetadataKind,
   getMetadataLabel,
   getMetadataGatewayUrl,
+  extractGatewayHost,
+  getMetadataAccessDescriptor,
   validateTokenURI,
   createSubmissionRecord,
   getCardAccent
