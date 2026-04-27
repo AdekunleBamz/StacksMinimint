@@ -197,7 +197,7 @@
 
 .mint-card__btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.28);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.34);
 }
 
 .mint-card__btn--primary {
