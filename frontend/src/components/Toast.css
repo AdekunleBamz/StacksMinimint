@@ -82,6 +82,7 @@
 
 .toast__message {
   flex: 1;
+  color: inherit;
   line-height: 1.5;
   text-wrap: pretty;
   overflow-wrap: anywhere;
