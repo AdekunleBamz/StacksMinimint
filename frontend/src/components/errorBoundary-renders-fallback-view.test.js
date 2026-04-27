@@ -15,5 +15,7 @@ describe('ErrorBoundary', () => {
     expect(markup).toContain('Render failure')
     expect(markup).toContain('aria-label="Application error boundary"')
     expect(markup).toContain('aria-atomic="true"')
+    expect(markup).toContain('data-state="error"')
+    expect(markup).toContain('data-actions-count="2"')
   })
 })
