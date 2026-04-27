@@ -6,6 +6,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  min-height: 1.75rem;
   font-weight: 600;
   letter-spacing: 0.015em;
   border-radius: 9999px;
@@ -52,9 +53,9 @@
 }
 
 .badge--warning {
-  background: rgba(234, 179, 8, 0.2);
-  border: 1px solid rgba(234, 179, 8, 0.4);
-  color: #fcd34d;
+  background: rgba(234, 179, 8, 0.24);
+  border: 1px solid rgba(234, 179, 8, 0.45);
+  color: #fde68a;
 }
 
 .badge--danger {
@@ -71,10 +72,11 @@
 
 /* Dot indicator */
 .badge__dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: currentColor;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.28);
   animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -109,5 +111,6 @@
 @media (prefers-reduced-motion: reduce) {
   .badge__dot {
     animation: none;
+    opacity: 0.9;
   }
 }
