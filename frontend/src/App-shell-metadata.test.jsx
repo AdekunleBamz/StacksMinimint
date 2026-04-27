@@ -54,4 +54,17 @@ describe('App shell metadata', () => {
     expect(markup).toContain('data-connection-state="connected"')
     expect(markup).toContain('data-has-contract-info="true"')
   })
+
+  it('marks the back-to-top control as hidden before scroll interactions', () => {
+    mockWallet.address = null
+    mockWallet.isConnected = false
+    mockWallet.isConnecting = false
+    mockContract.contractInfo = null
+    mockToast.toasts = []
+
+    const markup = renderToStaticMarkup(<App />)
+
+    expect(markup).toContain('data-visible="false"')
+    expect(markup).toContain('title="Back to top"')
+  })
 })
