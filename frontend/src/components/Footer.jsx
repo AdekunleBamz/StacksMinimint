@@ -44,7 +44,7 @@ export function Footer() {
         <div className="footer__brand" aria-label="StacksMinimint brand summary">
           <span className="footer__logo" aria-hidden="true">◆</span>
           <span className="footer__title">StacksMinimint</span>
-          <p className="footer__description">
+          <p className="footer__description" title="Wallet-first NFT minting experience on Stacks">
             Mint lightweight NFTs on Stacks with a wallet-first flow,
             clear on-chain feedback, and collection context at a glance.
           </p>
