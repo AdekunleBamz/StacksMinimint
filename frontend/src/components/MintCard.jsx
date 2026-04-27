@@ -108,6 +108,7 @@ export function MintCard({
       className="mint-card"
       data-connected={isConnected ? 'true' : 'false'}
       data-minting={isMinting ? 'true' : 'false'}
+      data-token-uri-valid={isTokenUriValid ? 'true' : 'false'}
       data-mint-state={mintState}
       title={`Mint state: ${mintState}`}
     >
