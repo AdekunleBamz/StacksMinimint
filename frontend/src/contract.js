@@ -23,6 +23,28 @@ export {
   STACKS_NETWORK_CONFIG
 } from './constants';
 
+const EXPLORER_VALID_TYPES = ['txid', 'token', 'address']
+const EXPLORER_LABELS = {
+  txid: 'Transaction',
+  token: 'Token',
+  address: 'Address'
+}
+
+export function normalizeExplorerType(type) {
+  return EXPLORER_VALID_TYPES.includes(type) ? type : 'txid'
+}
+
+export function getExplorerLinkLabel(type, identifier) {
+  const safeType = normalizeExplorerType(type)
+  const baseLabel = EXPLORER_LABELS[safeType]
+  const normalizedIdentifier = typeof identifier === 'string' ? identifier.trim() : identifier
+  if (normalizedIdentifier == null || normalizedIdentifier === '') {
+    return `Open ${baseLabel} in Explorer`
+  }
+
+  return `${baseLabel}: ${normalizedIdentifier}`
+}
+
 /**
  * Generates an explorer URL for a given type (txid, token, address).
  * @param {string} type - The type of link ('txid', 'token', 'address').
@@ -32,6 +54,7 @@ export {
 function getBaseExplorerUrl(type, identifier) {
   const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
   const baseUrl = networkConfig.explorerUrl;
+  const safeType = normalizeExplorerType(type)
   const normalizedIdentifier = typeof identifier === 'string' ? identifier.trim() : identifier;
   if (normalizedIdentifier == null || normalizedIdentifier === '') {
     return `${baseUrl}?chain=${NETWORK}`;
@@ -40,7 +63,7 @@ function getBaseExplorerUrl(type, identifier) {
     typeof normalizedIdentifier === 'string'
       ? normalizedIdentifier
       : String(normalizedIdentifier);
-  return `${baseUrl}/${type}/${encodeURIComponent(encodedIdentifier)}?chain=${NETWORK}`;
+  return `${baseUrl}/${safeType}/${encodeURIComponent(encodedIdentifier)}?chain=${NETWORK}`;
 }
 
 export function getExplorerUrl(txId) {
@@ -53,6 +76,18 @@ export function getTokenExplorerUrl(tokenId) {
 
 export function getAddressExplorerUrl(address) {
   return getBaseExplorerUrl('address', address);
+}
+
+export function getTxExplorerLinkLabel(txId) {
+  return getExplorerLinkLabel('txid', txId)
+}
+
+export function getTokenExplorerLinkLabel(tokenId) {
+  return getExplorerLinkLabel('token', tokenId)
+}
+
+export function getAddressExplorerLinkLabel(address) {
+  return getExplorerLinkLabel('address', address)
 }
 
 /**
