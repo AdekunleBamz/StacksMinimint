@@ -167,6 +167,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
 
       <p
         className="stats__footnote"
+        aria-live="polite"
         title={isConnected ? 'Wallet-specific stats are based on the connected address' : 'Connect a wallet to load wallet-specific stats'}
       >
         {isConnected
