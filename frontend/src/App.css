@@ -13,6 +13,7 @@
   left: 1rem;
   top: -3rem;
   z-index: 1000;
+  min-height: 2.5rem;
   padding: 0.65rem 0.9rem;
   font-size: 0.875rem;
   border-radius: 0.6rem;
