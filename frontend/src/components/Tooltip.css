@@ -22,6 +22,7 @@
   text-wrap: pretty;
   overflow-wrap: anywhere;
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;
   z-index: 1000;
   pointer-events: none;
   animation: fadeIn 0.18s ease;
