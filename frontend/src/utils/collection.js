@@ -158,21 +158,38 @@ export function formatRelativeTime(timestamp) {
   return descriptor.label
 }
 
+export function normalizeExactTimestamp(timestamp) {
+  if (timestamp === null || timestamp === undefined) return null
+  const time = Number(timestamp)
+  if (Number.isNaN(time) || !Number.isFinite(time)) return null
+  return time < UNIX_MS_THRESHOLD ? time * 1000 : time
+}
+
+export function getExactTimeDescriptor(timestamp, locale) {
+  const normalizedTime = normalizeExactTimestamp(timestamp)
+  if (normalizedTime === null) {
+    return { label: 'Unknown time', iso: null, isValid: false }
+  }
+
+  const date = new Date(normalizedTime)
+  return {
+    label: new Intl.DateTimeFormat(locale, {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    }).format(date),
+    iso: date.toISOString(),
+    isValid: true
+  }
+}
+
 /**
  * Formats a timestamp into a human-readable date and time string.
  * @param {number} timestamp - The Unix timestamp in milliseconds.
  * @returns {string} The exact time string.
  */
 export function formatExactTime(timestamp) {
-  if (timestamp === null || timestamp === undefined) return 'Unknown time'
-  const time = Number(timestamp)
-  if (Number.isNaN(time) || !Number.isFinite(time)) return 'Unknown time'
-  const normalizedTime = time < UNIX_MS_THRESHOLD ? time * 1000 : time
-
-  return new Intl.DateTimeFormat(undefined, {
-    dateStyle: 'medium',
-    timeStyle: 'short'
-  }).format(new Date(normalizedTime))
+  const descriptor = getExactTimeDescriptor(timestamp)
+  return descriptor.label
 }
 
 /**
@@ -489,6 +506,8 @@ export default {
   normalizeRelativeTimestamp,
   getRelativeTimeDescriptor,
   formatRelativeTime,
+  normalizeExactTimestamp,
+  getExactTimeDescriptor,
   formatExactTime,
   getMetadataKind,
   getMetadataLabel,
