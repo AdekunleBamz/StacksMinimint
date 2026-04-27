@@ -151,15 +151,8 @@ export function getExactTimeDescriptor(timestamp, locale) {
  * @returns {string} The exact time string.
  */
 export function formatExactTime(timestamp) {
-  if (timestamp === null || timestamp === undefined) return 'Unknown time'
-  const time = Number(timestamp)
-  if (Number.isNaN(time) || !Number.isFinite(time)) return 'Unknown time'
-  const normalizedTime = time < UNIX_MS_THRESHOLD ? time * 1000 : time
-
-  return new Intl.DateTimeFormat(undefined, {
-    dateStyle: 'medium',
-    timeStyle: 'short'
-  }).format(new Date(normalizedTime))
+  const descriptor = getExactTimeDescriptor(timestamp)
+  return descriptor.label
 }
 
 /**
