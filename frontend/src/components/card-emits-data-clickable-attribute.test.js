@@ -13,6 +13,8 @@ describe('Card', () => {
     )
 
     expect(clickableMarkup).toContain('data-clickable="true"')
+    expect(clickableMarkup).toContain('data-role="button"')
     expect(staticMarkup).toContain('data-clickable="false"')
+    expect(staticMarkup).toContain('data-role="region"')
   })
 })
