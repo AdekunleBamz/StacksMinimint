@@ -9,6 +9,7 @@ describe('Stats', () => {
       React.createElement(Stats, {
         isLoading: false,
         isConnected: true,
+        recentActivityCount: 5,
         contractInfo: { totalSupply: 1, maxSupply: 10, mintFee: 1000, maxPerWallet: 2, isPaused: false }
       })
     )
@@ -21,6 +22,7 @@ describe('Stats', () => {
     )
 
     expect(connectedMarkup).toContain('data-connection="connected"')
+    expect(connectedMarkup).toContain('data-recent-activity-count="5"')
     expect(disconnectedMarkup).toContain('data-connection="disconnected"')
   })
 })
