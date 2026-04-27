@@ -28,6 +28,10 @@ function getFirstNonEmpty(values, fallback = null) {
   return normalized ?? fallback
 }
 
+export function getRecentMintTxId(mint) {
+  return getFirstNonEmpty([mint?.txId, mint?.txHash])
+}
+
 export function RecentMints({ items = [] }) {
   const isLoading = items === null
   const recentMints = Array.isArray(items) ? items : []
@@ -71,7 +75,7 @@ export function RecentMints({ items = [] }) {
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
           const timestampMs = normalizeMintTimestamp(mint.timestamp)
-          const txId = getFirstNonEmpty([mint.txId, mint.txHash])
+          const txId = getRecentMintTxId(mint)
           const minterAddress = getFirstNonEmpty([mint.minter, mint.address], 'Unknown')
           const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
           const isPendingToken = tokenId === '' || tokenId == null
