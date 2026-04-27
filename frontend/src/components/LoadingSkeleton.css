@@ -26,6 +26,7 @@
 /* Variants */
 .skeleton--text {
   height: 16px;
+  line-height: 1;
   border-radius: 4px;
   margin-bottom: 8px;
 }
@@ -49,6 +50,7 @@
 
 .skeleton--image {
   width: 100%;
+  min-height: 120px;
   border-radius: 8px;
 }
 
@@ -72,6 +74,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
   overflow: hidden;
+  box-shadow: 0 12px 30px -24px rgba(15, 23, 42, 0.85);
 }
 
 .skeleton-card__body {
@@ -82,7 +85,7 @@
 .skeleton-list-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.9rem;
   padding: 1rem;
   background: rgba(30, 30, 50, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
