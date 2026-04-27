@@ -108,7 +108,7 @@ class ErrorBoundary extends React.Component {
             </details>
           )}
 
-          <div className="error-boundary__actions">
+          <div className="error-boundary__actions" data-actions-count="2">
             <button
               type="button"
               onClick={this.handleReset}
