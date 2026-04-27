@@ -154,23 +154,8 @@ export function getRelativeTimeDescriptor(timestamp, now = Date.now()) {
  * @returns {string} The relative time string.
  */
 export function formatRelativeTime(timestamp) {
-  if (timestamp === null || timestamp === undefined) return 'Just now'
-  const time = Number(timestamp)
-  if (Number.isNaN(time) || !Number.isFinite(time)) return 'Just now'
-  const normalizedTime = time < UNIX_MS_THRESHOLD ? time * 1000 : time
-
-  const now = Date.now()
-  const diff = Math.max(now - normalizedTime, 0)
-  if (diff === 0 || normalizedTime > now) return 'Just now'
-  const minutes = Math.floor(diff / TIME_MINUTE_MS)
-  const hours = Math.floor(diff / TIME_HOUR_MS)
-  const days = Math.floor(diff / TIME_DAY_MS)
-
-  if (minutes < 1) return 'Just now'
-  if (minutes < TIME_MINUTES_PER_HOUR) return `${minutes}m ago`
-  if (hours < TIME_HOURS_PER_DAY) return `${hours}h ago`
-  if (days < 30) return `${days}d ago`
-  return `${Math.floor(days / 30)}mo ago`
+  const descriptor = getRelativeTimeDescriptor(timestamp)
+  return descriptor.label
 }
 
 /**
