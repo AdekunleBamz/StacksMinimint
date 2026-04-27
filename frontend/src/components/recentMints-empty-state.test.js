@@ -9,5 +9,6 @@ describe('RecentMints', () => {
   it('renders empty-state messaging when there are no receipts', () => {
     const markup = renderToStaticMarkup(React.createElement(RecentMints, { items: [] }))
     expect(markup).toContain('No local mint receipts yet.')
+    expect(markup).toContain('data-count="0"')
   })
 })
