@@ -240,6 +240,7 @@ export function MintCard({
               className={`mint-card__status mint-card__status--${mintStatus.type}`}
               role={mintStatus.type === 'error' ? 'alert' : 'status'}
               aria-live={mintStatus.type === 'error' ? 'assertive' : 'polite'}
+              aria-atomic="true"
             >
               <span>{mintStatus.message}</span>
               {txId && (
