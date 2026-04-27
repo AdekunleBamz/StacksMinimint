@@ -10,6 +10,8 @@ describe('Tooltip', () => {
     )
 
     expect(markup).toContain('title="Wallet status"')
+    expect(markup).toContain('data-has-content="true"')
+    expect(markup).toContain('data-content-length="13"')
     expect(markup).not.toContain('title="  Wallet status  "')
   })
 })
