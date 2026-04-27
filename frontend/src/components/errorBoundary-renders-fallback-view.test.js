@@ -13,5 +13,7 @@ describe('ErrorBoundary', () => {
     expect(markup).toContain('Something went wrong.')
     expect(markup).toContain('Refresh Page')
     expect(markup).toContain('Render failure')
+    expect(markup).toContain('aria-label="Application error boundary"')
+    expect(markup).toContain('aria-atomic="true"')
   })
 })
