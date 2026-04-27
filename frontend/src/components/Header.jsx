@@ -23,13 +23,14 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = typeof account === 'string' ? account.trim() : account
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
+  const accountLength = hasAccount && typeof normalizedAccount === 'string' ? normalizedAccount.length : 0
 
   const handleCopy = useCallback(() => {
     if (normalizedAccount) copy(normalizedAccount)
   }, [normalizedAccount, copy])
 
   return (
-    <header className="header" data-connected={hasAccount ? 'true' : 'false'}>
+    <header className="header" data-connected={hasAccount ? 'true' : 'false'} data-connecting={isConnecting ? 'true' : 'false'}>
       <div className="header__brand">
         <img src={logo} alt="StacksMinimint Logo" className="header__logo" width="32" height="32" />
         <span className="header__title">StacksMinimint</span>
@@ -46,13 +47,15 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
         </span>
         {hasAccount ? (
           <>
-            <span className="header__chain" title={CHAIN_TOOLTIP} aria-label={CHAIN_NAME}>
+            <span className="header__chain" data-chain={CHAIN_NAME} title={CHAIN_TOOLTIP} aria-label={CHAIN_NAME}>
               {CHAIN_NAME}
             </span>
             <button
               type="button"
               className="header__address-wrapper"
               data-copy-state={copied ? 'copied' : 'idle'}
+              data-copy-available={hasAccount ? 'true' : 'false'}
+              data-account-length={String(accountLength)}
               onClick={handleCopy}
               title={normalizedAccount}
               aria-label="Copy wallet address to clipboard"
