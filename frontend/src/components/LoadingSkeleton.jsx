@@ -19,6 +19,7 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
   const safeVariant = SUPPORTED_VARIANTS.includes(variant) ? variant : 'text'
   const normalizedClassName = typeof className === 'string' ? className.trim() : className
   const hasWidth = Boolean(width)
+  const hasHeight = Boolean(height)
   const skeletons = Array.from({ length: safeCount }, (_, i) => i)
 
   const getStyle = () => {
@@ -38,6 +39,7 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
           data-index={index}
           data-count={String(safeCount)}
           data-width-set={hasWidth ? 'true' : 'false'}
+          data-height-set={hasHeight ? 'true' : 'false'}
           role="presentation"
           style={getStyle()}
           aria-hidden="true"
