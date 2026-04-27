@@ -76,7 +76,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
 
   if (isLoading) {
     return (
-      <section className="stats" aria-busy="true">
+      <section className="stats" data-loading="true" aria-busy="true">
         <h2 className="stats__title">Collection Stats</h2>
         <p className="stats__subtitle">Supply, pricing, and wallet limits at a glance while you mint.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
@@ -97,8 +97,10 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       className="stats"
       aria-label="Collection statistics"
       title="Collection statistics and mint readiness"
+      data-last-updated-iso={lastUpdated.toISOString()}
       data-state-tone={collectionState.tone}
       data-connection={isConnected ? 'connected' : 'disconnected'}
+      data-recent-activity-count={String(safeRecentActivityCount)}
     >
       <h2 className="stats__title">Collection Stats</h2>
       <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
@@ -129,6 +131,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       <div className="stats__progress">
         <div
           className="progress-bar"
+          data-progress={String(roundedProgress)}
           role="progressbar"
           aria-valuenow={roundedProgress}
           aria-valuemin={0}
