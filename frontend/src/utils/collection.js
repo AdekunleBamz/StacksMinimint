@@ -99,6 +99,20 @@ export function isLimitFallback(value) {
   return value === null || value === undefined || (typeof value === 'string' && value.trim().length === 0)
 }
 
+function getLimitValueType(value) {
+  if (Array.isArray(value)) return 'array'
+  if (value === null || value === undefined) return 'empty'
+  return typeof value
+}
+
+export function describeLimit(value, fallback = 'Not set') {
+  return {
+    text: getLimitText(value, fallback),
+    isFallback: isLimitFallback(value),
+    valueType: getLimitValueType(value)
+  }
+}
+
 export function formatLimit(value, fallback = 'Not set') {
   return getLimitText(value, fallback)
 }
