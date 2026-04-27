@@ -220,6 +220,21 @@ export function extractGatewayHost(url) {
   }
 }
 
+export function getMetadataAccessDescriptor(uri) {
+  const kind = getMetadataKind(uri)
+  const label = getMetadataLabel(uri)
+  const gatewayUrl = getMetadataGatewayUrl(uri)
+  const requiresGateway = kind === 'ipfs'
+
+  return {
+    kind,
+    label,
+    gatewayUrl,
+    isAccessible: Boolean(gatewayUrl),
+    requiresGateway
+  }
+}
+
 /**
  * Validates a token URI against contract and UI constraints.
  * @param {string} value - The URI to validate.
