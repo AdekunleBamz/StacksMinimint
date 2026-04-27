@@ -53,7 +53,7 @@ export function RecentMints({ items = [] }) {
 
   if (recentMints.length === 0) {
     return (
-      <section className="recent-mints" aria-label="Recent mints empty state" title="No recent mints available yet" data-state="empty">
+      <section className="recent-mints" aria-label="Recent mints empty state" title="No recent mints available yet" data-state="empty" data-count="0">
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__empty" role="status" aria-live="polite">
           <span className="recent-mints__empty-icon" aria-hidden="true">🎨</span>
