@@ -45,6 +45,7 @@ export function Card({
       data-variant={variant}
       data-padding={padding}
       data-hover={hover ? 'true' : 'false'}
+      data-role={onClick ? 'button' : 'region'}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
