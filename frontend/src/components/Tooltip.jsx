@@ -23,6 +23,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
   const tooltipId = useId()
   const safeDelay = typeof delay === 'number' && delay >= 0 ? Math.min(delay, TOOLTIP_MAX_DELAY_MS) : TOOLTIP_DEFAULT_DELAY_MS
   const safePosition = TOOLTIP_POSITIONS.includes(position) ? position : 'top'
+  const safeContent = typeof content === 'string' ? content.trim() : content
 
   const showTooltip = () => {
     if (timerRef.current) {
@@ -51,12 +52,12 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
       onMouseLeave={hideTooltip}
       onFocus={showTooltip}
       onBlur={hideTooltip}
-      aria-describedby={isVisible && content ? tooltipId : undefined}
+      aria-describedby={isVisible && safeContent ? tooltipId : undefined}
     >
       {children}
-      {isVisible && content && (
+      {isVisible && safeContent && (
         <div id={tooltipId} className={`tooltip tooltip--${safePosition}`} role="tooltip">
-          {content}
+          {safeContent}
           <div className="tooltip__arrow"></div>
         </div>
       )}
