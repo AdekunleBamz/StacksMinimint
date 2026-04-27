@@ -10,6 +10,7 @@ describe('ErrorBoundary', () => {
     const markup = renderToStaticMarkup(boundary.render())
     expect(markup).toContain('title="Try rendering this section again"')
     expect(markup).toContain('title="Reload the application in this browser tab"')
+    expect(markup).toContain('data-has-raw-message="true"')
     expect(markup).toContain('Technical details (development only)')
   })
 })
