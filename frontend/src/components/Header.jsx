@@ -46,7 +46,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
         </span>
         {hasAccount ? (
           <>
-            <span className="header__chain" title={CHAIN_TOOLTIP} aria-label={CHAIN_NAME}>
+            <span className="header__chain" data-chain={CHAIN_NAME} title={CHAIN_TOOLTIP} aria-label={CHAIN_NAME}>
               {CHAIN_NAME}
             </span>
             <button
