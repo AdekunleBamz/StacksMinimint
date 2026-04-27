@@ -65,7 +65,7 @@
   min-width: 2.25rem;
 }
 
-.copy-btn--icon-only span {
+.copy-btn--icon-only .copy-btn__text {
   display: none;
 }
 
