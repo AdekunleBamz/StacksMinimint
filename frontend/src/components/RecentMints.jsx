@@ -15,7 +15,7 @@ import { getExplorerUrl } from '../contract'
 /** Number of skeleton placeholder rows to show while recent mints are loading. */
 const RECENT_MINTS_SKELETON_COUNT = 3;
 
-function getMintTimestampMs(timestamp) {
+export function normalizeMintTimestamp(timestamp) {
   const numericTimestamp = Number(timestamp)
   if (!Number.isFinite(numericTimestamp)) return Date.now()
   return numericTimestamp > 1_000_000_000_000 ? numericTimestamp : numericTimestamp * 1000
@@ -70,7 +70,7 @@ export function RecentMints({ items = [] }) {
       <p className="recent-mints__subtitle">Fresh activity appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
-          const timestampMs = getMintTimestampMs(mint.timestamp)
+          const timestampMs = normalizeMintTimestamp(mint.timestamp)
           const txId = getFirstNonEmpty([mint.txId, mint.txHash])
           const minterAddress = getFirstNonEmpty([mint.minter, mint.address], 'Unknown')
           const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
