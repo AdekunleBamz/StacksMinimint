@@ -92,10 +92,19 @@ export function MintCard({
         : !isTokenUriValid
           ? tokenUriValidation.helper
           : 'Ready to mint on Stacks.'
+  const mintState = contractInfo?.isPaused
+    ? 'paused'
+    : isSoldOut
+      ? 'sold-out'
+      : walletLimitReached
+        ? 'wallet-limit'
+        : !isTokenUriValid
+          ? 'invalid-uri'
+          : 'ready'
   const txId = mintStatus?.txId
 
   return (
-    <div className="mint-card" data-connected={isConnected ? 'true' : 'false'}>
+    <div className="mint-card" data-connected={isConnected ? 'true' : 'false'} data-mint-state={mintState}>
       <div className="mint-card__header">
         <h2 className="mint-card__title">Mint Your NFT</h2>
         <p className="mint-card__subtitle">Submit a metadata URI and mint on Stacks</p>
