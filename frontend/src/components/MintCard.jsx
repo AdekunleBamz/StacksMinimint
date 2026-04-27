@@ -64,6 +64,13 @@ export function getMintStateDescriptor({ isPaused, isSoldOut, walletLimitReached
   }
 }
 
+export function getMintConnectButtonA11y(isConnecting) {
+  return {
+    label: isConnecting ? 'Connecting wallet' : 'Connect wallet to mint',
+    title: isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to unlock minting'
+  }
+}
+
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -133,6 +140,7 @@ export function MintCard({
   })
   const mintActionMessage = mintDescriptor.message
   const mintState = mintDescriptor.state
+  const connectButtonA11y = getMintConnectButtonA11y(isConnecting)
   const txId = mintStatus?.txId
 
   return (
@@ -194,10 +202,10 @@ export function MintCard({
             type="button"
             className="mint-card__btn"
             onClick={onConnect}
-            aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet to mint'}
+            aria-label={connectButtonA11y.label}
             aria-busy={isConnecting}
             disabled={isConnecting}
-            title={isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to unlock minting'}
+            title={connectButtonA11y.title}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
