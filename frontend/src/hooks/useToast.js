@@ -17,6 +17,10 @@ export function normalizeToastMessage(message) {
   return typeof message === 'string' ? message.trim() : message
 }
 
+export function normalizeToastType(type) {
+  return TOAST_VALID_TYPES.includes(type) ? type : 'info'
+}
+
 export function useToast() {
   const [toasts, setToasts] = useState([])
   const toastIdRef = useRef(0)
@@ -34,8 +38,7 @@ export function useToast() {
 
   const addToast = useCallback((message, type = 'info', duration = TOAST_DURATION) => {
     const normalizedMessage = normalizeToastMessage(message)
-    const validTypes = TOAST_VALID_TYPES
-    const safeType = validTypes.includes(type) ? type : 'info'
+    const safeType = normalizeToastType(type)
 
     if (!normalizedMessage) {
       return null
