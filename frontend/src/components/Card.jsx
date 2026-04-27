@@ -43,6 +43,7 @@ export function Card({
       ].filter(Boolean).join(' ')}
       data-clickable={onClick ? 'true' : 'false'}
       data-variant={variant}
+      data-padding={padding}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : 'region'}
