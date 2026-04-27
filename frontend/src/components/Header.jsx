@@ -75,6 +75,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
           <button
             type="button"
             className="header__btn header__btn--connect"
+            data-connecting={isConnecting ? 'true' : 'false'}
             onClick={onConnect}
             disabled={isConnecting}
             aria-busy={isConnecting}
