@@ -90,10 +90,14 @@ export function formatAddress(address, start = 5, end = 5) {
  * @param {string} [fallback='Not set'] - The fallback string.
  * @returns {string} The formatted limit.
  */
-export function formatLimit(value, fallback = 'Not set') {
+export function getLimitText(value, fallback = 'Not set') {
   if (value === null || value === undefined) return fallback
   if (typeof value === 'string' && value.trim().length === 0) return fallback
   return `${value}`
+}
+
+export function formatLimit(value, fallback = 'Not set') {
+  return getLimitText(value, fallback)
 }
 
 /**
