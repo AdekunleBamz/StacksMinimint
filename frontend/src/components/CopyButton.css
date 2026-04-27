@@ -35,7 +35,7 @@
 }
 
 .copy-btn:disabled {
-  opacity: 0.55;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
