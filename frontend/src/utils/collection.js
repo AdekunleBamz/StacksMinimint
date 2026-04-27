@@ -69,16 +69,7 @@ export function getSTXFormatDescriptor(microstx) {
 }
 
 export function formatSTX(microstx) {
-  const input = typeof microstx === 'string' ? microstx.trim() : microstx
-  const amount = Number(input)
-  if (microstx === null || microstx === undefined || Number.isNaN(amount) || !Number.isFinite(amount)) {
-    return '0'
-  }
-
-  return new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 6,
-  }).format(amount / STX_MICRO_DIVISOR)
+  return getSTXFormatDescriptor(microstx).formatted
 }
 
 /**
