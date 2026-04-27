@@ -12,6 +12,8 @@ describe('LoadingSkeleton', () => {
     expect(markup).toContain('data-variant="title"')
     expect(markup).toContain('data-index="0"')
     expect(markup).toContain('data-index="1"')
+    expect(markup).toContain('data-count="2"')
+    expect(markup).toContain('data-animated="true"')
     expect(markup).toContain('role="presentation"')
   })
 })
