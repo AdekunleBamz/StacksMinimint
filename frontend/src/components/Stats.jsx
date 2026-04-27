@@ -165,7 +165,10 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         ))}
       </ul>
 
-      <p className="stats__footnote">
+      <p
+        className="stats__footnote"
+        title={isConnected ? 'Wallet-specific stats are based on the connected address' : 'Connect a wallet to load wallet-specific stats'}
+      >
         {isConnected
           ? 'Wallet-specific caps and pause state appear when available from the connected contract context.'
           : 'Connect a wallet to load address-specific mint caps and account context.'}
