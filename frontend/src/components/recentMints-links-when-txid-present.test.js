@@ -16,5 +16,6 @@ describe('RecentMints', () => {
 
     expect(markup).toContain('Minted ↗')
     expect(markup).toContain(`/txid/${txId}`)
+    expect(markup).toContain('data-pending="false"')
   })
 })

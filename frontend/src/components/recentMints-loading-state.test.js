@@ -10,5 +10,6 @@ describe('RecentMints', () => {
     const markup = renderToStaticMarkup(React.createElement(RecentMints, { items: null }))
     expect(markup).toContain('mint-item--skeleton')
     expect(markup).toContain('Loading recent mint activity')
+    expect(markup).toContain('data-count="3"')
   })
 })
