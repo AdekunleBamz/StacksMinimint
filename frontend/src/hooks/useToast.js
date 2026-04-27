@@ -21,6 +21,10 @@ export function normalizeToastType(type) {
   return TOAST_VALID_TYPES.includes(type) ? type : 'info'
 }
 
+export function normalizeToastDuration(duration, fallback = TOAST_DURATION) {
+  return Number.isFinite(duration) ? Math.max(duration, 0) : fallback
+}
+
 export function useToast() {
   const [toasts, setToasts] = useState([])
   const toastIdRef = useRef(0)
@@ -66,7 +70,7 @@ export function useToast() {
       return trimmedToasts
     })
 
-    const safeDuration = Number.isFinite(duration) ? Math.max(duration, 0) : TOAST_DURATION
+    const safeDuration = normalizeToastDuration(duration, TOAST_DURATION)
 
     if (safeDuration > 0) {
       const timer = setTimeout(() => {
