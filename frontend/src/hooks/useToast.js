@@ -13,6 +13,10 @@ import { MAX_TOASTS, TOAST_DURATION } from '../constants'
 /** Valid toast notification types accepted by addToast. */
 const TOAST_VALID_TYPES = ['success', 'error', 'warning', 'info'];
 
+export function normalizeToastMessage(message) {
+  return typeof message === 'string' ? message.trim() : message
+}
+
 export function useToast() {
   const [toasts, setToasts] = useState([])
   const toastIdRef = useRef(0)
@@ -29,7 +33,7 @@ export function useToast() {
   }, [])
 
   const addToast = useCallback((message, type = 'info', duration = TOAST_DURATION) => {
-    const normalizedMessage = typeof message === 'string' ? message.trim() : message
+    const normalizedMessage = normalizeToastMessage(message)
     const validTypes = TOAST_VALID_TYPES
     const safeType = validTypes.includes(type) ? type : 'info'
 
