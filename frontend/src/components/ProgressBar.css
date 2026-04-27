@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
+  min-height: 1.25rem;
 }
 
 .progress__bar {
@@ -64,7 +65,7 @@
 .progress__label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #9ca3af;
+  color: #cbd5e1;
   min-width: 5ch;
   min-height: 1.25rem;
   letter-spacing: 0.01em;
@@ -96,5 +97,13 @@
   }
   to {
     background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress__fill,
+  .progress__fill--striped {
+    transition: none;
+    animation: none;
   }
 }
