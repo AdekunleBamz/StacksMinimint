@@ -37,6 +37,7 @@
   min-height: 2.15rem;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
+  border: 1px solid transparent;
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -46,16 +47,19 @@
 
 .stats__state--success {
   background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.26);
   color: #bbf7d0;
 }
 
 .stats__state--warning {
   background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.26);
   color: #fde68a;
 }
 
 .stats__state--critical {
   background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.26);
   color: #fecaca;
 }
 
@@ -109,7 +113,7 @@
   justify-content: space-between;
   gap: 1rem;
   margin-top: 0.65rem;
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
   line-height: 1.5;
@@ -128,7 +132,7 @@
   padding: 1rem;
   border-radius: 1.15rem;
   background: rgba(15, 23, 42, 0.68);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.14);
   min-width: 0;
 }
 
@@ -174,7 +178,7 @@
     rgba(255, 255, 255, 0.04) 75%
   );
   background-size: 200% 100%;
-  animation: shimmer 1.4s infinite;
+  animation: shimmer 1.5s infinite;
 }
 
 .skeleton--value {

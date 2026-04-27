@@ -93,7 +93,13 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
   }
 
   return (
-    <section className="stats" aria-label="Collection statistics" title="Collection statistics and mint readiness">
+    <section
+      className="stats"
+      aria-label="Collection statistics"
+      title="Collection statistics and mint readiness"
+      data-state-tone={collectionState.tone}
+      data-connection={isConnected ? 'connected' : 'disconnected'}
+    >
       <h2 className="stats__title">Collection Stats</h2>
       <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
 
@@ -159,7 +165,11 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         ))}
       </ul>
 
-      <p className="stats__footnote">
+      <p
+        className="stats__footnote"
+        aria-live="polite"
+        title={isConnected ? 'Wallet-specific stats are based on the connected address' : 'Connect a wallet to load wallet-specific stats'}
+      >
         {isConnected
           ? 'Wallet-specific caps and pause state appear when available from the connected contract context.'
           : 'Connect a wallet to load address-specific mint caps and account context.'}
