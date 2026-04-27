@@ -53,6 +53,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
       data-position={safePosition}
       data-delay={String(safeDelay)}
       data-has-content={hasContent ? 'true' : 'false'}
+      data-visible={isVisible ? 'true' : 'false'}
       title={wrapperTitle}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
