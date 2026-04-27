@@ -107,6 +107,7 @@ export function MintCard({
     <div
       className="mint-card"
       data-connected={isConnected ? 'true' : 'false'}
+      data-connect-state={isConnected ? 'connected' : isConnecting ? 'connecting' : 'disconnected'}
       data-minting={isMinting ? 'true' : 'false'}
       data-token-uri-valid={isTokenUriValid ? 'true' : 'false'}
       data-mint-state={mintState}
