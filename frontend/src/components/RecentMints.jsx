@@ -36,6 +36,23 @@ export function getRecentMintAddress(mint, fallback = 'Unknown') {
   return getFirstNonEmpty([mint?.minter, mint?.address], fallback)
 }
 
+export function getRecentMintTokenDescriptor(tokenId) {
+  const normalizedTokenId = typeof tokenId === 'string' ? tokenId.trim() : tokenId
+  const isPendingToken = normalizedTokenId === '' || normalizedTokenId == null
+  const tokenLabel = isPendingToken ? 'Pending' : `#${normalizedTokenId}`
+  const receiptLabel = isPendingToken ? 'Submitted ↗' : 'Minted ↗'
+  const explorerLabel = isPendingToken
+    ? 'View submitted transaction on Explorer'
+    : `View transaction for token #${normalizedTokenId} on Explorer`
+
+  return {
+    tokenLabel,
+    receiptLabel,
+    explorerLabel,
+    isPendingToken
+  }
+}
+
 export function RecentMints({ items = [] }) {
   const isLoading = items === null
   const recentMints = Array.isArray(items) ? items : []
@@ -81,14 +98,9 @@ export function RecentMints({ items = [] }) {
           const timestampMs = normalizeMintTimestamp(mint.timestamp)
           const txId = getRecentMintTxId(mint)
           const minterAddress = getRecentMintAddress(mint)
-          const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
-          const isPendingToken = tokenId === '' || tokenId == null
-          const tokenLabel = isPendingToken ? 'Pending' : `#${tokenId}`
-          const receiptLabel = isPendingToken ? 'Submitted ↗' : 'Minted ↗'
-          const explorerLabel = isPendingToken
-            ? 'View submitted transaction on Explorer'
-            : `View transaction for token #${tokenId} on Explorer`
-          const mintKey = txId || `${tokenId ?? 'pending'}-${mint.timestamp}`
+          const mintTokenDescriptor = getRecentMintTokenDescriptor(mint.tokenId)
+          const { tokenLabel, receiptLabel, explorerLabel, isPendingToken } = mintTokenDescriptor
+          const mintKey = txId || `${mint.tokenId ?? 'pending'}-${mint.timestamp}`
           return (
             <div key={mintKey} className="mint-item" role="listitem" aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
