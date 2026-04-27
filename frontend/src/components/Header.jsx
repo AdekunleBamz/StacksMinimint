@@ -42,6 +42,11 @@ export function getHeaderWalletStatus(hasAccount) {
     : { text: 'Wallet disconnected', title: 'Wallet is disconnected' }
 }
 
+export function getHeaderAccountLength(account, hasAccount) {
+  if (!hasAccount || typeof account !== 'string') return 0
+  return account.length
+}
+
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = normalizeHeaderAccount(account)
@@ -49,7 +54,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const connectionState = getHeaderConnectionState({ hasAccount, isConnecting })
   const connectButtonA11y = getHeaderConnectButtonA11y(isConnecting)
   const walletStatus = getHeaderWalletStatus(hasAccount)
-  const accountLength = hasAccount && typeof normalizedAccount === 'string' ? normalizedAccount.length : 0
+  const accountLength = getHeaderAccountLength(normalizedAccount, hasAccount)
 
   const handleCopy = useCallback(() => {
     if (normalizedAccount) copy(normalizedAccount)
