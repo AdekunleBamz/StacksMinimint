@@ -18,6 +18,12 @@
   line-height: 1.2;
 }
 
+.error-boundary__icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
 .error-boundary__message {
   color: #e2e8f0;
   line-height: 1.6;
