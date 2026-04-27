@@ -36,12 +36,19 @@ export function getHeaderConnectButtonA11y(isConnecting) {
   }
 }
 
+export function getHeaderWalletStatus(hasAccount) {
+  return hasAccount
+    ? { text: 'Wallet connected', title: 'Wallet is connected' }
+    : { text: 'Wallet disconnected', title: 'Wallet is disconnected' }
+}
+
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = normalizeHeaderAccount(account)
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
   const connectionState = getHeaderConnectionState({ hasAccount, isConnecting })
   const connectButtonA11y = getHeaderConnectButtonA11y(isConnecting)
+  const walletStatus = getHeaderWalletStatus(hasAccount)
   const accountLength = hasAccount && typeof normalizedAccount === 'string' ? normalizedAccount.length : 0
 
   const handleCopy = useCallback(() => {
@@ -65,9 +72,9 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
           className="header__sr-status"
           role="status"
           aria-live="polite"
-          title={hasAccount ? 'Wallet is connected' : 'Wallet is disconnected'}
+          title={walletStatus.title}
         >
-          {hasAccount ? 'Wallet connected' : 'Wallet disconnected'}
+          {walletStatus.text}
         </span>
         {hasAccount ? (
           <>
