@@ -89,6 +89,7 @@
 
 .footer__link:hover {
   color: #a78bfa;
+  text-decoration: underline;
 }
 
 .footer__link:focus-visible {
