@@ -139,6 +139,7 @@
   font-size: 0.875rem;
   color: #e5e7eb;
   line-height: 1.4;
+  font-variant-numeric: tabular-nums;
   transition: color 0.2s ease;
   overflow: hidden;
   text-overflow: ellipsis;
