@@ -40,6 +40,7 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
           data-count={String(safeCount)}
           data-width-set={hasWidth ? 'true' : 'false'}
           data-height-set={hasHeight ? 'true' : 'false'}
+          data-animated="true"
           role="presentation"
           style={getStyle()}
           aria-hidden="true"
