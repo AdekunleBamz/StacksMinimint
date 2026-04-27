@@ -63,6 +63,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
         ref={modalRef}
         className={`modal modal--${safeSize}`}
         data-size={safeSize}
+        data-title-present={title ? 'true' : 'false'}
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
