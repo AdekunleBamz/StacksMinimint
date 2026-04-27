@@ -288,6 +288,7 @@
 /* Skeleton */
 .nft-card--skeleton {
   pointer-events: none;
+  background: rgba(30, 30, 50, 0.5);
 }
 
 .skeleton {
