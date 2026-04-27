@@ -10,5 +10,7 @@ describe('validateTokenURI', () => {
 
     expect(value.length).toBe(MAX_TOKEN_URI_LENGTH)
     expect(result.isValid).toBe(true)
+    expect(result.remainingCharacters).toBe(0)
+    expect(result.isNearLimit).toBe(true)
   })
 })

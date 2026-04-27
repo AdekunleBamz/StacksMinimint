@@ -221,6 +221,8 @@ export function validateTokenURI(value) {
   const normalized = String(value ?? '').trim()
   const kind = getMetadataKind(normalized)
   const characterCount = normalized.length
+  const remainingCharacters = MAX_TOKEN_URI_LENGTH - characterCount
+  const isNearLimit = characterCount >= MAX_TOKEN_URI_LENGTH * 0.9
   const isAsciiOnly = ASCII_PATTERN.test(normalized)
   const isSecureScheme = kind === 'ipfs' || kind === 'https' || kind === 'arweave'
   const isValid = Boolean(normalized) && isSecureScheme && isAsciiOnly && characterCount <= MAX_TOKEN_URI_LENGTH
@@ -232,7 +234,11 @@ export function validateTokenURI(value) {
       tone: 'neutral',
       label: 'Metadata required',
       helper: 'Use an ipfs:// or https:// metadata URL. The contract accepts ASCII only, up to 256 characters.',
-      characterCount
+      characterCount,
+      remainingCharacters,
+      isNearLimit,
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -243,7 +249,11 @@ export function validateTokenURI(value) {
       tone: 'warning',
       label: 'Unsupported characters',
       helper: 'Remove emoji or other non-ASCII characters before opening the wallet prompt.',
-      characterCount
+      characterCount,
+      remainingCharacters,
+      isNearLimit,
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -254,7 +264,11 @@ export function validateTokenURI(value) {
       tone: 'warning',
       label: 'URI too long',
       helper: `Keep the metadata URI within ${MAX_TOKEN_URI_LENGTH} characters to match the contract limit.`,
-      characterCount
+      characterCount,
+      remainingCharacters,
+      isNearLimit,
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -265,7 +279,11 @@ export function validateTokenURI(value) {
       tone: 'warning',
       label: 'Upgrade to HTTPS',
       helper: 'Use a secure https:// link or an ipfs:// CID before submitting.',
-      characterCount
+      characterCount,
+      remainingCharacters,
+      isNearLimit,
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -276,7 +294,11 @@ export function validateTokenURI(value) {
       tone: 'warning',
       label: 'Unsupported scheme',
       helper: 'Only ipfs://, ar://, and https:// metadata URLs are accepted in this UI.',
-      characterCount
+      characterCount,
+      remainingCharacters,
+      isNearLimit,
+      normalizedValue: normalized,
+      secureScheme: isSecureScheme
     }
   }
 
@@ -292,7 +314,11 @@ export function validateTokenURI(value) {
         tone: 'warning',
         label: 'Invalid IPFS URI',
         helper: 'Provide an ipfs:// URI with a CID or CID path and no spaces.',
-        characterCount
+        characterCount,
+        remainingCharacters,
+        isNearLimit,
+        normalizedValue: normalized,
+        secureScheme: isSecureScheme
       }
     }
   }
@@ -307,7 +333,11 @@ export function validateTokenURI(value) {
           tone: 'warning',
           label: 'Remove URL credentials',
           helper: 'Use a public metadata URL without embedded username or password fields.',
-          characterCount
+          characterCount,
+          remainingCharacters,
+          isNearLimit,
+          normalizedValue: normalized,
+          secureScheme: isSecureScheme
         }
       }
     } catch {
@@ -317,7 +347,11 @@ export function validateTokenURI(value) {
         tone: 'warning',
         label: 'Invalid metadata URL',
         helper: 'Provide a fully valid https:// URL before submitting to the wallet.',
-        characterCount
+        characterCount,
+        remainingCharacters,
+        isNearLimit,
+        normalizedValue: normalized,
+        secureScheme: isSecureScheme
       }
     }
   }
@@ -328,7 +362,11 @@ export function validateTokenURI(value) {
     tone: 'success',
     label: kind === 'ipfs' ? 'IPFS metadata ready' : kind === 'arweave' ? 'Arweave metadata ready' : 'HTTPS metadata ready',
     helper: 'This URI passes the local checks and is ready for wallet confirmation.',
-    characterCount
+    characterCount,
+    remainingCharacters,
+    isNearLimit,
+    normalizedValue: normalized,
+    secureScheme: isSecureScheme
   }
 }
 
