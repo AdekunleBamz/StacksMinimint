@@ -267,4 +267,13 @@
   .header__copied-toast {
     animation: none;
   }
+
+  .header__address-wrapper,
+  .header__btn {
+    transition: none;
+  }
+
+  .header__btn--connect:hover:not(:disabled) {
+    transform: none;
+  }
 }
