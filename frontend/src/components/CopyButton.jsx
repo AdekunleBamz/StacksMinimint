@@ -44,6 +44,8 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', cla
       data-has-text={hasText ? 'true' : 'false'}
       data-label={copied ? safeSuccessLabel : safeLabel}
       aria-keyshortcuts="Enter Space"
+      aria-live="polite"
+      aria-atomic="true"
       onClick={handleCopy}
       aria-label={copied ? safeSuccessLabel : safeLabel}
       aria-disabled={isDisabled}
