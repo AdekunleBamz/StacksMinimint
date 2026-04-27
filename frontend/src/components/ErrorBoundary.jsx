@@ -119,6 +119,7 @@ class ErrorBoundary extends React.Component {
               type="button"
               onClick={() => window.location.reload()}
               className="error-boundary__button"
+              title="Reload the application in this browser tab"
             >
               Refresh Page
             </button>
