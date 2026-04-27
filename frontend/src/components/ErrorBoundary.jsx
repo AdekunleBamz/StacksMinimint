@@ -98,7 +98,7 @@ class ErrorBoundary extends React.Component {
           {/* Show detailed error info only in development */}
           {isDevelopment && this.state.error && (
             <details className="error-boundary__details">
-              <summary>Technical Details (Development Only)</summary>
+              <summary>Technical details (development only)</summary>
               <pre>
                 {this.state.error.toString()}
                 {this.state.errorInfo?.componentStack}
