@@ -35,6 +35,7 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
           className={['skeleton', `skeleton--${safeVariant}`, normalizedClassName].filter(Boolean).join(' ')}
           data-variant={safeVariant}
           data-index={index}
+          data-count={String(safeCount)}
           role="presentation"
           style={getStyle()}
           aria-hidden="true"
