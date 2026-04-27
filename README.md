@@ -122,6 +122,11 @@ Run a faster pre-push validation flow:
 npm run check:fast
 ```
 
+Run the full local verification flow:
+```bash
+npm run verify:local
+```
+
 ### Frontend Development
 
 Start the local development server:
