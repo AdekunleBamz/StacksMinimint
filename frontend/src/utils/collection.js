@@ -464,6 +464,8 @@ export default {
   formatAddress,
   formatLimit,
   formatRelativeTime,
+  normalizeExactTimestamp,
+  getExactTimeDescriptor,
   formatExactTime,
   getMetadataKind,
   getMetadataLabel,
