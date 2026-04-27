@@ -100,7 +100,7 @@
 }
 
 .mint-card__connect p {
-  color: #9ca3af;
+  color: #cbd5e1;
   margin-bottom: 1rem;
   line-height: 1.6;
   max-width: 18rem;
@@ -197,7 +197,7 @@
 
 .mint-card__btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.28);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.34);
 }
 
 .mint-card__btn--primary {
@@ -219,7 +219,7 @@
 .mint-card__helper {
   margin: -0.35rem 0 0;
   font-size: 0.8125rem;
-  color: #9ca3af;
+  color: #cbd5e1;
   line-height: 1.5;
   max-width: 36ch;
 }

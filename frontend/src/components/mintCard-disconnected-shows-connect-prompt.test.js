@@ -20,5 +20,6 @@ describe('MintCard', () => {
     expect(markup).toContain('Connect your Stacks wallet to start minting.')
     expect(markup).toContain('Connect Wallet')
     expect(markup).toContain('title="Connect wallet to unlock minting"')
+    expect(markup).toContain('data-connected="false"')
   })
 })

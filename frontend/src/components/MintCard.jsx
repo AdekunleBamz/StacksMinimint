@@ -92,10 +92,24 @@ export function MintCard({
         : !isTokenUriValid
           ? tokenUriValidation.helper
           : 'Ready to mint on Stacks.'
+  const mintState = contractInfo?.isPaused
+    ? 'paused'
+    : isSoldOut
+      ? 'sold-out'
+      : walletLimitReached
+        ? 'wallet-limit'
+        : !isTokenUriValid
+          ? 'invalid-uri'
+          : 'ready'
   const txId = mintStatus?.txId
 
   return (
-    <div className="mint-card">
+    <div
+      className="mint-card"
+      data-connected={isConnected ? 'true' : 'false'}
+      data-mint-state={mintState}
+      title={`Mint state: ${mintState}`}
+    >
       <div className="mint-card__header">
         <h2 className="mint-card__title">Mint Your NFT</h2>
         <p className="mint-card__subtitle">Submit a metadata URI and mint on Stacks</p>
@@ -185,7 +199,7 @@ export function MintCard({
             <span id="tokenURIHint" className="form-hint">
               Paste an ipfs:// CID or secure https:// link to your metadata JSON
             </span>
-            <div className="form-counter" aria-live="polite">
+            <div className="form-counter" aria-live="polite" title={`${tokenUriValidation.characterCount} of ${MAX_TOKEN_URI_LENGTH} characters used`}>
               {tokenUriValidation.characterCount} / {MAX_TOKEN_URI_LENGTH} characters
             </div>
           </div>
@@ -226,6 +240,7 @@ export function MintCard({
               className={`mint-card__status mint-card__status--${mintStatus.type}`}
               role={mintStatus.type === 'error' ? 'alert' : 'status'}
               aria-live={mintStatus.type === 'error' ? 'assertive' : 'polite'}
+              aria-atomic="true"
             >
               <span>{mintStatus.message}</span>
               {txId && (

@@ -18,5 +18,7 @@ describe('MintCard', () => {
 
     expect(markup).toContain('Sold Out')
     expect(markup).toContain('disabled=""')
+    expect(markup).toContain('data-mint-state="sold-out"')
+    expect(markup).toContain('title="Mint state: sold-out"')
   })
 })
