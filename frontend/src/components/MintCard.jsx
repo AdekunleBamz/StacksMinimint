@@ -107,6 +107,9 @@ export function MintCard({
     <div
       className="mint-card"
       data-connected={isConnected ? 'true' : 'false'}
+      data-connect-state={isConnected ? 'connected' : isConnecting ? 'connecting' : 'disconnected'}
+      data-minting={isMinting ? 'true' : 'false'}
+      data-token-uri-valid={isTokenUriValid ? 'true' : 'false'}
       data-mint-state={mintState}
       title={`Mint state: ${mintState}`}
     >
@@ -231,7 +234,7 @@ export function MintCard({
             )}
           </button>
 
-          <p id="mintActionMessage" className="mint-card__helper" aria-live="polite" aria-atomic="true">
+          <p id="mintActionMessage" className="mint-card__helper" data-helper-state={mintState} aria-live="polite" aria-atomic="true">
             {mintActionMessage}
           </p>
 

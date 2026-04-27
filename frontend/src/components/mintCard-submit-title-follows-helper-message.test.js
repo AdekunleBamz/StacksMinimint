@@ -15,5 +15,6 @@ describe('MintCard', () => {
     )
 
     expect(markup).toContain('title="The collection has sold out."')
+    expect(markup).toContain('data-helper-state="sold-out"')
   })
 })

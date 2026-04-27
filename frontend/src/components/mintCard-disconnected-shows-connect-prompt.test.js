@@ -21,5 +21,6 @@ describe('MintCard', () => {
     expect(markup).toContain('Connect Wallet')
     expect(markup).toContain('title="Connect wallet to unlock minting"')
     expect(markup).toContain('data-connected="false"')
+    expect(markup).toContain('data-connect-state="disconnected"')
   })
 })

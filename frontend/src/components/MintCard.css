@@ -33,7 +33,7 @@
 }
 
 .mint-card__subtitle {
-  color: #9ca3af;
+  color: #adb6c3;
   margin: 0;
   font-size: 0.9375rem;
   line-height: 1.6;
@@ -165,7 +165,7 @@
 
 .form-hint {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: #a8b5c5;
   line-height: 1.5;
   max-width: 46ch;
 }
@@ -220,7 +220,7 @@
   margin: -0.35rem 0 0;
   font-size: 0.8125rem;
   color: #cbd5e1;
-  line-height: 1.5;
+  line-height: 1.55;
   max-width: 36ch;
 }
 

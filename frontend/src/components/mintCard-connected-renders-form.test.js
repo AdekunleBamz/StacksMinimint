@@ -18,5 +18,7 @@ describe('MintCard', () => {
 
     expect(markup).toContain('Token URI (Metadata URL)')
     expect(markup).toContain('Mint for 0.001 STX')
+    expect(markup).toContain('data-connect-state="connected"')
+    expect(markup).toContain('data-token-uri-valid="false"')
   })
 })
