@@ -34,7 +34,7 @@ export function RecentMints({ items = [] }) {
 
   if (isLoading) {
     return (
-      <section className="recent-mints" aria-label="Recent mints loading" title="Recent mint activity is loading" data-state="loading">
+      <section className="recent-mints" aria-label="Recent mints loading" title="Recent mint activity is loading" data-state="loading" data-count={String(RECENT_MINTS_SKELETON_COUNT)}>
         <h2 className="recent-mints__title">Recent Mints</h2>
         <div className="recent-mints__list" role="list" aria-label="Loading recent mint activity">
           {Array.from({ length: RECENT_MINTS_SKELETON_COUNT }, (_, i) => i).map((i) => (
