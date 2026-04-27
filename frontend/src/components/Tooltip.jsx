@@ -24,6 +24,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
   const safeDelay = typeof delay === 'number' && delay >= 0 ? Math.min(delay, TOOLTIP_MAX_DELAY_MS) : TOOLTIP_DEFAULT_DELAY_MS
   const safePosition = TOOLTIP_POSITIONS.includes(position) ? position : 'top'
   const safeContent = typeof content === 'string' ? content.trim() : content
+  const hasContent = Boolean(safeContent)
   const wrapperTitle = typeof safeContent === 'string' ? safeContent : undefined
 
   const showTooltip = () => {
@@ -51,15 +52,16 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
       className="tooltip-wrapper"
       data-position={safePosition}
       data-delay={String(safeDelay)}
+      data-has-content={hasContent ? 'true' : 'false'}
       title={wrapperTitle}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
       onFocus={showTooltip}
       onBlur={hideTooltip}
-      aria-describedby={isVisible && safeContent ? tooltipId : undefined}
+      aria-describedby={isVisible && hasContent ? tooltipId : undefined}
     >
       {children}
-      {isVisible && safeContent && (
+      {isVisible && hasContent && (
         <div id={tooltipId} className={`tooltip tooltip--${safePosition}`} role="tooltip" aria-live="polite" aria-atomic="true">
           {safeContent}
           <div className="tooltip__arrow"></div>
