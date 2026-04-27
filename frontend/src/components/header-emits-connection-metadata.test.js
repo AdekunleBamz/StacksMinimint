@@ -23,6 +23,7 @@ describe('Header', () => {
     )
 
     expect(connectedMarkup).toContain('data-connected="true"')
+    expect(connectedMarkup).toContain('data-connecting="false"')
     expect(disconnectedMarkup).toContain('data-connected="false"')
     expect(disconnectedMarkup).toContain('data-connecting="true"')
   })
