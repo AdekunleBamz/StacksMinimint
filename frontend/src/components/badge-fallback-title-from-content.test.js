@@ -11,5 +11,7 @@ describe('Badge', () => {
 
     expect(markup).toContain('title="Pending approval"')
     expect(markup).toContain('aria-label="Pending approval"')
+    expect(markup).toContain('data-has-title="true"')
+    expect(markup).toContain('data-label-length="16"')
   })
 })

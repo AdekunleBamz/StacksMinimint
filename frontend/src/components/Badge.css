@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  min-height: 1.75rem;
+  min-height: 1.8rem;
   font-weight: 600;
   letter-spacing: 0.015em;
   border-radius: 9999px;
@@ -37,7 +37,7 @@
 .badge--default {
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  color: #e5e7eb;
+  color: #f1f5f9;
 }
 
 .badge--primary {
@@ -54,7 +54,7 @@
 
 .badge--warning {
   background: rgba(234, 179, 8, 0.24);
-  border: 1px solid rgba(234, 179, 8, 0.45);
+  border: 1px solid rgba(234, 179, 8, 0.48);
   color: #fde68a;
 }
 
