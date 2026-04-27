@@ -467,6 +467,8 @@ export function getCardAccent(seed) {
 export default {
   MAX_TOKEN_URI_LENGTH,
   MAX_ACTIVITY_ENTRIES,
+  normalizeMicrostxInput,
+  getSTXFormatDescriptor,
   formatSTX,
   formatAddress,
   formatLimit,
