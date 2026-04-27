@@ -38,6 +38,7 @@ export function normalizeExplorerType(type) {
 function getBaseExplorerUrl(type, identifier) {
   const networkConfig = STACKS_NETWORK_CONFIG[NETWORK] || STACKS_NETWORK_CONFIG.mainnet;
   const baseUrl = networkConfig.explorerUrl;
+  const safeType = normalizeExplorerType(type)
   const normalizedIdentifier = typeof identifier === 'string' ? identifier.trim() : identifier;
   if (normalizedIdentifier == null || normalizedIdentifier === '') {
     return `${baseUrl}?chain=${NETWORK}`;
@@ -46,7 +47,7 @@ function getBaseExplorerUrl(type, identifier) {
     typeof normalizedIdentifier === 'string'
       ? normalizedIdentifier
       : String(normalizedIdentifier);
-  return `${baseUrl}/${type}/${encodeURIComponent(encodedIdentifier)}?chain=${NETWORK}`;
+  return `${baseUrl}/${safeType}/${encodeURIComponent(encodedIdentifier)}?chain=${NETWORK}`;
 }
 
 export function getExplorerUrl(txId) {
