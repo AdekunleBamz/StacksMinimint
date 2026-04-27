@@ -34,6 +34,11 @@ export function getAppConnectionState({ isConnected, isConnecting }) {
   return isConnecting ? 'connecting' : 'disconnected'
 }
 
+export function getAppDocumentTitle(isConnected) {
+  const baseTitle = APP_BASE_TITLE
+  return isConnected ? `${APP_CONNECTED_TITLE_PREFIX} - ${baseTitle}` : baseTitle
+}
+
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
@@ -56,8 +61,7 @@ function App() {
 
   // Update document title based on connection state
   useEffect(() => {
-    const baseTitle = APP_BASE_TITLE
-    document.title = isConnected ? `${APP_CONNECTED_TITLE_PREFIX} - ${baseTitle}` : baseTitle
+    document.title = getAppDocumentTitle(isConnected)
   }, [isConnected])
 
   const scrollToTop = useCallback(() => {
