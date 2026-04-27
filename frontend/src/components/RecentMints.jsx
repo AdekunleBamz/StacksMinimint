@@ -98,7 +98,7 @@ export function RecentMints({ items = [] }) {
                   </time>
                 </span>
               </div>
-              <div className={`mint-item__badge ${txId ? '' : 'mint-item__badge--pending'}`}>
+              <div className={`mint-item__badge ${txId ? '' : 'mint-item__badge--pending'}`} data-pending={txId ? 'false' : 'true'}>
                 {txId ? (
                   <a
                     href={getExplorerUrl(txId)}
