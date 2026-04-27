@@ -90,9 +90,9 @@
 }
 
 .toast__close {
-  width: 26px;
-  min-width: 26px;
-  height: 26px;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
   margin-top: 0.125rem;
   border: none;
   background: rgba(255, 255, 255, 0.1);
@@ -124,9 +124,9 @@
   }
 
   .toast__close {
-    width: 24px;
-    min-width: 24px;
-    height: 24px;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
   }
 }
 
