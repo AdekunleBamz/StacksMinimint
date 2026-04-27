@@ -113,7 +113,7 @@
 
 .hero__subtitle {
   font-size: 1.35rem;
-  color: #aab4c2;
+  color: #b5bfcc;
   max-width: 520px;
   margin: 0 auto;
   line-height: 1.65;
@@ -188,8 +188,8 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 3.6rem;
+  height: 3.6rem;
   background: rgba(30, 30, 50, 0.8);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);

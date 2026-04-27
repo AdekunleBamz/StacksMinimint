@@ -33,6 +33,8 @@ function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
   const { showToast, toasts, removeToast } = useToast()
+  const connectionState = isConnected ? 'connected' : isConnecting ? 'connecting' : 'disconnected'
+  const hasContractInfo = Boolean(contractInfo)
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
@@ -55,7 +57,7 @@ function App() {
 
   const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, []), [])
+  }, [])
 
   const handleMint = async (tokenURI) => {
     const result = await mint(tokenURI)
@@ -68,7 +70,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <div className="app">
+      <div className="app" data-connection-state={connectionState}>
         <div className="page-load-bar" aria-hidden="true"></div>
         <a className="skip-link" href="#main-content">
           Skip to main content
@@ -80,7 +82,7 @@ function App() {
           isConnecting={isConnecting}
         />
 
-        <main className="main" id="main-content">
+        <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'}>
           <section className="hero">
             <div className="hero__content">
               <span className="hero__badge">SIP-009</span>
@@ -120,6 +122,7 @@ function App() {
         <button
           type="button"
           className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
+          data-visible={showScroll ? 'true' : 'false'}
           onClick={scrollToTop}
           aria-label="Back to top"
           title="Back to top"
@@ -134,7 +137,7 @@ function App() {
 
         <Footer />
 
-        <div className="toast-stack" aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
+        <div className="toast-stack" data-toast-count={String(toasts.length)} aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
           {toasts.map((toast) => (
             <Toast
               key={toast.id}
