@@ -97,6 +97,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       className="stats"
       aria-label="Collection statistics"
       title="Collection statistics and mint readiness"
+      data-last-updated-iso={lastUpdated.toISOString()}
       data-state-tone={collectionState.tone}
       data-connection={isConnected ? 'connected' : 'disconnected'}
     >
