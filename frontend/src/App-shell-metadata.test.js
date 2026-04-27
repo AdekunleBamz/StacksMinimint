@@ -31,14 +31,14 @@ vi.mock('./hooks', () => ({
 }))
 
 vi.mock('./components', () => ({
-  Header: () => <header>Header</header>,
-  MintCard: () => <div>MintCard</div>,
-  Stats: () => <div>Stats</div>,
-  RecentMints: () => <div>RecentMints</div>,
-  Gallery: () => <div>Gallery</div>,
-  Footer: () => <footer>Footer</footer>,
-  ErrorBoundary: ({ children }) => <>{children}</>,
-  Toast: ({ message }) => <div>{message}</div>
+  Header: () => React.createElement('header', null, 'Header'),
+  MintCard: () => React.createElement('div', null, 'MintCard'),
+  Stats: () => React.createElement('div', null, 'Stats'),
+  RecentMints: () => React.createElement('div', null, 'RecentMints'),
+  Gallery: () => React.createElement('div', null, 'Gallery'),
+  Footer: () => React.createElement('footer', null, 'Footer'),
+  ErrorBoundary: ({ children }) => React.createElement(React.Fragment, null, children),
+  Toast: ({ message }) => React.createElement('div', null, message)
 }))
 
 describe('App shell metadata', () => {
@@ -49,7 +49,7 @@ describe('App shell metadata', () => {
     mockContract.contractInfo = { maxSupply: 100 }
     mockToast.toasts = []
 
-    const markup = renderToStaticMarkup(<App />)
+    const markup = renderToStaticMarkup(React.createElement(App))
 
     expect(markup).toContain('data-connection-state="connected"')
     expect(markup).toContain('data-has-contract-info="true"')
@@ -62,9 +62,26 @@ describe('App shell metadata', () => {
     mockContract.contractInfo = null
     mockToast.toasts = []
 
-    const markup = renderToStaticMarkup(<App />)
+    const markup = renderToStaticMarkup(React.createElement(App))
 
     expect(markup).toContain('data-visible="false"')
     expect(markup).toContain('title="Back to top"')
+  })
+
+  it('exposes toast stack count metadata for active notifications', () => {
+    mockWallet.address = null
+    mockWallet.isConnected = false
+    mockWallet.isConnecting = false
+    mockContract.contractInfo = null
+    mockToast.toasts = [
+      { id: '1', message: 'Mint sent', type: 'success' },
+      { id: '2', message: 'Mint pending', type: 'info' }
+    ]
+
+    const markup = renderToStaticMarkup(React.createElement(App))
+
+    expect(markup).toContain('data-toast-count="2"')
+    expect(markup).toContain('Mint sent')
+    expect(markup).toContain('Mint pending')
   })
 })
