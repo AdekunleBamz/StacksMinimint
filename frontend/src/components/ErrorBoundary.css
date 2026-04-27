@@ -96,3 +96,13 @@
     padding: 1.5rem;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .error-boundary__button {
+    transition: none;
+  }
+
+  .error-boundary__button:active {
+    transform: none;
+  }
+}
