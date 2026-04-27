@@ -284,6 +284,7 @@
 .nft-card__owner .value {
   font-family: 'SF Mono', 'Fira Code', monospace;
   color: #a78bfa;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Skeleton */
