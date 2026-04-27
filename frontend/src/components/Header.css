@@ -220,6 +220,7 @@
 
 .header__btn--disconnect:hover {
   background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(196, 181, 253, 0.3);
 }
 
 .header__btn:disabled {
