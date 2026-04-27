@@ -25,6 +25,17 @@ export function normalizeToastDuration(duration, fallback = TOAST_DURATION) {
   return Number.isFinite(duration) ? Math.max(duration, 0) : fallback
 }
 
+export function trimToastQueue(nextToasts, maxToasts = MAX_TOASTS) {
+  if (nextToasts.length <= maxToasts) {
+    return { trimmedToasts: nextToasts, removedToasts: [] }
+  }
+
+  return {
+    trimmedToasts: nextToasts.slice(-maxToasts),
+    removedToasts: nextToasts.slice(0, nextToasts.length - maxToasts)
+  }
+}
+
 export function useToast() {
   const [toasts, setToasts] = useState([])
   const toastIdRef = useRef(0)
@@ -54,12 +65,8 @@ export function useToast() {
     
     setToasts(prev => {
       const nextToasts = [...prev, toast]
-      if (nextToasts.length <= MAX_TOASTS) {
-        return nextToasts
-      }
+      const { trimmedToasts, removedToasts } = trimToastQueue(nextToasts, MAX_TOASTS)
 
-      const trimmedToasts = nextToasts.slice(-MAX_TOASTS)
-      const removedToasts = nextToasts.slice(0, nextToasts.length - MAX_TOASTS)
       removedToasts.forEach((removedToast) => {
         const staleTimer = timersRef.current.get(removedToast.id)
         if (staleTimer) {
@@ -67,6 +74,7 @@ export function useToast() {
           timersRef.current.delete(removedToast.id)
         }
       })
+
       return trimmedToasts
     })
 
