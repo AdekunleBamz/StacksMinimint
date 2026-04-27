@@ -50,6 +50,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
     <div 
       className="tooltip-wrapper"
       data-position={safePosition}
+      data-delay={String(safeDelay)}
       title={wrapperTitle}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
