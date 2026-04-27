@@ -222,6 +222,7 @@ export function validateTokenURI(value) {
   const kind = getMetadataKind(normalized)
   const characterCount = normalized.length
   const remainingCharacters = MAX_TOKEN_URI_LENGTH - characterCount
+  const isNearLimit = characterCount >= MAX_TOKEN_URI_LENGTH * 0.9
   const isAsciiOnly = ASCII_PATTERN.test(normalized)
   const isSecureScheme = kind === 'ipfs' || kind === 'https' || kind === 'arweave'
   const isValid = Boolean(normalized) && isSecureScheme && isAsciiOnly && characterCount <= MAX_TOKEN_URI_LENGTH
@@ -234,7 +235,8 @@ export function validateTokenURI(value) {
       label: 'Metadata required',
       helper: 'Use an ipfs:// or https:// metadata URL. The contract accepts ASCII only, up to 256 characters.',
       characterCount,
-      remainingCharacters
+      remainingCharacters,
+      isNearLimit
     }
   }
 
@@ -246,7 +248,8 @@ export function validateTokenURI(value) {
       label: 'Unsupported characters',
       helper: 'Remove emoji or other non-ASCII characters before opening the wallet prompt.',
       characterCount,
-      remainingCharacters
+      remainingCharacters,
+      isNearLimit
     }
   }
 
@@ -258,7 +261,8 @@ export function validateTokenURI(value) {
       label: 'URI too long',
       helper: `Keep the metadata URI within ${MAX_TOKEN_URI_LENGTH} characters to match the contract limit.`,
       characterCount,
-      remainingCharacters
+      remainingCharacters,
+      isNearLimit
     }
   }
 
@@ -270,7 +274,8 @@ export function validateTokenURI(value) {
       label: 'Upgrade to HTTPS',
       helper: 'Use a secure https:// link or an ipfs:// CID before submitting.',
       characterCount,
-      remainingCharacters
+      remainingCharacters,
+      isNearLimit
     }
   }
 
@@ -282,7 +287,8 @@ export function validateTokenURI(value) {
       label: 'Unsupported scheme',
       helper: 'Only ipfs://, ar://, and https:// metadata URLs are accepted in this UI.',
       characterCount,
-      remainingCharacters
+      remainingCharacters,
+      isNearLimit
     }
   }
 
@@ -299,7 +305,8 @@ export function validateTokenURI(value) {
         label: 'Invalid IPFS URI',
         helper: 'Provide an ipfs:// URI with a CID or CID path and no spaces.',
         characterCount,
-        remainingCharacters
+        remainingCharacters,
+        isNearLimit
       }
     }
   }
@@ -315,7 +322,8 @@ export function validateTokenURI(value) {
           label: 'Remove URL credentials',
           helper: 'Use a public metadata URL without embedded username or password fields.',
           characterCount,
-          remainingCharacters
+          remainingCharacters,
+          isNearLimit
         }
       }
     } catch {
@@ -326,7 +334,8 @@ export function validateTokenURI(value) {
         label: 'Invalid metadata URL',
         helper: 'Provide a fully valid https:// URL before submitting to the wallet.',
         characterCount,
-        remainingCharacters
+        remainingCharacters,
+        isNearLimit
       }
     }
   }
@@ -338,7 +347,8 @@ export function validateTokenURI(value) {
     label: kind === 'ipfs' ? 'IPFS metadata ready' : kind === 'arweave' ? 'Arweave metadata ready' : 'HTTPS metadata ready',
     helper: 'This URI passes the local checks and is ready for wallet confirmation.',
     characterCount,
-    remainingCharacters
+    remainingCharacters,
+    isNearLimit
   }
 }
 
