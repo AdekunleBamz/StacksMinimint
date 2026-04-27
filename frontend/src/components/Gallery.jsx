@@ -129,13 +129,14 @@ export function Gallery() {
   }, [handleNftClick])
 
   if (isLoading) {
+    const loadingCopy = 'Loading collection preview cards...'
     return (
-      <section className="gallery" aria-label="NFT Collection Gallery" aria-busy="true" aria-live="polite">
+      <section className="gallery" data-state="loading" data-count={String(GALLERY_SKELETON_COUNT)} aria-label="NFT Collection Gallery" aria-busy="true" aria-live="polite">
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
-        <p className="gallery__loading-copy">Loading collection preview cards...</p>
-        <div className={`gallery__grid gallery__grid--${safeViewMode}`} data-view-mode={safeViewMode} role="list" aria-label="Loading gallery items">
+        <p className="gallery__loading-copy" data-copy-length={String(loadingCopy.length)}>{loadingCopy}</p>
+        <div className={`gallery__grid gallery__grid--${safeViewMode}`} data-view-mode={safeViewMode} data-grid-id={gridId} role="list" aria-label="Loading gallery items">
           {Array.from({ length: GALLERY_SKELETON_COUNT }, (_, i) => i).map((i) => (
             <div key={i} className="nft-card nft-card--skeleton" role="listitem">
               <div className="skeleton skeleton--image"></div>
