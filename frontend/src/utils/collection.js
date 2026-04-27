@@ -90,10 +90,31 @@ export function formatAddress(address, start = 5, end = 5) {
  * @param {string} [fallback='Not set'] - The fallback string.
  * @returns {string} The formatted limit.
  */
-export function formatLimit(value, fallback = 'Not set') {
-  if (value === null || value === undefined) return fallback
-  if (typeof value === 'string' && value.trim().length === 0) return fallback
+export function getLimitText(value, fallback = 'Not set') {
+  if (isLimitFallback(value)) return fallback
   return `${value}`
+}
+
+export function isLimitFallback(value) {
+  return value === null || value === undefined || (typeof value === 'string' && value.trim().length === 0)
+}
+
+function getLimitValueType(value) {
+  if (Array.isArray(value)) return 'array'
+  if (value === null || value === undefined) return 'empty'
+  return typeof value
+}
+
+export function describeLimit(value, fallback = 'Not set') {
+  return {
+    text: getLimitText(value, fallback),
+    isFallback: isLimitFallback(value),
+    valueType: getLimitValueType(value)
+  }
+}
+
+export function formatLimit(value, fallback = 'Not set') {
+  return getLimitText(value, fallback)
 }
 
 /**
@@ -445,6 +466,9 @@ export default {
   MAX_ACTIVITY_ENTRIES,
   formatSTX,
   formatAddress,
+  getLimitText,
+  isLimitFallback,
+  describeLimit,
   formatLimit,
   formatRelativeTime,
   formatExactTime,
