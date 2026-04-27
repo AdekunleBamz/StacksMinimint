@@ -212,6 +212,14 @@ export function getMetadataGatewayUrl(uri) {
   return null
 }
 
+export function extractGatewayHost(url) {
+  try {
+    return new URL(url).hostname
+  } catch {
+    return null
+  }
+}
+
 /**
  * Validates a token URI against contract and UI constraints.
  * @param {string} value - The URI to validate.
