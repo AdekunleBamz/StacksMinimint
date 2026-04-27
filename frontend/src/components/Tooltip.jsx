@@ -24,6 +24,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
   const safeDelay = typeof delay === 'number' && delay >= 0 ? Math.min(delay, TOOLTIP_MAX_DELAY_MS) : TOOLTIP_DEFAULT_DELAY_MS
   const safePosition = TOOLTIP_POSITIONS.includes(position) ? position : 'top'
   const safeContent = typeof content === 'string' ? content.trim() : content
+  const wrapperTitle = typeof safeContent === 'string' ? safeContent : undefined
 
   const showTooltip = () => {
     if (timerRef.current) {
@@ -49,6 +50,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
     <div 
       className="tooltip-wrapper"
       data-position={safePosition}
+      title={wrapperTitle}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
       onFocus={showTooltip}
