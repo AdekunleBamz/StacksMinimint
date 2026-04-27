@@ -37,7 +37,7 @@
 .badge--default {
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  color: #e5e7eb;
+  color: #f1f5f9;
 }
 
 .badge--primary {
