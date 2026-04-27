@@ -76,7 +76,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
 
   if (isLoading) {
     return (
-      <section className="stats" aria-busy="true">
+      <section className="stats" data-loading="true" aria-busy="true">
         <h2 className="stats__title">Collection Stats</h2>
         <p className="stats__subtitle">Supply, pricing, and wallet limits at a glance while you mint.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
