@@ -91,9 +91,12 @@ export function formatAddress(address, start = 5, end = 5) {
  * @returns {string} The formatted limit.
  */
 export function getLimitText(value, fallback = 'Not set') {
-  if (value === null || value === undefined) return fallback
-  if (typeof value === 'string' && value.trim().length === 0) return fallback
+  if (isLimitFallback(value)) return fallback
   return `${value}`
+}
+
+export function isLimitFallback(value) {
+  return value === null || value === undefined || (typeof value === 'string' && value.trim().length === 0)
 }
 
 export function formatLimit(value, fallback = 'Not set') {
