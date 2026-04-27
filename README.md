@@ -99,7 +99,7 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
 
 Check contract integrity:
 ```bash
-clarinet check
+npm run contracts:check
 ```
 
 Run interactive console:
