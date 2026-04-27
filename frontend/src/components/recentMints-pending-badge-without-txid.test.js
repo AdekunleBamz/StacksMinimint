@@ -15,5 +15,6 @@ describe('RecentMints', () => {
 
     expect(markup).toContain('Pending')
     expect(markup).toContain('mint-item__badge--pending')
+    expect(markup).toContain('title="Mint submission is pending confirmation"')
   })
 })
