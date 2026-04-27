@@ -14,5 +14,7 @@ describe('Modal', () => {
     }, 'Body'))
 
     expect(markup).toContain('role="dialog"')
+    expect(markup).toContain('data-size="medium"')
+    expect(markup).toContain('data-state="open"')
   })
 })
