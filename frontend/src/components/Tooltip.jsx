@@ -25,6 +25,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
   const safePosition = TOOLTIP_POSITIONS.includes(position) ? position : 'top'
   const safeContent = typeof content === 'string' ? content.trim() : content
   const hasContent = Boolean(safeContent)
+  const contentLength = typeof safeContent === 'string' ? safeContent.length : 0
   const wrapperTitle = typeof safeContent === 'string' ? safeContent : undefined
 
   const showTooltip = () => {
@@ -53,6 +54,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
       data-position={safePosition}
       data-delay={String(safeDelay)}
       data-has-content={hasContent ? 'true' : 'false'}
+      data-content-length={String(contentLength)}
       data-visible={isVisible ? 'true' : 'false'}
       title={wrapperTitle}
       onMouseEnter={showTooltip}
