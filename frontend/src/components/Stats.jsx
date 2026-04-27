@@ -93,7 +93,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
   }
 
   return (
-    <section className="stats" aria-label="Collection statistics" title="Collection statistics and mint readiness">
+    <section className="stats" aria-label="Collection statistics" title="Collection statistics and mint readiness" data-state-tone={collectionState.tone}>
       <h2 className="stats__title">Collection Stats</h2>
       <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you mint.</p>
 
