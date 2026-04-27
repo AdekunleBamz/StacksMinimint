@@ -11,7 +11,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
-  color: #9ca3af;
+  color: #cbd5e1;
   font-size: 0.8125rem;
   font-weight: 500;
   line-height: 1.35;
@@ -35,13 +35,13 @@
 }
 
 .copy-btn:disabled {
-  opacity: 0.55;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
 .copy-btn--copied {
   background: rgba(34, 197, 94, 0.15);
-  border-color: rgba(34, 197, 94, 0.3);
+  border-color: rgba(34, 197, 94, 0.4);
   color: #86efac;
   box-shadow: 0 8px 20px -16px rgba(34, 197, 94, 0.85);
 }
@@ -65,7 +65,7 @@
   min-width: 2.25rem;
 }
 
-.copy-btn--icon-only span {
+.copy-btn--icon-only .copy-btn__text {
   display: none;
 }
 

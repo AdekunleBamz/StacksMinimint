@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { CopyButton } from './CopyButton'
 
 describe('CopyButton', () => {
-  it('exposes idle data-state when no copy has occurred', () => {
+  it('marks label updates as polite announcements for assistive tech', () => {
     const markup = renderToStaticMarkup(
       React.createElement(CopyButton, {
         text: 'SP123',
@@ -12,8 +12,7 @@ describe('CopyButton', () => {
       })
     )
 
-    expect(markup).toContain('data-state="idle"')
-    expect(markup).toContain('data-has-text="true"')
-    expect(markup).toContain('data-disabled="false"')
+    expect(markup).toContain('aria-live="polite"')
+    expect(markup).toContain('aria-atomic="true"')
   })
 })
