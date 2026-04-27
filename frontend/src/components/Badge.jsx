@@ -27,6 +27,7 @@ export function Badge({
       className={['badge', `badge--${variant}`, `badge--${size}`, className].filter(Boolean).join(' ')}
       data-variant={variant}
       data-size={size}
+      data-dot={dot ? 'true' : 'false'}
       role="status"
       aria-live="polite"
       aria-atomic="true"
