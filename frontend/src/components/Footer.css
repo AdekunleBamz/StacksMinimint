@@ -50,6 +50,7 @@
   margin: 0;
   text-wrap: balance;
   word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .footer__column {
