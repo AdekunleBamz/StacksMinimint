@@ -10,5 +10,7 @@ describe('Card', () => {
     const markup = renderToStaticMarkup(React.createElement(Card, null, 'Body'))
     expect(markup).toContain('card--default')
     expect(markup).toContain('card--padding-medium')
+    expect(markup).toContain('data-variant="default"')
+    expect(markup).toContain('data-padding="medium"')
   })
 })
