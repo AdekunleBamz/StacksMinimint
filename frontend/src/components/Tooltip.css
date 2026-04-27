@@ -21,7 +21,7 @@
   white-space: normal;
   text-wrap: pretty;
   overflow-wrap: anywhere;
-  line-height: 1.45;
+  line-height: 1.5;
   z-index: 1000;
   pointer-events: none;
   animation: fadeIn 0.18s ease;
