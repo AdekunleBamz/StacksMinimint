@@ -15,7 +15,7 @@ import { getExplorerUrl } from '../contract'
 /** Number of skeleton placeholder rows to show while recent mints are loading. */
 const RECENT_MINTS_SKELETON_COUNT = 3;
 
-function getMintTimestampMs(timestamp) {
+export function normalizeMintTimestamp(timestamp) {
   const numericTimestamp = Number(timestamp)
   if (!Number.isFinite(numericTimestamp)) return Date.now()
   return numericTimestamp > 1_000_000_000_000 ? numericTimestamp : numericTimestamp * 1000
@@ -26,6 +26,35 @@ function getFirstNonEmpty(values, fallback = null) {
     .map((value) => (typeof value === 'string' ? value.trim() : value))
     .find(Boolean)
   return normalized ?? fallback
+}
+
+export function getRecentMintTxId(mint) {
+  return getFirstNonEmpty([mint?.txId, mint?.txHash])
+}
+
+export function getRecentMintAddress(mint, fallback = 'Unknown') {
+  return getFirstNonEmpty([mint?.minter, mint?.address], fallback)
+}
+
+export function getRecentMintTokenDescriptor(tokenId) {
+  const normalizedTokenId = typeof tokenId === 'string' ? tokenId.trim() : tokenId
+  const isPendingToken = normalizedTokenId === '' || normalizedTokenId == null
+  const tokenLabel = isPendingToken ? 'Pending' : `#${normalizedTokenId}`
+  const receiptLabel = isPendingToken ? 'Submitted ↗' : 'Minted ↗'
+  const explorerLabel = isPendingToken
+    ? 'View submitted transaction on Explorer'
+    : `View transaction for token #${normalizedTokenId} on Explorer`
+
+  return {
+    tokenLabel,
+    receiptLabel,
+    explorerLabel,
+    isPendingToken
+  }
+}
+
+export function getRecentMintKey({ txId, tokenId, timestamp }) {
+  return txId || `${tokenId ?? 'pending'}-${timestamp}`
 }
 
 export function RecentMints({ items = [] }) {
@@ -70,17 +99,12 @@ export function RecentMints({ items = [] }) {
       <p className="recent-mints__subtitle">Fresh activity appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
-          const timestampMs = getMintTimestampMs(mint.timestamp)
-          const txId = getFirstNonEmpty([mint.txId, mint.txHash])
-          const minterAddress = getFirstNonEmpty([mint.minter, mint.address], 'Unknown')
-          const tokenId = typeof mint.tokenId === 'string' ? mint.tokenId.trim() : mint.tokenId
-          const isPendingToken = tokenId === '' || tokenId == null
-          const tokenLabel = isPendingToken ? 'Pending' : `#${tokenId}`
-          const receiptLabel = isPendingToken ? 'Submitted ↗' : 'Minted ↗'
-          const explorerLabel = isPendingToken
-            ? 'View submitted transaction on Explorer'
-            : `View transaction for token #${tokenId} on Explorer`
-          const mintKey = txId || `${tokenId ?? 'pending'}-${mint.timestamp}`
+          const timestampMs = normalizeMintTimestamp(mint.timestamp)
+          const txId = getRecentMintTxId(mint)
+          const minterAddress = getRecentMintAddress(mint)
+          const mintTokenDescriptor = getRecentMintTokenDescriptor(mint.tokenId)
+          const { tokenLabel, receiptLabel, explorerLabel, isPendingToken } = mintTokenDescriptor
+          const mintKey = getRecentMintKey({ txId, tokenId: mint.tokenId, timestamp: mint.timestamp })
           return (
             <div key={mintKey} className="mint-item" role="listitem" aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
