@@ -20,6 +20,7 @@ export function Spinner({ size = 'medium', tone = 'primary', className = '', lab
       data-label-length={String(safeLabel.length)}
       data-live="polite"
       role="status"
+      aria-busy="true"
       aria-live="polite"
       aria-atomic="true"
       aria-label={safeLabel}
