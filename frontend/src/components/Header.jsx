@@ -28,11 +28,20 @@ export function getHeaderConnectionState({ hasAccount, isConnecting }) {
   return isConnecting ? 'connecting' : 'disconnected'
 }
 
+export function getHeaderConnectButtonA11y(isConnecting) {
+  const label = isConnecting ? 'Connecting wallet' : 'Connect wallet'
+  return {
+    label,
+    title: label
+  }
+}
+
 export function Header({ account, onConnect, onDisconnect, isConnecting }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = normalizeHeaderAccount(account)
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
   const connectionState = getHeaderConnectionState({ hasAccount, isConnecting })
+  const connectButtonA11y = getHeaderConnectButtonA11y(isConnecting)
   const accountLength = hasAccount && typeof normalizedAccount === 'string' ? normalizedAccount.length : 0
 
   const handleCopy = useCallback(() => {
@@ -102,8 +111,8 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             onClick={onConnect}
             disabled={isConnecting}
             aria-busy={isConnecting}
-            title={isConnecting ? 'Connecting wallet' : 'Connect wallet'}
-            aria-label={isConnecting ? 'Connecting wallet' : 'Connect wallet'}
+            title={connectButtonA11y.title}
+            aria-label={connectButtonA11y.label}
           >
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
