@@ -39,6 +39,15 @@ export function getAppDocumentTitle(isConnected) {
   return isConnected ? `${APP_CONNECTED_TITLE_PREFIX} - ${baseTitle}` : baseTitle
 }
 
+export function getBackToTopControlState(showScroll) {
+  return {
+    isVisible: Boolean(showScroll),
+    dataVisible: showScroll ? 'true' : 'false',
+    ariaHidden: !showScroll,
+    tabIndex: showScroll ? 0 : -1
+  }
+}
+
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
@@ -48,6 +57,7 @@ function App() {
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
+  const backToTopState = getBackToTopControlState(showScroll)
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -130,14 +140,14 @@ function App() {
 
         <button
           type="button"
-          className={`back-to-top ${showScroll ? 'back-to-top--visible' : ''}`}
-          data-visible={showScroll ? 'true' : 'false'}
+          className={`back-to-top ${backToTopState.isVisible ? 'back-to-top--visible' : ''}`}
+          data-visible={backToTopState.dataVisible}
           onClick={scrollToTop}
           aria-label="Back to top"
           title="Back to top"
-          aria-hidden={!showScroll}
-          tabIndex={showScroll ? 0 : -1}
-          disabled={!showScroll}
+          aria-hidden={backToTopState.ariaHidden}
+          tabIndex={backToTopState.tabIndex}
+          disabled={!backToTopState.isVisible}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
             <polyline points="18 15 12 9 6 15"></polyline>
