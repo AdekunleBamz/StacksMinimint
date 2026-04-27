@@ -95,7 +95,7 @@ export function MintCard({
   const txId = mintStatus?.txId
 
   return (
-    <div className="mint-card">
+    <div className="mint-card" data-connected={isConnected ? 'true' : 'false'}>
       <div className="mint-card__header">
         <h2 className="mint-card__title">Mint Your NFT</h2>
         <p className="mint-card__subtitle">Submit a metadata URI and mint on Stacks</p>
