@@ -14,7 +14,9 @@ import './LoadingSkeleton.css'
 const SKELETON_MAX_COUNT = 40;
 
 export function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
+  const SUPPORTED_VARIANTS = ['text', 'title', 'image', 'avatar']
   const safeCount = Number.isInteger(count) && count > 0 ? Math.min(count, SKELETON_MAX_COUNT) : 1
+  const safeVariant = SUPPORTED_VARIANTS.includes(variant) ? variant : 'text'
   const skeletons = Array.from({ length: safeCount }, (_, i) => i)
 
   const getStyle = () => {
@@ -29,7 +31,7 @@ export function LoadingSkeleton({ variant = 'text', width, height, count = 1, cl
       {skeletons.map((index) => (
         <div
           key={index}
-          className={['skeleton', `skeleton--${variant}`, className].filter(Boolean).join(' ')}
+          className={['skeleton', `skeleton--${safeVariant}`, className].filter(Boolean).join(' ')}
           style={getStyle()}
           aria-hidden="true"
         />
