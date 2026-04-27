@@ -119,6 +119,10 @@
   text-decoration: none;
 }
 
+.mint-item__badge a:hover {
+  text-decoration: underline;
+}
+
 .mint-item__badge a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.25);
