@@ -121,6 +121,13 @@ export function formatRelativeTime(timestamp) {
   return `${Math.floor(days / 30)}mo ago`
 }
 
+export function normalizeExactTimestamp(timestamp) {
+  if (timestamp === null || timestamp === undefined) return null
+  const time = Number(timestamp)
+  if (Number.isNaN(time) || !Number.isFinite(time)) return null
+  return time < UNIX_MS_THRESHOLD ? time * 1000 : time
+}
+
 /**
  * Formats a timestamp into a human-readable date and time string.
  * @param {number} timestamp - The Unix timestamp in milliseconds.
