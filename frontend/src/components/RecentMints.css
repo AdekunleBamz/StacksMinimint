@@ -202,6 +202,7 @@
   max-width: 18rem;
   margin-left: auto;
   margin-right: auto;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 640px) {
