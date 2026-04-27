@@ -136,7 +136,7 @@
   justify-content: center;
 }
 
-.view-btn:hover {
+.view-btn:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.1);
   color: #f3f4f6;
 }
