@@ -400,6 +400,19 @@ export function createSubmissionRecord({ txId, tokenURI, address }) {
   }
 }
 
+export function createSubmissionSummary(record) {
+  const safeRecord = record || {}
+  const normalizedTxId = typeof safeRecord.txId === 'string' ? safeRecord.txId.trim() : safeRecord.txId
+  return {
+    id: safeRecord.id ?? null,
+    txId: normalizedTxId ?? null,
+    hasTxId: Boolean(normalizedTxId),
+    metadataKind: getMetadataKind(safeRecord.tokenURI),
+    metadataLabel: getMetadataLabel(safeRecord.tokenURI),
+    isLocalOnly: !normalizedTxId
+  }
+}
+
 /** Base URL of the public IPFS HTTP gateway for fetching IPFS content. */
 const IPFS_GATEWAY_BASE_URL = 'https://ipfs.io/ipfs/';
 /** Hue offset applied to the secondary accent color to differentiate it from primary. */
