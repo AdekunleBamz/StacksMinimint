@@ -131,6 +131,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       <div className="stats__progress">
         <div
           className="progress-bar"
+          data-progress={String(roundedProgress)}
           role="progressbar"
           aria-valuenow={roundedProgress}
           aria-valuemin={0}
