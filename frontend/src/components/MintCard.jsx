@@ -29,6 +29,41 @@ export function normalizeMintLimitValue(value) {
   return Number.isFinite(parsedValue) ? parsedValue : null
 }
 
+export function getMintStateDescriptor({ isPaused, isSoldOut, walletLimitReached, isTokenUriValid, invalidUriHelper }) {
+  if (isPaused) {
+    return {
+      state: 'paused',
+      message: 'Minting is paused by the collection owner.'
+    }
+  }
+
+  if (isSoldOut) {
+    return {
+      state: 'sold-out',
+      message: 'The collection has sold out.'
+    }
+  }
+
+  if (walletLimitReached) {
+    return {
+      state: 'wallet-limit',
+      message: 'This wallet has reached the configured mint limit.'
+    }
+  }
+
+  if (!isTokenUriValid) {
+    return {
+      state: 'invalid-uri',
+      message: invalidUriHelper
+    }
+  }
+
+  return {
+    state: 'ready',
+    message: 'Ready to mint on Stacks.'
+  }
+}
+
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -89,24 +124,15 @@ export function MintCard({
   const maxPerWallet = normalizeMintLimitValue(contractInfo?.maxPerWallet)
   const isSoldOut = maxSupply !== null && totalSupply >= maxSupply
   const walletLimitReached = maxPerWallet !== null && walletMinted >= maxPerWallet
-  const mintActionMessage = contractInfo?.isPaused
-    ? 'Minting is paused by the collection owner.'
-    : isSoldOut
-      ? 'The collection has sold out.'
-      : walletLimitReached
-        ? 'This wallet has reached the configured mint limit.'
-        : !isTokenUriValid
-          ? tokenUriValidation.helper
-          : 'Ready to mint on Stacks.'
-  const mintState = contractInfo?.isPaused
-    ? 'paused'
-    : isSoldOut
-      ? 'sold-out'
-      : walletLimitReached
-        ? 'wallet-limit'
-        : !isTokenUriValid
-          ? 'invalid-uri'
-          : 'ready'
+  const mintDescriptor = getMintStateDescriptor({
+    isPaused: contractInfo?.isPaused,
+    isSoldOut,
+    walletLimitReached,
+    isTokenUriValid,
+    invalidUriHelper: tokenUriValidation.helper
+  })
+  const mintActionMessage = mintDescriptor.message
+  const mintState = mintDescriptor.state
   const txId = mintStatus?.txId
 
   return (
