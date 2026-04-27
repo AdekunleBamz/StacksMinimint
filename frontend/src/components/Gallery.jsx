@@ -134,9 +134,9 @@ export function Gallery() {
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
-        <div className={`gallery__grid gallery__grid--${safeViewMode}`} data-view-mode={safeViewMode}>
+        <div className={`gallery__grid gallery__grid--${safeViewMode}`} data-view-mode={safeViewMode} role="list" aria-label="Loading gallery items">
           {Array.from({ length: GALLERY_SKELETON_COUNT }, (_, i) => i).map((i) => (
-            <div key={i} className="nft-card nft-card--skeleton">
+            <div key={i} className="nft-card nft-card--skeleton" role="listitem">
               <div className="skeleton skeleton--image"></div>
               <div className="nft-card__info">
                 <div className="skeleton skeleton--title"></div>
