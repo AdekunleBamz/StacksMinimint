@@ -18,5 +18,6 @@ describe('Header', () => {
 
     expect(markup).toContain('aria-label="Copy wallet address to clipboard"')
     expect(markup).toContain('data-copy-state="idle"')
+    expect(markup).toContain('data-copy-available="true"')
   })
 })
