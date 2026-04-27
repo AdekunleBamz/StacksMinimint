@@ -13,5 +13,7 @@ describe('CopyButton', () => {
     )
 
     expect(markup).toContain('data-state="idle"')
+    expect(markup).toContain('data-has-text="true"')
+    expect(markup).toContain('data-disabled="false"')
   })
 })
