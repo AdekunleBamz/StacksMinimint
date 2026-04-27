@@ -119,6 +119,7 @@
   margin: 0 auto;
   line-height: 1.65;
   text-wrap: balance;
+  overflow-wrap: anywhere;
   margin-top: 0.75rem;
 }
 
