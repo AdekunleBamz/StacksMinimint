@@ -117,6 +117,13 @@ export function formatLimit(value, fallback = 'Not set') {
   return getLimitText(value, fallback)
 }
 
+export function normalizeRelativeTimestamp(timestamp) {
+  if (timestamp === null || timestamp === undefined) return null
+  const time = Number(timestamp)
+  if (Number.isNaN(time) || !Number.isFinite(time)) return null
+  return time < UNIX_MS_THRESHOLD ? time * 1000 : time
+}
+
 /**
  * Formats a timestamp into a relative time string (e.g., "5m ago").
  * @param {number} timestamp - The Unix timestamp in milliseconds.
