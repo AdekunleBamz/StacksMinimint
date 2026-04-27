@@ -34,6 +34,7 @@ function App() {
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
   const { showToast, toasts, removeToast } = useToast()
   const connectionState = isConnected ? 'connected' : isConnecting ? 'connecting' : 'disconnected'
+  const hasContractInfo = Boolean(contractInfo)
 
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
@@ -81,7 +82,7 @@ function App() {
           isConnecting={isConnecting}
         />
 
-        <main className="main" id="main-content">
+        <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'}>
           <section className="hero">
             <div className="hero__content">
               <span className="hero__badge">SIP-009</span>
