@@ -476,6 +476,8 @@ export default {
   getMetadataKind,
   getMetadataLabel,
   getMetadataGatewayUrl,
+  extractGatewayHost,
+  getMetadataAccessDescriptor,
   validateTokenURI,
   createSubmissionRecord,
   getCardAccent
