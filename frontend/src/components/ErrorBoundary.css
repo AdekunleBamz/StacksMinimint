@@ -47,6 +47,12 @@
   line-height: 1.6;
 }
 
+.error-boundary__details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
 .error-boundary__button {
   padding: 0.5rem 1.5rem;
   min-height: 2.5rem;
