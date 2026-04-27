@@ -28,6 +28,7 @@ export function Toast({ message, type = 'info', onClose }) {
     <div
       className={`toast toast--${safeType}`}
       data-type={safeType}
+      data-dismissible={onClose ? 'true' : 'false'}
       role={safeType === 'error' ? 'alert' : 'status'}
       aria-live={safeType === 'error' ? 'assertive' : 'polite'}
       aria-atomic="true"
