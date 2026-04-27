@@ -546,7 +546,7 @@
   text-decoration: none;
 }
 
-.modal__btn:hover {
+.modal__btn:hover:not([aria-disabled="true"]) {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.5);
 }
