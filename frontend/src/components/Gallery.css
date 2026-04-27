@@ -609,4 +609,9 @@
   .modal__btn {
     transition: none;
   }
+
+  .nft-card:hover,
+  .modal__btn:hover {
+    transform: none;
+  }
 }
