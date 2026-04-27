@@ -48,6 +48,14 @@ export function getBackToTopControlState(showScroll) {
   }
 }
 
+export function getToastStackMetadata(toasts) {
+  const toastCount = Array.isArray(toasts) ? toasts.length : 0
+  return {
+    count: toastCount,
+    countLabel: String(toastCount)
+  }
+}
+
 function App() {
   const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
@@ -58,6 +66,7 @@ function App() {
   const [recentMints, setRecentMints] = useState([])
   const [showScroll, setShowScroll] = useState(false)
   const backToTopState = getBackToTopControlState(showScroll)
+  const toastStackMetadata = getToastStackMetadata(toasts)
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -156,7 +165,7 @@ function App() {
 
         <Footer />
 
-        <div className="toast-stack" data-toast-count={String(toasts.length)} aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
+        <div className="toast-stack" data-toast-count={toastStackMetadata.countLabel} aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
           {toasts.map((toast) => (
             <Toast
               key={toast.id}
