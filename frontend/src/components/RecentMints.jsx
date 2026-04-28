@@ -108,7 +108,7 @@ export function RecentMints({ items = [] }) {
           return (
             <div key={mintKey} className="mint-item" role="listitem" aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
-                <span>{tokenLabel}</span>
+                <span title={`Token status ${tokenLabel}`}>{tokenLabel}</span>
               </div>
               <div className="mint-item__info">
                 <span className="mint-item__address">
