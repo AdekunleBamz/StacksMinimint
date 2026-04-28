@@ -126,7 +126,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             title={connectButtonA11y.title}
             aria-label={connectButtonA11y.label}
           >
-            {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+            {isConnecting ? 'Connecting...' : 'Connect wallet'}
           </button>
         )}
       </div>

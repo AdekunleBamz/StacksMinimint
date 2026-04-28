@@ -14,6 +14,6 @@ describe('Header', () => {
       isConnecting: false
     }))
 
-    expect(markup).toContain('Connect Wallet')
+    expect(markup).toContain('Connect wallet')
   })
 })
