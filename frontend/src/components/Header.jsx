@@ -98,7 +98,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             >
               <span className="header__address-label">Wallet</span>
               <span className="header__address" aria-hidden="true">{formatAddress(normalizedAccount)}</span>
-              <span className="header__copy-hint" aria-hidden="true">Copy</span>
+              <span className="header__copy-hint" aria-hidden="true">Tap to copy</span>
               {copied && (
                 <span className="header__copied-toast" role="status" aria-live="polite" aria-atomic="true">
                   Copied to clipboard
