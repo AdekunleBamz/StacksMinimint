@@ -75,6 +75,7 @@
   overflow-wrap: anywhere;
   text-align: right;
   user-select: none;
+  white-space: nowrap;
 }
 
 /* Animated stripe effect for indeterminate state */
