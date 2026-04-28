@@ -44,6 +44,7 @@ body {
   accent-color: var(--accent);
   letter-spacing: -0.01em;
   min-height: 100vh;
+  min-width: 320px;
   overflow-x: hidden;
   line-height: 1.625;
   -webkit-font-smoothing: antialiased;
