@@ -274,6 +274,7 @@
 
 .mint-card__tx-link:hover {
   text-decoration: underline;
+  text-decoration-thickness: 0.1em;
 }
 
 .mint-card__tx-link:focus-visible {
