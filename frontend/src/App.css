@@ -189,8 +189,8 @@
 /* Back to Top */
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   width: 3.4rem;
   height: 3.4rem;
   background: rgba(30, 30, 50, 0.8);
