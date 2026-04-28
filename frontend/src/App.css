@@ -74,6 +74,7 @@
   padding: 4rem 0;
   position: relative;
   isolation: isolate;
+  scroll-margin-top: 6rem;
 }
 
 .hero__content {
@@ -130,6 +131,7 @@
   grid-template-columns: 1fr 360px;
   gap: 3rem;
   align-items: start;
+  scroll-margin-top: 6rem;
 }
 
 .content-grid__main {
