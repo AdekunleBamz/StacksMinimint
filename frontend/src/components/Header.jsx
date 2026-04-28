@@ -17,7 +17,7 @@ import { formatAddress } from '../utils/collection'
 import { NETWORK } from '../constants'
 
 const CHAIN_NAME = NETWORK === 'mainnet' ? 'Stacks Mainnet' : 'Stacks Testnet'
-const CHAIN_TOOLTIP = `Connected network: ${CHAIN_NAME}`
+const CHAIN_TOOLTIP = `Current network: ${CHAIN_NAME}`
 
 export function normalizeHeaderAccount(account) {
   return typeof account === 'string' ? account.trim() : account
