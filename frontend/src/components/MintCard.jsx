@@ -17,7 +17,7 @@ import { formatSTX, MAX_TOKEN_URI_LENGTH, validateTokenURI } from '../utils/coll
 /** Wallet prompt message shown while waiting for the user to confirm a mint. */
 const MINT_PENDING_MESSAGE = 'Confirm this mint in your wallet.';
 /** Message shown when a mint transaction is cancelled or rejected. */
-const MINT_CANCELLED_MESSAGE = 'Mint was cancelled or rejected in the wallet.';
+const MINT_CANCELLED_MESSAGE = 'Mint was canceled or rejected in your wallet.';
 
 export function normalizeMintMetricValue(value, fallback = 0) {
   const parsedValue = Number(value)
