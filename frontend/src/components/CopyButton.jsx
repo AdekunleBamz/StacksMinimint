@@ -68,6 +68,9 @@ export function CopyButton({ text, label = 'Copy', successLabel = 'Copied', clas
           <span className="copy-btn__text">{safeLabel}</span>
         </>
       )}
+      <span className="copy-btn__sr-live" aria-live="polite" aria-atomic="true">
+        {copied ? safeSuccessLabel : ''}
+      </span>
     </button>
   )
 }
