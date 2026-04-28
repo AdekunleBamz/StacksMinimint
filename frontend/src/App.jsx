@@ -156,8 +156,8 @@ function App() {
           className={`back-to-top ${backToTopState.isVisible ? 'back-to-top--visible' : ''}`}
           data-visible={backToTopState.dataVisible}
           onClick={scrollToTop}
-          aria-label="Back to top"
-          title="Back to top"
+          aria-label="Back to top of page"
+          title="Back to top of page"
           aria-hidden={backToTopState.ariaHidden}
           tabIndex={backToTopState.tabIndex}
           disabled={!backToTopState.isVisible}
