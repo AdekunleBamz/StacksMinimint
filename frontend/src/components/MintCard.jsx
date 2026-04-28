@@ -15,7 +15,7 @@ import { getExplorerUrl } from '../contract'
 import { formatSTX, MAX_TOKEN_URI_LENGTH, validateTokenURI } from '../utils/collection'
 
 /** Wallet prompt message shown while waiting for the user to confirm a mint. */
-const MINT_PENDING_MESSAGE = 'Check your wallet to confirm this mint.';
+const MINT_PENDING_MESSAGE = 'Confirm this mint in your wallet.';
 /** Message shown when a mint transaction is cancelled or rejected. */
 const MINT_CANCELLED_MESSAGE = 'Mint was cancelled or rejected in the wallet.';
 
