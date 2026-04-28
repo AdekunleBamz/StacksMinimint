@@ -228,7 +228,7 @@ export function Gallery() {
             type="button"
             className="gallery__clear-btn"
             onClick={() => setSearchTerm('')}
-            aria-label={`Clear search query ${searchTerm}`}
+            aria-label="Clear search query"
             title="Clear search query"
           >
             Clear Search
@@ -263,8 +263,8 @@ export function Gallery() {
               type="button"
               className="gallery__clear-search"
               onClick={() => setSearchTerm('')}
-              title={`Clear search query ${searchTerm}`}
-              aria-label={`Clear search query ${searchTerm}`}
+              title="Clear search query"
+              aria-label="Clear search query"
             >
               Clear
             </button>
