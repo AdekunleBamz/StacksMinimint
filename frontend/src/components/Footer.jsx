@@ -124,7 +124,7 @@ export function Footer() {
           © {CURRENT_YEAR} StacksMinimint. Open source under MIT.
         </p>
         <p className="footer__credit">
-          Built for Stacks NFT collections
+          Built for Stacks NFT collections and creators
         </p>
       </div>
     </footer>
