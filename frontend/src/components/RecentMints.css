@@ -54,8 +54,8 @@
 }
 
 .mint-item__avatar {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   padding: 0.25rem;
   border-radius: 0.75rem;
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
