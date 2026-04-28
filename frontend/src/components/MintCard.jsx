@@ -220,7 +220,7 @@ export function MintCard({
             disabled={isConnecting}
             title={connectButtonA11y.title}
           >
-            {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+            {isConnecting ? 'Connecting...' : 'Connect wallet'}
           </button>
         </div>
       ) : (
