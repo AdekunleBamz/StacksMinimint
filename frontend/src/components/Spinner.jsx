@@ -11,12 +11,14 @@ import './Spinner.css'
 
 export function Spinner({ size = 'medium', tone = 'primary', className = '', label = 'Loading content' }) {
   const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Loading content'
-  const composedClass = ['spinner', `spinner--${size}`, `spinner--${tone}`, className].filter(Boolean).join(' ')
+  const safeSize = ['small', 'medium', 'large'].includes(size) ? size : 'medium'
+  const safeTone = ['primary', 'white', 'success'].includes(tone) ? tone : 'primary'
+  const composedClass = ['spinner', `spinner--${safeSize}`, `spinner--${safeTone}`, className].filter(Boolean).join(' ')
   return (
     <span
       className={composedClass}
-      data-size={size}
-      data-tone={tone}
+      data-size={safeSize}
+      data-tone={safeTone}
       data-label-length={String(safeLabel.length)}
       data-live="polite"
       role="status"
