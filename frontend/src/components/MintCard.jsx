@@ -167,7 +167,7 @@ export function MintCard({
       title={`Mint state: ${mintState}`}
     >
       <div className="mint-card__header">
-        <h2 className="mint-card__title">Mint Your NFT</h2>
+        <h2 className="mint-card__title">Mint your NFT</h2>
         <p className="mint-card__subtitle">Submit metadata and mint directly on Stacks</p>
       </div>
 
