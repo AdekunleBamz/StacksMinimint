@@ -79,6 +79,16 @@
   background: linear-gradient(135deg, #7c3aed, #4f46e5);
 }
 
+.error-boundary__button--secondary {
+  background: rgba(148, 163, 184, 0.16);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+}
+
+.error-boundary__button--secondary:hover {
+  background: rgba(148, 163, 184, 0.24);
+}
+
 .error-boundary__button:active {
   transform: translateY(1px);
 }
