@@ -50,6 +50,7 @@
 .error-boundary__details summary {
   cursor: pointer;
   font-weight: 600;
+  line-height: 1.45;
   color: #cbd5e1;
 }
 
