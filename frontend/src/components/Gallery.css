@@ -75,6 +75,7 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
   transition: background 0.2s ease;
 }
 
@@ -134,6 +135,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .view-btn:hover:not(:disabled) {
@@ -381,6 +383,7 @@
   color: #c4b5fd;
   font-weight: 600;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .gallery__clear-btn:hover {
