@@ -194,8 +194,8 @@
   position: fixed;
   bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   right: calc(1.5rem + env(safe-area-inset-right, 0px));
-  width: 3.4rem;
-  height: 3.4rem;
+  width: 3.6rem;
+  height: 3.6rem;
   background: rgba(30, 30, 50, 0.8);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
