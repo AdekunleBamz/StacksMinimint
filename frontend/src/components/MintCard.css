@@ -44,7 +44,7 @@
 .mint-card__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
   margin-bottom: 1.5rem;
   padding: 1.125rem;
   background: rgba(0, 0, 0, 0.2);
