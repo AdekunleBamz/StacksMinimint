@@ -10,7 +10,7 @@
 
 .skip-link {
   position: absolute;
-  left: 1rem;
+  left: calc(1rem + env(safe-area-inset-left, 0px));
   top: -3rem;
   z-index: 1000;
   min-height: 2.5rem;
