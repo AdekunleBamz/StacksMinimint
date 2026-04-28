@@ -348,6 +348,7 @@ export function Gallery() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="gallery-modal-title"
+            aria-describedby="gallery-modal-details"
           >
             <button
               ref={closeButtonRef}
@@ -363,7 +364,7 @@ export function Gallery() {
             </div>
             <div className="modal__content">
               <h2 id="gallery-modal-title" className="modal__title">{selectedNft.name}</h2>
-              <div className="modal__details">
+              <div className="modal__details" id="gallery-modal-details">
                 <div className="detail-row">
                   <span className="detail-label">Token ID</span>
                   <span className="detail-pill detail-pill--id">#{selectedNft.id}</span>
