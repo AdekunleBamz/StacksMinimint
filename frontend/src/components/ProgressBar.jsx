@@ -33,7 +33,7 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
           aria-valuenow={boundedValue}
           aria-valuemin={0}
           aria-valuemax={safeMax}
-          aria-valuetext={`${formattedPercentage}%`}
+          aria-valuetext={`${formattedPercentage}% (${boundedValue} of ${safeMax})`}
         />
       </div>
       {showLabel && (
