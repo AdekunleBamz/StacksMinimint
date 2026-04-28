@@ -16,7 +16,7 @@
 }
 
 .recent-mints__subtitle {
-  max-width: 540px;
+  max-width: 52ch;
   margin: 0 auto 2rem;
   text-align: center;
   color: #a5b4c5;
