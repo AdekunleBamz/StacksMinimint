@@ -38,7 +38,7 @@ export function getHeaderConnectButtonA11y(isConnecting) {
 
 export function getHeaderWalletStatus(hasAccount) {
   return hasAccount
-    ? { text: 'Wallet connected', title: 'Wallet is connected' }
+    ? { text: 'Wallet ready', title: 'Wallet is connected and ready' }
     : { text: 'Wallet disconnected', title: 'Wallet is disconnected' }
 }
 
