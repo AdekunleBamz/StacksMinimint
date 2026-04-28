@@ -16,6 +16,6 @@ describe('MintCard', () => {
       contractError: null
     }))
 
-    expect(markup).toContain('Token URI (Metadata URL)')
+    expect(markup).toContain('Token URI (metadata URL)')
   })
 })
