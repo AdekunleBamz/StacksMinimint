@@ -175,6 +175,13 @@
   }
 }
 
+@media (pointer: coarse) {
+  .back-to-top {
+    width: 3.9rem;
+    height: 3.9rem;
+  }
+}
+
 /* Background decorations */
 .hero::before {
   content: '';
