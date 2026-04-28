@@ -194,6 +194,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mint-card__btn:focus-visible {
