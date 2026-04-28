@@ -191,7 +191,7 @@
 /* NFT Card */
 .nft-card {
   background: rgba(30, 30, 50, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.25rem;
   overflow: hidden;
   cursor: pointer;
