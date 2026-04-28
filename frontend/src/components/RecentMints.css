@@ -151,6 +151,7 @@
 }
 
 .mint-item__badge--pending {
+  background: rgba(234, 179, 8, 0.14);
   border-color: rgba(234, 179, 8, 0.35);
   color: #fcd34d;
 }
