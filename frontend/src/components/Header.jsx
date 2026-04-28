@@ -101,7 +101,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               <span className="header__copy-hint" aria-hidden="true">Tap to copy</span>
               {copied && (
                 <span className="header__copied-toast" role="status" aria-live="polite" aria-atomic="true">
-                  Copied to clipboard
+                  Address copied
                 </span>
               )}
             </button>
