@@ -33,9 +33,6 @@ export function Badge({
       data-dot={dot ? 'true' : 'false'}
       data-label-length={String(labelLength)}
       data-has-title={safeTitle ? 'true' : 'false'}
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
       title={safeTitle}
       aria-label={safeTitle}
     >
