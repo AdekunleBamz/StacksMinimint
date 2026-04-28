@@ -237,7 +237,7 @@
 
 @media (max-width: 720px) {
   .header {
-    padding: 1rem;
+    padding: calc(1rem + env(safe-area-inset-top, 0px)) 1rem 1rem;
     align-items: flex-start;
   }
 
