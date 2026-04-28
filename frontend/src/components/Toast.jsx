@@ -20,6 +20,7 @@ const TOAST_ICONS = {
 export function Toast({ message, type = 'info', onClose }) {
   const safeType = TOAST_ICONS[type] ? type : 'info'
   const icon = TOAST_ICONS[safeType]
+  const isInterruptive = safeType === 'error' || safeType === 'warning'
   const safeMessage = typeof message === 'string' && message.trim().length > 0
     ? message.trim()
     : 'Notification received.'
@@ -30,8 +31,8 @@ export function Toast({ message, type = 'info', onClose }) {
       data-type={safeType}
       data-dismissible={onClose ? 'true' : 'false'}
       data-message-length={safeMessage.length}
-      role={safeType === 'error' ? 'alert' : 'status'}
-      aria-live={safeType === 'error' ? 'assertive' : 'polite'}
+      role={isInterruptive ? 'alert' : 'status'}
+      aria-live={isInterruptive ? 'assertive' : 'polite'}
       aria-atomic="true"
       aria-label={`${safeType} notification`}
       title={`${safeType} notification`}
