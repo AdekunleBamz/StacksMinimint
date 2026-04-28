@@ -212,6 +212,7 @@
 .recent-mints__empty-copy {
   margin-top: 0.5rem;
   font-size: 0.875rem;
+  line-height: 1.6;
   color: #cbd5e1;
   line-height: 1.62;
   max-width: 20rem;
