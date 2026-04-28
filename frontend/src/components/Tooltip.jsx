@@ -23,7 +23,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
   const tooltipId = useId()
   const safeDelay = typeof delay === 'number' && delay >= 0 ? Math.min(delay, TOOLTIP_MAX_DELAY_MS) : TOOLTIP_DEFAULT_DELAY_MS
   const safePosition = TOOLTIP_POSITIONS.includes(position) ? position : 'top'
-  const safeContent = typeof content === 'string' ? content.trim() : content
+  const safeContent = typeof content === 'string' ? content.trim() : content == null ? '' : String(content)
   const hasContent = Boolean(safeContent)
   const contentLength = typeof safeContent === 'string' ? safeContent.length : 0
   const wrapperTitle = typeof safeContent === 'string' ? safeContent : undefined
