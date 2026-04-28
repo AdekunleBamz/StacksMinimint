@@ -35,6 +35,7 @@ html {
 body {
   font-family: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
   font-synthesis: none;
+  background-color: #060816;
   background:
     radial-gradient(circle at top left, rgba(99, 102, 241, 0.14), transparent 28%),
     radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.12), transparent 26%),
