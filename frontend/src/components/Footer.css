@@ -165,6 +165,11 @@
     margin: 0 auto;
   }
 
+  .footer__description {
+    max-width: 42ch;
+    margin-inline: auto;
+  }
+
   .footer__column {
     text-align: center;
   }
