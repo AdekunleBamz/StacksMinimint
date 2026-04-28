@@ -45,7 +45,7 @@ export function Footer() {
           <span className="footer__logo" aria-hidden="true">◆</span>
           <span className="footer__title">StacksMinimint</span>
           <p className="footer__description" title="Wallet-first NFT minting experience on Stacks">
-            Mint lightweight NFTs on Stacks with a wallet-first flow,
+            Mint lightweight NFTs on Stacks with wallet-first confirmations,
             clear on-chain feedback, and collection context at a glance.
           </p>
         </div>
