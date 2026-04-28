@@ -50,6 +50,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   scrollbar-gutter: stable;
+  scrollbar-color: rgba(139, 92, 246, 0.45) rgba(15, 15, 26, 0.6);
 }
 
 body::before,
