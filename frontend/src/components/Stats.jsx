@@ -78,7 +78,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
     return (
       <section className="stats" data-loading="true" aria-busy="true">
         <h2 className="stats__title">Collection Stats</h2>
-        <p className="stats__subtitle">Supply, pricing, and wallet limits at a glance while you mint.</p>
+        <p className="stats__subtitle">Supply, pricing, and wallet limits at a glance while data loads.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
           {Array.from({ length: STATS_SKELETON_COUNT }, (_, i) => i).map((item) => (
             <div key={item} className="stat-card stat-card--skeleton" role="listitem">
