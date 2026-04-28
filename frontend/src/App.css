@@ -269,6 +269,10 @@
     opacity: 0;
   }
 
+  .hero::before {
+    display: none;
+  }
+
   .back-to-top {
     transition: none;
   }
