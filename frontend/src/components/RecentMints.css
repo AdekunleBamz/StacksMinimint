@@ -80,6 +80,7 @@
 
 .mint-item__address {
   display: block;
+  min-height: 1.35rem;
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 0.9rem;
   color: #f3f4f6;
