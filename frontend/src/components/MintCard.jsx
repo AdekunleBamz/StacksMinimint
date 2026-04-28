@@ -307,7 +307,7 @@ export function MintCard({
                   className="mint-card__tx-link"
                   title={txId}
                 >
-                  View Transaction ↗
+                  View transaction ↗
                 </a>
               )}
             </div>
