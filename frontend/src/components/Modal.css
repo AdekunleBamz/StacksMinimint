@@ -115,7 +115,7 @@
 }
 
 .modal__body {
-  padding: 1.5rem;
+  padding: 1.375rem;
   overflow-y: auto;
   scrollbar-gutter: stable;
   flex: 1;
