@@ -227,6 +227,7 @@ export function Gallery() {
             className="gallery__clear-btn"
             onClick={() => setSearchTerm('')}
             aria-label={`Clear search query ${searchTerm}`}
+            title="Clear search query"
           >
             Clear Search
           </button>
