@@ -39,7 +39,7 @@ export function Footer() {
   const linkColumnCount = Object.keys(FOOTER_LINKS).length
 
   return (
-    <footer className="footer" aria-label="Site footer">
+    <footer className="footer" role="contentinfo" aria-label="Site footer">
       <div className="footer__content" data-column-count={linkColumnCount}>
         <div className="footer__brand" aria-label="StacksMinimint brand summary">
           <span className="footer__logo" aria-hidden="true">◆</span>
