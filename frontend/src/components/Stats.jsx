@@ -95,7 +95,6 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
   return (
     <section
       className="stats"
-      aria-label="Collection statistics"
       aria-labelledby="stats-title"
       title="Collection statistics and mint readiness"
       data-last-updated-iso={lastUpdated.toISOString()}
