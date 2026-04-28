@@ -53,6 +53,11 @@
   transform: translateX(0);
 }
 
+.mint-item[data-token-state='pending'] {
+  border-color: rgba(234, 179, 8, 0.25);
+  background: rgba(234, 179, 8, 0.05);
+}
+
 .mint-item__avatar {
   width: 46px;
   height: 46px;
