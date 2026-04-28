@@ -248,6 +248,7 @@ export function MintCard({
               }}
               aria-describedby="tokenURIHint mintActionMessage"
               aria-invalid={hasTokenURI && !isTokenUriValid}
+              aria-required="true"
               required
               autoComplete="off"
               disabled={isMinting || isSoldOut || walletLimitReached || contractInfo?.isPaused}
