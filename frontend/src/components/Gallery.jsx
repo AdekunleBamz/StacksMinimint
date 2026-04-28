@@ -356,6 +356,7 @@ export function Gallery() {
               className="modal__close"
               onClick={closeModal}
               aria-label="Close NFT details"
+              title="Close NFT details"
             >
               ×
             </button>
