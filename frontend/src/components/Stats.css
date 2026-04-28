@@ -223,6 +223,10 @@
 }
 
 @media (max-width: 640px) {
+  .stats__state {
+    min-width: 0;
+  }
+
   .stats__headline,
   .progress-text {
     flex-direction: column;
