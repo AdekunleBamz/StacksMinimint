@@ -300,6 +300,10 @@
     align-items: center;
     text-align: left;
   }
+
+  .mint-card__status {
+    font-size: 0.8125rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
