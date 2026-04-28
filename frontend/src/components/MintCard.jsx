@@ -67,7 +67,7 @@ export function getMintStateDescriptor({ isPaused, isSoldOut, walletLimitReached
 export function getMintConnectButtonA11y(isConnecting) {
   return {
     label: isConnecting ? 'Connecting wallet' : 'Connect wallet to mint',
-    title: isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to unlock minting'
+    title: isConnecting ? 'Waiting for wallet connection' : 'Connect wallet to enable minting'
   }
 }
 
