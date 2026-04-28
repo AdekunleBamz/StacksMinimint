@@ -179,6 +179,7 @@ export function Gallery() {
               inputMode="search"
               enterKeyHint="search"
               autoComplete="off"
+              autoCapitalize="off"
               spellCheck={false}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={handleSearchKeyDown}
@@ -246,6 +247,7 @@ export function Gallery() {
             inputMode="search"
             enterKeyHint="search"
             autoComplete="off"
+            autoCapitalize="off"
             spellCheck={false}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleSearchKeyDown}
