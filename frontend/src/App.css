@@ -189,8 +189,8 @@
 /* Back to Top */
 .back-to-top {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
   width: 3.4rem;
   height: 3.4rem;
   background: rgba(30, 30, 50, 0.8);
@@ -270,8 +270,8 @@
 
 @media (max-width: 640px) {
   .back-to-top {
-    bottom: 1rem;
-    right: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    right: calc(1rem + env(safe-area-inset-right, 0px));
   }
 
   .toast-stack {
