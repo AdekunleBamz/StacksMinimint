@@ -306,6 +306,7 @@ export function MintCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mint-card__tx-link"
+                  aria-label="View mint transaction on Explorer"
                   title={txId}
                 >
                   View transaction ↗
