@@ -431,6 +431,7 @@
   font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
