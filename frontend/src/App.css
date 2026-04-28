@@ -30,6 +30,7 @@
 .skip-link:focus,
 .skip-link:focus-visible {
   top: 1rem;
+  text-decoration: underline;
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 5px rgba(99, 102, 241, 0.45);
 }
 
