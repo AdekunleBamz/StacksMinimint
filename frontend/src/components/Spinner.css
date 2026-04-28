@@ -11,6 +11,7 @@
 }
 
 .spinner__ring {
+  display: block;
   border-radius: 50%;
   border-style: solid;
   border-color: transparent;
