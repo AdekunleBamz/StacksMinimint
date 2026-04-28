@@ -215,12 +215,6 @@
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.nft-card:focus {
-  outline: none;
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
-}
-
 .nft-card:focus-visible {
   outline: none;
   border-color: #8b5cf6;
