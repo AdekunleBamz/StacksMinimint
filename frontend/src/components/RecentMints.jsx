@@ -106,7 +106,7 @@ export function RecentMints({ items = [] }) {
           const { tokenLabel, receiptLabel, explorerLabel, isPendingToken } = mintTokenDescriptor
           const mintKey = getRecentMintKey({ txId, tokenId: mint.tokenId, timestamp: mint.timestamp })
           return (
-            <div key={mintKey} className="mint-item" role="listitem" aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
+            <div key={mintKey} className="mint-item" role="listitem" data-token-state={isPendingToken ? 'pending' : 'minted'} aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
                 <span title={`Token status ${tokenLabel}`}>{tokenLabel}</span>
               </div>
