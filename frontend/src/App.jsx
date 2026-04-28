@@ -105,7 +105,7 @@ function App() {
       <div className="app" data-connection-state={connectionState}>
         <div className="page-load-bar" aria-hidden="true"></div>
         <a className="skip-link" href="#main-content">
-          Skip to main content
+          Skip to minting dashboard
         </a>
         <Header
           account={address}
