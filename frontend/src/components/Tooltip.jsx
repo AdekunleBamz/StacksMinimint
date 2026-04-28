@@ -65,7 +65,7 @@ export function Tooltip({ children, content, position = 'top', delay = TOOLTIP_D
     >
       {children}
       {isVisible && hasContent && (
-        <div id={tooltipId} className={`tooltip tooltip--${safePosition}`} role="tooltip" aria-live="polite" aria-atomic="true">
+        <div id={tooltipId} className={`tooltip tooltip--${safePosition}`} role="tooltip">
           {safeContent}
           <div className="tooltip__arrow"></div>
         </div>
