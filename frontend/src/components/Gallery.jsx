@@ -313,6 +313,7 @@ export function Gallery() {
             tabIndex={0}
             aria-haspopup="dialog"
             aria-label={`View details for ${nft.name}`}
+            title={`View details for ${nft.name}`}
             onKeyDown={(event) => handleCardKeyDown(event, nft)}
           >
             <div className="nft-card__image-wrapper">
