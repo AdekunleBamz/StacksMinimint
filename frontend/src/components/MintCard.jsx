@@ -174,17 +174,17 @@ export function MintCard({
       <div className="mint-card__stats">
         <div className="stat">
           <span className="stat__label">Price</span>
-          <span className="stat__value">{formatSTX(contractInfo?.mintFee)} STX</span>
+          <span className="stat__value" title="Mint fee per NFT">{formatSTX(contractInfo?.mintFee)} STX</span>
         </div>
         <div className="stat">
           <span className="stat__label">Minted</span>
-          <span className="stat__value">
+          <span className="stat__value" title="Collection mints completed">
             {totalSupply} / {maxSupply ?? '∞'}
           </span>
         </div>
         <div className="stat">
           <span className="stat__label">Your Mints</span>
-          <span className="stat__value">
+          <span className="stat__value" title="Mints completed by this wallet">
             {walletMinted} / {maxPerWallet ?? '∞'}
           </span>
         </div>
