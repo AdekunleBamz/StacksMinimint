@@ -108,6 +108,7 @@
 
 .gallery__search-hint {
   width: 100%;
+  min-height: 1.25rem;
   margin: -0.35rem 0 0;
   color: #a9b8c9;
   font-size: 0.8125rem;
