@@ -58,7 +58,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 16ch;
+  max-width: 18ch;
 }
 
 /* Icon only variant */
