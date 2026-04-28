@@ -221,7 +221,7 @@
 
   .mint-item__badge {
     min-width: auto;
-    padding-inline: 0.625rem;
+    padding-inline: 0.5rem;
   }
 }
 
