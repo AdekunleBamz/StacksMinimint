@@ -224,7 +224,7 @@ export function MintCard({
           </button>
         </div>
       ) : (
-        <form className="mint-card__form" onSubmit={handleMint} aria-busy={isMinting}>
+        <form className="mint-card__form" onSubmit={handleMint} noValidate aria-busy={isMinting}>
           <div className="form-group">
             <label htmlFor="tokenURI" className="form-label">
               Token URI (metadata URL)
