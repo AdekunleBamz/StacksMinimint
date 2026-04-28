@@ -60,7 +60,7 @@ export function getMintStateDescriptor({ isPaused, isSoldOut, walletLimitReached
 
   return {
     state: 'ready',
-    message: 'Ready to mint on Stacks.'
+    message: 'Ready to mint.'
   }
 }
 
