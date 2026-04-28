@@ -71,7 +71,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
         aria-modal="true"
         aria-keyshortcuts="Escape"
         aria-labelledby={title ? titleId : undefined}
-        aria-describedby={bodyId}
+        aria-describedby={hasBody ? bodyId : undefined}
         aria-label={title ? undefined : MODAL_DEFAULT_ARIA_LABEL}
         title={title || MODAL_DEFAULT_ARIA_LABEL}
       >
