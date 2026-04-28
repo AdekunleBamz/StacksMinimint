@@ -29,7 +29,7 @@
 .recent-mints__list {
   display: flex;
   flex-direction: column;
-  gap: 1.125rem;
+  gap: 1rem;
   max-width: 500px;
   margin: 0 auto;
 }
