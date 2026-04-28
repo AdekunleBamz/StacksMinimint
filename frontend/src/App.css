@@ -238,8 +238,8 @@
 /* Toast stack */
 .toast-stack {
   position: fixed;
-  top: 5rem;
-  right: 2rem;
+  top: calc(5rem + env(safe-area-inset-top, 0px));
+  right: calc(2rem + env(safe-area-inset-right, 0px));
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -278,7 +278,7 @@
   }
 
   .toast-stack {
-    top: 4.5rem;
+    top: calc(4.5rem + env(safe-area-inset-top, 0px));
     left: 1rem;
     right: 1rem;
   }
