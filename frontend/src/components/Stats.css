@@ -69,7 +69,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.45rem;
+  gap: 0.5rem;
   color: #cbd5e1;
   font-size: 0.78rem;
 }
