@@ -170,7 +170,7 @@ function App() {
 
         <Footer />
 
-        <div className="toast-stack" role="region" data-toast-count={toastStackMetadata.countLabel} aria-live="polite" aria-label="Notifications" aria-relevant="additions text">
+        <div className="toast-stack" role="region" data-toast-count={toastStackMetadata.countLabel} aria-live="polite" aria-atomic="false" aria-label="Notifications" aria-relevant="additions text">
           {toasts.map((toast) => (
             <Toast
               key={toast.id}
