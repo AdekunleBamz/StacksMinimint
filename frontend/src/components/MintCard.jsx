@@ -253,7 +253,7 @@ export function MintCard({
               disabled={isMinting || isSoldOut || walletLimitReached || contractInfo?.isPaused}
             />
             <span id="tokenURIHint" className="form-hint">
-              Paste an ipfs:// CID or secure https:// link to your metadata JSON
+              Use an ipfs:// CID or secure https:// metadata link
             </span>
             <div className="form-counter" aria-live="polite" title={`${tokenUriValidation.characterCount} of ${MAX_TOKEN_URI_LENGTH} characters used`}>
               {tokenUriValidation.characterCount} / {MAX_TOKEN_URI_LENGTH} characters
