@@ -240,6 +240,7 @@ export function MintCard({
               enterKeyHint="go"
               spellCheck={false}
               aria-label="Token URI metadata URL"
+              title="Token URI metadata URL"
               onChange={(e) => {
                 setTokenURI(e.target.value)
                 if (mintStatus) {
