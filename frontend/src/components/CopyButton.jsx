@@ -12,12 +12,12 @@ import PropTypes from 'prop-types'
 import './CopyButton.css'
 import { useClipboard } from '../hooks'
 
-export function CopyButton({ text, label = 'Copy', successLabel = 'Copied!', className = '' }) {
+export function CopyButton({ text, label = 'Copy', successLabel = 'Copied', className = '' }) {
   const { copied, copy } = useClipboard()
   const copyValue = typeof text === 'string' ? text : text == null ? '' : String(text)
   const hasText = copyValue.trim().length > 0
   const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Copy'
-  const safeSuccessLabel = typeof successLabel === 'string' && successLabel.trim() ? successLabel.trim() : 'Copied!'
+  const safeSuccessLabel = typeof successLabel === 'string' && successLabel.trim() ? successLabel.trim() : 'Copied'
   const isDisabled = !hasText
   const buttonTitle = !hasText
     ? 'Nothing to copy yet'
