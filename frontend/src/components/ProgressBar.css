@@ -103,6 +103,12 @@
   }
 }
 
+@media (max-width: 480px) {
+  .progress {
+    gap: 0.6rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .progress__fill,
   .progress__fill--striped {
