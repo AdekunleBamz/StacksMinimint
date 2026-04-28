@@ -157,6 +157,7 @@ function App() {
           data-visible={backToTopState.dataVisible}
           onClick={scrollToTop}
           aria-label="Back to top of page"
+          aria-controls="main-content"
           title="Back to top of page"
           aria-hidden={backToTopState.ariaHidden}
           tabIndex={backToTopState.tabIndex}
