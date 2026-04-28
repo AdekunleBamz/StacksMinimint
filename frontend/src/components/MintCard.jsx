@@ -168,7 +168,7 @@ export function MintCard({
     >
       <div className="mint-card__header">
         <h2 className="mint-card__title">Mint Your NFT</h2>
-        <p className="mint-card__subtitle">Submit a metadata URI and mint on Stacks</p>
+        <p className="mint-card__subtitle">Submit metadata and mint directly on Stacks</p>
       </div>
 
       <div className="mint-card__stats">
