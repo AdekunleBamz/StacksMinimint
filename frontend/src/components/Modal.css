@@ -11,7 +11,11 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 2rem;
+  padding:
+    calc(2rem + env(safe-area-inset-top, 0px))
+    calc(2rem + env(safe-area-inset-right, 0px))
+    calc(2rem + env(safe-area-inset-bottom, 0px))
+    calc(2rem + env(safe-area-inset-left, 0px));
   animation: fadeIn 0.2s ease;
   overscroll-behavior: contain;
 }
