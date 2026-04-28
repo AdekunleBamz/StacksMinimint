@@ -90,6 +90,7 @@
   font-variant-numeric: tabular-nums;
   color: #d3dbe7;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .stats__progress {
