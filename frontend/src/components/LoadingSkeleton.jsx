@@ -77,7 +77,7 @@ export function ListItemSkeleton() {
 }
 
 LoadingSkeleton.propTypes = {
-  variant: PropTypes.oneOf(['text', 'title', 'image', 'avatar']),
+  variant: PropTypes.oneOf(['text', 'title', 'image', 'avatar', 'button', 'circle', 'rect']),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   count: PropTypes.number,
