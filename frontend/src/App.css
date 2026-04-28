@@ -36,7 +36,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, #8b5cf6, #ec4899);
   z-index: 9999;
   animation: load-bar 1.5s ease-out forwards;
