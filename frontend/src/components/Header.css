@@ -158,6 +158,7 @@
 .header__copy-hint {
   font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   min-height: 1rem;
   color: #d1c4ff;
