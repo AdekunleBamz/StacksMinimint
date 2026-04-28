@@ -75,6 +75,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
       <div className="header__wallet">
         <span
           className="header__sr-status"
+          id="header-wallet-status"
           role="status"
           aria-live="polite"
           title={walletStatus.title}
@@ -110,6 +111,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               className="header__btn header__btn--disconnect"
               onClick={onDisconnect}
               aria-label="Disconnect wallet"
+              aria-describedby="header-wallet-status"
               title="Disconnect your Stacks wallet"
             >
               Disconnect
@@ -123,6 +125,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             onClick={onConnect}
             disabled={isConnecting}
             aria-busy={isConnecting}
+            aria-describedby="header-wallet-status"
             title={connectButtonA11y.title}
             aria-label={connectButtonA11y.label}
           >
