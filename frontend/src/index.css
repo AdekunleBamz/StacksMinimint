@@ -40,7 +40,7 @@ body {
     linear-gradient(180deg, #060816, #090d1d 36%, #060816);
   color: var(--text);
   accent-color: var(--accent);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.625;
