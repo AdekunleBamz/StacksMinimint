@@ -194,6 +194,7 @@ export function Gallery() {
               className={`view-btn ${safeViewMode === 'grid' ? 'view-btn--active' : ''}`}
               onClick={() => setViewMode('grid')}
               aria-label="Grid view"
+              title="Grid view"
               aria-pressed={safeViewMode === 'grid'}
               aria-controls={gridId}
             >
@@ -206,6 +207,7 @@ export function Gallery() {
               className={`view-btn ${safeViewMode === 'list' ? 'view-btn--active' : ''}`}
               onClick={() => setViewMode('list')}
               aria-label="List view"
+              title="List view"
               aria-pressed={safeViewMode === 'list'}
               aria-controls={gridId}
             >
@@ -274,6 +276,7 @@ export function Gallery() {
             className={`view-btn ${safeViewMode === 'grid' ? 'view-btn--active' : ''}`}
             onClick={() => setViewMode('grid')}
             aria-label="Grid view"
+            title="Grid view"
             aria-pressed={safeViewMode === 'grid'}
             aria-controls={gridId}
           >
@@ -286,6 +289,7 @@ export function Gallery() {
             className={`view-btn ${safeViewMode === 'list' ? 'view-btn--active' : ''}`}
             onClick={() => setViewMode('list')}
             aria-label="List view"
+            title="List view"
             aria-pressed={safeViewMode === 'list'}
             aria-controls={gridId}
           >
