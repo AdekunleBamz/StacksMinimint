@@ -58,6 +58,7 @@
   letter-spacing: -0.025em;
   background-clip: text;
   white-space: nowrap;
+  text-wrap: balance;
 }
 
 .header__wallet {
