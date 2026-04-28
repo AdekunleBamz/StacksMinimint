@@ -119,6 +119,11 @@
   border-color: rgba(139, 92, 246, 0.32);
 }
 
+.header__address-wrapper[data-copy-state='copied'] {
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.12);
+}
+
 .header__address-wrapper:active {
   transform: translateY(1px);
 }
