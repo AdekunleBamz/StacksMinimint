@@ -235,7 +235,7 @@
   font-size: 0.875rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   line-height: 1.55;
   text-align: left;
 }
