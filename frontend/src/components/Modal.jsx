@@ -69,6 +69,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
+        aria-keyshortcuts="Escape"
         aria-labelledby={title ? titleId : undefined}
         aria-describedby={bodyId}
         aria-label={title ? undefined : MODAL_DEFAULT_ARIA_LABEL}
