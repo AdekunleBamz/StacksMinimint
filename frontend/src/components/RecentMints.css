@@ -218,6 +218,7 @@
 
   .mint-item {
     padding: 0.8125rem 0.95rem;
+    align-items: flex-start;
   }
 
   .mint-item__avatar {
