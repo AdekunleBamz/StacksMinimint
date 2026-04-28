@@ -216,6 +216,7 @@
   visibility: hidden;
   pointer-events: none;
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transform: translateY(20px);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 99;
