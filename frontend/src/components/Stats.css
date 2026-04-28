@@ -96,7 +96,7 @@
 }
 
 .progress-bar {
-  height: 0.72rem;
+  height: 0.75rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
