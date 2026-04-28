@@ -209,7 +209,7 @@ export function MintCard({
       )}
 
       {!isConnected ? (
-        <div className="mint-card__connect">
+        <div className="mint-card__connect" aria-live="polite">
           <p>Connect your Stacks wallet to start minting here.</p>
           <button
             type="button"
