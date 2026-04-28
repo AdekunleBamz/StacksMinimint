@@ -23,7 +23,7 @@ export function Card({
   ariaDescriptionId
 }) {
   const safeAriaLabel = typeof ariaLabel === 'string' && ariaLabel.trim() ? ariaLabel.trim() : undefined
-  const titleText = safeAriaLabel || (onClick ? 'Interactive card' : undefined)
+  const titleText = safeAriaLabel || (onClick ? 'Interactive card. Press Enter or Space to activate.' : undefined)
   const handleKeyDown = useCallback((e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault()
