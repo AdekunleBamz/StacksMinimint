@@ -122,8 +122,8 @@
 
 .view-btn {
   padding: 0.5rem;
-  min-width: 2.75rem;
-  min-height: 2.75rem;
+  min-width: 2.625rem;
+  min-height: 2.625rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
