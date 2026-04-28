@@ -173,6 +173,7 @@
 
 .form-counter {
   margin-top: -0.1rem;
+  min-height: 1.1rem;
   font-size: 0.75rem;
   color: #b8c4d5;
   text-align: right;
