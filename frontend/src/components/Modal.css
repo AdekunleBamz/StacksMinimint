@@ -131,7 +131,11 @@
 
 @media (max-width: 640px) {
   .modal-overlay {
-    padding: 1rem;
+    padding:
+      calc(1rem + env(safe-area-inset-top, 0px))
+      calc(1rem + env(safe-area-inset-right, 0px))
+      calc(1rem + env(safe-area-inset-bottom, 0px))
+      calc(1rem + env(safe-area-inset-left, 0px));
   }
 
   .modal {
