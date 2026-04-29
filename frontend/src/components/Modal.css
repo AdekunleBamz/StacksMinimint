@@ -126,6 +126,7 @@
   flex: 1;
   user-select: text;
   line-height: 1.62;
+  text-wrap: pretty;
   color: #e5e7eb;
   overflow-wrap: anywhere;
 }
