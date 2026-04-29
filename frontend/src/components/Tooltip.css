@@ -119,6 +119,6 @@
 
 @media (max-width: 640px) {
   .tooltip {
-    max-width: min(17rem, calc(100vw - 1.5rem));
+    max-width: min(18rem, calc(100vw - 1.5rem));
   }
 }
