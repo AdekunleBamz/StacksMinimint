@@ -27,7 +27,7 @@
   z-index: 1000;
   pointer-events: none;
   animation: fadeIn 0.18s ease;
-  box-shadow: 0 10px 26px -18px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 10px 26px -16px rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(6px);
 }
 
