@@ -36,7 +36,7 @@
 
 .mint-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   padding: 1rem 1.125rem;
   background: rgba(30, 30, 50, 0.6);
