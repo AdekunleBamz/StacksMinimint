@@ -126,7 +126,8 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  min-height: 1.25rem;
+  min-height: 2rem;
+  padding-inline: 0.25rem;
   -webkit-tap-highlight-color: transparent;
 }
 
