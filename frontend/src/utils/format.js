@@ -86,7 +86,11 @@ export const formatTokenSymbol = (symbol) => String(symbol || "").trim().toUpper
 
 export const formatCollectionTitle = (name) => String(name || "Untitled Collection").trim();
 
-export const formatFloorPrice = (stx) => "Floor " + Number(stx).toFixed(2) + " STX";
+export const formatFloorPrice = (stx) => {
+  const amount = Number(stx);
+  if (!Number.isFinite(amount)) return "Floor 0.00 STX";
+  return "Floor " + amount.toFixed(2) + " STX";
+};
 
 export const formatMintBatch = (qty) => "Batch x" + Number(qty);
 
