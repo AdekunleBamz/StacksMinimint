@@ -300,3 +300,9 @@
     transform: none;
   }
 }
+
+@media (pointer: coarse) {
+  .header__chain {
+    min-height: 2.5rem;
+  }
+}
