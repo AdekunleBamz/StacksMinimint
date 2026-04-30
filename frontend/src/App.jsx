@@ -159,6 +159,7 @@ function App() {
           aria-label="Back to top of page"
           aria-controls="main-content"
           title="Back to top of page"
+          aria-keyshortcuts="Enter Space"
           aria-hidden={backToTopState.ariaHidden}
           tabIndex={backToTopState.tabIndex}
           disabled={!backToTopState.isVisible}
