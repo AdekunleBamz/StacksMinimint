@@ -462,3 +462,9 @@ describe('mint price microstx negatives', () => {
     expect(isValidMintPriceMicrostx(-100)).toBe(false)
   })
 })
+
+describe('positive finite coercion', () => {
+  it('accepts numeric string positive finite values', () => {
+    expect(isPositiveFinite('4.5')).toBe(true)
+  })
+})
