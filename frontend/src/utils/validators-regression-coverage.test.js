@@ -282,3 +282,9 @@ describe('mint batch minimum', () => {
     expect(isValidMintBatch(0)).toBe(false)
   })
 })
+
+describe('rarity tier acceptance', () => {
+  it('accepts a known rarity tier', () => {
+    expect(isValidRarityTier('common')).toBe(true)
+  })
+})
