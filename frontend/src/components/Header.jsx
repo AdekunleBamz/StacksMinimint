@@ -68,7 +68,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
       data-connection-state={connectionState}
     >
       <div className="header__brand">
-        <img src={logo} alt="StacksMinimint Logo" className="header__logo" width="32" height="32" />
+        <img src={logo} alt="StacksMinimint Logo" className="header__logo" width="32" height="32" title="StacksMinimint logo" />
         <span className="header__title">StacksMinimint</span>
       </div>
 
