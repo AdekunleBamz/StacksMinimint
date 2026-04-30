@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+Keep entries concise and grouped by user impact.
 - `TRANSACTION_TIMEOUT_MS` constant for wallet confirmation timeout budgets
 - `MAX_RETRIES` constant for network request retry configuration
 - `ANIMATION_DURATION_MS` constant for consistent UI transition durations
