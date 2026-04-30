@@ -432,3 +432,9 @@ describe('token uri trimming', () => {
     expect(isValidTokenURI('  https://example.com/meta.json  ')).toBe(true)
   })
 })
+
+describe('token uri scheme casing', () => {
+  it('accepts uppercase ipfs token uri schemes', () => {
+    expect(isValidTokenURI('IPFS://bafybeigdyrzt7mtr5n5h2xjv4gxn4q3du')).toBe(true)
+  })
+})
