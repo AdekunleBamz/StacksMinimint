@@ -162,3 +162,9 @@ describe('transaction id case handling', () => {
     expect(isValidTxId(`0x${'A'.repeat(64)}`)).toBe(true)
   })
 })
+
+describe('transaction id prefix requirement', () => {
+  it('rejects tx ids without the 0x prefix', () => {
+    expect(isValidTxId('f'.repeat(64))).toBe(false)
+  })
+})
