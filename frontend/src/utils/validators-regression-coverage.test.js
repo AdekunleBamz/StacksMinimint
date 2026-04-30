@@ -486,3 +486,9 @@ describe('batch total upper bound', () => {
     expect(isValidBatchTotal(50)).toBe(true)
   })
 })
+
+describe('batch total overflow', () => {
+  it('rejects batch totals above fifty', () => {
+    expect(isValidBatchTotal(51)).toBe(false)
+  })
+})
