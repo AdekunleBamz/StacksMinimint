@@ -61,6 +61,7 @@ export function truncateMiddle(str, startChars = 6, endChars = 4) {
   const safeStart = Number.isInteger(startChars) && startChars >= 0 ? startChars : 6;
   const safeEnd = Number.isInteger(endChars) && endChars >= 0 ? endChars : 4;
   if (s.length <= safeStart + safeEnd) return s;
+  if (safeEnd === 0) return `${s.slice(0, safeStart)}…`;
   return `${s.slice(0, safeStart)}…${s.slice(-safeEnd)}`;
 }
 
