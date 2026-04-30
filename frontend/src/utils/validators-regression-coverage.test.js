@@ -198,3 +198,9 @@ describe('listing price coercion', () => {
     expect(isValidListingPrice('0.5')).toBe(true)
   })
 })
+
+describe('listing price lower bound', () => {
+  it('rejects zero listing prices', () => {
+    expect(isValidListingPrice(0)).toBe(false)
+  })
+})
