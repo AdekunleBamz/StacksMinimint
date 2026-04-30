@@ -118,7 +118,7 @@ function App() {
           <section className="hero">
             <div className="hero__content">
               <span className="hero__badge">SIP-009</span>
-              <h1 className="hero__title">StacksMinimint</h1>
+              <h1 className="hero__title" title="StacksMinimint NFT minting app">StacksMinimint</h1>
               <p className="hero__subtitle">
                 A wallet-first NFT minting flow with clear on-chain feedback and collection context
               </p>
