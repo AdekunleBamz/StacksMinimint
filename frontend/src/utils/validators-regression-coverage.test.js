@@ -132,3 +132,9 @@ describe('block height negatives', () => {
     expect(isValidBlockHeight(-10)).toBe(false)
   })
 })
+
+describe('block height integer requirement', () => {
+  it('rejects decimal block heights', () => {
+    expect(isValidBlockHeight('12.2')).toBe(false)
+  })
+})
