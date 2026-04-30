@@ -144,3 +144,9 @@ describe('collection name normalization', () => {
     expect(isValidCollectionName('  Mini Mint  ')).toBe(true)
   })
 })
+
+describe('collection name required value', () => {
+  it('rejects whitespace-only collection names', () => {
+    expect(isValidCollectionName('   ')).toBe(false)
+  })
+})
