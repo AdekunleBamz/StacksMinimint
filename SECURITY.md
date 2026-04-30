@@ -11,7 +11,7 @@
 
 **Please do not open a public GitHub issue for security vulnerabilities.**
 
-To report a security issue, email the maintainer directly or open a [GitHub Security Advisory](https://github.com/AdekunleBamz/StacksMinimint/security/advisories/new) using the private disclosure flow.
+To report a security issue, email the maintainer directly or open a [GitHub Security Advisory](https://github.com/AdekunleBamz/StacksMinimint/security/advisories/new) using the private disclosure flow, and include the affected commit SHA when possible.
 
 Include in your report:
 - A clear description of the vulnerability
