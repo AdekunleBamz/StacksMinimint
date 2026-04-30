@@ -35,7 +35,7 @@ Keep entries concise and grouped by user impact.
 
 ### Fixed
 - `useClipboard`: `copy` callback now correctly lists `safeTimeout` in its dependency array
-- `useTransaction`: polling interval comment corrected from "10 seconds" to "8 seconds"
+- `useTransaction`: polling interval comment now matches the 8-second runtime interval
 - `validateTokenURI`: Arweave (`ar://`) URIs are now treated as a secure scheme
 - `focusTrap` JSDoc: corrected `initialFocus` param type from `boolean` to `string|HTMLElement`
 - `formatRelativeTime`: timestamps older than 30 days now display as months (e.g. `2mo ago`)
