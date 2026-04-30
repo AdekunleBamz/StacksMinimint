@@ -258,3 +258,9 @@ describe('supply limit minimum', () => {
     expect(isValidSupplyLimit(0)).toBe(false)
   })
 })
+
+describe('supply limit whole number requirement', () => {
+  it('rejects decimal supply limits', () => {
+    expect(isValidSupplyLimit('2.4')).toBe(false)
+  })
+})
