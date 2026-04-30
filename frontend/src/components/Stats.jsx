@@ -114,7 +114,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         >
           {collectionState.label}
         </span>
-        <div className="stats__session" aria-live="polite">
+        <div className="stats__session" aria-live="polite" aria-atomic="true">
           <span title={isConnected ? 'Your wallet is connected and ready for minting' : 'Connect a wallet to unlock mint actions'}>
             {isConnected ? 'Wallet connected' : 'Connect wallet to mint'}
           </span>
