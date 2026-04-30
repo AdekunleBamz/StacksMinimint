@@ -57,7 +57,7 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
 
 | Tool | Version | Purpose | Installation |
 |------|---------|---------|--------------|
-| Node.js | v18+ | JavaScript runtime | [Download](https://nodejs.org/en/download) |
+| Node.js | v18+ | JavaScript runtime (includes npm) | [Download](https://nodejs.org/en/download) |
 | Clarinet | v3.x+ | Smart contract development | [Install Guide](https://docs.hiro.so/clarinet/get-started) |
 | Git | Latest | Version control | [Download](https://git-scm.com/downloads) |
 | Stacks Wallet | Latest | Wallet interaction | [Leather](https://leather.io/download) or [Xverse](https://www.xverse.app/download) |
