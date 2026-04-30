@@ -246,3 +246,9 @@ describe('owner address spacing', () => {
     expect(isValidOwnerAddress('SP5K2RHMSBH4PAP4PGX77MCVNK1 ZEED07CWX9TJT')).toBe(false)
   })
 })
+
+describe('supply limit coercion', () => {
+  it('accepts numeric string supply limits', () => {
+    expect(isValidSupplyLimit('9')).toBe(true)
+  })
+})
