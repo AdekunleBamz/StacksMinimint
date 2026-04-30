@@ -252,3 +252,9 @@ describe('supply limit coercion', () => {
     expect(isValidSupplyLimit('9')).toBe(true)
   })
 })
+
+describe('supply limit minimum', () => {
+  it('rejects zero supply limits', () => {
+    expect(isValidSupplyLimit(0)).toBe(false)
+  })
+})
