@@ -191,7 +191,7 @@ export function MintCard({
       </div>
 
       {contractInfo?.isPaused && (
-        <div className="mint-card__alert mint-card__alert--warning" role="status" aria-live="polite">
+        <div className="mint-card__alert mint-card__alert--warning" role="status" aria-live="polite" aria-atomic="true">
           ⚠️ Minting is currently paused
         </div>
       )}
