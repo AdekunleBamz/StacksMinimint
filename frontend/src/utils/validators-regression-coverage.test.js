@@ -492,3 +492,9 @@ describe('batch total overflow', () => {
     expect(isValidBatchTotal(51)).toBe(false)
   })
 })
+
+describe('batch total minimum', () => {
+  it('rejects zero batch totals', () => {
+    expect(isValidBatchTotal(0)).toBe(false)
+  })
+})
