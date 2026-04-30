@@ -5,7 +5,7 @@ A Vite-powered React frontend for the StacksMinimint NFT minting platform.
 ## Quick Start
 
 ```bash
-# Install dependencies
+# Install dependencies (from `frontend/`)
 npm ci
 
 # Start development server
