@@ -83,3 +83,10 @@ describe('cid input type', () => {
     expect(isValidCID(1234567890)).toBe(false)
   })
 })
+
+describe('royalty bounds', () => {
+  it('accepts min and max royalty basis points', () => {
+    expect(isValidRoyaltyBps(0)).toBe(true)
+    expect(isValidRoyaltyBps(10000)).toBe(true)
+  })
+})
