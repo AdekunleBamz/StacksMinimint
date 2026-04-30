@@ -110,6 +110,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           className={`stats__state stats__state--${collectionState.tone}`}
           title={`Collection status: ${collectionState.label}`}
           aria-live="polite"
+          aria-atomic="true"
         >
           {collectionState.label}
         </span>
