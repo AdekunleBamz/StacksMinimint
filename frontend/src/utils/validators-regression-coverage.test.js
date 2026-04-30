@@ -510,3 +510,9 @@ describe('trait count negatives', () => {
     expect(isValidTraitCount(-1)).toBe(false)
   })
 })
+
+describe('trait count overflow', () => {
+  it('rejects trait count values above sixty-four', () => {
+    expect(isValidTraitCount(65)).toBe(false)
+  })
+})
