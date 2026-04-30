@@ -420,3 +420,9 @@ describe('wallet limit overflow', () => {
     expect(isValidWalletLimit(1001)).toBe(false)
   })
 })
+
+describe('wallet limit minimum', () => {
+  it('rejects zero wallet limits', () => {
+    expect(isValidWalletLimit(0)).toBe(false)
+  })
+})
