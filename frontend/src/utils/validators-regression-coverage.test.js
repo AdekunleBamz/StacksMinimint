@@ -234,3 +234,9 @@ describe('owner address trimming', () => {
     expect(isValidOwnerAddress('  SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT  ')).toBe(true)
   })
 })
+
+describe('owner address casing', () => {
+  it('rejects lowercase owner addresses', () => {
+    expect(isValidOwnerAddress('sp5k2rhmsbh4pap4pgx77mcvnk1zeed07cwx9tjt')).toBe(false)
+  })
+})
