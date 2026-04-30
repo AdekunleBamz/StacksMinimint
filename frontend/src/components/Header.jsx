@@ -69,7 +69,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
     >
       <div className="header__brand">
         <img src={logo} alt="StacksMinimint Logo" className="header__logo" width="32" height="32" />
-        <span className="header__title">StacksMinimint</span>
+        <span className="header__title" title="StacksMinimint home">StacksMinimint</span>
       </div>
 
       <div className="header__wallet">
