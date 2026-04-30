@@ -6,7 +6,7 @@ Thank you for your interest in contributing to StacksMinimint! This document exp
 
 ## Getting Started
 
-1. Fork the repository and clone your fork.
+1. Fork the repository, clone your fork, and add the upstream remote.
 2. Install root-level dependencies: `npm ci`
 3. Install frontend dependencies: `npm run frontend:install`
 4. Copy the environment file: `cp frontend/.env.example frontend/.env`
