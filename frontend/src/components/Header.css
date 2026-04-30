@@ -308,6 +308,7 @@
 }
 
 @media (pointer: coarse) {
+  .header__address-wrapper,
   .header__btn {
     min-height: 2.75rem;
   }
