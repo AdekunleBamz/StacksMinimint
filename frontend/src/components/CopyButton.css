@@ -58,7 +58,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 18ch;
+  max-width: 20ch;
 }
 
 .copy-btn__sr-live {
