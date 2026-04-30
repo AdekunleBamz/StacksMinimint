@@ -102,3 +102,9 @@ describe('royalty input type', () => {
     expect(isValidRoyaltyBps('not-a-number')).toBe(false)
   })
 })
+
+describe('metadata version coercion', () => {
+  it('accepts numeric string metadata versions', () => {
+    expect(isValidMetadataVersion('1')).toBe(true)
+  })
+})
