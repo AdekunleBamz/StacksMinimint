@@ -53,3 +53,9 @@ describe('mint count coercion', () => {
     expect(isValidMintCount('2')).toBe(true)
   })
 })
+
+describe('mint count lower bound', () => {
+  it('rejects zero mint counts', () => {
+    expect(isValidMintCount(0)).toBe(false)
+  })
+})
