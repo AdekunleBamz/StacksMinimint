@@ -120,7 +120,7 @@ export function Footer() {
       </div>
 
       <div className="footer__bottom" aria-label="Footer legal and attribution">
-        <p className="footer__copyright">
+        <p className="footer__copyright" title={`© ${CURRENT_YEAR} StacksMinimint`}>
           © {CURRENT_YEAR} StacksMinimint. Open source under MIT.
         </p>
         <p className="footer__credit">
