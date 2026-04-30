@@ -342,3 +342,9 @@ describe('token symbol upper bound length', () => {
     expect(isValidTokenSymbol('ABCDEFGH')).toBe(true)
   })
 })
+
+describe('token symbol casing', () => {
+  it('rejects lowercase token symbols', () => {
+    expect(isValidTokenSymbol('mini')).toBe(false)
+  })
+})
