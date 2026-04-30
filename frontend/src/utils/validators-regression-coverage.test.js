@@ -330,3 +330,9 @@ describe('provenance hash format', () => {
     expect(isValidProvenanceHash(`0x${'a'.repeat(64)}`)).toBe(false)
   })
 })
+
+describe('provenance hash whitespace', () => {
+  it('rejects provenance hashes with internal spaces', () => {
+    expect(isValidProvenanceHash(`aaaa aaaa${'a'.repeat(56)}`)).toBe(false)
+  })
+})
