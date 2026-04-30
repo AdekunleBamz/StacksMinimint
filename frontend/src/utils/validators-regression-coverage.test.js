@@ -71,3 +71,9 @@ describe('cid normalization', () => {
     expect(isValidCID('  QmYwAPJzv5CZsnAzt8auVTLnS4H7rZ5xR2QYtS85dFvJ7s  ')).toBe(true)
   })
 })
+
+describe('cid minimum length', () => {
+  it('rejects short cid values', () => {
+    expect(isValidCID('short')).toBe(false)
+  })
+})
