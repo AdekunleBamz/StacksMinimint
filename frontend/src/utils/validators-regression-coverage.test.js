@@ -180,3 +180,9 @@ describe('trait name normalization', () => {
     expect(isValidTraitName('  Background  ')).toBe(true)
   })
 })
+
+describe('trait name blank values', () => {
+  it('rejects whitespace-only trait names', () => {
+    expect(isValidTraitName('\n\t')).toBe(false)
+  })
+})
