@@ -94,9 +94,9 @@ export function RecentMints({ items = [] }) {
   }
 
   return (
-      <section className="recent-mints" aria-label="Recent mints" title="Recent wallet mint submissions" data-state="ready" data-count={String(recentMints.length)} aria-live="polite">
+      <section className="recent-mints" aria-label="Recent mints" aria-describedby="recent-mints-subtitle" title="Recent wallet mint submissions" data-state="ready" data-count={String(recentMints.length)} aria-live="polite">
         <h2 className="recent-mints__title">Recent Mints</h2>
-      <p className="recent-mints__subtitle">Fresh activity from this browser appears here as soon as a wallet submission is sent.</p>
+      <p className="recent-mints__subtitle" id="recent-mints-subtitle">Fresh activity from this browser appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
         {recentMints.map((mint) => {
           const timestampMs = normalizeMintTimestamp(mint.timestamp)
