@@ -116,3 +116,9 @@
     transform: none;
   }
 }
+
+@media (pointer: coarse) {
+  .copy-btn {
+    min-height: 2.75rem;
+  }
+}
