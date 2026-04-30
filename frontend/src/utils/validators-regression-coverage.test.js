@@ -174,3 +174,9 @@ describe('transaction id length', () => {
     expect(isValidTxId(`0x${'f'.repeat(63)}`)).toBe(false)
   })
 })
+
+describe('trait name normalization', () => {
+  it('accepts trimmed trait names', () => {
+    expect(isValidTraitName('  Background  ')).toBe(true)
+  })
+})
