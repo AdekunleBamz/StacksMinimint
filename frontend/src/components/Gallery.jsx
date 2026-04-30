@@ -304,7 +304,7 @@ export function Gallery() {
           Search by name, owner, or <span>#token</span>. Press Escape to clear.
         </p>
 
-      <p className="gallery__results" aria-live="polite">
+      <p className="gallery__results" aria-live="polite" title="Current gallery result count">
         Showing {filteredNfts.length} {filteredLabel}
         {hasSearch ? ` matching "${searchTerm}"` : ''} out of {nfts.length} {totalLabel}.
       </p>
