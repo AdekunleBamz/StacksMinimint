@@ -396,3 +396,9 @@ describe('token id in supply upper bound', () => {
     expect(isValidTokenIdInSupply(10000)).toBe(true)
   })
 })
+
+describe('token id in supply lower bound', () => {
+  it('rejects zero token id values', () => {
+    expect(isValidTokenIdInSupply(0)).toBe(false)
+  })
+})
