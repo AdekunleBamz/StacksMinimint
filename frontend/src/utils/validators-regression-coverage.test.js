@@ -59,3 +59,9 @@ describe('mint count lower bound', () => {
     expect(isValidMintCount(0)).toBe(false)
   })
 })
+
+describe('mint count whole numbers', () => {
+  it('rejects decimal mint counts', () => {
+    expect(isValidMintCount('2.5')).toBe(false)
+  })
+})
