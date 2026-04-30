@@ -23,7 +23,11 @@ export const formatBlocksRemaining = (n) => n + " blocks";
 
 export const formatTraitValue = (v) => String(v);
 
-export const formatCollectionSize = (n) => n.toLocaleString() + " items";
+export const formatCollectionSize = (n) => {
+  const amount = Number(n)
+  if (Number.isFinite(amount)) return amount.toLocaleString() + " items"
+  return String(n) + " items"
+};
 
 export const formatOwnerCount = (n) => n + " owners";
 
