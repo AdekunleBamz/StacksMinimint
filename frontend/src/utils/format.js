@@ -87,7 +87,10 @@ export const formatRevealDelay = (blocks) => Number(blocks) + " blocks to reveal
 
 export const formatTokenSymbol = (symbol) => String(symbol || "").trim().toUpperCase();
 
-export const formatCollectionTitle = (name) => String(name || "Untitled Collection").trim();
+export const formatCollectionTitle = (name) => {
+  const normalized = String(name ?? "").trim();
+  return normalized || "Untitled Collection";
+};
 
 export const formatFloorPrice = (stx) => {
   const amount = Number(stx);
