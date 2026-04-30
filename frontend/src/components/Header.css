@@ -282,6 +282,12 @@
   .header__logo {
     animation: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__logo {
+    animation: none;
+  }
 
   .header__copied-toast {
     animation: none;
