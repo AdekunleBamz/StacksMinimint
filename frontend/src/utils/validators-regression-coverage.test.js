@@ -35,3 +35,9 @@ describe('validator regression coverage', () => {
     expect(isValidTokenId(' 42 ')).toBe(true)
   })
 })
+
+describe('token id boundaries', () => {
+  it('rejects negative token ids', () => {
+    expect(isValidTokenId(-1)).toBe(false)
+  })
+})
