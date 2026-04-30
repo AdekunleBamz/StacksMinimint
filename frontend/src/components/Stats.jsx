@@ -134,6 +134,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           className="progress-bar"
           data-progress={String(roundedProgress)}
           role="progressbar"
+          title={`${roundedProgress}% of configured supply minted`}
           aria-valuenow={roundedProgress}
           aria-valuemin={0}
           aria-valuemax={100}
