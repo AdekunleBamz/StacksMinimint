@@ -375,7 +375,7 @@ export function Gallery() {
               <div className="modal__details" id="gallery-modal-details">
                 <div className="detail-row">
                   <span className="detail-label">Token ID</span>
-                  <span className="detail-pill detail-pill--id">#{selectedNft.id}</span>
+                  <span className="detail-pill detail-pill--id" title={`Token #${selectedNft.id}`}>#{selectedNft.id}</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Owner</span>
