@@ -37,7 +37,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ### Scopes (examples)
 
-`constants`, `utils`, `hooks`, `context`, `contract`, `contracts`, `frontend`, `tests`
+`constants`, `utils`, `hooks`, `context`, `contract`, `contracts`, `frontend`, `tests`, `docs`
 
 ---
 
