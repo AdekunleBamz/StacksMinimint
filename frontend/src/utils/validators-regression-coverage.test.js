@@ -240,3 +240,9 @@ describe('owner address casing', () => {
     expect(isValidOwnerAddress('sp5k2rhmsbh4pap4pgx77mcvnk1zeed07cwx9tjt')).toBe(false)
   })
 })
+
+describe('owner address spacing', () => {
+  it('rejects owner addresses with internal spaces', () => {
+    expect(isValidOwnerAddress('SP5K2RHMSBH4PAP4PGX77MCVNK1 ZEED07CWX9TJT')).toBe(false)
+  })
+})
