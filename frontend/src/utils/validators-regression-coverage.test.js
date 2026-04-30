@@ -408,3 +408,9 @@ describe('token id in supply overflow', () => {
     expect(isValidTokenIdInSupply(10001)).toBe(false)
   })
 })
+
+describe('wallet limit upper bound', () => {
+  it('accepts wallet limits at 1000', () => {
+    expect(isValidWalletLimit(1000)).toBe(true)
+  })
+})
