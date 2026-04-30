@@ -114,7 +114,7 @@ function App() {
           isConnecting={isConnecting}
         />
 
-        <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'}>
+        <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'} title="StacksMinimint main dashboard">
           <section className="hero">
             <div className="hero__content">
               <span className="hero__badge">SIP-009</span>
