@@ -26,6 +26,7 @@ Include in your report:
 |-------|-------------|
 | Initial acknowledgement | Within 48 hours |
 | Severity assessment | Within 5 business days |
+| Status updates while active | At least once per week |
 | Patch release (critical) | Within 14 days of confirmation |
 | Patch release (non-critical) | Within 30 days of confirmation |
 | Public disclosure | After patch is released |
