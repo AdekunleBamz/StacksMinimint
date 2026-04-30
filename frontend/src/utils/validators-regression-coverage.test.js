@@ -306,3 +306,9 @@ describe('reveal delay lower bound', () => {
     expect(isValidRevealDelay(0)).toBe(true)
   })
 })
+
+describe('reveal delay negatives', () => {
+  it('rejects negative reveal delay values', () => {
+    expect(isValidRevealDelay(-1)).toBe(false)
+  })
+})
