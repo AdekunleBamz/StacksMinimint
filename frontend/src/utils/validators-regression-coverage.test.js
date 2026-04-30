@@ -366,3 +366,9 @@ describe('mint price negatives', () => {
     expect(isValidMintPrice(-1)).toBe(false)
   })
 })
+
+describe('mint price input type', () => {
+  it('rejects non-numeric mint prices', () => {
+    expect(isValidMintPrice('mint')).toBe(false)
+  })
+})
