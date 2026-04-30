@@ -324,3 +324,9 @@ describe('provenance hash case handling', () => {
     expect(isValidProvenanceHash('A'.repeat(64))).toBe(true)
   })
 })
+
+describe('provenance hash format', () => {
+  it('rejects provenance hashes with 0x prefix', () => {
+    expect(isValidProvenanceHash(`0x${'a'.repeat(64)}`)).toBe(false)
+  })
+})
