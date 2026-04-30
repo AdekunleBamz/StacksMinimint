@@ -384,3 +384,9 @@ describe('max per wallet lower bound', () => {
     expect(isValidMaxPerWallet(0)).toBe(false)
   })
 })
+
+describe('max per wallet integer requirement', () => {
+  it('rejects decimal max per wallet values', () => {
+    expect(isValidMaxPerWallet('1.1')).toBe(false)
+  })
+})
