@@ -192,3 +192,9 @@ describe('trait name input type', () => {
     expect(isValidTraitName(undefined)).toBe(false)
   })
 })
+
+describe('listing price coercion', () => {
+  it('accepts decimal string listing prices', () => {
+    expect(isValidListingPrice('0.5')).toBe(true)
+  })
+})
