@@ -360,3 +360,9 @@ describe('mint price lower bound', () => {
     expect(isValidMintPrice(0)).toBe(true)
   })
 })
+
+describe('mint price negatives', () => {
+  it('rejects negative mint prices', () => {
+    expect(isValidMintPrice(-1)).toBe(false)
+  })
+})
