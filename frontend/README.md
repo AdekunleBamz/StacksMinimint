@@ -53,7 +53,7 @@ Copy `.env.example` to `.env` and configure:
 - `VITE_HUB_CONTRACT_ADDRESS` - Hub contract address
 - `VITE_HUB_CONTRACT_NAME` - Hub contract name
 - `VITE_MINT_FEE` - Optional mint fee override in micro-STX
-- `VITE_TOKEN_SYMBOL` - Reward token display symbol
+- `VITE_TOKEN_SYMBOL` - Reward token display symbol (optional, UI-only)
 
 ## License
 
