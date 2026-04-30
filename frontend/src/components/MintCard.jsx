@@ -257,7 +257,7 @@ export function MintCard({
             <span id="tokenURIHint" className="form-hint">
               Use an ipfs:// CID or secure https:// metadata link
             </span>
-            <div className="form-counter" aria-live="polite" title={`${tokenUriValidation.characterCount} of ${MAX_TOKEN_URI_LENGTH} characters used`}>
+            <div className="form-counter" aria-live="polite" aria-atomic="true" title={`${tokenUriValidation.characterCount} of ${MAX_TOKEN_URI_LENGTH} characters used`}>
               {tokenUriValidation.characterCount} / {MAX_TOKEN_URI_LENGTH} characters
             </div>
           </div>
