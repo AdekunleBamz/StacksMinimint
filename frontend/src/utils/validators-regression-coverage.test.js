@@ -222,3 +222,9 @@ describe('bid amount lower bound', () => {
     expect(isValidBidAmount(-3)).toBe(false)
   })
 })
+
+describe('bid amount input type', () => {
+  it('rejects non-numeric bid amounts', () => {
+    expect(isValidBidAmount('bid')).toBe(false)
+  })
+})
