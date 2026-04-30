@@ -294,3 +294,9 @@ describe('rarity tier casing', () => {
     expect(isValidRarityTier('COMMON')).toBe(false)
   })
 })
+
+describe('rarity tier whitelist', () => {
+  it('rejects unsupported rarity tier values', () => {
+    expect(isValidRarityTier('mythic')).toBe(false)
+  })
+})
