@@ -348,3 +348,9 @@ describe('token symbol casing', () => {
     expect(isValidTokenSymbol('mini')).toBe(false)
   })
 })
+
+describe('token symbol minimum length', () => {
+  it('rejects single-character token symbols', () => {
+    expect(isValidTokenSymbol('A')).toBe(false)
+  })
+})
