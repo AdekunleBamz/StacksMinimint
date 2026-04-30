@@ -77,3 +77,9 @@ describe('cid minimum length', () => {
     expect(isValidCID('short')).toBe(false)
   })
 })
+
+describe('cid input type', () => {
+  it('rejects non-string cid inputs', () => {
+    expect(isValidCID(1234567890)).toBe(false)
+  })
+})
