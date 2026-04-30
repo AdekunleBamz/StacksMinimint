@@ -372,3 +372,9 @@ describe('mint price input type', () => {
     expect(isValidMintPrice('mint')).toBe(false)
   })
 })
+
+describe('max per wallet coercion', () => {
+  it('accepts numeric string wallet limits', () => {
+    expect(isValidMaxPerWallet('2')).toBe(true)
+  })
+})
