@@ -480,3 +480,9 @@ describe('positive finite infinity handling', () => {
     expect(isPositiveFinite(Infinity)).toBe(false)
   })
 })
+
+describe('batch total upper bound', () => {
+  it('accepts batch totals at fifty', () => {
+    expect(isValidBatchTotal(50)).toBe(true)
+  })
+})
