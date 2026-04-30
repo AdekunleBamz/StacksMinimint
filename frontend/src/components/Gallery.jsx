@@ -395,6 +395,7 @@ export function Gallery() {
                   rel="noopener noreferrer"
                   className="modal__btn"
                   aria-label={`View token #${selectedNft.id} on the explorer`}
+                  title={`Open token #${selectedNft.id} on the explorer`}
                 >
                   View on Explorer
                 </a>
