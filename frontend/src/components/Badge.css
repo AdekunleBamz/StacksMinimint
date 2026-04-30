@@ -21,6 +21,7 @@
 /* Sizes */
 .badge--small {
   padding: 0.25rem 0.625rem;
+  min-height: 1.875rem;
   font-size: 0.6875rem;
   line-height: 1.35;
 }
