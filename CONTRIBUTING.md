@@ -10,7 +10,7 @@ Thank you for your interest in contributing to StacksMinimint! This document exp
 2. Install root-level dependencies: `npm ci`
 3. Install frontend dependencies: `npm run frontend:install`
 4. Copy the environment file: `cp frontend/.env.example frontend/.env`
-5. Start the development server: `npm run frontend:dev`
+5. Start the development server from the repo root: `npm run frontend:dev`
 
 ---
 
