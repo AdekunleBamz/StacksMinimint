@@ -3,4 +3,4 @@
 After deployments, verify frontend env aliases point to the new core and hub contract identifiers.
 Alias drift causes silent read/write mismatches that look like UI faults.
 
-Record both previous and new alias values in the release thread before cache clearing.
+Record both previous and new alias values in the release thread before cache clearing, then link the diff for reviewers.
