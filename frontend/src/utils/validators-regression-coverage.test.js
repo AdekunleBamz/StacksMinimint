@@ -204,3 +204,9 @@ describe('listing price lower bound', () => {
     expect(isValidListingPrice(0)).toBe(false)
   })
 })
+
+describe('listing price input type', () => {
+  it('rejects non-numeric listing prices', () => {
+    expect(isValidListingPrice('price')).toBe(false)
+  })
+})
