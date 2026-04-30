@@ -414,3 +414,9 @@ describe('wallet limit upper bound', () => {
     expect(isValidWalletLimit(1000)).toBe(true)
   })
 })
+
+describe('wallet limit overflow', () => {
+  it('rejects wallet limits above 1000', () => {
+    expect(isValidWalletLimit(1001)).toBe(false)
+  })
+})
