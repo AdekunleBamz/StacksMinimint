@@ -96,8 +96,8 @@ export function Footer() {
           </div>
 
           <div className="footer__column">
-            <h3 className="footer__heading">Resources</h3>
-            <nav aria-label="Resource links" data-link-count={FOOTER_LINKS.resources.length}>
+            <h3 className="footer__heading" id="footer-resource-links-heading">Resources</h3>
+            <nav aria-labelledby="footer-resource-links-heading" data-link-count={FOOTER_LINKS.resources.length}>
               <ul className="footer__list">
                 {FOOTER_LINKS.resources.map((link) => (
                   <li key={link.href}>
