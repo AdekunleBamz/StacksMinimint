@@ -312,3 +312,9 @@ describe('reveal delay negatives', () => {
     expect(isValidRevealDelay(-1)).toBe(false)
   })
 })
+
+describe('reveal delay integer requirement', () => {
+  it('rejects decimal reveal delay values', () => {
+    expect(isValidRevealDelay('3.3')).toBe(false)
+  })
+})
