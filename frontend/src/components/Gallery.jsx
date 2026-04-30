@@ -198,7 +198,7 @@ export function Gallery() {
               aria-pressed={safeViewMode === 'grid'}
               aria-controls={gridId}
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true" focusable="false">
                 <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
               </svg>
             </button>
@@ -211,7 +211,7 @@ export function Gallery() {
               aria-pressed={safeViewMode === 'list'}
               aria-controls={gridId}
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true" focusable="false">
                 <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
               </svg>
             </button>
@@ -280,7 +280,7 @@ export function Gallery() {
             aria-pressed={safeViewMode === 'grid'}
             aria-controls={gridId}
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true" focusable="false">
               <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
             </svg>
           </button>
@@ -293,7 +293,7 @@ export function Gallery() {
             aria-pressed={safeViewMode === 'list'}
             aria-controls={gridId}
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true" focusable="false">
               <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
             </svg>
             </button>
