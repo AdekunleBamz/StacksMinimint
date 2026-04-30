@@ -197,7 +197,11 @@ export function MintCard({
       )}
 
       {isSoldOut && (
-        <div className="mint-card__alert mint-card__alert--error" role="status" aria-live="polite">
+<<<<<<< HEAD
+        <div className="mint-card__alert mint-card__alert--error" role="status" aria-live="polite" aria-atomic="true">
+=======
+        <div className="mint-card__alert mint-card__alert--error" role="status" aria-live="polite" aria-atomic="true">
+>>>>>>> 58c4675e (Expose sold-out mint alert as atomic status)
           🔥 Sold out! All NFTs have been minted
         </div>
       )}
