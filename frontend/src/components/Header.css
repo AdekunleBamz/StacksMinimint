@@ -306,3 +306,9 @@
     transform: none;
   }
 }
+
+@media (pointer: coarse) {
+  .header__btn {
+    min-height: 2.75rem;
+  }
+}
