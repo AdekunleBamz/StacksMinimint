@@ -3,4 +3,4 @@
 Run contract checks immediately before creating release tags.
 This avoids tagging commits with stale unverified contract edits.
 
-Record the checked commit SHA with the release tag so contract validation is auditable later.
+Record the checked commit SHA and tool version with the release tag so contract validation is auditable later.
