@@ -450,3 +450,9 @@ describe('mint price microstx lower bound', () => {
     expect(isValidMintPriceMicrostx(0)).toBe(true)
   })
 })
+
+describe('mint price microstx integer requirement', () => {
+  it('rejects decimal microstx mint prices', () => {
+    expect(isValidMintPriceMicrostx('1.2')).toBe(false)
+  })
+})
