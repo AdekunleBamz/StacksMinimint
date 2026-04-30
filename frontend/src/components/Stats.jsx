@@ -102,7 +102,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       data-connection={isConnected ? 'connected' : 'disconnected'}
       data-recent-activity-count={String(safeRecentActivityCount)}
     >
-      <h2 className="stats__title" id="stats-title">Collection Stats</h2>
+      <h2 className="stats__title" id="stats-title" title="Collection statistics">Collection Stats</h2>
       <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you prepare each mint.</p>
 
       <div className="stats__headline">
