@@ -318,3 +318,9 @@ describe('reveal delay integer requirement', () => {
     expect(isValidRevealDelay('3.3')).toBe(false)
   })
 })
+
+describe('provenance hash case handling', () => {
+  it('accepts uppercase hexadecimal provenance hashes', () => {
+    expect(isValidProvenanceHash('A'.repeat(64))).toBe(true)
+  })
+})
