@@ -114,7 +114,7 @@ function App() {
           isConnecting={isConnecting}
         />
 
-        <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'}>
+        <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'} title="StacksMinimint main dashboard">
           <section className="hero">
             <div className="hero__content">
               <span className="hero__badge" title="Built around the SIP-009 NFT standard">SIP-009</span>
