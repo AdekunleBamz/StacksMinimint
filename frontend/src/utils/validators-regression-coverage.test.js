@@ -264,3 +264,9 @@ describe('supply limit whole number requirement', () => {
     expect(isValidSupplyLimit('2.4')).toBe(false)
   })
 })
+
+describe('mint batch upper bound', () => {
+  it('accepts the maximum mint batch size', () => {
+    expect(isValidMintBatch(10)).toBe(true)
+  })
+})
