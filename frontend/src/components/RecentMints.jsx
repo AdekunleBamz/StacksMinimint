@@ -128,7 +128,7 @@ export function RecentMints({ items = [] }) {
                     href={getExplorerUrl(txId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={explorerLabel}
+                    aria-label={`${explorerLabel} (opens in a new tab)`}
                     title={`${receiptLabel}: ${txId}`}
                   >
                     {receiptLabel}
