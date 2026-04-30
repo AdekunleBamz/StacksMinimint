@@ -39,4 +39,4 @@ All Clarity contracts in this repository have been reviewed for common Stacks/Cl
 - Incorrect post-condition usage and transaction condition assumptions
 - Re-entrancy (not applicable in Clarity)
 
-Community audits and independent reviews are always welcome.
+Community audits and independent reviews are always welcome, including focused reviews for release candidates.
