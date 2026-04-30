@@ -120,3 +120,9 @@ describe('metadata version whole numbers', () => {
     expect(isValidMetadataVersion('1.5')).toBe(false)
   })
 })
+
+describe('block height lower bound', () => {
+  it('accepts zero block height', () => {
+    expect(isValidBlockHeight(0)).toBe(true)
+  })
+})
