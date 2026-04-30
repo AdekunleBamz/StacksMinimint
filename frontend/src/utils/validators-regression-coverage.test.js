@@ -516,3 +516,9 @@ describe('trait count overflow', () => {
     expect(isValidTraitCount(65)).toBe(false)
   })
 })
+
+describe('explorer url trimming', () => {
+  it('accepts trimmed https explorer urls', () => {
+    expect(isValidExplorerUrl('  https://explorer.stacks.co/txid/0xabc  ')).toBe(true)
+  })
+})
