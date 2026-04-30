@@ -371,7 +371,7 @@ export function Gallery() {
               <img src={selectedNft.image} alt={selectedNft.name} decoding="async" fetchPriority="high" />
             </div>
             <div className="modal__content">
-              <h2 id="gallery-modal-title" className="modal__title">{selectedNft.name}</h2>
+              <h2 id="gallery-modal-title" className="modal__title" title={selectedNft.name}>{selectedNft.name}</h2>
               <div className="modal__details" id="gallery-modal-details">
                 <div className="detail-row">
                   <span className="detail-label">Token ID</span>
