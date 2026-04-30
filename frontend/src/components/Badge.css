@@ -76,8 +76,8 @@
 
 /* Dot indicator */
 .badge__dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: currentColor;
   box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.28);
