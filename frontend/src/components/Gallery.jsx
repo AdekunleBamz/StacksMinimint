@@ -185,6 +185,7 @@ export function Gallery() {
               onKeyDown={handleSearchKeyDown}
               aria-label="Search collection items"
               aria-describedby={searchHintId}
+              title="Search NFTs by name, owner, or token id"
               className="search-input"
             />
           </div>
@@ -256,6 +257,7 @@ export function Gallery() {
             onKeyDown={handleSearchKeyDown}
             aria-label="Search collection items"
             aria-describedby={searchHintId}
+            title="Search NFTs by name, owner, or token id"
             className="search-input"
           />
           {hasSearch && (
