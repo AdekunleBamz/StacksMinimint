@@ -156,3 +156,9 @@ describe('collection name input type', () => {
     expect(isValidCollectionName(null)).toBe(false)
   })
 })
+
+describe('transaction id case handling', () => {
+  it('accepts uppercase hexadecimal tx ids', () => {
+    expect(isValidTxId(`0x${'A'.repeat(64)}`)).toBe(true)
+  })
+})
