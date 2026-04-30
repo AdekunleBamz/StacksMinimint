@@ -82,6 +82,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
             className="modal__close" 
             onClick={onClose}
             aria-label="Close modal"
+            aria-controls={bodyId}
             aria-keyshortcuts="Escape"
             title="Close this dialog"
           >
