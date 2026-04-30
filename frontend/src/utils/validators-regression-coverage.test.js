@@ -498,3 +498,9 @@ describe('batch total minimum', () => {
     expect(isValidBatchTotal(0)).toBe(false)
   })
 })
+
+describe('trait count lower bound', () => {
+  it('accepts zero trait count values', () => {
+    expect(isValidTraitCount(0)).toBe(true)
+  })
+})
