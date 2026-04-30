@@ -2,3 +2,5 @@
 
 Verify build artifacts update after dependency changes and cache invalidation.
 Stale assets can keep fixed bugs visible in production.
+
+Confirm built assets reference the current contract constants before publishing artifacts.
