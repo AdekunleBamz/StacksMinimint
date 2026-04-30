@@ -65,3 +65,9 @@ describe('mint count whole numbers', () => {
     expect(isValidMintCount('2.5')).toBe(false)
   })
 })
+
+describe('cid normalization', () => {
+  it('accepts trimmed cid values', () => {
+    expect(isValidCID('  QmYwAPJzv5CZsnAzt8auVTLnS4H7rZ5xR2QYtS85dFvJ7s  ')).toBe(true)
+  })
+})
