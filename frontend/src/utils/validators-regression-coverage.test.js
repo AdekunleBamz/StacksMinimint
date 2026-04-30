@@ -468,3 +468,9 @@ describe('positive finite coercion', () => {
     expect(isPositiveFinite('4.5')).toBe(true)
   })
 })
+
+describe('positive finite lower bound', () => {
+  it('rejects zero positive finite values', () => {
+    expect(isPositiveFinite(0)).toBe(false)
+  })
+})
