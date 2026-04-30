@@ -36,7 +36,7 @@ Include in your report:
 All Clarity contracts in this repository have been reviewed for common Stacks/Clarity vulnerabilities including:
 - Integer overflow/underflow (Clarity uses checked arithmetic)
 - Unauthorized principal access
-- Incorrect post-condition usage
+- Incorrect post-condition usage and transaction condition assumptions
 - Re-entrancy (not applicable in Clarity)
 
 Community audits and independent reviews are always welcome.
