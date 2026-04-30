@@ -444,3 +444,9 @@ describe('token uri scheme validation', () => {
     expect(isValidTokenURI('ftp://example.com/metadata.json')).toBe(false)
   })
 })
+
+describe('mint price microstx lower bound', () => {
+  it('accepts zero microstx mint prices', () => {
+    expect(isValidMintPriceMicrostx(0)).toBe(true)
+  })
+})
