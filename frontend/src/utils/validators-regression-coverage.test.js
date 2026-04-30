@@ -114,3 +114,9 @@ describe('metadata version minimum', () => {
     expect(isValidMetadataVersion(0)).toBe(false)
   })
 })
+
+describe('metadata version whole numbers', () => {
+  it('rejects decimal metadata versions', () => {
+    expect(isValidMetadataVersion('1.5')).toBe(false)
+  })
+})
