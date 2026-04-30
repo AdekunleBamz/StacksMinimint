@@ -96,3 +96,9 @@ describe('royalty upper bound', () => {
     expect(isValidRoyaltyBps(10001)).toBe(false)
   })
 })
+
+describe('royalty input type', () => {
+  it('rejects non-numeric royalty values', () => {
+    expect(isValidRoyaltyBps('not-a-number')).toBe(false)
+  })
+})
