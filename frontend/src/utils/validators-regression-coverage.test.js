@@ -41,3 +41,9 @@ describe('token id boundaries', () => {
     expect(isValidTokenId(-1)).toBe(false)
   })
 })
+
+describe('token id decimals', () => {
+  it('rejects decimal token ids', () => {
+    expect(isValidTokenId('3.14')).toBe(false)
+  })
+})
