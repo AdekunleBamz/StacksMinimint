@@ -150,3 +150,9 @@ describe('collection name required value', () => {
     expect(isValidCollectionName('   ')).toBe(false)
   })
 })
+
+describe('collection name input type', () => {
+  it('rejects non-string collection names', () => {
+    expect(isValidCollectionName(null)).toBe(false)
+  })
+})
