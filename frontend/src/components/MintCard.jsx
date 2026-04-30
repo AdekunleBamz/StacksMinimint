@@ -308,7 +308,7 @@ export function MintCard({
                   rel="noopener noreferrer"
                   className="mint-card__tx-link"
                   aria-label="View mint transaction on Explorer"
-                  title={txId}
+                  title={`Open mint transaction ${txId} on Explorer`}
                 >
                   View transaction ↗
                 </a>
