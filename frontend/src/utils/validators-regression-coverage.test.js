@@ -186,3 +186,9 @@ describe('trait name blank values', () => {
     expect(isValidTraitName('\n\t')).toBe(false)
   })
 })
+
+describe('trait name input type', () => {
+  it('rejects non-string trait names', () => {
+    expect(isValidTraitName(undefined)).toBe(false)
+  })
+})
