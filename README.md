@@ -210,4 +210,4 @@ We welcome contributions! Please see our [CONTRIBUTING.md](./CONTRIBUTING.md) fo
 
 This project is licensed under the [MIT License](./LICENSE).
 
-Built with ❤️ for the Bitcoin ecosystem on Stacks.
+Built for the Bitcoin ecosystem on Stacks, with a focus on predictable mint and staking flows.
