@@ -319,6 +319,7 @@ export function Gallery() {
             role="button"
             tabIndex={0}
             aria-haspopup="dialog"
+            aria-keyshortcuts="Enter Space"
             aria-label={`View details for ${nft.name}`}
             title={`View details for ${nft.name}`}
             onKeyDown={(event) => handleCardKeyDown(event, nft)}
