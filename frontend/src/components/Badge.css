@@ -33,6 +33,7 @@
 
 .badge--large {
   padding: 0.5rem 1.125rem;
+  min-height: 2.25rem;
   font-size: 0.8125rem;
   line-height: 1.35;
 }
