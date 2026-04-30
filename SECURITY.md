@@ -17,7 +17,7 @@ Include in your report:
 - A clear description of the vulnerability
 - Steps to reproduce
 - Potential impact
-- Affected network and contract identifier
+- Affected network, contract identifier, and wallet extension version
 - Any suggested mitigations (optional)
 
 ### Response Timeline
