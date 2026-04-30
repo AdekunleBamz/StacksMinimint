@@ -390,3 +390,9 @@ describe('max per wallet integer requirement', () => {
     expect(isValidMaxPerWallet('1.1')).toBe(false)
   })
 })
+
+describe('token id in supply upper bound', () => {
+  it('accepts token id equal to max supply', () => {
+    expect(isValidTokenIdInSupply(10000)).toBe(true)
+  })
+})
