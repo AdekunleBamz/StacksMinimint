@@ -117,7 +117,7 @@ function App() {
         <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'}>
           <section className="hero">
             <div className="hero__content">
-              <span className="hero__badge">SIP-009</span>
+              <span className="hero__badge" title="Built around the SIP-009 NFT standard">SIP-009</span>
               <h1 className="hero__title">StacksMinimint</h1>
               <p className="hero__subtitle">
                 A wallet-first NFT minting flow with clear on-chain feedback and collection context
