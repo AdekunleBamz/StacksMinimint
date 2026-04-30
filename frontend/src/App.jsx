@@ -181,7 +181,11 @@ function App() {
 
         <Footer />
 
-        <div className="toast-stack" role="region" data-toast-count={toastStackMetadata.countLabel} aria-live="polite" aria-atomic="true" aria-label="Notifications" aria-relevant="additions text">
+<<<<<<< HEAD
+        <div className="toast-stack" role="region" data-toast-count={toastStackMetadata.countLabel} aria-live="polite" aria-atomic="true" aria-label="Notifications" aria-relevant="additions text" title="Notifications">
+=======
+        <div className="toast-stack" role="region" data-toast-count={toastStackMetadata.countLabel} aria-live="polite" aria-atomic="false" aria-label="Notifications" aria-relevant="additions text" title="Notifications">
+>>>>>>> aa64bea1 (Add title hint to toast notification region)
           {toasts.map((toast) => (
             <Toast
               key={toast.id}
