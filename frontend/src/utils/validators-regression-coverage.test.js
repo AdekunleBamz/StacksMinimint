@@ -47,3 +47,9 @@ describe('token id decimals', () => {
     expect(isValidTokenId('3.14')).toBe(false)
   })
 })
+
+describe('mint count coercion', () => {
+  it('accepts numeric string mint counts', () => {
+    expect(isValidMintCount('2')).toBe(true)
+  })
+})
