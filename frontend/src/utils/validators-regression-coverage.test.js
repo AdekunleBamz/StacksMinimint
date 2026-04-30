@@ -474,3 +474,9 @@ describe('positive finite lower bound', () => {
     expect(isPositiveFinite(0)).toBe(false)
   })
 })
+
+describe('positive finite infinity handling', () => {
+  it('rejects infinity values', () => {
+    expect(isPositiveFinite(Infinity)).toBe(false)
+  })
+})
