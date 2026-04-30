@@ -210,3 +210,9 @@ describe('listing price input type', () => {
     expect(isValidListingPrice('price')).toBe(false)
   })
 })
+
+describe('bid amount coercion', () => {
+  it('accepts decimal string bid amounts', () => {
+    expect(isValidBidAmount('1.25')).toBe(true)
+  })
+})
