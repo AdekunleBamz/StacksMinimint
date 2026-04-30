@@ -270,3 +270,9 @@ describe('mint batch upper bound', () => {
     expect(isValidMintBatch(10)).toBe(true)
   })
 })
+
+describe('mint batch overflow', () => {
+  it('rejects mint batch values above ten', () => {
+    expect(isValidMintBatch(11)).toBe(false)
+  })
+})
