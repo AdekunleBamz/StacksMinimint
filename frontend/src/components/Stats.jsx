@@ -121,7 +121,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
             {safeRecentActivityCount} {receiptLabel}
           </span>
         </div>
-        <div className="stats__timestamp" aria-live="polite">
+        <div className="stats__timestamp" aria-live="polite" aria-atomic="true">
           Last updated:{' '}
           <time dateTime={lastUpdated.toISOString()} title="Last contract snapshot update">
             {formatExactTime(lastUpdated.getTime())}
