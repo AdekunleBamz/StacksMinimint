@@ -94,7 +94,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
               data-copy-available={hasAccount ? 'true' : 'false'}
               data-account-length={String(accountLength)}
               onClick={handleCopy}
-              title={normalizedAccount}
+              title={`Copy wallet address: ${normalizedAccount}`}
               aria-label="Copy wallet address to clipboard"
               aria-describedby="header-wallet-status"
             >
