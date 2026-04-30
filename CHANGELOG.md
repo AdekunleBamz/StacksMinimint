@@ -18,7 +18,7 @@ Keep entries concise and grouped by user impact.
 - `isBlank` string utility to test for null/undefined/whitespace-only values
 - `slugify` string utility for converting display text to URL-friendly slugs
 - `pluralize` string utility for count-based singular/plural word selection
-- `truncateMiddle` re-exported from the utils barrel for consistent imports
+- `truncateMiddle` re-export from the utils barrel for consistent imports
 - `getCardAccent` now includes a `hue` field in its return value
 - `getContractExplorerUrl` function in `contract.js` for linking to the deployed contract
 - `isActive` getter on the `createFocusTrap` returned object for introspection
