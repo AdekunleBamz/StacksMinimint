@@ -96,6 +96,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
     <section
       className="stats"
       aria-labelledby="stats-title"
+      aria-describedby="stats-subtitle"
       title="Collection statistics and mint readiness"
       data-last-updated-iso={lastUpdated.toISOString()}
       data-state-tone={collectionState.tone}
@@ -103,7 +104,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       data-recent-activity-count={String(safeRecentActivityCount)}
     >
       <h2 className="stats__title" id="stats-title">Collection Stats</h2>
-      <p className="stats__subtitle">Supply, pricing, and wallet limits stay visible while you prepare each mint.</p>
+      <p className="stats__subtitle" id="stats-subtitle">Supply, pricing, and wallet limits stay visible while you prepare each mint.</p>
 
       <div className="stats__headline">
         <span
