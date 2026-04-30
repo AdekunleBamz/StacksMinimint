@@ -3,4 +3,4 @@
 Track hub contract version and deployment txid in the same release record.
 Keeping both values together speeds rollback decisions.
 
-Store the deployment transaction link beside the hub version in every handoff note.
+Store the deployment transaction link beside hub version and deployer address in every handoff note.
