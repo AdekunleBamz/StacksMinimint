@@ -94,15 +94,10 @@ export function RecentMints({ items = [] }) {
   }
 
   return (
-      <section className="recent-mints" aria-label="Recent mints" title="Recent wallet mint submissions" data-state="ready" data-count={String(recentMints.length)} aria-live="polite" aria-atomic="true">
+      <section className="recent-mints" aria-label="Recent mints" aria-describedby="recent-mints-subtitle" title="Recent wallet mint submissions" data-state="ready" data-count={String(recentMints.length)} aria-live="polite" aria-atomic="true">
         <h2 className="recent-mints__title">Recent Mints</h2>
-<<<<<<< HEAD
-      <p className="recent-mints__subtitle" title="Recent activity updates after wallet submission">Fresh activity from this browser appears here as soon as a wallet submission is sent.</p>
+      <p className="recent-mints__subtitle" id="recent-mints-subtitle" title="Recent activity updates after wallet submission">Fresh activity from this browser appears here as soon as a wallet submission is sent.</p>
       <div className="recent-mints__list" role="list" aria-label="Recent mint activity" title="Recent mint activity">
-=======
-      <p className="recent-mints__subtitle" title="Recent activity updates after wallet submission">Fresh activity from this browser appears here as soon as a wallet submission is sent.</p>
-      <div className="recent-mints__list" role="list" aria-label="Recent mint activity">
->>>>>>> d1bef421 (Add title hint to recent mints subtitle)
         {recentMints.map((mint) => {
           const timestampMs = normalizeMintTimestamp(mint.timestamp)
           const txId = getRecentMintTxId(mint)
@@ -113,11 +108,7 @@ export function RecentMints({ items = [] }) {
           return (
             <div key={mintKey} className="mint-item" role="listitem" data-token-state={isPendingToken ? 'pending' : 'minted'} aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
-<<<<<<< HEAD
                 <span title={`Token status ${tokenLabel}`} aria-hidden="true">{tokenLabel}</span>
-=======
-                <span title={`Token status ${tokenLabel}`} aria-hidden="true">{tokenLabel}</span>
->>>>>>> 668b9aed (Hide decorative token badge text from screen readers)
               </div>
               <div className="mint-item__info">
                 <span className="mint-item__address">
