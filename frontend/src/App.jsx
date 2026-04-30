@@ -104,7 +104,7 @@ function App() {
     <ErrorBoundary>
       <div className="app" data-connection-state={connectionState}>
         <div className="page-load-bar" aria-hidden="true"></div>
-        <a className="skip-link" href="#main-content">
+        <a className="skip-link" href="#main-content" title="Skip directly to the minting dashboard">
           Skip to minting dashboard
         </a>
         <Header
