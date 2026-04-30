@@ -26,6 +26,10 @@ export function normalizeToastDuration(duration, fallback = TOAST_DURATION) {
 }
 
 export function trimToastQueue(nextToasts, maxToasts = MAX_TOASTS) {
+  if (maxToasts <= 0) {
+    return { trimmedToasts: [], removedToasts: nextToasts }
+  }
+
   if (nextToasts.length <= maxToasts) {
     return { trimmedToasts: nextToasts, removedToasts: [] }
   }
