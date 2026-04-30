@@ -57,4 +57,6 @@ Copy `.env.example` to `.env` and configure:
 
 ## License
 
+Frontend assets and code follow the same MIT license as the repository root.
+
 MIT
