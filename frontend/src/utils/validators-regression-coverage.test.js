@@ -288,3 +288,9 @@ describe('rarity tier acceptance', () => {
     expect(isValidRarityTier('common')).toBe(true)
   })
 })
+
+describe('rarity tier casing', () => {
+  it('rejects uppercase rarity tiers', () => {
+    expect(isValidRarityTier('COMMON')).toBe(false)
+  })
+})
