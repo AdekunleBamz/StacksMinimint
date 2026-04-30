@@ -90,7 +90,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
             </svg>
           </button>
         </div>
-        <div id={bodyId} className="modal__body" data-has-body={hasBody ? 'true' : 'false'} aria-live="polite">
+        <div id={bodyId} className="modal__body" data-has-body={hasBody ? 'true' : 'false'} aria-live="polite" aria-atomic="true">
           {children}
         </div>
       </div>
