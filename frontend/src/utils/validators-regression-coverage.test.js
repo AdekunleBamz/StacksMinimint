@@ -522,3 +522,9 @@ describe('explorer url trimming', () => {
     expect(isValidExplorerUrl('  https://explorer.stacks.co/txid/0xabc  ')).toBe(true)
   })
 })
+
+describe('explorer url secure scheme requirement', () => {
+  it('rejects non-https explorer urls', () => {
+    expect(isValidExplorerUrl('http://explorer.stacks.co')).toBe(false)
+  })
+})
