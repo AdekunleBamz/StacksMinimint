@@ -82,7 +82,7 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
    ```bash
    npm run scripts:install
    ```
-   > **Note**: This command expects a `scripts/package.json`. If your checkout does not include the automation package yet, skip this step.
+   > **Note**: This command expects a `scripts/package.json`. If your checkout does not include the automation package yet, skip this step because it is not required for contracts or frontend development.
 
 4. **Environment Configuration:**
    ```bash
