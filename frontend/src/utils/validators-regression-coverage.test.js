@@ -300,3 +300,9 @@ describe('rarity tier whitelist', () => {
     expect(isValidRarityTier('mythic')).toBe(false)
   })
 })
+
+describe('reveal delay lower bound', () => {
+  it('accepts zero reveal delay', () => {
+    expect(isValidRevealDelay(0)).toBe(true)
+  })
+})
