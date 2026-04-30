@@ -55,7 +55,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 - JavaScript: follow the existing module and naming patterns used in `frontend/src`.
 - Clarity: adhere to the coding patterns in `contracts/`.
-- Prefer named exports over default exports in utility modules.
+- Prefer named exports over default exports in utility modules, unless a framework requirement dictates otherwise.
 - Guard function arguments defensively at module boundaries.
 
 ---
