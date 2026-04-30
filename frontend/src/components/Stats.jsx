@@ -76,7 +76,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
 
   if (isLoading) {
     return (
-      <section className="stats" data-loading="true" aria-busy="true">
+      <section className="stats" data-loading="true" aria-busy="true" role="status" aria-live="polite">
         <h2 className="stats__title">Collection Stats</h2>
         <p className="stats__subtitle">Supply, pricing, and wallet limits at a glance while data loads.</p>
         <div className="stats__grid" role="list" aria-label="Loading collection stats">
