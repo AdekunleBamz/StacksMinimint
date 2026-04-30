@@ -378,3 +378,9 @@ describe('max per wallet coercion', () => {
     expect(isValidMaxPerWallet('2')).toBe(true)
   })
 })
+
+describe('max per wallet lower bound', () => {
+  it('rejects zero max per wallet values', () => {
+    expect(isValidMaxPerWallet(0)).toBe(false)
+  })
+})
