@@ -117,14 +117,9 @@ function App() {
         <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'} title="StacksMinimint main dashboard">
           <section className="hero">
             <div className="hero__content">
-<<<<<<< HEAD
               <span className="hero__badge" title="Built around the SIP-009 NFT standard">SIP-009</span>
               <h1 className="hero__title" title="StacksMinimint NFT minting app">StacksMinimint</h1>
-=======
-              <span className="hero__badge">SIP-009</span>
-              <h1 className="hero__title" title="StacksMinimint NFT minting app">StacksMinimint</h1>
->>>>>>> 8506a2ef (Add title hint to hero heading)
-              <p className="hero__subtitle">
+              <p className="hero__subtitle" title="Wallet-first NFT minting with on-chain feedback">
                 A wallet-first NFT minting flow with clear on-chain feedback and collection context
               </p>
             </div>
