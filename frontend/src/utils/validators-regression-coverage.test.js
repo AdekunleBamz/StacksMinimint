@@ -216,3 +216,9 @@ describe('bid amount coercion', () => {
     expect(isValidBidAmount('1.25')).toBe(true)
   })
 })
+
+describe('bid amount lower bound', () => {
+  it('rejects negative bid amounts', () => {
+    expect(isValidBidAmount(-3)).toBe(false)
+  })
+})
