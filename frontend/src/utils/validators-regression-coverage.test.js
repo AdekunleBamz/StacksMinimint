@@ -456,3 +456,9 @@ describe('mint price microstx integer requirement', () => {
     expect(isValidMintPriceMicrostx('1.2')).toBe(false)
   })
 })
+
+describe('mint price microstx negatives', () => {
+  it('rejects negative microstx mint prices', () => {
+    expect(isValidMintPriceMicrostx(-100)).toBe(false)
+  })
+})
