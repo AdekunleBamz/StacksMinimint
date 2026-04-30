@@ -71,7 +71,7 @@
 .card--clickable:focus-visible {
   outline: none;
   border-color: #c4b5fd;
-  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.38);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.45);
 }
 
 /* Card sections */
