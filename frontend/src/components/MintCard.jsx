@@ -296,11 +296,7 @@ export function MintCard({
             )}
           </button>
 
-<<<<<<< HEAD
           <p id="mintActionMessage" className="mint-card__helper" data-helper-state={mintState} role="status" aria-live="polite" aria-atomic="true" title={mintActionMessage}>
-=======
-          <p id="mintActionMessage" className="mint-card__helper" data-helper-state={mintState} role="status" aria-live="polite" aria-atomic="true">
->>>>>>> c2060609 (Expose mint helper as status region)
             {mintActionMessage}
           </p>
 
