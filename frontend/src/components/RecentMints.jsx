@@ -113,7 +113,11 @@ export function RecentMints({ items = [] }) {
           return (
             <div key={mintKey} className="mint-item" role="listitem" data-token-state={isPendingToken ? 'pending' : 'minted'} aria-label={`Mint ${tokenLabel} by ${formatAddress(minterAddress)}`}>
               <div className="mint-item__avatar">
-                <span title={`Token status ${tokenLabel}`} aria-label={`Token ${tokenLabel}`}>{tokenLabel}</span>
+<<<<<<< HEAD
+                <span title={`Token status ${tokenLabel}`} aria-hidden="true">{tokenLabel}</span>
+=======
+                <span title={`Token status ${tokenLabel}`} aria-hidden="true">{tokenLabel}</span>
+>>>>>>> 668b9aed (Hide decorative token badge text from screen readers)
               </div>
               <div className="mint-item__info">
                 <span className="mint-item__address">
