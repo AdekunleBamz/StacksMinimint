@@ -1,6 +1,6 @@
 # StacksMinimint Frontend
 
-A React-based frontend for the StacksMinimint NFT minting platform.
+A Vite-powered React frontend for the StacksMinimint NFT minting platform.
 
 ## Quick Start
 
