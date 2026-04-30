@@ -300,3 +300,9 @@
     transform: none;
   }
 }
+
+@media (pointer: coarse) {
+  .header__address-wrapper {
+    min-height: 2.75rem;
+  }
+}
