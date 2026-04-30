@@ -5,6 +5,7 @@
 | Version | Supported |
 |---------|-----------|
 | latest `main` | ✅ |
+| older release branches | ❌ |
 
 ## Reporting a Vulnerability
 
