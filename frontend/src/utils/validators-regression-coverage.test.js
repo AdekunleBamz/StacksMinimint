@@ -138,3 +138,9 @@ describe('block height integer requirement', () => {
     expect(isValidBlockHeight('12.2')).toBe(false)
   })
 })
+
+describe('collection name normalization', () => {
+  it('accepts collection names with surrounding spaces', () => {
+    expect(isValidCollectionName('  Mini Mint  ')).toBe(true)
+  })
+})
