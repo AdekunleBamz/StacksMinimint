@@ -153,7 +153,7 @@ export function Gallery() {
 
   if (nfts.length === 0) {
     return (
-      <section className="gallery">
+      <section className="gallery" aria-label="NFT Collection Gallery">
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
         </div>
@@ -168,7 +168,7 @@ export function Gallery() {
 
   if (filteredNfts.length === 0 && hasSearch) {
     return (
-      <section className="gallery">
+      <section className="gallery" aria-label="NFT Collection Gallery">
         <div className="gallery__header">
           <h2 className="gallery__title">Collection Gallery</h2>
           <div className="gallery__search">
@@ -239,7 +239,7 @@ export function Gallery() {
   }
 
   return (
-    <section className="gallery">
+    <section className="gallery" aria-label="NFT Collection Gallery">
       <div className="gallery__header">
         <h2 className="gallery__title">Collection Gallery</h2>
         <div className="gallery__search">
