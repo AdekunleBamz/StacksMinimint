@@ -123,7 +123,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
         </div>
         <div className="stats__timestamp" aria-live="polite">
           Last updated:{' '}
-          <time dateTime={lastUpdated.toISOString()} title="Last contract snapshot update">
+          <time dateTime={lastUpdated.toISOString()} title={formatExactTime(lastUpdated.getTime())}>
             {formatExactTime(lastUpdated.getTime())}
           </time>
         </div>
