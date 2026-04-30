@@ -126,3 +126,9 @@ describe('block height lower bound', () => {
     expect(isValidBlockHeight(0)).toBe(true)
   })
 })
+
+describe('block height negatives', () => {
+  it('rejects negative block heights', () => {
+    expect(isValidBlockHeight(-10)).toBe(false)
+  })
+})
