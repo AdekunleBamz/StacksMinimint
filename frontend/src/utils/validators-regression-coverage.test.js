@@ -354,3 +354,9 @@ describe('token symbol minimum length', () => {
     expect(isValidTokenSymbol('A')).toBe(false)
   })
 })
+
+describe('mint price lower bound', () => {
+  it('accepts zero mint prices', () => {
+    expect(isValidMintPrice(0)).toBe(true)
+  })
+})
