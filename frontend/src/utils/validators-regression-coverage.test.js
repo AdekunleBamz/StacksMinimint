@@ -402,3 +402,9 @@ describe('token id in supply lower bound', () => {
     expect(isValidTokenIdInSupply(0)).toBe(false)
   })
 })
+
+describe('token id in supply overflow', () => {
+  it('rejects token id values above max supply', () => {
+    expect(isValidTokenIdInSupply(10001)).toBe(false)
+  })
+})
