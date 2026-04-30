@@ -312,4 +312,8 @@
   .header__btn {
     min-height: 2.75rem;
   }
+
+  .header__chain {
+    min-height: 2.5rem;
+  }
 }
