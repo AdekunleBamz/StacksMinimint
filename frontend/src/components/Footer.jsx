@@ -123,7 +123,7 @@ export function Footer() {
         <p className="footer__copyright" title={`© ${CURRENT_YEAR} StacksMinimint`}>
           © {CURRENT_YEAR} StacksMinimint. Open source under MIT.
         </p>
-        <p className="footer__credit">
+        <p className="footer__credit" title="StacksMinimint mission statement">
           Built for Stacks NFT collections and creators
         </p>
       </div>
