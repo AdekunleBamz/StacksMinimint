@@ -108,3 +108,9 @@ describe('metadata version coercion', () => {
     expect(isValidMetadataVersion('1')).toBe(true)
   })
 })
+
+describe('metadata version minimum', () => {
+  it('rejects zero metadata version values', () => {
+    expect(isValidMetadataVersion(0)).toBe(false)
+  })
+})
