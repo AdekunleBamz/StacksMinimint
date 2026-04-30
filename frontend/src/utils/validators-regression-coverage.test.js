@@ -504,3 +504,9 @@ describe('trait count lower bound', () => {
     expect(isValidTraitCount(0)).toBe(true)
   })
 })
+
+describe('trait count negatives', () => {
+  it('rejects negative trait count values', () => {
+    expect(isValidTraitCount(-1)).toBe(false)
+  })
+})
