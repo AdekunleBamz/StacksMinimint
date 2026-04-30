@@ -438,3 +438,9 @@ describe('token uri scheme casing', () => {
     expect(isValidTokenURI('IPFS://bafybeigdyrzt7mtr5n5h2xjv4gxn4q3du')).toBe(true)
   })
 })
+
+describe('token uri scheme validation', () => {
+  it('rejects ftp token uri schemes', () => {
+    expect(isValidTokenURI('ftp://example.com/metadata.json')).toBe(false)
+  })
+})
