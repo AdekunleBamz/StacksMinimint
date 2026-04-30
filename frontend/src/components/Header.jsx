@@ -78,6 +78,7 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
           id="header-wallet-status"
           role="status"
           aria-live="polite"
+          aria-atomic="true"
           title={walletStatus.title}
         >
           {walletStatus.text}
