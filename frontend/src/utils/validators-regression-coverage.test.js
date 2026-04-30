@@ -276,3 +276,9 @@ describe('mint batch overflow', () => {
     expect(isValidMintBatch(11)).toBe(false)
   })
 })
+
+describe('mint batch minimum', () => {
+  it('rejects zero mint batch values', () => {
+    expect(isValidMintBatch(0)).toBe(false)
+  })
+})
