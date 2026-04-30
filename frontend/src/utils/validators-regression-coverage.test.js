@@ -426,3 +426,9 @@ describe('wallet limit minimum', () => {
     expect(isValidWalletLimit(0)).toBe(false)
   })
 })
+
+describe('token uri trimming', () => {
+  it('accepts trimmed https token uri values', () => {
+    expect(isValidTokenURI('  https://example.com/meta.json  ')).toBe(true)
+  })
+})
