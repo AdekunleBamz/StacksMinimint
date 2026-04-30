@@ -27,6 +27,7 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
           className={`progress__fill progress__fill--${safeColor}`}
           data-percentage={formattedPercentage}
           data-valuenow={String(boundedValue)}
+          title={`${formattedPercentage}% complete`}
           style={{ width: `${percentage}%` }}
           role="progressbar"
           aria-label={ariaLabel}
