@@ -168,3 +168,9 @@ describe('transaction id prefix requirement', () => {
     expect(isValidTxId('f'.repeat(64))).toBe(false)
   })
 })
+
+describe('transaction id length', () => {
+  it('rejects tx ids shorter than 64 hex chars', () => {
+    expect(isValidTxId(`0x${'f'.repeat(63)}`)).toBe(false)
+  })
+})
