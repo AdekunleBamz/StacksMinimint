@@ -1,3 +1,3 @@
 # Operations Notes
 
-This folder tracks short runbook notes for recurring maintenance, release safety checks, and incident response reminders.
+This folder tracks short runbook notes for recurring maintenance, release safety checks, incident response reminders, and support handoff consistency.
