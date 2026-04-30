@@ -336,3 +336,9 @@ describe('provenance hash whitespace', () => {
     expect(isValidProvenanceHash(`aaaa aaaa${'a'.repeat(56)}`)).toBe(false)
   })
 })
+
+describe('token symbol upper bound length', () => {
+  it('accepts eight-character uppercase token symbols', () => {
+    expect(isValidTokenSymbol('ABCDEFGH')).toBe(true)
+  })
+})
