@@ -90,3 +90,9 @@ describe('royalty bounds', () => {
     expect(isValidRoyaltyBps(10000)).toBe(true)
   })
 })
+
+describe('royalty upper bound', () => {
+  it('rejects royalty values above maximum', () => {
+    expect(isValidRoyaltyBps(10001)).toBe(false)
+  })
+})
