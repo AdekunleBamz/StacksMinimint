@@ -62,4 +62,4 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ## Security
 
-Please do **not** open public issues for security vulnerabilities. Review [SECURITY.md](./SECURITY.md) for the responsible disclosure process.
+Please do **not** open public issues for security vulnerabilities. Review [SECURITY.md](./SECURITY.md) for the responsible disclosure process and include reproduction details privately.
