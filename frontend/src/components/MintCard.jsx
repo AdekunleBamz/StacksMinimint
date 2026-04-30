@@ -210,12 +210,13 @@ export function MintCard({
 
       {!isConnected ? (
         <div className="mint-card__connect" aria-live="polite">
-          <p>Connect your Stacks wallet to start minting here.</p>
+          <p id="mint-card-connect-note">Connect your Stacks wallet to start minting here.</p>
           <button
             type="button"
             className="mint-card__btn"
             onClick={onConnect}
             aria-label={connectButtonA11y.label}
+            aria-describedby="mint-card-connect-note"
             aria-busy={isConnecting}
             disabled={isConnecting}
             title={connectButtonA11y.title}
