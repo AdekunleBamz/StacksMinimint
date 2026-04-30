@@ -228,3 +228,9 @@ describe('bid amount input type', () => {
     expect(isValidBidAmount('bid')).toBe(false)
   })
 })
+
+describe('owner address trimming', () => {
+  it('accepts uppercase owner addresses with surrounding spaces', () => {
+    expect(isValidOwnerAddress('  SP5K2RHMSBH4PAP4PGX77MCVNK1ZEED07CWX9TJT  ')).toBe(true)
+  })
+})
