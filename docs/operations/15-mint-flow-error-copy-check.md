@@ -10,3 +10,5 @@ Include the transaction id in bug notes whenever the failing action generated on
 Capture the raw wallet error text before translating it into user-facing copy so fixes stay source-accurate.
 
 Escalate when displayed error copy omits actionable recovery steps for wallet confirmation failures.
+
+Verification evidence: preserve the untranslated wallet error payload together with the displayed helper copy.
