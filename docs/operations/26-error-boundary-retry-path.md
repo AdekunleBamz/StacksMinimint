@@ -4,3 +4,5 @@ Check that error boundaries expose a visible retry action after recoverable fail
 Users should not need to refresh the entire app for transient errors.
 
 Verify retry actions restore focus to a predictable control and clear stale error banners for keyboard-only users.
+
+Confirm retry returns focus to a usable control so keyboard flow stays intact.
