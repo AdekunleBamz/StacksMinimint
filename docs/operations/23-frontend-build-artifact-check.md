@@ -10,3 +10,5 @@ Compare build artifact hash output with CI logs before deployment approval.
 Store the build timestamp and commit hash from artifact metadata to simplify rollback verification later.
 
 Escalate if artifact metadata is missing, because rollback confidence depends on build traceability.
+
+Verification evidence: capture artifact checksum and storage location used for rollback readiness.
