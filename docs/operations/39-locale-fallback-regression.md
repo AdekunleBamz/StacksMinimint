@@ -12,3 +12,5 @@ Verify fallback copy in at least one non-English locale during smoke checks to c
 Escalate locale regressions when fallback keys display raw token names in production previews.
 
 Verification evidence: attach localized screenshots and fallback-key behavior from the same test run.
+
+Follow-up cadence: re-check locale fallback behavior at least once per translation release cycle.
