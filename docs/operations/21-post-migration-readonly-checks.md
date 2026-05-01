@@ -10,3 +10,5 @@ Run read-only checks with a non-owner wallet to confirm write paths remain block
 Keep a snapshot of read-only call outputs from before migration so post-migration drift is easy to compare.
 
 Escalate any post-migration read-only mismatch that persists after reindex completion.
+
+Verification evidence: keep pre-migration and post-migration read-only call outputs in the same comparison document.
