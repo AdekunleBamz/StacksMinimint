@@ -6,3 +6,5 @@ Most production-only regressions trace back to overlooked env changes.
 Review env diffs against production defaults, and ensure sensitive values stay redacted in screenshots and logs.
 
 Redact secret values while still noting key presence when reviewing env differences.
+
+Review variable renames in both `.env` and deployment docs to avoid stale key names after refactors.
