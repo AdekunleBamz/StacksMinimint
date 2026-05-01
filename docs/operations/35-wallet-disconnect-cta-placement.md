@@ -8,3 +8,5 @@ Ensure the disconnect call-to-action is visible within the initial viewport on c
 Validate the disconnect action remains reachable on narrow and zoomed layouts.
 
 Verify disconnect CTA text remains visible at 200% zoom so account controls stay discoverable.
+
+Escalate if disconnect controls become unreachable with keyboard-only navigation on desktop or tablet.
