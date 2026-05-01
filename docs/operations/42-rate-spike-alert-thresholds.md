@@ -8,3 +8,5 @@ Document baseline and spike thresholds per environment, plus owner-reviewed exce
 Note the baseline window used for comparison when escalating rate spike alerts.
 
 Revisit thresholds after major traffic campaigns because baseline mint velocity can shift quickly.
+
+Escalate when alert thresholds trigger noise for a full day without corresponding chain traffic changes.
