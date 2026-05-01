@@ -8,3 +8,5 @@ Store the deployment transaction link beside hub version and deployer address in
 Use the same release artifact used for deployment when validating the pinned hub version.
 
 During hotfix releases, verify the hub pin in both `.env` and deployment summary before greenlighting QA.
+
+Escalate if the hub pin changes without a corresponding deployment reference in release notes.
