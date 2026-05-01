@@ -12,3 +12,5 @@ Include the exact contract principal copied from deployment output to reduce ali
 Escalate immediately when alias values differ between environments after cache invalidation.
 
 Verification evidence: include a screenshot of updated aliases and the deployment artifact snippet used for the release.
+
+Follow-up cadence: review alias alignment after every deployment and again after any emergency hotfix.
