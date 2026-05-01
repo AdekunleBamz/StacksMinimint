@@ -12,3 +12,5 @@ When values differ, post both the on-chain fee and rendered fee in the release t
 Escalate if fee text and wallet confirmation differ after a full page refresh on the same commit.
 
 Verification evidence: preserve one screenshot of UI fee copy and one wallet prompt showing the same amount.
+
+Follow-up cadence: repeat fee consistency checks after any contract upgrade or wallet extension update.
