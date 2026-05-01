@@ -8,3 +8,5 @@ Snapshot key read-only responses before and after migration with block height ma
 Run read-only checks with a non-owner wallet to confirm write paths remain blocked.
 
 Keep a snapshot of read-only call outputs from before migration so post-migration drift is easy to compare.
+
+Escalate any post-migration read-only mismatch that persists after reindex completion.
