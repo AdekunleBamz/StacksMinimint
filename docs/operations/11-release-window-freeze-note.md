@@ -6,3 +6,5 @@ Short freeze windows reduce accidental drift while smoke tests are running.
 Post freeze and thaw times in UTC and local release-owner time to keep reviewers aligned.
 
 Always record freeze start and end times with timezone to avoid handoff confusion.
+
+Call out any exception approvals explicitly with approver name and expiry date before unfreezing merges.
