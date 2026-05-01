@@ -10,3 +10,5 @@ Include one mobile viewport check before marking preview validation complete.
 If preview output differs from local expectations, attach the exact preview URL and commit SHA in the release checklist.
 
 Escalate preview regressions that reproduce on both preview and local builds from the same commit.
+
+Verification evidence: attach the preview link and a screenshot of the commit SHA banner from the hosting dashboard.
