@@ -10,3 +10,5 @@ If mismatch persists, disconnect and reconnect the wallet before retrying.
 Log the chain ID shown by the wallet and app badge in the same ticket comment so retries use the right target.
 
 Escalate to wallet support if network mismatch reappears after a hard reconnect and clean browser restart.
+
+Verification evidence: attach one screenshot showing wallet network selector and app network badge in the same frame.
