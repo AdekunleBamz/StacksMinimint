@@ -12,3 +12,5 @@ Map each release note bullet to a concrete contract function so QA can quickly v
 Escalate release notes when mapped contract changes do not have matching QA evidence links.
 
 Verification evidence: add a URL to the exact contract diff for each release note item.
+
+Follow-up cadence: sync release-note mappings again during final go/no-go review.
