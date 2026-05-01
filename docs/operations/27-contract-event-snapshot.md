@@ -6,3 +6,5 @@ Event diffs often highlight behavior changes before full incidents form.
 Store a representative event payload sample with field names whenever contract event formats change.
 
 Store the observed block height with each event snapshot for faster replay debugging.
+
+Attach block height and transaction id with each snapshot so later audits can replay the exact event window.
