@@ -10,3 +10,5 @@ Refresh checklist links immediately after template edits to avoid stale guidance
 Confirm required checklist sections still match PR template names before each pre-merge review.
 
 Escalate pre-merge checklist mismatches if required controls differ from branch protection rules.
+
+Verification evidence: attach the filled checklist snapshot used during the latest merge gate review.
