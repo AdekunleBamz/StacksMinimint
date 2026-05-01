@@ -12,3 +12,5 @@ Run `clarinet check` against the exact contract files referenced by the tag note
 Escalate when `clarinet check` passes locally but fails in CI for the same tag candidate.
 
 Verification evidence: paste the exact `clarinet check` output snippet tied to the release candidate commit.
+
+Follow-up cadence: rerun contract checks before every tag move or retag action.
