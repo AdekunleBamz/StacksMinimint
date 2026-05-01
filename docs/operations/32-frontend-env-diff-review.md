@@ -4,3 +4,5 @@ Review frontend environment diffs before tagging releases.
 Most production-only regressions trace back to overlooked env changes.
 
 Review env diffs against production defaults, and ensure sensitive values stay redacted in screenshots and logs.
+
+Redact secret values while still noting key presence when reviewing env differences.
