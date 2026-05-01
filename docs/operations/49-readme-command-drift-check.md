@@ -8,3 +8,5 @@ Re-run documented commands quarterly and log drift items with fix owners in the 
 Re-run documented commands from a fresh clone at least once per month.
 
 When command docs drift, update both root and frontend sections in the same pull request to keep onboarding reliable.
+
+Escalate command drift that impacts setup steps for first-time contributors.
