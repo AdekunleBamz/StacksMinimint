@@ -12,3 +12,5 @@ Open one txid link and one address link from the same session to confirm both re
 Escalate if explorer URLs resolve to different networks for the same transaction context.
 
 Verification evidence: include one explorer URL per type (txid, token, and address) from the same test session.
+
+Follow-up cadence: perform explorer network validation after each environment switch.
