@@ -8,3 +8,5 @@ Include severity, next action, ETA, and customer-facing workaround in every supp
 Always include follow-up owner and expected update time in support handoff notes.
 
 Mention unresolved blockers explicitly in the handoff summary so the next owner can prioritize triage immediately.
+
+Escalate handoffs that omit pending customer replies when ownership is rotating across shifts.
