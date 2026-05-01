@@ -8,3 +8,5 @@ Assign a named owner and reviewer to each checklist block before release day beg
 Rotate checklist reviewers weekly so ownership is shared and backup context stays fresh.
 
 Reassign checklist ownership before planned leave periods to prevent review bottlenecks.
+
+Escalate when ownership gaps appear in critical checklists during active release windows.
