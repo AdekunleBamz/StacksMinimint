@@ -8,3 +8,5 @@ Pair the version pin with full contract principal and deployment date to avoid c
 Reference the exact release tag when confirming the pinned core contract version.
 
 Keep the pinned core contract ID in release notes and environment config identical, including version suffixes.
+
+Escalate if pinned core contract diverges between frontend constants and deployment records.
