@@ -6,3 +6,5 @@ Command drift is one of the fastest ways to block contributors.
 Re-run documented commands quarterly and log drift items with fix owners in the release prep notes.
 
 Re-run documented commands from a fresh clone at least once per month.
+
+When command docs drift, update both root and frontend sections in the same pull request to keep onboarding reliable.
