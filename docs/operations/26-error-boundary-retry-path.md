@@ -10,3 +10,5 @@ Confirm retry returns focus to a usable control so keyboard flow stays intact.
 Capture the retry path with a short screen recording when possible so support can mirror the exact sequence.
 
 Escalate when retry action loops users back to the same boundary without new diagnostic details.
+
+Verification evidence: include retry button behavior before and after the failure state clears.
