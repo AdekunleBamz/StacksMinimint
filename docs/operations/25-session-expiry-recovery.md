@@ -12,3 +12,5 @@ After recovery, verify the same wallet can mint again without a full page reload
 Escalate if session recovery repeatedly drops pending transaction state before confirmation completes.
 
 Verification evidence: document the recovered session timestamp and the first successful action afterward.
+
+Follow-up cadence: verify session recovery behavior after authentication and wallet connector updates.
