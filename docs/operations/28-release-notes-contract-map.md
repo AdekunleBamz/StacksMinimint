@@ -8,3 +8,5 @@ Map every release note item to either a contract txid or frontend commit, and in
 Include source contract file path in release notes mapping for traceability.
 
 Map each release note bullet to a concrete contract function so QA can quickly verify behavioral impact.
+
+Escalate release notes when mapped contract changes do not have matching QA evidence links.
