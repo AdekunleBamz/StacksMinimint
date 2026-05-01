@@ -12,3 +12,5 @@ Mention unresolved blockers explicitly in the handoff summary so the next owner 
 Escalate handoffs that omit pending customer replies when ownership is rotating across shifts.
 
 Verification evidence: attach the final handoff summary message sent at shift change.
+
+Follow-up cadence: revisit support handoff summaries after every major incident retrospective.
