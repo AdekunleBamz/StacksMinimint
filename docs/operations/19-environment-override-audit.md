@@ -8,3 +8,5 @@ Track temporary environment overrides with an owner, planned cleanup date, and l
 After troubleshooting, remove temporary overrides and record the cleanup in release notes.
 
 Flag temporary overrides with owner and expiration so they do not survive beyond the release window.
+
+Escalate unknown environment overrides that lack ticket references or expiration notes.
