@@ -8,3 +8,5 @@ Tag each smoke wallet with an owner, last successful verification date, and pref
 Keep one control wallet untouched so repeated smoke runs have a stable baseline.
 
 Retire a smoke wallet from rotation immediately after two consecutive unexplained failures.
+
+Escalate if more than one smoke wallet fails the same flow in a single release candidate run.
