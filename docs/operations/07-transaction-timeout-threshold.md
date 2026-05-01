@@ -12,3 +12,5 @@ Record the slowest observed confirmation time from the last three transactions b
 Escalate timeout incidents that exceed threshold in three consecutive attempts on healthy network status.
 
 Verification evidence: keep timestamped confirmation logs for each timeout sample used in threshold decisions.
+
+Follow-up cadence: revisit timeout thresholds after notable network congestion periods.
