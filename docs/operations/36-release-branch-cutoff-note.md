@@ -8,3 +8,5 @@ Write down the cutoff timestamp, active branch protections, and merge queue stat
 Pin the cutoff commit hash in the release thread so branch context stays explicit.
 
 Mark the cutoff timestamp in UTC in both release issue and chat to avoid timezone confusion.
+
+Escalate late cutoff updates that leave less than one full review cycle before branch freeze.
