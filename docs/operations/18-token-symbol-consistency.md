@@ -10,3 +10,5 @@ Compare symbol display across UI labels and contract-derived metadata before rel
 Confirm token symbol casing in UI badges and explorer links to prevent mixed-case release screenshots.
 
 Escalate symbol inconsistencies that appear in signed release assets to avoid post-release brand drift.
+
+Verification evidence: compare symbol rendering in header, mint panel, and explorer link labels.
