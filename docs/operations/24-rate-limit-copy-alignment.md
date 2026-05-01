@@ -12,3 +12,5 @@ When copy diverges, note whether backend limits changed first so copy updates do
 Escalate rate-limit copy mismatches that continue after backend config deploy and CDN cache refresh.
 
 Verification evidence: quote the exact backend limit value that supports the final UI copy.
+
+Follow-up cadence: re-verify copy alignment whenever rate-limit policy values change.
