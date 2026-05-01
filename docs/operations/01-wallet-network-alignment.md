@@ -12,3 +12,5 @@ Log the chain ID shown by the wallet and app badge in the same ticket comment so
 Escalate to wallet support if network mismatch reappears after a hard reconnect and clean browser restart.
 
 Verification evidence: attach one screenshot showing wallet network selector and app network badge in the same frame.
+
+Follow-up cadence: re-confirm this check at the start of every release candidate smoke run.
