@@ -12,3 +12,5 @@ If stake and claim are both tested, keep the same wallet for both actions to pre
 Escalate if cooldown behavior differs between identical stake flows on two wallets in the same block range.
 
 Verification evidence: log wallet address, stake txid, and claim txid when validating cooldown visibility.
+
+Follow-up cadence: repeat stake flow order validation whenever claim logic or cooldown UI changes.
