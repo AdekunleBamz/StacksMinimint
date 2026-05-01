@@ -10,3 +10,5 @@ Reserve one midweek smoke slot for hotfix validation outside release days.
 Include regional timezone labels in the schedule so globally distributed reviewers run smoke checks on time.
 
 Escalate schedule misses that happen twice in a month so staffing or timing can be corrected.
+
+Verification evidence: retain calendar invites or schedule screenshots for each completed weekly smoke run.
