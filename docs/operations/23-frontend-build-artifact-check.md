@@ -8,3 +8,5 @@ Confirm built assets reference current contract constants and expected network f
 Compare build artifact hash output with CI logs before deployment approval.
 
 Store the build timestamp and commit hash from artifact metadata to simplify rollback verification later.
+
+Escalate if artifact metadata is missing, because rollback confidence depends on build traceability.
