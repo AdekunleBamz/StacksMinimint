@@ -8,3 +8,5 @@ Run the stake, claim, and unstake path in that order and log transaction ids for
 When a step fails, restart from wallet connect to keep the flow order consistent.
 
 If stake and claim are both tested, keep the same wallet for both actions to preserve cooldown context.
+
+Escalate if cooldown behavior differs between identical stake flows on two wallets in the same block range.
