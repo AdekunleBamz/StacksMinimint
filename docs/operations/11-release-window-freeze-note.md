@@ -10,3 +10,5 @@ Always record freeze start and end times with timezone to avoid handoff confusio
 Call out any exception approvals explicitly with approver name and expiry date before unfreezing merges.
 
 Escalate freeze exceptions that are still open within one hour of planned cutoff.
+
+Verification evidence: store approval comments and timestamps for any freeze exception in the release issue.
