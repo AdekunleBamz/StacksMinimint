@@ -10,3 +10,5 @@ Record the recovery timestamp to verify the refreshed session actually took effe
 After recovery, verify the same wallet can mint again without a full page reload to confirm session health.
 
 Escalate if session recovery repeatedly drops pending transaction state before confirmation completes.
+
+Verification evidence: document the recovered session timestamp and the first successful action afterward.
