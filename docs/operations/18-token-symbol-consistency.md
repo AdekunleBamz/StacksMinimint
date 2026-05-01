@@ -6,3 +6,5 @@ Mismatch in symbol formatting can look like wrong-asset transactions.
 Check symbol casing and spacing in headers, receipts, and staking panels to prevent visual drift.
 
 Compare symbol display across UI labels and contract-derived metadata before release.
+
+Confirm token symbol casing in UI badges and explorer links to prevent mixed-case release screenshots.
