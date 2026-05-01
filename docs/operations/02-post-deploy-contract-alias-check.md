@@ -8,3 +8,5 @@ Record both previous and new alias values in the release thread before cache cle
 Cross-check aliases against the deployment artifact used in the same release window.
 
 Include the exact contract principal copied from deployment output to reduce alias typos during handoff.
+
+Escalate immediately when alias values differ between environments after cache invalidation.
