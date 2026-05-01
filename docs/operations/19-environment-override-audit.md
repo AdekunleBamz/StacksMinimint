@@ -10,3 +10,5 @@ After troubleshooting, remove temporary overrides and record the cleanup in rele
 Flag temporary overrides with owner and expiration so they do not survive beyond the release window.
 
 Escalate unknown environment overrides that lack ticket references or expiration notes.
+
+Verification evidence: note each override key, source ticket, and removal date in the audit log.
