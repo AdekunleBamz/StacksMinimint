@@ -8,3 +8,5 @@ When reconnect resolves the issue, log wallet extension version and browser name
 If reconnect still fails, refresh the page once before clearing local wallet session data.
 
 Ask the tester to close duplicate wallet extension popups before reconnecting to avoid stale session prompts.
+
+Escalate if reconnect fails in two browsers, which usually signals a wallet service or network issue.
