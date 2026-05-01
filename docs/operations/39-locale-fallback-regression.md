@@ -6,3 +6,5 @@ Broken fallback behavior often appears only in secondary languages.
 Test locale fallback behavior for both missing translation keys and unsupported locale codes in connected and disconnected wallet states.
 
 Validate at least one non-English locale before final regression sign-off.
+
+Verify fallback copy in at least one non-English locale during smoke checks to catch translation key drift.
