@@ -10,3 +10,5 @@ List the primary health dashboards up front when starting the post-release watch
 Log health checks at a consistent cadence during the observation window so trends are easy to compare.
 
 Escalate if health indicators degrade for longer than the planned observation window after release.
+
+Verification evidence: include metric snapshots from start, midpoint, and end of the health window.
