@@ -12,3 +12,5 @@ Note the queue length at incident start and after mitigation to confirm whether 
 Escalate queue spikes that sustain beyond one release window even after user-facing error rates normalize.
 
 Verification evidence: log queue depth samples at fixed intervals while mitigation is in progress.
+
+Follow-up cadence: rerun queue watch checks after every alert tuning change.
