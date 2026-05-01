@@ -12,3 +12,5 @@ Verify disconnect CTA text remains visible at 200% zoom so account controls stay
 Escalate if disconnect controls become unreachable with keyboard-only navigation on desktop or tablet.
 
 Verification evidence: capture keyboard tab order and focus visibility around disconnect controls.
+
+Follow-up cadence: re-validate disconnect CTA placement after header or navigation redesigns.
