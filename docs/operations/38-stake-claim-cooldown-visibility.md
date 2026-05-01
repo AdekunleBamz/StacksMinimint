@@ -12,3 +12,5 @@ When cooldown seems missing, confirm wallet and explorer timestamps are compared
 Escalate if claim cooldown countdown is absent while on-chain eligibility still shows pending.
 
 Verification evidence: log cooldown start and expected claim time using the same network clock source.
+
+Follow-up cadence: rerun cooldown visibility checks after staking rule or copy changes.
