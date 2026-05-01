@@ -4,3 +4,5 @@ Track major wallet extension updates around release windows.
 Provider updates can alter signing behavior without app code changes.
 
 Track extension auto-update channels, pinned versions, and browser support windows for every supported wallet.
+
+After extension auto-updates, rerun connect and disconnect flows before release approval.
