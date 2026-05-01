@@ -12,3 +12,5 @@ Revisit thresholds after major traffic campaigns because baseline mint velocity 
 Escalate when alert thresholds trigger noise for a full day without corresponding chain traffic changes.
 
 Verification evidence: store threshold change history with links to traffic graphs used for justification.
+
+Follow-up cadence: reassess alert thresholds after each major product launch window.
