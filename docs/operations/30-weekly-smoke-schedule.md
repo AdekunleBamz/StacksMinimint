@@ -12,3 +12,5 @@ Include regional timezone labels in the schedule so globally distributed reviewe
 Escalate schedule misses that happen twice in a month so staffing or timing can be corrected.
 
 Verification evidence: retain calendar invites or schedule screenshots for each completed weekly smoke run.
+
+Follow-up cadence: reconfirm smoke schedule ownership whenever team roster changes.
