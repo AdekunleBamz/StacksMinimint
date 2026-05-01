@@ -8,3 +8,5 @@ Capture the exact on-screen error text, triggering step, and wallet action that 
 Include the transaction id in bug notes whenever the failing action generated one.
 
 Capture the raw wallet error text before translating it into user-facing copy so fixes stay source-accurate.
+
+Escalate when displayed error copy omits actionable recovery steps for wallet confirmation failures.
