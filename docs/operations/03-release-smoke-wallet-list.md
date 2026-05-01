@@ -12,3 +12,5 @@ Retire a smoke wallet from rotation immediately after two consecutive unexplaine
 Escalate if more than one smoke wallet fails the same flow in a single release candidate run.
 
 Verification evidence: link the latest successful smoke run for each wallet in the curated list.
+
+Follow-up cadence: refresh wallet health annotations weekly so smoke baselines stay current.
