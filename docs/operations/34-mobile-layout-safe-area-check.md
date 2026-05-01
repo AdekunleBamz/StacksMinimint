@@ -8,3 +8,5 @@ Verify safe-area padding on iOS notch devices, Android gesture-navigation layout
 Run one landscape viewport check to catch safe-area inset regressions early.
 
 Validate safe-area behavior with browser UI expanded and collapsed, since notch insets can shift between states.
+
+Escalate safe-area regressions that block primary actions on any officially supported mobile device.
