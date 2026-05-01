@@ -8,3 +8,5 @@ Reuse the same cooldown wording in inline hints, toast notifications, and retry 
 Keep retry countdown wording consistent between toasts and inline error states.
 
 When copy diverges, note whether backend limits changed first so copy updates do not mask policy drift.
+
+Escalate rate-limit copy mismatches that continue after backend config deploy and CDN cache refresh.
