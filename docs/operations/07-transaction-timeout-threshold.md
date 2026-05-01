@@ -8,3 +8,5 @@ Keep one timeout expectation per network and refresh it after major chain upgrad
 Record the local timestamp when timeout starts so retries can be correlated in logs.
 
 Record the slowest observed confirmation time from the last three transactions before adjusting timeout defaults.
+
+Escalate timeout incidents that exceed threshold in three consecutive attempts on healthy network status.
