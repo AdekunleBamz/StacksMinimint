@@ -12,3 +12,5 @@ Check event names for consistent tense and domain prefix before release analytic
 Escalate analytics names that collide with legacy events, since downstream dashboards can merge unrelated metrics.
 
 Verification evidence: map each approved event name to the dashboard panel that consumes it.
+
+Follow-up cadence: review analytics event naming after every dashboard taxonomy change.
