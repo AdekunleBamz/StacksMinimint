@@ -12,3 +12,5 @@ Mark the cutoff timestamp in UTC in both release issue and chat to avoid timezon
 Escalate late cutoff updates that leave less than one full review cycle before branch freeze.
 
 Verification evidence: include a release timeline note showing when cutoff notice was shared.
+
+Follow-up cadence: confirm branch cutoff communication one day and one hour before freeze.
