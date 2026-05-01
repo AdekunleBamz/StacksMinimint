@@ -12,3 +12,5 @@ During hotfix releases, verify the hub pin in both `.env` and deployment summary
 Escalate if the hub pin changes without a corresponding deployment reference in release notes.
 
 Verification evidence: save the hub contract principal from deployment output and the frontend variable used in QA.
+
+Follow-up cadence: confirm hub pin alignment after each environment variable rotation.
