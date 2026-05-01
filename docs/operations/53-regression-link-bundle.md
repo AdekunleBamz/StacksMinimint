@@ -6,3 +6,5 @@ Fast access shortens diagnosis time when incidents occur.
 Keep one stable bundle of smoke, dashboard, and explorer links for each active release line and owner team.
 
 Keep failing and passing build links together so regressions are easy to compare.
+
+Refresh bundle links after contract or frontend renames so responders do not chase stale references during incidents.
