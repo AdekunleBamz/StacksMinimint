@@ -8,3 +8,5 @@ Start every incident thread with impact scope, owner, last-known-good release me
 Include first detection time and user-impact estimate in the opening incident update.
 
 Include a direct link to the incident chat thread in every template use so context is preserved for follow-up.
+
+Escalate missing incident timeline entries when status changes cannot be correlated to mitigation actions.
