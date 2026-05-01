@@ -6,3 +6,5 @@ Address and txid copy reliability is critical during support triage.
 Test copy fallback behavior in a browser profile where clipboard permissions are denied or temporarily unavailable.
 
 Confirm fallback helper text appears when clipboard permissions are denied.
+
+Test both clipboard permission granted and denied states on at least one mobile browser in each release cycle.
