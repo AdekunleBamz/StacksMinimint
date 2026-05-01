@@ -8,3 +8,5 @@ Mark unsupported wallet-and-network combinations explicitly, and tag combination
 Capture wallet app version alongside provider name when reporting matrix mismatches.
 
 Review the matrix monthly and mark wallet versions that no longer receive security updates.
+
+Escalate provider combinations that fail twice in a row even after clearing wallet session state.
