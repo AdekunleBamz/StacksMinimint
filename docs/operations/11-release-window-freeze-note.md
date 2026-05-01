@@ -12,3 +12,5 @@ Call out any exception approvals explicitly with approver name and expiry date b
 Escalate freeze exceptions that are still open within one hour of planned cutoff.
 
 Verification evidence: store approval comments and timestamps for any freeze exception in the release issue.
+
+Follow-up cadence: revisit freeze guidance at the start of each release planning cycle.
