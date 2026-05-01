@@ -10,3 +10,5 @@ Keep one control wallet untouched so repeated smoke runs have a stable baseline.
 Retire a smoke wallet from rotation immediately after two consecutive unexplained failures.
 
 Escalate if more than one smoke wallet fails the same flow in a single release candidate run.
+
+Verification evidence: link the latest successful smoke run for each wallet in the curated list.
