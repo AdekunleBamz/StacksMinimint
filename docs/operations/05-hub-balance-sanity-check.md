@@ -12,3 +12,5 @@ Note the sampled block height beside each hub balance reading so later compariso
 Escalate when hub balance deltas cannot be explained by known mint or reward transactions.
 
 Verification evidence: capture balance snapshots before and after key transactions in the same monitoring window.
+
+Follow-up cadence: re-run balance sanity checks after each mint campaign ends.
