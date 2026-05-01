@@ -12,3 +12,5 @@ Validate safe-area behavior with browser UI expanded and collapsed, since notch 
 Escalate safe-area regressions that block primary actions on any officially supported mobile device.
 
 Verification evidence: include portrait and landscape screenshots for each tested safe-area scenario.
+
+Follow-up cadence: repeat safe-area checks after CSS layout updates touching viewport spacing.
