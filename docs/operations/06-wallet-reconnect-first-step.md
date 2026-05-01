@@ -6,3 +6,5 @@ Session refresh resolves a large share of stuck confirmation states.
 When reconnect resolves the issue, log wallet extension version and browser name for trend analysis.
 
 If reconnect still fails, refresh the page once before clearing local wallet session data.
+
+Ask the tester to close duplicate wallet extension popups before reconnecting to avoid stale session prompts.
