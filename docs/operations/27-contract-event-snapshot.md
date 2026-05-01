@@ -10,3 +10,5 @@ Store the observed block height with each event snapshot for faster replay debug
 Attach block height and transaction id with each snapshot so later audits can replay the exact event window.
 
 Escalate event snapshot gaps when a critical contract call lacks corresponding chain evidence.
+
+Verification evidence: link event snapshots directly to chain explorer entries for independent verification.
