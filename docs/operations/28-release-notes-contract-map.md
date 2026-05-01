@@ -10,3 +10,5 @@ Include source contract file path in release notes mapping for traceability.
 Map each release note bullet to a concrete contract function so QA can quickly verify behavioral impact.
 
 Escalate release notes when mapped contract changes do not have matching QA evidence links.
+
+Verification evidence: add a URL to the exact contract diff for each release note item.
