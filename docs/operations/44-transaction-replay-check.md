@@ -8,3 +8,5 @@ Re-run duplicate submission scenarios using the same wallet session and across a
 Confirm nonce and memo values before replaying a transaction to avoid duplicate errors.
 
 For suspected replays, compare nonce and txid together before escalating to contract-level investigation.
+
+Escalate replay suspicions that involve identical payloads from different accounts within a short window.
