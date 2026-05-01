@@ -10,3 +10,5 @@ Rotate checklist reviewers weekly so ownership is shared and backup context stay
 Reassign checklist ownership before planned leave periods to prevent review bottlenecks.
 
 Escalate when ownership gaps appear in critical checklists during active release windows.
+
+Verification evidence: list current checklist owner and backup in each release planning note.
