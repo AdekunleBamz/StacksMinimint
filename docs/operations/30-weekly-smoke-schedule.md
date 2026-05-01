@@ -8,3 +8,5 @@ Include timezone, tested wallet set, and network in each weekly smoke run entry.
 Reserve one midweek smoke slot for hotfix validation outside release days.
 
 Include regional timezone labels in the schedule so globally distributed reviewers run smoke checks on time.
+
+Escalate schedule misses that happen twice in a month so staffing or timing can be corrected.
