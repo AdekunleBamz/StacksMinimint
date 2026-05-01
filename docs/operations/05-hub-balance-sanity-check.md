@@ -6,3 +6,5 @@ This quick check catches accounting regressions before users report them.
 Include the snapshot block height and query timestamp when recording hub balances for incident follow-up.
 
 Capture before-and-after balance snapshots to make drift investigation faster.
+
+Note the sampled block height beside each hub balance reading so later comparisons use the same reference point.
