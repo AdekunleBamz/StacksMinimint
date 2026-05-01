@@ -8,3 +8,5 @@ Test locale fallback behavior for both missing translation keys and unsupported 
 Validate at least one non-English locale before final regression sign-off.
 
 Verify fallback copy in at least one non-English locale during smoke checks to catch translation key drift.
+
+Escalate locale regressions when fallback keys display raw token names in production previews.
