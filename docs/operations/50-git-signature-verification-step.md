@@ -10,3 +10,5 @@ Attach a verified-signature screenshot to release artifacts when audit evidence 
 Use `git log --show-signature -1` in release verification comments so reviewers can confirm signature state quickly.
 
 Escalate release blocks where signature verification fails on a maintainer environment.
+
+Verification evidence: capture signed commit hash and verification output in the release approval thread.
