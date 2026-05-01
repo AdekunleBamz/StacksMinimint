@@ -12,3 +12,5 @@ Review the matrix monthly and mark wallet versions that no longer receive securi
 Escalate provider combinations that fail twice in a row even after clearing wallet session state.
 
 Verification evidence: annotate each provider row with the date of last successful mint and claim test.
+
+Follow-up cadence: audit wallet-provider coverage every sprint and update unsupported combinations.
