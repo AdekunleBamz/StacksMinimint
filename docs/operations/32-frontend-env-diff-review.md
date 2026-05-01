@@ -10,3 +10,5 @@ Redact secret values while still noting key presence when reviewing env differen
 Review variable renames in both `.env` and deployment docs to avoid stale key names after refactors.
 
 Escalate when env key differences cannot be reconciled with release notes or deployment artifacts.
+
+Verification evidence: capture a redacted env diff artifact and reference it in the release thread.
