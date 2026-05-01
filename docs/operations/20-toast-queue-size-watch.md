@@ -8,3 +8,5 @@ Escalate when more than three toasts remain queued during normal user actions fo
 Capture toast count during rapid actions to prove queue trimming still behaves as expected.
 
 Note the queue length at incident start and after mitigation to confirm whether the fix restored normal throughput.
+
+Escalate queue spikes that sustain beyond one release window even after user-facing error rates normalize.
