@@ -10,3 +10,5 @@ Cross-check aliases against the deployment artifact used in the same release win
 Include the exact contract principal copied from deployment output to reduce alias typos during handoff.
 
 Escalate immediately when alias values differ between environments after cache invalidation.
+
+Verification evidence: include a screenshot of updated aliases and the deployment artifact snippet used for the release.
