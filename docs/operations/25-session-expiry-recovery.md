@@ -6,3 +6,5 @@ Recoverable forms reduce frustration during reconnect flows.
 Document observed session age, exact recovery action, and whether unsent form state was restored for each incident.
 
 Record the recovery timestamp to verify the refreshed session actually took effect.
+
+After recovery, verify the same wallet can mint again without a full page reload to confirm session health.
