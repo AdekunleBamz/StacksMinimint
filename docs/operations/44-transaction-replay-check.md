@@ -10,3 +10,5 @@ Confirm nonce and memo values before replaying a transaction to avoid duplicate 
 For suspected replays, compare nonce and txid together before escalating to contract-level investigation.
 
 Escalate replay suspicions that involve identical payloads from different accounts within a short window.
+
+Verification evidence: record nonce, txid, and submission timestamp for each suspected replay sample.
