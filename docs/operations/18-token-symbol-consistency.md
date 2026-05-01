@@ -12,3 +12,5 @@ Confirm token symbol casing in UI badges and explorer links to prevent mixed-cas
 Escalate symbol inconsistencies that appear in signed release assets to avoid post-release brand drift.
 
 Verification evidence: compare symbol rendering in header, mint panel, and explorer link labels.
+
+Follow-up cadence: confirm symbol consistency at the start and end of each release hardening phase.
