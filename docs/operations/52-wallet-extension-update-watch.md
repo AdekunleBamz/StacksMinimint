@@ -10,3 +10,5 @@ After extension auto-updates, rerun connect and disconnect flows before release 
 After extension updates, re-check network permissions and previously granted site access before retrying transactions.
 
 Escalate extension update regressions that block signing on previously healthy wallets.
+
+Verification evidence: capture extension version, browser version, and observed signing behavior after updates.
