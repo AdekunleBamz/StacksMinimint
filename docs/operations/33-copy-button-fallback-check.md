@@ -8,3 +8,5 @@ Test copy fallback behavior in a browser profile where clipboard permissions are
 Confirm fallback helper text appears when clipboard permissions are denied.
 
 Test both clipboard permission granted and denied states on at least one mobile browser in each release cycle.
+
+Escalate if fallback copy still fails when the browser blocks clipboard access and JavaScript permissions are reset.
