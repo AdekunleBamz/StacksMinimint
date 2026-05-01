@@ -12,3 +12,5 @@ Top up funding before the first daily smoke pass so retries do not stall midway 
 Escalate when refill requests are repeated within the same day, since that can hide runaway test behavior.
 
 Verification evidence: keep a funding transaction link for each refill to maintain audit continuity.
+
+Follow-up cadence: validate funding buffers before every coordinated QA session.
