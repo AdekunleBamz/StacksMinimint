@@ -12,3 +12,5 @@ Validate truncated and full wallet address displays side by side when reviewing 
 Escalate if address clipping hides distinguishing characters for two different users in the same view.
 
 Verification evidence: include screenshots at normal and high zoom to confirm address readability.
+
+Follow-up cadence: re-check address formatting after typography or responsive layout changes.
