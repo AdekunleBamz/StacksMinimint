@@ -6,3 +6,5 @@ Consistent copy helps users know when retries are expected.
 Reuse the same cooldown wording in inline hints, toast notifications, and retry button copy for consistency.
 
 Keep retry countdown wording consistent between toasts and inline error states.
+
+When copy diverges, note whether backend limits changed first so copy updates do not mask policy drift.
