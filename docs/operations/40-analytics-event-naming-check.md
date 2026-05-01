@@ -8,3 +8,5 @@ Version event names when schema changes so dashboards can track pre- and post-re
 Check that event names stay unchanged even when surrounding UI copy is updated.
 
 Check event names for consistent tense and domain prefix before release analytics dashboards are updated.
+
+Escalate analytics names that collide with legacy events, since downstream dashboards can merge unrelated metrics.
