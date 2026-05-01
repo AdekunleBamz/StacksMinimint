@@ -8,3 +8,5 @@ Validate that truncated addresses still keep enough prefix and suffix to disambi
 Verify copied wallet values keep the expected prefix and casing from the source field.
 
 Validate truncated and full wallet address displays side by side when reviewing formatting updates.
+
+Escalate if address clipping hides distinguishing characters for two different users in the same view.
