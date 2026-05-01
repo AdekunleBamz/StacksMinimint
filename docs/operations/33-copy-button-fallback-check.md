@@ -12,3 +12,5 @@ Test both clipboard permission granted and denied states on at least one mobile 
 Escalate if fallback copy still fails when the browser blocks clipboard access and JavaScript permissions are reset.
 
 Verification evidence: record copy attempts in browsers with and without clipboard permission grants.
+
+Follow-up cadence: rerun fallback checks after browser permission model changes or major releases.
