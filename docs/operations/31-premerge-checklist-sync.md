@@ -12,3 +12,5 @@ Confirm required checklist sections still match PR template names before each pr
 Escalate pre-merge checklist mismatches if required controls differ from branch protection rules.
 
 Verification evidence: attach the filled checklist snapshot used during the latest merge gate review.
+
+Follow-up cadence: resync checklist language after any CI gate or policy update.
