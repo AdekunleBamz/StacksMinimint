@@ -8,3 +8,5 @@ Use a cache-disabled hard reload, then confirm new asset hashes and response hea
 Validate cache-bust behavior in both hard refresh and private browsing sessions.
 
 After cache busting, verify asset hashes changed in network logs before asking users to hard refresh.
+
+Escalate if stale UI persists after verified new asset hashes are served from the edge.
