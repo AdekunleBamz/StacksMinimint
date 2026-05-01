@@ -6,3 +6,5 @@ Wrong explorer targets make valid transactions look missing.
 Match explorer base domain and path prefix to the active chain before sharing transaction links.
 
 Confirm the explorer URL chain parameter matches the network badge shown in-app.
+
+Open one txid link and one address link from the same session to confirm both resolve to the selected network.
