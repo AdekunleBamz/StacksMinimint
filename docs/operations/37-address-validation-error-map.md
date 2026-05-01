@@ -6,3 +6,5 @@ Consistent mapping simplifies triage and translation updates.
 Map each validation error variant to user-facing copy, expected remediation step, and owning component.
 
 Pair each validation error with an example address to speed support triage.
+
+Include the exact validation message copy shown to users so support can map reports to known causes.
