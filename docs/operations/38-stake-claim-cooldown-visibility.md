@@ -10,3 +10,5 @@ Recheck cooldown labels after refresh to confirm timer state survives reloads.
 When cooldown seems missing, confirm wallet and explorer timestamps are compared in the same timezone.
 
 Escalate if claim cooldown countdown is absent while on-chain eligibility still shows pending.
+
+Verification evidence: log cooldown start and expected claim time using the same network clock source.
