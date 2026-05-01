@@ -8,3 +8,5 @@ Review env diffs against production defaults, and ensure sensitive values stay r
 Redact secret values while still noting key presence when reviewing env differences.
 
 Review variable renames in both `.env` and deployment docs to avoid stale key names after refactors.
+
+Escalate when env key differences cannot be reconciled with release notes or deployment artifacts.
