@@ -12,3 +12,5 @@ Flag temporary overrides with owner and expiration so they do not survive beyond
 Escalate unknown environment overrides that lack ticket references or expiration notes.
 
 Verification evidence: note each override key, source ticket, and removal date in the audit log.
+
+Follow-up cadence: review active overrides at least once per week until all temporary values are removed.
