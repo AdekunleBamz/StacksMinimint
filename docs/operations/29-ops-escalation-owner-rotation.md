@@ -10,3 +10,5 @@ Announce next backup owner one day ahead so escalation handoff stays predictable
 Keep one backup escalation owner listed for local holidays to avoid response gaps during production incidents.
 
 Escalate immediately if the on-call owner and backup are simultaneously unavailable during active incidents.
+
+Verification evidence: keep a dated roster snapshot showing primary and backup escalation owners.
