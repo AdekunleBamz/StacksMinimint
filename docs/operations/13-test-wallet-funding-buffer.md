@@ -8,3 +8,5 @@ Keep at least two expected transaction fees of extra STX in every smoke wallet, 
 Set a top-up trigger amount so smoke checks never pause on avoidable low balance failures.
 
 Top up funding before the first daily smoke pass so retries do not stall midway through validation.
+
+Escalate when refill requests are repeated within the same day, since that can hide runaway test behavior.
