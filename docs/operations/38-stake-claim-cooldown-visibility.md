@@ -8,3 +8,5 @@ Capture both relative countdown and absolute unlock time, and verify they stay i
 Recheck cooldown labels after refresh to confirm timer state survives reloads.
 
 When cooldown seems missing, confirm wallet and explorer timestamps are compared in the same timezone.
+
+Escalate if claim cooldown countdown is absent while on-chain eligibility still shows pending.
