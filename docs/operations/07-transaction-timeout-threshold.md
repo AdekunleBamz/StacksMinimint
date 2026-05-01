@@ -10,3 +10,5 @@ Record the local timestamp when timeout starts so retries can be correlated in l
 Record the slowest observed confirmation time from the last three transactions before adjusting timeout defaults.
 
 Escalate timeout incidents that exceed threshold in three consecutive attempts on healthy network status.
+
+Verification evidence: keep timestamped confirmation logs for each timeout sample used in threshold decisions.
