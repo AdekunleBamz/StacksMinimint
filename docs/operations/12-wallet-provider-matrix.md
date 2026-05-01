@@ -10,3 +10,5 @@ Capture wallet app version alongside provider name when reporting matrix mismatc
 Review the matrix monthly and mark wallet versions that no longer receive security updates.
 
 Escalate provider combinations that fail twice in a row even after clearing wallet session state.
+
+Verification evidence: annotate each provider row with the date of last successful mint and claim test.
