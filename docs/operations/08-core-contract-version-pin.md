@@ -12,3 +12,5 @@ Keep the pinned core contract ID in release notes and environment config identic
 Escalate if pinned core contract diverges between frontend constants and deployment records.
 
 Verification evidence: include a copy of the pinned core identifier from env config and release notes.
+
+Follow-up cadence: verify the core pin again before tagging any release candidate.
