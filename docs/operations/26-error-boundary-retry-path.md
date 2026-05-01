@@ -12,3 +12,5 @@ Capture the retry path with a short screen recording when possible so support ca
 Escalate when retry action loops users back to the same boundary without new diagnostic details.
 
 Verification evidence: include retry button behavior before and after the failure state clears.
+
+Follow-up cadence: retest retry paths after every error boundary or telemetry instrumentation change.
