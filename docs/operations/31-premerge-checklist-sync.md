@@ -8,3 +8,5 @@ Compare PR checklist items against the main template and rerun command links bef
 Refresh checklist links immediately after template edits to avoid stale guidance.
 
 Confirm required checklist sections still match PR template names before each pre-merge review.
+
+Escalate pre-merge checklist mismatches if required controls differ from branch protection rules.
