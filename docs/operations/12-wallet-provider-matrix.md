@@ -6,3 +6,5 @@ Provider-specific regressions are easier to isolate with a known baseline.
 Mark unsupported wallet-and-network combinations explicitly, and tag combinations still pending verification.
 
 Capture wallet app version alongside provider name when reporting matrix mismatches.
+
+Review the matrix monthly and mark wallet versions that no longer receive security updates.
