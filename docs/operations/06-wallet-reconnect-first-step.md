@@ -12,3 +12,5 @@ Ask the tester to close duplicate wallet extension popups before reconnecting to
 Escalate if reconnect fails in two browsers, which usually signals a wallet service or network issue.
 
 Verification evidence: note browser version and wallet extension version alongside reconnect outcomes.
+
+Follow-up cadence: verify reconnect reliability monthly on the latest stable browser versions.
