@@ -6,3 +6,5 @@ Verified signatures improve confidence in release provenance.
 Confirm signature status in the remote branch or pull request view after pushing and before release notes are published.
 
 Attach a verified-signature screenshot to release artifacts when audit evidence is needed.
+
+Use `git log --show-signature -1` in release verification comments so reviewers can confirm signature state quickly.
