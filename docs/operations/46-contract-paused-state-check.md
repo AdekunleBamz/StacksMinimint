@@ -6,3 +6,5 @@ Pause wiring regressions can break emergency response paths.
 Validate paused-state read-only output and visible UI banner in the same test run, then confirm action buttons are disabled.
 
 Capture both on-chain paused status and matching UI badge state before sign-off.
+
+Capture the exact block height where pause state was observed so unpause verification can use a reliable baseline.
