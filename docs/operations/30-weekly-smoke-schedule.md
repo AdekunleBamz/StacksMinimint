@@ -6,3 +6,5 @@ Regular cadence catches drift before major release windows.
 Include timezone, tested wallet set, and network in each weekly smoke run entry.
 
 Reserve one midweek smoke slot for hotfix validation outside release days.
+
+Include regional timezone labels in the schedule so globally distributed reviewers run smoke checks on time.
