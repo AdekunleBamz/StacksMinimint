@@ -12,3 +12,5 @@ Attach block height and transaction id with each snapshot so later audits can re
 Escalate event snapshot gaps when a critical contract call lacks corresponding chain evidence.
 
 Verification evidence: link event snapshots directly to chain explorer entries for independent verification.
+
+Follow-up cadence: refresh event snapshots after each contract release affecting emitted events.
