@@ -12,3 +12,5 @@ Keep one backup escalation owner listed for local holidays to avoid response gap
 Escalate immediately if the on-call owner and backup are simultaneously unavailable during active incidents.
 
 Verification evidence: keep a dated roster snapshot showing primary and backup escalation owners.
+
+Follow-up cadence: confirm escalation owner rotation before each planned holiday period.
