@@ -10,3 +10,5 @@ Run one landscape viewport check to catch safe-area inset regressions early.
 Validate safe-area behavior with browser UI expanded and collapsed, since notch insets can shift between states.
 
 Escalate safe-area regressions that block primary actions on any officially supported mobile device.
+
+Verification evidence: include portrait and landscape screenshots for each tested safe-area scenario.
