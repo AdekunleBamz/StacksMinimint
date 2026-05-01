@@ -12,3 +12,5 @@ Capture the raw wallet error text before translating it into user-facing copy so
 Escalate when displayed error copy omits actionable recovery steps for wallet confirmation failures.
 
 Verification evidence: preserve the untranslated wallet error payload together with the displayed helper copy.
+
+Follow-up cadence: revalidate error copy after any wallet SDK or signing flow update.
