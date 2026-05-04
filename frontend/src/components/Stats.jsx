@@ -103,13 +103,8 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
       data-connection={isConnected ? 'connected' : 'disconnected'}
       data-recent-activity-count={String(safeRecentActivityCount)}
     >
-<<<<<<< HEAD
       <h2 className="stats__title" id="stats-title" title="Collection statistics">Collection Stats</h2>
       <p className="stats__subtitle" id="stats-subtitle">Supply, pricing, and wallet limits stay visible while you prepare each mint.</p>
-=======
-      <h2 className="stats__title" id="stats-title">Collection Stats</h2>
-      <p className="stats__subtitle" id="stats-subtitle">Supply, pricing, and wallet limits stay visible while you prepare each mint.</p>
->>>>>>> b018ad65 (Associate stats section with subtitle context)
 
       <div className="stats__headline">
         <span
@@ -146,7 +141,6 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           aria-valuemin={0}
           aria-valuemax={100}
           aria-label="Mint progress"
-          title={`${roundedProgress}% of configured supply minted`}
           aria-valuetext={
             remainingSupply === null
               ? `${roundedProgress}% of the configured supply minted`

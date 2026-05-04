@@ -21,11 +21,7 @@ export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium
   const formattedPercentage = percentage.toFixed(1)
 
   return (
-<<<<<<< HEAD
     <div className={`progress progress--${size}`} role="group" aria-label={ariaLabel} title={`${formattedPercentage}% progress`} data-size={size} data-color={safeColor} data-show-label={showLabel ? 'true' : 'false'} data-max={String(safeMax)}>
-=======
-    <div className={`progress progress--${size}`} title={`${formattedPercentage}% progress`} data-size={size} data-color={safeColor} data-show-label={showLabel ? 'true' : 'false'} data-max={String(safeMax)}>
->>>>>>> 025abc4f (Add progress context tooltip on wrapper)
       <div className="progress__bar">
         <div 
           className={`progress__fill progress__fill--${safeColor}`}

@@ -25,7 +25,6 @@ import {
   MAX_SUPPLY,
   NETWORK
 } from '../constants';
-import { userSession } from './useStacksWallet';
 import { validateTokenURI } from '../utils/collection';
 
 export const parseUint = (value) => {
@@ -91,11 +90,6 @@ export function useStacksContract(address) {
   }, [fetchContractInfo]);
 
   const mint = useCallback(async (tokenURI) => {
-    if (!userSession.isUserSignedIn()) {
-      setError('Please connect your wallet');
-      return null;
-    }
-
     if (!address) {
       setError('Wallet address is unavailable — reconnect and try again.');
       return null;
