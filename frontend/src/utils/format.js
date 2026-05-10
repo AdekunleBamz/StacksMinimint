@@ -1,5 +1,5 @@
 
-export const formatTokenId = (id) => "#" + id;
+export const formatTokenId = (id) => id == null ? '#0' : '#' + id;
 
 export const formatMintPrice = (stx) => {
   const amount = Number(stx);
