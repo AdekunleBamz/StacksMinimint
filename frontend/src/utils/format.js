@@ -9,7 +9,10 @@ export const formatMintPrice = (stx) => {
 
 export const formatSupply = (minted, max) => (minted ?? 0) + " / " + (max ?? 0);
 
-export const formatRoyalty = (bps) => (bps / 100).toFixed(1) + "%";
+export const formatRoyalty = (bps) => {
+  if (bps == null) return '0.0%';
+  return (bps / 100).toFixed(1) + "%";
+};
 
 export const formatRarity = (tier) => {
   const normalizedTier = typeof tier === 'string' ? tier.trim() : '';
