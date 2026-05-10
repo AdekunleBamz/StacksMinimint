@@ -14,7 +14,8 @@ import { MAX_TOASTS, TOAST_DURATION } from '../constants'
 const TOAST_VALID_TYPES = ['success', 'error', 'warning', 'info'];
 
 export function normalizeToastMessage(message) {
-  return typeof message === 'string' ? message.trim() : message
+  if (message == null) return '';
+  return typeof message === 'string' ? message.trim() : String(message).trim();
 }
 
 export function normalizeToastType(type) {
