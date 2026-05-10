@@ -58,6 +58,9 @@ export const TRANSACTION_TIMEOUT_MS = 120_000;
 /** Timeout in milliseconds before the clipboard copy status resets */
 export const CLIPBOARD_TIMEOUT_MS = 2000;
 
+/** Duration in milliseconds the clipboard success state is displayed */
+export const CLIPBOARD_SUCCESS_DURATION_MS = 1500;
+
 /** Maximum number of toasts to display simultaneously */
 export const MAX_TOASTS = 4;
 
