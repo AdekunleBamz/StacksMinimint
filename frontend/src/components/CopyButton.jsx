@@ -11,9 +11,10 @@ import { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import './CopyButton.css'
 import { useClipboard } from '../hooks'
+import { CLIPBOARD_TIMEOUT_MS } from '../constants'
 
 export function CopyButton({ text, label = 'Copy', successLabel = 'Copied', className = '' }) {
-  const { copied, copy } = useClipboard()
+  const { copied, copy } = useClipboard(CLIPBOARD_TIMEOUT_MS)
   const copyValue = typeof text === 'string' ? text : text == null ? '' : String(text)
   const hasText = copyValue.trim().length > 0
   const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Copy'
