@@ -59,6 +59,8 @@ export const IPFS_FETCH_RETRIES = 2
 
 export const REVEAL_ANIMATION_STAGGER_MS = 120
 
+export const MAX_MINT_LABEL_LENGTH = 32
+
 export const SUPPORTED_METADATA_SCHEMES = ["ipfs://", "https://"]
 
 export const DEFAULT_CARD_ACCENT = "#2f7fca"
