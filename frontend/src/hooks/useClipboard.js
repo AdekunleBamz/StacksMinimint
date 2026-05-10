@@ -25,6 +25,7 @@ export function useClipboard(timeout = 2000) {
   const copy = useCallback(async (text) => {
     if (text === null || text === undefined) return false;
     const value = String(text);
+    if (!value) return false;
     setError(null);
 
     try {
