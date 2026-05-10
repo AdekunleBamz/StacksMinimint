@@ -24,7 +24,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
   const bodyId = useId()
 
   const handleOverlayClick = useCallback((e) => {
-    if (e.target === e.currentTarget) {
+    if (e.target === e.currentTarget && typeof onClose === 'function') {
       onClose()
     }
   }, [onClose])
@@ -34,7 +34,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'medium' }) {
 
     const previousActiveElement = document.activeElement
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && typeof onClose === 'function') {
         onClose()
       }
     }
