@@ -109,7 +109,8 @@ export default { truncateAddress, capitalize, isValidStacksAddress, truncateMidd
 
 /**
  * Pads a number with leading zeros to reach a minimum length.
- * @param {number} num - The number to pad.
+ * Negative values and non-numeric inputs are coerced to non-negative integers.
+ * @param {number|string} num - The number to pad (sign is stripped for negative values).
  * @param {number} [length=2] - Minimum desired string length.
  * @returns {string} Zero-padded number string.
  */
