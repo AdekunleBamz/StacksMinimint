@@ -65,8 +65,9 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // Log error to console for debugging
-    console.error('ErrorBoundary caught an error:', error);
+    // Extract the first failing component name from the stack for clearer logs
+    const failingComponent = errorInfo?.componentStack?.trim()?.split('\n')?.[1]?.trim() ?? 'Unknown';
+    console.error(`ErrorBoundary caught an error in ${failingComponent}:`, error);
     console.error('Error Info:', errorInfo);
 
     // Store error info for display
