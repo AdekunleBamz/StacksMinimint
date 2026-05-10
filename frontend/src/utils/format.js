@@ -53,7 +53,7 @@ export const formatTxStatus = (s) => {
   return normalizedStatus.charAt(0).toUpperCase() + normalizedStatus.slice(1);
 };
 
-export const formatNFTName = (name, id) => name + " #" + id;
+export const formatNFTName = (name, id) => (name ?? 'NFT') + " #" + (id ?? 0);
 
 export const formatIPFSUrl = (cid) => "ipfs://" + cid;
 
