@@ -24,7 +24,7 @@ export const isValidBlockHeight = (v) => {
   return Number.isInteger(Number(v)) && Number(v) >= 0;
 };
 
-export const isValidCollectionName = (v) => typeof v === "string" && v.trim().length >= 1;
+export const isValidCollectionName = (v) => typeof v === "string" && v.trim().length >= 1 && v.trim().length <= 64;
 
 export const isValidTxId = (v) => typeof v === "string" && /^0x[0-9a-f]{64}$/i.test(v);
 
