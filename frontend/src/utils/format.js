@@ -72,7 +72,7 @@ export const formatBlockTime = (ms) => {
   return Math.round(ms / 60000) + " min";
 };
 
-export const formatTraitCount = (n) => n + " traits";
+export const formatTraitCount = (n) => (n == null ? 0 : n) + " traits";
 
 /**
  * Calculates the total mint cost for a given quantity of NFTs.
