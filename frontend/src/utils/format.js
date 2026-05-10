@@ -7,7 +7,7 @@ export const formatMintPrice = (stx) => {
   return `${amount} STX`;
 };
 
-export const formatSupply = (minted, max) => minted + " / " + max;
+export const formatSupply = (minted, max) => (minted ?? 0) + " / " + (max ?? 0);
 
 export const formatRoyalty = (bps) => (bps / 100).toFixed(1) + "%";
 
