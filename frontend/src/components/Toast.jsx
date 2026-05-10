@@ -21,8 +21,8 @@ export function Toast({ message, type = 'info', onClose }) {
   const safeType = TOAST_ICONS[type] ? type : 'info'
   const icon = TOAST_ICONS[safeType]
   const isInterruptive = safeType === 'error' || safeType === 'warning'
-  const safeMessage = typeof message === 'string' && message.trim().length > 0
-    ? message.trim()
+  const safeMessage = message != null && String(message).trim().length > 0
+    ? String(message).trim()
     : 'Notification received.'
 
   return (
