@@ -62,7 +62,10 @@ export const formatGatewayUrl = (cid) => {
   return "https://ipfs.io/ipfs/" + normalizedCid;
 };
 
-export const formatMicroStx = (v) => (v / 1e6).toFixed(6) + " STX";
+export const formatMicroStx = (v) => {
+  if (v == null) return '0.000000 STX';
+  return (v / 1e6).toFixed(6) + " STX";
+};
 
 export const formatBlockTime = (ms) => Math.round(ms / 60000) + " min";
 
