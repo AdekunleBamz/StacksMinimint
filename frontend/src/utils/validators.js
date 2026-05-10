@@ -1,6 +1,9 @@
 import { MIN_ROYALTY_BASIS_POINTS, MAX_ROYALTY_BASIS_POINTS, MAX_SUPPLY } from './constants.js';
 
-export const isValidTokenId = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
+export const isValidTokenId = (v) => {
+  if (v == null) return false;
+  return Number.isInteger(Number(v)) && Number(v) >= 0;
+};
 
 export const isValidMintCount = (v) => Number.isInteger(Number(v)) && Number(v) >= 1;
 
