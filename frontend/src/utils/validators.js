@@ -10,7 +10,7 @@ export const isValidMintCount = (v) => {
   return Number.isInteger(Number(v)) && Number(v) >= 1;
 };
 
-export const isValidCID = (v) => typeof v === "string" && v.trim().length >= 10;
+export const isValidCID = (v) => typeof v === "string" && v.trim().length >= 10 && v.trim().length <= 128;
 
 export const isValidRoyaltyBps = (v) => !isNaN(Number(v)) && Number(v) >= MIN_ROYALTY_BASIS_POINTS && Number(v) <= MAX_ROYALTY_BASIS_POINTS;
 
