@@ -24,7 +24,7 @@ export const formatCID = (cid) => cid ? cid.slice(0, 8) + '...' + cid.slice(-4) 
 
 export const formatBlocksRemaining = (n) => (n == null ? 0 : n) + " blocks";
 
-export const formatTraitValue = (v) => String(v);
+export const formatTraitValue = (v) => v == null ? '—' : String(v);
 
 export const formatCollectionSize = (n) => {
   const amount = Number(n)
