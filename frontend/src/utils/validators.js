@@ -19,7 +19,10 @@ export const isValidRoyaltyBps = (v) => {
 
 export const isValidMetadataVersion = (v) => Number.isInteger(Number(v)) && Number(v) >= 1;
 
-export const isValidBlockHeight = (v) => Number.isInteger(Number(v)) && Number(v) >= 0;
+export const isValidBlockHeight = (v) => {
+  if (v == null) return false;
+  return Number.isInteger(Number(v)) && Number(v) >= 0;
+};
 
 export const isValidCollectionName = (v) => typeof v === "string" && v.trim().length >= 1;
 
