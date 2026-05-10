@@ -23,6 +23,7 @@ export function Card({
   ariaDescriptionId
 }) {
   const safeAriaLabel = typeof ariaLabel === 'string' && ariaLabel.trim() ? ariaLabel.trim() : undefined
+  const safeDescId = typeof ariaDescriptionId === 'string' && ariaDescriptionId.trim() ? ariaDescriptionId.trim() : undefined
   const titleText = safeAriaLabel || (onClick ? 'Interactive card. Press Enter or Space to activate.' : undefined)
   const handleKeyDown = useCallback((e) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
@@ -52,7 +53,7 @@ export function Card({
       tabIndex={onClick ? 0 : undefined}
       aria-keyshortcuts={onClick ? 'Enter Space' : undefined}
       aria-label={safeAriaLabel}
-      aria-describedby={ariaDescriptionId}
+      aria-describedby={safeDescId}
       title={titleText}
     >
       {children}
