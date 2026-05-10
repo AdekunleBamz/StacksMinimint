@@ -19,6 +19,7 @@ export function Spinner({ size = 'medium', tone = 'primary', className = '', lab
       className={composedClass}
       data-size={safeSize}
       data-tone={safeTone}
+      data-label={safeLabel}
       data-label-length={String(safeLabel.length)}
       data-live="polite"
       role="status"
