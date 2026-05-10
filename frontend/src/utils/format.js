@@ -32,7 +32,7 @@ export const formatCollectionSize = (n) => {
   return String(n) + " items"
 };
 
-export const formatOwnerCount = (n) => n + " owners";
+export const formatOwnerCount = (n) => (n == null ? 0 : n) + " owners";
 
 export const formatListingPrice = (stx) => {
   const amount = Number(stx);
