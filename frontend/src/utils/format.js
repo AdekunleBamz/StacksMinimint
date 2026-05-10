@@ -40,7 +40,7 @@ export const formatListingPrice = (stx) => {
   return `${amount.toFixed(2)} STX`;
 };
 
-export const formatBidAmount = (stx) => "Bid: " + stx + " STX";
+export const formatBidAmount = (stx) => "Bid: " + (stx ?? 0) + " STX";
 
 export const formatMintDate = (ts) => new Date(ts).toLocaleDateString();
 
