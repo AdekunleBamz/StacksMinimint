@@ -67,7 +67,10 @@ export const formatMicroStx = (v) => {
   return (v / 1e6).toFixed(6) + " STX";
 };
 
-export const formatBlockTime = (ms) => Math.round(ms / 60000) + " min";
+export const formatBlockTime = (ms) => {
+  if (ms == null) return '0 min';
+  return Math.round(ms / 60000) + " min";
+};
 
 export const formatTraitCount = (n) => n + " traits";
 
