@@ -20,7 +20,7 @@ export const formatRarity = (tier) => {
   return normalizedTier.charAt(0).toUpperCase() + normalizedTier.slice(1);
 };
 
-export const formatCID = (cid) => cid ? cid.slice(0,10) + "..." : "";
+export const formatCID = (cid) => cid ? cid.slice(0, 8) + '...' + cid.slice(-4) : "";
 
 export const formatBlocksRemaining = (n) => n + " blocks";
 
