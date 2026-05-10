@@ -67,7 +67,8 @@ function getBaseExplorerUrl(type, identifier) {
 }
 
 export function getExplorerUrl(txId) {
-  return getBaseExplorerUrl('txid', txId);
+  // Falsy txId falls back to base explorer URL via getBaseExplorerUrl
+  return getBaseExplorerUrl('txid', txId || '');
 }
 
 export function getTokenExplorerUrl(tokenId) {
