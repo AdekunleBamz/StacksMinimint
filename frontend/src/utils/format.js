@@ -42,7 +42,10 @@ export const formatListingPrice = (stx) => {
 
 export const formatBidAmount = (stx) => "Bid: " + (stx ?? 0) + " STX";
 
-export const formatMintDate = (ts) => new Date(ts).toLocaleDateString();
+export const formatMintDate = (ts) => {
+  if (ts == null) return '—';
+  return new Date(ts).toLocaleDateString();
+};
 
 export const formatTxStatus = (s) => {
   const normalizedStatus = typeof s === 'string' ? s.trim() : '';
