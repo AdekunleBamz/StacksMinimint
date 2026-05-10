@@ -15,7 +15,11 @@ export function useLocalStorage(key, initialValue) {
   // Get stored value or use initial
   const [storedValue, setStoredValue] = useState(() => {
     try {
-      if (typeof window === 'undefined' || !hasValidKey) return initialValue
+      if (typeof window === 'undefined') return initialValue
+      if (!hasValidKey) {
+        console.warn(`useLocalStorage: invalid key "${key}", using in-memory state`)
+        return initialValue
+      }
       const item = window.localStorage.getItem(normalizedKey)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
