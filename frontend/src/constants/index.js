@@ -112,6 +112,9 @@ export const HIRO_EXPLORER_URL = 'https://explorer.stacks.co';
 /** Duration in milliseconds for standard UI transition animations */
 export const ANIMATION_DURATION_MS = 200;
 
+/** NFT metadata schema version used when building token metadata objects */
+export const NFT_METADATA_VERSION = 1;
+
 // --- Contract Function Names ---
 // Standardized function names for contract calls.
 
