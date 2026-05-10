@@ -22,7 +22,7 @@ export const formatRarity = (tier) => {
 
 export const formatCID = (cid) => cid ? cid.slice(0, 8) + '...' + cid.slice(-4) : "";
 
-export const formatBlocksRemaining = (n) => n + " blocks";
+export const formatBlocksRemaining = (n) => (n == null ? 0 : n) + " blocks";
 
 export const formatTraitValue = (v) => String(v);
 
