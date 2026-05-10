@@ -34,6 +34,7 @@ export function ThemeProvider({ children }) {
     }
   }, [theme]);
 
+  /** Cycles between 'light' and 'dark' themes without accepting external input. */
   const toggleTheme = useCallback(() => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   }, []);
