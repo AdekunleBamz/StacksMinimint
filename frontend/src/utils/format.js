@@ -55,7 +55,7 @@ export const formatTxStatus = (s) => {
 
 export const formatNFTName = (name, id) => (name ?? 'NFT') + " #" + (id ?? 0);
 
-export const formatIPFSUrl = (cid) => "ipfs://" + cid;
+export const formatIPFSUrl = (cid) => "ipfs://" + (cid ?? '');
 
 export const formatGatewayUrl = (cid) => {
   const normalizedCid = String(cid ?? "").replace(/^\/+/, "");
