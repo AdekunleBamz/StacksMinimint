@@ -25,6 +25,8 @@ export function useTransactionStatus(txId) {
 
   const checkStatus = useCallback(async () => {
     if (!txId) return;
+    // Validate txId format before hitting the API to avoid unnecessary requests
+    if (typeof txId !== 'string' || !/^0x[0-9a-f]{64}$/i.test(txId)) return;
 
     if (controllerRef.current) {
       controllerRef.current.abort();
