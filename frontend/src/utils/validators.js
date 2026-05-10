@@ -5,7 +5,10 @@ export const isValidTokenId = (v) => {
   return Number.isInteger(Number(v)) && Number(v) >= 0;
 };
 
-export const isValidMintCount = (v) => Number.isInteger(Number(v)) && Number(v) >= 1;
+export const isValidMintCount = (v) => {
+  if (v == null) return false;
+  return Number.isInteger(Number(v)) && Number(v) >= 1;
+};
 
 export const isValidCID = (v) => typeof v === "string" && v.trim().length >= 10;
 
