@@ -19,6 +19,7 @@ export function Badge({
   title
 }) {
   const tone = typeof variant === 'string' ? variant.split('-')[0] : 'default'
+  if (children == null && !dot) return null
   const fallbackTitle = typeof children === 'string' || typeof children === 'number'
     ? String(children).trim()
     : undefined
