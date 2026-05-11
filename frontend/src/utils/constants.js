@@ -92,6 +92,8 @@ export const REVEAL_ANIMATION_STAGGER_MS = 120
 /** Maximum character length for a minted NFT label string. */
 export const MAX_MINT_LABEL_LENGTH = 32
 
+/** URI scheme prefixes accepted for token metadata URIs. */
 export const SUPPORTED_METADATA_SCHEMES = ["ipfs://", "https://"]
 
+/** Default hex accent colour used on NFT gallery cards without a trait colour. */
 export const DEFAULT_CARD_ACCENT = "#2f7fca"
