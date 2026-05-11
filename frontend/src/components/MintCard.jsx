@@ -78,6 +78,21 @@ export function getMintSubmitLabel({ isMinting, isSoldOut, walletLimitReached, m
   return `Mint for ${formatSTX(mintFee)} STX`
 }
 
+/**
+ * MintCard - Primary minting interface component.
+ *
+ * Renders token URI input, supply metrics, and the mint submit button.
+ * Handles validation, transaction lifecycle, and wallet connection state.
+ *
+ * @param {Object} props
+ * @param {Object} props.contractInfo - Live collection data (supply, fee, caps)
+ * @param {Function} props.onMint - Async mint handler called with the token URI
+ * @param {boolean} props.isConnected - Whether a wallet is connected
+ * @param {boolean} [props.isConnecting=false] - Whether a connection attempt is in progress
+ * @param {Function} props.onConnect - Callback to open the wallet connection flow
+ * @param {string|null} [props.contractError] - Error message from the contract hook
+ * @returns {JSX.Element}
+ */
 export function MintCard({ 
   contractInfo, 
   onMint, 
@@ -94,6 +109,10 @@ export function MintCard({
   const isTokenUriValid = tokenUriValidation.isValid
   const visibleContractError = typeof contractError === 'string' ? contractError.trim() : contractError
 
+  /**
+   * handleMint - Validate the token URI and submit the mint transaction.
+   * @param {React.FormEvent} e - Form submission event
+   */
   const handleMint = useCallback(async (e) => {
     e.preventDefault()
     const normalizedTokenURI = tokenURI.trim()
