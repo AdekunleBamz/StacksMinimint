@@ -62,6 +62,15 @@ function getAddressNetwork(address) {
   return null;
 }
 
+/**
+ * pickStacksAddress - Select the most appropriate Stacks address for the active network.
+ *
+ * Filters and normalises a list of address entries, then returns the first
+ * address that matches the configured network, falling back to any valid address.
+ *
+ * @param {Array<string|{address:string}>} addresses - Address candidates
+ * @returns {string|null} Best-match address or null
+ */
 function pickStacksAddress(addresses) {
   if (!Array.isArray(addresses)) return null;
 
