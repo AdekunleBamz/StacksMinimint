@@ -222,10 +222,25 @@ export const formatOwnerTag = (address) => "Owner: " + String(address || "");
  */
 export const formatPercentFromBps = (bps) => (Number(bps) / 100).toFixed(2) + "%";
 
+/**
+ * formatRevealDelay - Format a reveal delay block count as a label.
+ * @param {number} blocks - Block delay count
+ * @returns {string} Delay label (e.g. "144 blocks to reveal")
+ */
 export const formatRevealDelay = (blocks) => Number(blocks) + " blocks to reveal";
 
+/**
+ * formatTokenSymbol - Normalise and uppercase a token symbol string.
+ * @param {string|null} symbol - Token ticker symbol
+ * @returns {string} Trimmed uppercase symbol
+ */
 export const formatTokenSymbol = (symbol) => String(symbol || "").trim().toUpperCase();
 
+/**
+ * formatCollectionTitle - Return a safe collection title from a name string.
+ * @param {string|null|undefined} name - Collection name
+ * @returns {string} Trimmed name or 'Untitled Collection' fallback
+ */
 export const formatCollectionTitle = (name) => {
   const normalized = String(name ?? "").trim();
   return normalized || "Untitled Collection";
