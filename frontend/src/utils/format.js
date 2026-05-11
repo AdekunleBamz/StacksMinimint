@@ -53,8 +53,18 @@ export const formatRarity = (tier) => {
  */
 export const formatCID = (cid) => cid ? cid.slice(0, 8) + '...' + cid.slice(-4) : "";
 
+/**
+ * formatBlocksRemaining - Format a remaining block count as a label.
+ * @param {number|null} n - Block count
+ * @returns {string} Block count with unit (e.g. "144 blocks")
+ */
 export const formatBlocksRemaining = (n) => (n == null ? 0 : n) + " blocks";
 
+/**
+ * formatTraitValue - Format a trait attribute value for display.
+ * @param {*} v - Trait value (any type)
+ * @returns {string} String representation, or '—' if null/undefined
+ */
 export const formatTraitValue = (v) => v == null ? '—' : String(v);
 
 export const formatCollectionSize = (n) => {
