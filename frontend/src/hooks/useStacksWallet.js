@@ -39,10 +39,20 @@ function normalizeStacksAddress(address) {
   return normalizedAddress || null;
 }
 
+/**
+ * isStacksAddress - Return true if the value is a valid Stacks address.
+ * @param {string} address - Address string to check
+ * @returns {boolean}
+ */
 function isStacksAddress(address) {
   return Boolean(getAddressNetwork(address));
 }
 
+/**
+ * getAddressNetwork - Detect whether a Stacks address belongs to mainnet or testnet.
+ * @param {string} address - Stacks address
+ * @returns {'mainnet'|'testnet'|null} Network name or null if unrecognised
+ */
 function getAddressNetwork(address) {
   const normalizedAddress = normalizeStacksAddress(address);
   if (!normalizedAddress) return null;
