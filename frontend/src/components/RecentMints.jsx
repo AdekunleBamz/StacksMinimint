@@ -15,6 +15,13 @@ import { getExplorerUrl } from '../contract'
 /** Number of skeleton placeholder rows to show while recent mints are loading. */
 const RECENT_MINTS_SKELETON_COUNT = 3;
 
+/**
+ * normalizeMintTimestamp - Convert a mint timestamp to milliseconds.
+ * Values already in ms are returned as-is; Unix second timestamps are scaled up.
+ * Non-finite values fall back to Date.now().
+ * @param {number|string} timestamp - Raw timestamp value
+ * @returns {number} Timestamp in milliseconds
+ */
 export function normalizeMintTimestamp(timestamp) {
   const numericTimestamp = Number(timestamp)
   if (!Number.isFinite(numericTimestamp)) return Date.now()
@@ -28,14 +35,31 @@ function getFirstNonEmpty(values, fallback = null) {
   return normalized ?? fallback
 }
 
+/**
+ * getRecentMintTxId - Extract the transaction ID from a recent mint record.
+ * Checks `txId` and `txHash` fields in order.
+ * @param {Object} mint - Mint record
+ * @returns {string|null} Transaction ID or null
+ */
 export function getRecentMintTxId(mint) {
   return getFirstNonEmpty([mint?.txId, mint?.txHash])
 }
 
+/**
+ * getRecentMintAddress - Extract the minter address from a recent mint record.
+ * @param {Object} mint - Mint record
+ * @param {string} [fallback='Unknown'] - Fallback value when no address is found
+ * @returns {string} Minter address or fallback
+ */
 export function getRecentMintAddress(mint, fallback = 'Unknown') {
   return getFirstNonEmpty([mint?.minter, mint?.address], fallback)
 }
 
+/**
+ * getRecentMintTokenDescriptor - Build display labels for a minted or pending token.
+ * @param {string|number|null|undefined} tokenId - Token ID (null/empty means pending)
+ * @returns {{ tokenLabel: string, receiptLabel: string, explorerLabel: string, isPendingToken: boolean }}
+ */
 export function getRecentMintTokenDescriptor(tokenId) {
   const normalizedTokenId = typeof tokenId === 'string' ? tokenId.trim() : tokenId
   const isPendingToken = normalizedTokenId === '' || normalizedTokenId == null
@@ -53,6 +77,12 @@ export function getRecentMintTokenDescriptor(tokenId) {
   }
 }
 
+/**
+ * getRecentMintKey - Compute a stable React list key for a recent mint record.
+ * Falls back to a tokenId+timestamp composite when txId is absent.
+ * @param {{ txId?: string, tokenId?: string|number, timestamp?: number }} param0
+ * @returns {string} Unique key string
+ */
 export function getRecentMintKey({ txId, tokenId, timestamp }) {
   return txId || `${tokenId ?? 'pending'}-${timestamp}`
 }
