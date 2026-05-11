@@ -74,10 +74,13 @@ export const PLACEHOLDER_IMAGE_CID = "QmPlaceholder"
 /** Default number of tokens to fetch per page in paginated gallery views. */
 export const DEFAULT_PAGE_SIZE = 20
 
+/** Timeout in ms for IPFS/HTTP metadata fetch requests before aborting. */
 export const METADATA_FETCH_TIMEOUT_MS = 12000
 
+/** Maximum number of recent transactions to keep in local session history. */
 export const MAX_RECENT_TX = 25
 
+/** Number of on-chain confirmations required before a mint tx is considered final. */
 export const MINT_TX_CONFIRMATIONS = 1
 
 export const IPFS_FETCH_RETRIES = 2
