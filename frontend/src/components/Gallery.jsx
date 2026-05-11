@@ -116,6 +116,10 @@ export function Gallery() {
     }
   }, [selectedNft])
 
+  /**
+   * filteredNfts - Filter and search the loaded NFTs by name, owner, or token ID.
+   * @type {Array<Object>}
+   */
   const filteredNfts = useMemo(() => nfts.filter(nft => {
     const idSearch = normalizedSearchTerm.startsWith('#')
       ? normalizedSearchTerm.slice(1)
