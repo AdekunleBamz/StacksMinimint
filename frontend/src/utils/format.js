@@ -124,10 +124,26 @@ export const formatTxStatus = (s) => {
   return normalizedStatus.charAt(0).toUpperCase() + normalizedStatus.slice(1);
 };
 
+/**
+ * formatNFTName - Combine an NFT name and token ID into a display label.
+ * @param {string|null} name - NFT collection name
+ * @param {number|null} id - Token ID
+ * @returns {string} Combined label (e.g. "Genesis #42")
+ */
 export const formatNFTName = (name, id) => (name ?? 'NFT') + " #" + (id ?? 0);
 
+/**
+ * formatIPFSUrl - Build an ipfs:// URI from a CID.
+ * @param {string|null} cid - IPFS content identifier
+ * @returns {string} ipfs:// URI (e.g. "ipfs://QmAbc123")
+ */
 export const formatIPFSUrl = (cid) => "ipfs://" + (cid ?? '');
 
+/**
+ * formatGatewayUrl - Build an IPFS HTTP gateway URL from a CID.
+ * @param {string|null} cid - IPFS content identifier
+ * @returns {string} Public gateway URL via ipfs.io
+ */
 export const formatGatewayUrl = (cid) => {
   const normalizedCid = String(cid ?? "").replace(/^\/+/, "");
   return "https://ipfs.io/ipfs/" + normalizedCid;
