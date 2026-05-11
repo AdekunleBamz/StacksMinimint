@@ -35,12 +35,22 @@ export const formatRoyalty = (bps) => {
   return (bps / 100).toFixed(1) + "%";
 };
 
+/**
+ * formatRarity - Capitalise a rarity tier label.
+ * @param {string} tier - Rarity tier ('common', 'rare', 'epic', 'legendary')
+ * @returns {string} Capitalised tier name or empty string for blank input
+ */
 export const formatRarity = (tier) => {
   const normalizedTier = typeof tier === 'string' ? tier.trim() : '';
   if (!normalizedTier) return '';
   return normalizedTier.charAt(0).toUpperCase() + normalizedTier.slice(1);
 };
 
+/**
+ * formatCID - Truncate an IPFS CID for compact display.
+ * @param {string|null|undefined} cid - IPFS content identifier
+ * @returns {string} Truncated CID (first 8 + last 4 chars) or empty string
+ */
 export const formatCID = (cid) => cid ? cid.slice(0, 8) + '...' + cid.slice(-4) : "";
 
 export const formatBlocksRemaining = (n) => (n == null ? 0 : n) + " blocks";
