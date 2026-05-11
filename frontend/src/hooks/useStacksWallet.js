@@ -82,6 +82,15 @@ function pickStacksAddress(addresses) {
   return normalizedAddresses.find((address) => getAddressNetwork(address) === NETWORK) || normalizedAddresses[0] || null;
 }
 
+/**
+ * getStacksAddress - Extract the best Stacks address from wallet connection response data.
+ *
+ * Tries multiple response shapes (addresses array, stx sub-field, profile object) in
+ * priority order, returning the network-matched address or null.
+ *
+ * @param {Object|null} data - Wallet connection response
+ * @returns {string|null} Stacks address or null
+ */
 export function getStacksAddress(data) {
   const responseAddress = pickStacksAddress(data?.addresses);
   if (responseAddress) return responseAddress;
@@ -107,6 +116,11 @@ export function getStacksAddress(data) {
   return normalizeStacksAddress(candidateAddress)
 }
 
+/**
+ * getLegacyUserData - Load user data from the legacy @stacks/connect UserSession.
+ * Returns null if the user is not signed in or if session data cannot be read.
+ * @returns {Object|null} Legacy user data or null
+ */
 function getLegacyUserData() {
   try {
     return userSession.isUserSignedIn() ? userSession.loadUserData() : null;
