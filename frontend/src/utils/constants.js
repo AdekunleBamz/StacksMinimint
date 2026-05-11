@@ -38,10 +38,13 @@ export const MAX_ROYALTY_BASIS_POINTS = 10000
 /** Maximum number of NFTs a single wallet is allowed to mint in this collection. */
 export const MAX_PER_WALLET = 20
 
+/** Stacks block height at which the whitelist mint phase begins. */
 export const WHITELIST_BLOCK_START = 100000
 
+/** Stacks block height at which the whitelist mint phase ends. */
 export const WHITELIST_BLOCK_END = 105000
 
+/** Stacks block height at which public minting opens. */
 export const PUBLIC_MINT_BLOCK = 105000
 
 export const PROVENANCE_HASH_ALGORITHM = "sha256"
