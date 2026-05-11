@@ -1,6 +1,16 @@
 
+/**
+ * formatTokenId - Format a token ID for display.
+ * @param {number|string|null|undefined} id - Token ID
+ * @returns {string} Token ID prefixed with '#', defaults to '#0'
+ */
 export const formatTokenId = (id) => id == null ? '#0' : '#' + id;
 
+/**
+ * formatMintPrice - Format a mint price in STX for display.
+ * @param {number|string} stx - Price in STX
+ * @returns {string} Formatted price string (e.g. "10 STX")
+ */
 export const formatMintPrice = (stx) => {
   const amount = Number(stx);
   if (!Number.isFinite(amount)) return '0 STX';
