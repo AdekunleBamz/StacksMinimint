@@ -85,12 +85,22 @@ export const formatCollectionSize = (n) => {
  */
 export const formatOwnerCount = (n) => (n == null ? 0 : n) + " owners";
 
+/**
+ * formatListingPrice - Format a listing price with two decimal places.
+ * @param {number|string} stx - Price in STX
+ * @returns {string} Formatted price (e.g. "10.00 STX")
+ */
 export const formatListingPrice = (stx) => {
   const amount = Number(stx);
   if (!Number.isFinite(amount)) return '0.00 STX';
   return `${amount.toFixed(2)} STX`;
 };
 
+/**
+ * formatBidAmount - Format a bid amount as a labelled STX string.
+ * @param {number|null} stx - Bid amount in STX
+ * @returns {string} Formatted bid label (e.g. "Bid: 5 STX")
+ */
 export const formatBidAmount = (stx) => "Bid: " + (stx ?? 0) + " STX";
 
 export const formatMintDate = (ts) => {
