@@ -17,8 +17,10 @@ export const MAX_SUPPLY = 10000
 /** Maximum number of NFTs a wallet can mint in a single batch transaction. */
 export const MINT_BATCH_LIMIT = 5
 
+/** Base URL for the Pinata IPFS HTTP gateway used to resolve token metadata. */
 export const IPFS_GATEWAY_URL = "https://gateway.pinata.cloud/ipfs/"
 
+/** Metadata schema version expected by the collection. */
 export const METADATA_VERSION = 1
 
 export const REVEAL_DELAY_BLOCKS = 144
