@@ -28,6 +28,11 @@ export const userSession = new UserSession({ appConfig });
 const MAINNET_ADDRESS_PREFIXES = ['SP', 'SM'];
 const TESTNET_ADDRESS_PREFIXES = ['ST', 'SN'];
 
+/**
+ * normalizeStacksAddress - Trim a Stacks address string and return null for blank values.
+ * @param {*} address - Raw address value
+ * @returns {string|null} Trimmed address or null
+ */
 function normalizeStacksAddress(address) {
   if (typeof address !== 'string') return null;
   const normalizedAddress = address.trim();
