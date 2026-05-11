@@ -5,8 +5,10 @@ export const NFT_CONTRACT_ADDRESS = "SP000000000000000000002Q6VF78"
 /** Name of the minimint NFT core contract on Stacks. */
 export const NFT_CONTRACT_NAME = "minimint-nft"
 
+/** Base mint price per NFT in STX. */
 export const NFT_MINT_PRICE_STX = 10
 
+/** Base mint price per NFT in micro-STX (1 STX = 1,000,000 micro-STX). */
 export const NFT_MINT_PRICE_MICROSTX = NFT_MINT_PRICE_STX * 1_000_000
 
 export const MAX_SUPPLY = 10000
