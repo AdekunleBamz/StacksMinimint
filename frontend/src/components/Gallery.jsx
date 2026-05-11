@@ -92,10 +92,8 @@ export function Gallery() {
     setSelectedNft(null)
   }, [])
 
+  // Trap focus and scroll in the detail modal; restore focus and scroll on close
   useEffect(() => {
-    if (!selectedNft) return
-
-    const handleEscape = (event) => {
       if (event.key === 'Escape') {
         closeModal()
       }
@@ -136,6 +134,11 @@ export function Gallery() {
   const filteredLabel = filteredNfts.length === 1 ? 'item' : 'items'
   const totalLabel = nfts.length === 1 ? 'item' : 'items'
 
+  /**
+   * handleCardKeyDown - Trigger NFT click when Enter or Space is pressed on a card.
+   * @param {React.KeyboardEvent} event - Keyboard event
+   * @param {Object} nft - The NFT object for the focused card
+   */
   const handleCardKeyDown = useCallback((event, nft) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
