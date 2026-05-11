@@ -149,11 +149,21 @@ export const formatGatewayUrl = (cid) => {
   return "https://ipfs.io/ipfs/" + normalizedCid;
 };
 
+/**
+ * formatMicroStx - Format a micro-STX value as a full STX string with 6 decimals.
+ * @param {number|null} v - Amount in micro-STX
+ * @returns {string} STX string with 6 decimal places (e.g. "1.500000 STX")
+ */
 export const formatMicroStx = (v) => {
   if (v == null) return '0.000000 STX';
   return (v / 1e6).toFixed(6) + " STX";
 };
 
+/**
+ * formatBlockTime - Format a block time in milliseconds as a minutes label.
+ * @param {number|null} ms - Block time in milliseconds
+ * @returns {string} Rounded minutes label (e.g. "10 min")
+ */
 export const formatBlockTime = (ms) => {
   if (ms == null) return '0 min';
   return Math.round(ms / 60000) + " min";
