@@ -19,16 +19,34 @@ const MINT_PENDING_MESSAGE = 'Confirm this mint in your wallet.';
 /** Message shown when a mint transaction is cancelled or rejected. */
 const MINT_CANCELLED_MESSAGE = 'Mint was canceled or rejected in your wallet.';
 
+/**
+ * normalizeMintMetricValue - Coerce a supply metric to a finite number.
+ * @param {*} value - Raw metric value
+ * @param {number} [fallback=0] - Value to return when coercion fails
+ * @returns {number}
+ */
 export function normalizeMintMetricValue(value, fallback = 0) {
   const parsedValue = Number(value)
   return Number.isFinite(parsedValue) ? parsedValue : fallback
 }
 
+/**
+ * normalizeMintLimitValue - Coerce a cap limit to a finite number or null.
+ * Returns null when the value is missing or non-numeric (meaning no limit).
+ * @param {*} value - Raw limit value
+ * @returns {number|null}
+ */
 export function normalizeMintLimitValue(value) {
   const parsedValue = Number(value)
   return Number.isFinite(parsedValue) ? parsedValue : null
 }
 
+/**
+ * getMintStateDescriptor - Derive the current mint action state and its display message.
+ * Checks pause, sold-out, wallet limit, and URI validity in priority order.
+ * @param {{ isPaused: boolean, isSoldOut: boolean, walletLimitReached: boolean, isTokenUriValid: boolean, invalidUriHelper: string }} params
+ * @returns {{ state: string, message: string }}
+ */
 export function getMintStateDescriptor({ isPaused, isSoldOut, walletLimitReached, isTokenUriValid, invalidUriHelper }) {
   if (isPaused) {
     return {
@@ -64,6 +82,11 @@ export function getMintStateDescriptor({ isPaused, isSoldOut, walletLimitReached
   }
 }
 
+/**
+ * getMintConnectButtonA11y - Build accessible label and title strings for the connect button.
+ * @param {boolean} isConnecting - Whether a connection attempt is in progress
+ * @returns {{ label: string, title: string }}
+ */
 export function getMintConnectButtonA11y(isConnecting) {
   return {
     label: isConnecting ? 'Connecting wallet' : 'Connect wallet to mint',
@@ -71,6 +94,11 @@ export function getMintConnectButtonA11y(isConnecting) {
   }
 }
 
+/**
+ * getMintSubmitLabel - Return the submit button label for the current mint state.
+ * @param {{ isMinting: boolean, isSoldOut: boolean, walletLimitReached: boolean, mintFee: number }} params
+ * @returns {string}
+ */
 export function getMintSubmitLabel({ isMinting, isSoldOut, walletLimitReached, mintFee }) {
   if (isMinting) return 'Minting...'
   if (isSoldOut) return 'Sold Out'
