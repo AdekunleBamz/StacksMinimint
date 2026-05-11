@@ -32,7 +32,7 @@ export function Gallery() {
   const normalizedSearchTerm = searchTerm.toLowerCase().trim()
   const safeViewMode = viewMode === 'list' ? 'list' : 'grid'
 
-  // Sample NFT data for demonstration
+  // Load mock NFT data with a simulated network delay for gallery demonstration
   useEffect(() => {
     const mockNfts = [
       {
