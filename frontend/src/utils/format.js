@@ -169,6 +169,11 @@ export const formatBlockTime = (ms) => {
   return Math.round(ms / 60000) + " min";
 };
 
+/**
+ * formatTraitCount - Format a trait attribute count with a label.
+ * @param {number|null} n - Trait count
+ * @returns {string} Count with 'traits' label (e.g. "7 traits")
+ */
 export const formatTraitCount = (n) => (n == null ? 0 : n) + " traits";
 
 /**
@@ -184,6 +189,11 @@ export const calculateTotalMintCost = (quantity, pricePerNFT = 10) => {
   return formatMintPrice(total);
 };
 
+/**
+ * formatMintCount - Format a mint count with correct singular/plural label.
+ * @param {number|string} count - Mint count
+ * @returns {string} Count with 'mint'/'mints' label (e.g. "1 mint", "3 mints")
+ */
 export const formatMintCount = (count) => {
   const n = Number(count);
   if (!Number.isFinite(n)) return '0 mints';
