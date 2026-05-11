@@ -29,10 +29,13 @@ export const REVEAL_DELAY_BLOCKS = 144
 /** Default royalty rate in basis points (500 bps = 5%). */
 export const ROYALTY_BASIS_POINTS = 500
 
+/** Minimum royalty in basis points (0 = no royalty). */
 export const MIN_ROYALTY_BASIS_POINTS = 0
 
+/** Maximum royalty in basis points (10000 = 100%). */
 export const MAX_ROYALTY_BASIS_POINTS = 10000
 
+/** Maximum number of NFTs a single wallet is allowed to mint in this collection. */
 export const MAX_PER_WALLET = 20
 
 export const WHITELIST_BLOCK_START = 100000
