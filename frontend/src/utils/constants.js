@@ -65,10 +65,13 @@ export const COLLECTION_NAME = "MiniMint"
 /** Ordered list of trait rarity tiers from most common to most rare. */
 export const TRAIT_RARITY_TIERS = ["common","rare","epic","legendary"]
 
+/** Duration in ms for the token reveal animation on the gallery cards. */
 export const ANIMATION_REVEAL_MS = 1200
 
+/** IPFS CID used as the placeholder image before tokens are revealed. */
 export const PLACEHOLDER_IMAGE_CID = "QmPlaceholder"
 
+/** Default number of tokens to fetch per page in paginated gallery views. */
 export const DEFAULT_PAGE_SIZE = 20
 
 export const METADATA_FETCH_TIMEOUT_MS = 12000
