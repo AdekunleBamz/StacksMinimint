@@ -49,6 +49,15 @@ export function normalizeMicrostxInput(microstx) {
   return amount
 }
 
+/**
+ * getSTXFormatDescriptor - Build a full format descriptor for a micro-STX amount.
+ *
+ * Returns an object with the formatted STX string, validity flag, and raw values.
+ * Used internally by formatSTX and for cases that need the full descriptor.
+ *
+ * @param {string|number|null|undefined} microstx - Amount in micro-STX
+ * @returns {{ formatted: string, isValid: boolean, microstx: number, stxValue: number }}
+ */
 export function getSTXFormatDescriptor(microstx) {
   const normalizedAmount = normalizeMicrostxInput(microstx)
   if (normalizedAmount === null) {
