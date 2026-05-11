@@ -176,6 +176,12 @@ export function formatLimit(value, fallback = 'Not set') {
   return getLimitText(value, fallback)
 }
 
+/**
+ * normalizeRelativeTimestamp - Convert a Unix timestamp to milliseconds.
+ * Returns null for missing or non-finite values.
+ * @param {number|null|undefined} timestamp - Unix timestamp in s or ms
+ * @returns {number|null} Timestamp in ms or null
+ */
 export function normalizeRelativeTimestamp(timestamp) {
   if (timestamp === null || timestamp === undefined) return null
   const time = Number(timestamp)
@@ -183,6 +189,12 @@ export function normalizeRelativeTimestamp(timestamp) {
   return time < UNIX_MS_THRESHOLD ? time * 1000 : time
 }
 
+/**
+ * getRelativeTimeDescriptor - Compute a relative time label and metadata object.
+ * @param {number|null|undefined} timestamp - Unix timestamp in s or ms
+ * @param {number} [now=Date.now()] - Reference time in ms
+ * @returns {{ label: string, unit: string, value: number, isFuture: boolean }}
+ */
 export function getRelativeTimeDescriptor(timestamp, now = Date.now()) {
   const normalizedTime = normalizeRelativeTimestamp(timestamp)
   if (normalizedTime === null) {
