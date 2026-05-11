@@ -66,10 +66,18 @@ export function Gallery() {
     return () => clearTimeout(timeoutId)
   }, [])
 
+  /**
+   * handleNftClick - Open the detail modal for the clicked NFT.
+   * @param {Object} nft - The NFT object that was clicked
+   */
   const handleNftClick = useCallback((nft) => {
     setSelectedNft(nft)
   }, [])
 
+  /**
+   * handleSearchKeyDown - Clear the search field when the user presses Escape.
+   * @param {React.KeyboardEvent} event - Keyboard event from the search input
+   */
   const handleSearchKeyDown = useCallback((event) => {
     if (event.key === 'Escape' && searchTerm) {
       event.preventDefault()
@@ -77,6 +85,9 @@ export function Gallery() {
     }
   }, [searchTerm])
 
+  /**
+   * closeModal - Dismiss the NFT detail modal and clear the selected token.
+   */
   const closeModal = useCallback(() => {
     setSelectedNft(null)
   }, [])
