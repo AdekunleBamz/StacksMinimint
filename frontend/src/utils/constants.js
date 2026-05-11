@@ -11,8 +11,10 @@ export const NFT_MINT_PRICE_STX = 10
 /** Base mint price per NFT in micro-STX (1 STX = 1,000,000 micro-STX). */
 export const NFT_MINT_PRICE_MICROSTX = NFT_MINT_PRICE_STX * 1_000_000
 
+/** Maximum token supply for this collection. */
 export const MAX_SUPPLY = 10000
 
+/** Maximum number of NFTs a wallet can mint in a single batch transaction. */
 export const MINT_BATCH_LIMIT = 5
 
 export const IPFS_GATEWAY_URL = "https://gateway.pinata.cloud/ipfs/"
