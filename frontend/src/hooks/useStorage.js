@@ -8,6 +8,17 @@
  */
 import { useCallback, useEffect, useState } from 'react'
 
+/**
+ * useLocalStorage - Persist and sync state to localStorage with JSON serialization.
+ *
+ * Handles SSR (returns initialValue when window is undefined), invalid key graceful
+ * degradation, and cross-tab sync via the `storage` event.
+ *
+ * @template T
+ * @param {string} key - localStorage key
+ * @param {T} initialValue - Fallback value when the key has no stored data
+ * @returns {[T, Function, Function, { hasValue: boolean, isReady: boolean }]}
+ */
 export function useLocalStorage(key, initialValue) {
   const normalizedKey = typeof key === 'string' ? key.trim() : ''
   const hasValidKey = normalizedKey.length > 0
@@ -97,6 +108,16 @@ export function useLocalStorage(key, initialValue) {
  */
 export default { useLocalStorage, useSessionStorage }
 
+/**
+ * useSessionStorage - Persist and sync state to sessionStorage with JSON serialization.
+ *
+ * Mirrors the `useLocalStorage` API using sessionStorage; scoped to the current tab session.
+ *
+ * @template T
+ * @param {string} key - sessionStorage key
+ * @param {T} initialValue - Fallback value when the key has no stored data
+ * @returns {[T, Function, Function]}
+ */
 export function useSessionStorage(key, initialValue) {
   const normalizedKey = typeof key === 'string' ? key.trim() : ''
   const hasValidKey = normalizedKey.length > 0
