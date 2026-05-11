@@ -1,6 +1,8 @@
 
+/** Stacks address of the deployed minimint NFT core contract. */
 export const NFT_CONTRACT_ADDRESS = "SP000000000000000000002Q6VF78"
 
+/** Name of the minimint NFT core contract on Stacks. */
 export const NFT_CONTRACT_NAME = "minimint-nft"
 
 export const NFT_MINT_PRICE_STX = 10
