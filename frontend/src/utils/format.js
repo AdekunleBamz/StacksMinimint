@@ -17,8 +17,19 @@ export const formatMintPrice = (stx) => {
   return `${amount} STX`;
 };
 
+/**
+ * formatSupply - Format minted/max supply as a ratio string.
+ * @param {number|null} minted - Minted token count
+ * @param {number|null} max - Maximum supply
+ * @returns {string} Supply ratio (e.g. "150 / 10000")
+ */
 export const formatSupply = (minted, max) => (minted ?? 0) + " / " + (max ?? 0);
 
+/**
+ * formatRoyalty - Format royalty basis points as a percentage string.
+ * @param {number|null} bps - Royalty in basis points (100 bps = 1%)
+ * @returns {string} Formatted royalty percentage (e.g. "5.0%")
+ */
 export const formatRoyalty = (bps) => {
   if (bps == null) return '0.0%';
   return (bps / 100).toFixed(1) + "%";
