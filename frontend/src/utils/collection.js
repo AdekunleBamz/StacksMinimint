@@ -152,6 +152,12 @@ function getLimitValueType(value) {
   return typeof value
 }
 
+/**
+ * describeLimit - Return a full descriptor object for a limit value.
+ * @param {*} value - Limit value
+ * @param {string} [fallback='Not set'] - Label to show when value is empty
+ * @returns {{ text: string, isFallback: boolean, valueType: string }}
+ */
 export function describeLimit(value, fallback = 'Not set') {
   return {
     text: getLimitText(value, fallback),
@@ -160,6 +166,12 @@ export function describeLimit(value, fallback = 'Not set') {
   }
 }
 
+/**
+ * formatLimit - Format a limit value as a plain display string.
+ * @param {*} value - Limit value
+ * @param {string} [fallback='Not set'] - Fallback label for empty values
+ * @returns {string} Formatted limit string
+ */
 export function formatLimit(value, fallback = 'Not set') {
   return getLimitText(value, fallback)
 }
