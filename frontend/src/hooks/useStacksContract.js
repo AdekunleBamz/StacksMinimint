@@ -102,6 +102,16 @@ export function useStacksContract(address) {
     fetchContractInfo();
   }, [fetchContractInfo]);
 
+  /**
+   * mint - Submit a mint transaction for the given token URI.
+   *
+   * Validates the token URI, builds the post-condition, and opens the
+   * Stacks wallet to confirm. Returns a submission record on success or
+   * null on cancel/error.
+   *
+   * @param {string} tokenURI - IPFS or HTTPS URI for the token metadata
+   * @returns {Promise<Object|null>} Submission record or null
+   */
   const mint = useCallback(async (tokenURI) => {
     if (!address) {
       setError('Wallet address is unavailable — reconnect and try again.');
