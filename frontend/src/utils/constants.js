@@ -47,10 +47,13 @@ export const WHITELIST_BLOCK_END = 105000
 /** Stacks block height at which public minting opens. */
 export const PUBLIC_MINT_BLOCK = 105000
 
+/** Hashing algorithm used to compute the provenance hash for this collection. */
 export const PROVENANCE_HASH_ALGORITHM = "sha256"
 
+/** Base URL for the Stacks Mainnet node API. */
 export const STACKS_API_BASE_URL = "https://stacks-node-api.mainnet.stacks.co"
 
+/** Base URL for the Stacks Explorer web interface. */
 export const EXPLORER_BASE_URL = "https://explorer.stacks.co"
 
 export const TOKEN_SYMBOL = "MINI"
