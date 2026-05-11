@@ -23,8 +23,10 @@ export const IPFS_GATEWAY_URL = "https://gateway.pinata.cloud/ipfs/"
 /** Metadata schema version expected by the collection. */
 export const METADATA_VERSION = 1
 
+/** Number of Stacks blocks to wait before revealing token metadata after minting. */
 export const REVEAL_DELAY_BLOCKS = 144
 
+/** Default royalty rate in basis points (500 bps = 5%). */
 export const ROYALTY_BASIS_POINTS = 500
 
 export const MIN_ROYALTY_BASIS_POINTS = 0
