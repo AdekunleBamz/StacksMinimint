@@ -103,11 +103,21 @@ export const formatListingPrice = (stx) => {
  */
 export const formatBidAmount = (stx) => "Bid: " + (stx ?? 0) + " STX";
 
+/**
+ * formatMintDate - Format a mint timestamp as a locale date string.
+ * @param {number|null} ts - Unix timestamp in milliseconds
+ * @returns {string} Locale date string or '—' for null/undefined
+ */
 export const formatMintDate = (ts) => {
   if (ts == null) return '—';
   return new Date(ts).toLocaleDateString();
 };
 
+/**
+ * formatTxStatus - Capitalise a transaction status string for display.
+ * @param {string|null|undefined} s - Raw status string (e.g. 'pending', 'success')
+ * @returns {string} Capitalised status or 'Unknown' if blank
+ */
 export const formatTxStatus = (s) => {
   const normalizedStatus = typeof s === 'string' ? s.trim() : '';
   if (!normalizedStatus) return 'Unknown';
