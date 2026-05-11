@@ -200,10 +200,26 @@ export const formatMintCount = (count) => {
   return n + " mint" + (n === 1 ? "" : "s");
 };
 
+/**
+ * formatWhitelistWindow - Format a whitelist block range as a label.
+ * @param {number} start - Whitelist start block
+ * @param {number} end - Whitelist end block
+ * @returns {string} Block range label (e.g. "WL 100000-105000")
+ */
 export const formatWhitelistWindow = (start, end) => "WL " + Number(start) + "-" + Number(end);
 
+/**
+ * formatOwnerTag - Format an owner address as a labelled string.
+ * @param {string|null} address - Owner wallet address
+ * @returns {string} Labelled address (e.g. "Owner: SP3HE...")
+ */
 export const formatOwnerTag = (address) => "Owner: " + String(address || "");
 
+/**
+ * formatPercentFromBps - Convert basis points to a percentage string.
+ * @param {number} bps - Basis points (100 bps = 1%)
+ * @returns {string} Percentage with 2 decimal places (e.g. "5.00%")
+ */
 export const formatPercentFromBps = (bps) => (Number(bps) / 100).toFixed(2) + "%";
 
 export const formatRevealDelay = (blocks) => Number(blocks) + " blocks to reveal";
