@@ -83,10 +83,13 @@ export const MAX_RECENT_TX = 25
 /** Number of on-chain confirmations required before a mint tx is considered final. */
 export const MINT_TX_CONFIRMATIONS = 1
 
+/** Number of times to retry a failed IPFS metadata fetch before giving up. */
 export const IPFS_FETCH_RETRIES = 2
 
+/** Delay in ms between each card's reveal animation in a staggered sequence. */
 export const REVEAL_ANIMATION_STAGGER_MS = 120
 
+/** Maximum character length for a minted NFT label string. */
 export const MAX_MINT_LABEL_LENGTH = 32
 
 export const SUPPORTED_METADATA_SCHEMES = ["ipfs://", "https://"]
