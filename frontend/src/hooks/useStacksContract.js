@@ -67,6 +67,10 @@ export function useStacksContract(address) {
   });
   const stacksNetwork = NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET;
 
+  /**
+   * fetchContractInfo - Fetch on-chain collection metrics (supply, fee) via a read-only call.
+   * Updates contractInfo state on success; silently ignores network errors.
+   */
   const fetchContractInfo = useCallback(async () => {
     try {
       const response = await fetchCallReadOnlyFunction({
