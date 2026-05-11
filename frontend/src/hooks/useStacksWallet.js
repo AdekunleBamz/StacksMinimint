@@ -130,11 +130,19 @@ function getLegacyUserData() {
   }
 }
 
+/**
+ * useStacksWallet - React hook for Stacks wallet connection and session state.
+ *
+ * Manages connect/disconnect lifecycle and restores an existing session on mount.
+ *
+ * @returns {{ address: string|null, userData: Object|null, isConnected: boolean, isSignedIn: boolean, displayAddress: string|null, isConnecting: boolean, isDisconnected: boolean, connect: Function, disconnect: Function, network: Object }}
+ */
 export function useStacksWallet() {
   const [userData, setUserData] = useState(null);
   const [address, setAddress] = useState(null);
   const [isConnecting, setIsConnecting] = useState(false);
 
+  /** connect - Open the wallet prompt and persist the returned address. */
   const connect = useCallback(() => {
     if (isConnecting || address) return;
     setIsConnecting(true);
@@ -159,6 +167,7 @@ export function useStacksWallet() {
       });
   }, [isConnecting, address]);
 
+  /** disconnect - Clear wallet session data and reset all connection state. */
   const disconnect = useCallback(() => {
     disconnectStacksWallet();
     setUserData(null);
@@ -166,8 +175,8 @@ export function useStacksWallet() {
     setIsConnecting(false);
   }, []);
 
+  // Restore wallet session from storage on initial mount (no re-run needed)
   useEffect(() => {
-    if (isStacksConnectConnected()) {
       const legacyData = getLegacyUserData();
       setUserData(legacyData);
       setAddress(getStacksAddress(getStacksConnectStorage()) || getStacksAddress(legacyData));
