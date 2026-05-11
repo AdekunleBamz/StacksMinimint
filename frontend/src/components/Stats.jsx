@@ -24,11 +24,17 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
     ? Math.max(parsedRecentActivityCount, STATS_MIN_RECEIPT_COUNT)
     : 0
 
+  // Track the last time collection data was refreshed for display purposes
   useEffect(() => {
     if (contractInfo) {
       setLastUpdated(new Date())
     }
   }, [contractInfo])
+
+  /**
+   * Derived stats array, collection state, and supply metrics computed from contractInfo.
+   * @type {{ stats: Array, collectionState: Object, progress: number, roundedProgress: number, remainingSupply: number|null, receiptLabel: string, totalSupply: number }}
+   */
   const { stats, collectionState, progress, roundedProgress, remainingSupply, receiptLabel, totalSupply } = useMemo(() => {
     const parsedTotalSupply = Number(contractInfo?.totalSupply)
     const parsedMaxSupply = Number(contractInfo?.maxSupply)
