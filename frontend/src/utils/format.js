@@ -246,14 +246,29 @@ export const formatCollectionTitle = (name) => {
   return normalized || "Untitled Collection";
 };
 
+/**
+ * formatFloorPrice - Format the floor price with a 'Floor' prefix.
+ * @param {number|string} stx - Floor price in STX
+ * @returns {string} Labelled floor price (e.g. "Floor 1.50 STX")
+ */
 export const formatFloorPrice = (stx) => {
   const amount = Number(stx);
   if (!Number.isFinite(amount)) return "Floor 0.00 STX";
   return "Floor " + amount.toFixed(2) + " STX";
 };
 
+/**
+ * formatMintBatch - Format a mint batch quantity as a labelled string.
+ * @param {number} qty - Number of NFTs in a batch
+ * @returns {string} Batch label (e.g. "Batch x3")
+ */
 export const formatMintBatch = (qty) => "Batch x" + Number(qty);
 
+/**
+ * formatAddressShort - Truncate a wallet address for compact display.
+ * @param {string|null} addr - Full wallet address
+ * @returns {string} Truncated address (first 6 + '...' + last 4 chars)
+ */
 export const formatAddressShort = (addr) => {
   const s = String(addr || "").trim();
   return s.length > 10 ? s.slice(0, 6) + "..." + s.slice(-4) : s;
