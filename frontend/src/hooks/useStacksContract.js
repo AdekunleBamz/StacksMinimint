@@ -27,6 +27,15 @@ import {
 } from '../constants';
 import { validateTokenURI } from '../utils/collection';
 
+/**
+ * parseUint - Safely convert a Clarity uint value to a JavaScript number.
+ *
+ * Handles bigint, number, and numeric string inputs. Clamps negative values
+ * to 0 and values above MAX_SAFE_INTEGER to Number.MAX_SAFE_INTEGER.
+ *
+ * @param {bigint|number|string} value - Raw Clarity uint value
+ * @returns {number} Safe integer representation
+ */
 export const parseUint = (value) => {
   const MAX_SAFE_UINT = BigInt(Number.MAX_SAFE_INTEGER);
 
