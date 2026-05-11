@@ -31,9 +31,13 @@ const TIME_MINUTES_PER_HOUR = 60;
 const TIME_HOURS_PER_DAY = 24;
 
 /**
- * Formats a micro-STX amount into a human-readable STX string.
- * @param {string|number} microstx - The amount in micro-STX.
- * @returns {string} The formatted STX amount.
+ * normalizeMicrostxInput - Parse and normalise a micro-STX input value.
+ *
+ * Accepts strings and numbers and returns the numeric value, or null for
+ * invalid/non-finite inputs. Used as the pre-processing step before display formatting.
+ *
+ * @param {string|number|null|undefined} microstx - Raw micro-STX input
+ * @returns {number|null} Numeric micro-STX value or null if invalid
  */
 export function normalizeMicrostxInput(microstx) {
   const input = typeof microstx === 'string' ? microstx.trim() : microstx
