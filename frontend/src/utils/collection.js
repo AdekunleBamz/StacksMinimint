@@ -132,10 +132,20 @@ export function getLimitText(value, fallback = 'Not set') {
   return `${value}`
 }
 
+/**
+ * isLimitFallback - Return true if the value should show the fallback label.
+ * @param {*} value - Value to check
+ * @returns {boolean} True if null, undefined, or blank string
+ */
 export function isLimitFallback(value) {
   return value === null || value === undefined || (typeof value === 'string' && value.trim().length === 0)
 }
 
+/**
+ * getLimitValueType - Classify the type of a limit value for internal use.
+ * @param {*} value - Value to classify
+ * @returns {'array'|'empty'|string} Type label
+ */
 function getLimitValueType(value) {
   if (Array.isArray(value)) return 'array'
   if (value === null || value === undefined) return 'empty'
