@@ -56,10 +56,13 @@ export const STACKS_API_BASE_URL = "https://stacks-node-api.mainnet.stacks.co"
 /** Base URL for the Stacks Explorer web interface. */
 export const EXPLORER_BASE_URL = "https://explorer.stacks.co"
 
+/** Ticker symbol used to identify this collection's token in UIs. */
 export const TOKEN_SYMBOL = "MINI"
 
+/** Display name for this NFT collection. */
 export const COLLECTION_NAME = "MiniMint"
 
+/** Ordered list of trait rarity tiers from most common to most rare. */
 export const TRAIT_RARITY_TIERS = ["common","rare","epic","legendary"]
 
 export const ANIMATION_REVEAL_MS = 1200
