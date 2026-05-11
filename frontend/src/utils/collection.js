@@ -349,6 +349,11 @@ export function getMetadataGatewayUrl(uri) {
   return null
 }
 
+/**
+ * extractGatewayHost - Extract the hostname from a gateway URL.
+ * @param {string} url - Full URL string
+ * @returns {string|null} Hostname or null if URL is invalid
+ */
 export function extractGatewayHost(url) {
   try {
     return new URL(url).hostname
@@ -357,6 +362,14 @@ export function extractGatewayHost(url) {
   }
 }
 
+/**
+ * getMetadataAccessDescriptor - Derive a full access descriptor for a token metadata URI.
+ *
+ * Combines kind, label, gateway URL, and accessibility flags into a single object.
+ *
+ * @param {string|null|undefined} uri - Token metadata URI
+ * @returns {{ kind: string, label: string, gatewayUrl: string|null, gatewayHost: string|null, isAccessible: boolean, requiresGateway: boolean }}
+ */
 export function getMetadataAccessDescriptor(uri) {
   const kind = getMetadataKind(uri)
   const label = getMetadataLabel(uri)
