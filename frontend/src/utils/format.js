@@ -67,12 +67,22 @@ export const formatBlocksRemaining = (n) => (n == null ? 0 : n) + " blocks";
  */
 export const formatTraitValue = (v) => v == null ? '—' : String(v);
 
+/**
+ * formatCollectionSize - Format a collection item count with locale separators.
+ * @param {number|string} n - Collection size
+ * @returns {string} Formatted count with 'items' label
+ */
 export const formatCollectionSize = (n) => {
   const amount = Number(n)
   if (Number.isFinite(amount)) return amount.toLocaleString() + " items"
   return String(n) + " items"
 };
 
+/**
+ * formatOwnerCount - Format an owner count with a label.
+ * @param {number|null} n - Number of unique owners
+ * @returns {string} Count with 'owners' label (e.g. "42 owners")
+ */
 export const formatOwnerCount = (n) => (n == null ? 0 : n) + " owners";
 
 export const formatListingPrice = (stx) => {
