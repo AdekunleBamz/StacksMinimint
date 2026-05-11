@@ -229,6 +229,12 @@ export function formatRelativeTime(timestamp) {
   return descriptor.label
 }
 
+/**
+ * normalizeExactTimestamp - Convert a Unix timestamp to milliseconds for exact display.
+ * Returns null for missing or non-finite values.
+ * @param {number|null|undefined} timestamp - Unix timestamp in s or ms
+ * @returns {number|null} Timestamp in ms or null
+ */
 export function normalizeExactTimestamp(timestamp) {
   if (timestamp === null || timestamp === undefined) return null
   const time = Number(timestamp)
@@ -236,6 +242,12 @@ export function normalizeExactTimestamp(timestamp) {
   return time < UNIX_MS_THRESHOLD ? time * 1000 : time
 }
 
+/**
+ * getExactTimeDescriptor - Compute an exact date/time label and ISO string.
+ * @param {number|null|undefined} timestamp - Unix timestamp in s or ms
+ * @param {string|undefined} [locale] - BCP 47 locale for formatting
+ * @returns {{ label: string, iso: string|null, isValid: boolean }}
+ */
 export function getExactTimeDescriptor(timestamp, locale) {
   const normalizedTime = normalizeExactTimestamp(timestamp)
   if (normalizedTime === null) {
