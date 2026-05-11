@@ -28,6 +28,13 @@ export function normalizeMintTimestamp(timestamp) {
   return numericTimestamp > 1_000_000_000_000 ? numericTimestamp : numericTimestamp * 1000
 }
 
+/**
+ * getFirstNonEmpty - Return the first non-empty value from an array of candidates.
+ * Trims string entries before checking; falls back to `fallback` when none pass.
+ * @param {Array<string|*>} values - Candidate values
+ * @param {*} [fallback=null] - Fallback when all values are empty
+ * @returns {*} First non-empty value or fallback
+ */
 function getFirstNonEmpty(values, fallback = null) {
   const normalized = values
     .map((value) => (typeof value === 'string' ? value.trim() : value))
