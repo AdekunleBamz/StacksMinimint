@@ -9,6 +9,9 @@
 import PropTypes from 'prop-types'
 import './Spinner.css'
 
+/**
+ * Accessible inline loading indicator with normalized size, tone, and label.
+ */
 export function Spinner({ size = 'medium', tone = 'primary', className = '', label = 'Loading content' }) {
   const safeLabel = typeof label === 'string' && label.trim() ? label.trim() : 'Loading content'
   const safeSize = ['small', 'medium', 'large'].includes(size) ? size : 'medium'
