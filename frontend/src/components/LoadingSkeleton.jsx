@@ -13,6 +13,9 @@ import './LoadingSkeleton.css'
 /** Maximum allowed skeleton count to prevent runaway rendering. */
 const SKELETON_MAX_COUNT = 40;
 
+/**
+ * Renders one or more non-interactive placeholder blocks for loading content.
+ */
 export function LoadingSkeleton({ variant = 'text', width, height, count = 1, className = '' }) {
   const SUPPORTED_VARIANTS = ['text', 'title', 'image', 'avatar', 'button', 'circle', 'rect']
   const safeCount = Number.isInteger(count) && count > 0 ? Math.min(count, SKELETON_MAX_COUNT) : 1
