@@ -13,6 +13,9 @@ import './CopyButton.css'
 import { useClipboard } from '../hooks'
 import { CLIPBOARD_TIMEOUT_MS } from '../constants'
 
+/**
+ * Button that copies a normalized text value and announces copy state changes.
+ */
 export function CopyButton({ text, label = 'Copy', successLabel = 'Copied', className = '' }) {
   const { copied, copy } = useClipboard(CLIPBOARD_TIMEOUT_MS)
   const copyValue = typeof text === 'string' ? text : text == null ? '' : String(text)
