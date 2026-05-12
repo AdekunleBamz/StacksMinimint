@@ -23,6 +23,9 @@ const MEDIA_QUERY_REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
 /** Media query string to detect high-contrast mode activation. */
 const MEDIA_QUERY_HIGH_CONTRAST = '(forced-colors: active)';
 
+/**
+ * Subscribes to a media query and returns its current match state.
+ */
 export function useMediaQuery(query) {
   const normalizedQuery = typeof query === 'string' ? query.trim() : ''
   const hasValidQuery = normalizedQuery.length > 0
