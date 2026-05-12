@@ -94,6 +94,9 @@ export function Gallery() {
 
   // Trap focus and scroll in the detail modal; restore focus and scroll on close
   useEffect(() => {
+    if (!selectedNft) return undefined
+
+    const handleEscape = (event) => {
       if (event.key === 'Escape') {
         closeModal()
       }
@@ -112,7 +115,7 @@ export function Gallery() {
         previousActiveElement.focus()
       }
     }
-  }, [selectedNft])
+  }, [closeModal, selectedNft])
 
   /**
    * filteredNfts - Filter and search the loaded NFTs by name, owner, or token ID.
