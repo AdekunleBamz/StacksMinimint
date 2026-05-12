@@ -177,21 +177,9 @@ export function useStacksWallet() {
 
   // Restore wallet session from storage on initial mount (no re-run needed)
   useEffect(() => {
-      const legacyData = getLegacyUserData();
-      setUserData(legacyData);
-      setAddress(getStacksAddress(getStacksConnectStorage()) || getStacksAddress(legacyData));
-      return;
-    }
-
     const legacyData = getLegacyUserData();
-    if (legacyData) {
-      setUserData(legacyData);
-      setAddress(getStacksAddress(legacyData));
-      return;
-    }
-
-    setUserData(null);
-    setAddress(null);
+    setUserData(legacyData);
+    setAddress(getStacksAddress(getStacksConnectStorage()) || getStacksAddress(legacyData));
   }, []);
 
   return {
