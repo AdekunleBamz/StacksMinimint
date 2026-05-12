@@ -1,5 +1,10 @@
 import { MIN_ROYALTY_BASIS_POINTS, MAX_ROYALTY_BASIS_POINTS, MAX_SUPPLY } from './constants.js';
 
+/**
+ * Validates token IDs accepted by local UI helpers.
+ * @param {*} v - Candidate token ID
+ * @returns {boolean} True when the value is an integer >= 0
+ */
 export const isValidTokenId = (v) => {
   if (v == null) return false;
   return Number.isInteger(Number(v)) && Number(v) >= 0;
