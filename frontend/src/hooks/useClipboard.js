@@ -29,6 +29,7 @@ export function useClipboard(timeout = 2000) {
     setError(null);
 
     try {
+      // Prefer the async Clipboard API; fall back for older embedded browsers.
       if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(value);
       } else {
