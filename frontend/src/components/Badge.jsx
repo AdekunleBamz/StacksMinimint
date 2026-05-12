@@ -10,6 +10,9 @@
 import PropTypes from 'prop-types'
 import './Badge.css'
 
+/**
+ * Compact label for status, category, and metadata chips.
+ */
 export function Badge({ 
   children, 
   variant = 'default', 
