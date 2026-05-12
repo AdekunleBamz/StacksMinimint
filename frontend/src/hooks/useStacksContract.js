@@ -57,7 +57,16 @@ export const parseUint = (value) => {
   return 0;
 };
 
-/**\n * useStacksContract - React hook for read and write interaction with the Minimint NFT contract.\n *\n * Fetches on-chain collection metrics on mount and exposes a mint callback\n * that opens the Stacks wallet to sign and broadcast the transaction.\n *\n * @param {string|null} address - Connected wallet address used as the sender\n * @returns {{ isLoading: boolean, error: string|null, contractInfo: Object, mint: Function, fetchContractInfo: Function }}\n */\nexport function useStacksContract(address) {
+/**
+ * useStacksContract - React hook for read and write interaction with the Minimint NFT contract.
+ *
+ * Fetches on-chain collection metrics on mount and exposes a mint callback
+ * that opens the Stacks wallet to sign and broadcast the transaction.
+ *
+ * @param {string|null} address - Connected wallet address used as the sender
+ * @returns {{ isLoading: boolean, error: string|null, contractInfo: Object, mint: Function, fetchContractInfo: Function }}
+ */
+export function useStacksContract(address) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [contractInfo, setContractInfo] = useState({
