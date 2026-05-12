@@ -50,6 +50,7 @@ export function useAsync(asyncFn, options = {}) {
   });
 
   const mountedRef = useRef(true);
+  /** Tracks the latest promise so stale async completions cannot overwrite state. */
   const promiseRef = useRef(null);
 
   // Set mounted state for cleanup
