@@ -135,6 +135,7 @@ export const formatNFTName = (name, id) => (name ?? 'NFT') + " #" + (id ?? 0);
 /**
  * formatIPFSUrl - Build an ipfs:// URI from a CID.
  * @param {string|null} cid - IPFS content identifier
+ * @remarks Does not validate the CID; callers should validate before display.
  * @returns {string} ipfs:// URI (e.g. "ipfs://QmAbc123")
  */
 export const formatIPFSUrl = (cid) => "ipfs://" + (cid ?? '');
