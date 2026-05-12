@@ -73,6 +73,7 @@ export function useLocalStorage(key, initialValue) {
   useEffect(() => {
     if (typeof window === 'undefined' || !hasValidKey) return
 
+    // Keep state aligned when another tab mutates the same key.
     const handleStorage = (event) => {
       if (event.key !== normalizedKey && event.key !== null) return
       try {
