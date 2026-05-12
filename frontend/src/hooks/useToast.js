@@ -19,6 +19,7 @@ export function normalizeToastMessage(message) {
 }
 
 export function normalizeToastType(type) {
+  // Unknown toast types fall back to info so callers do not render unsupported variants.
   return TOAST_VALID_TYPES.includes(type) ? type : 'info'
 }
 
