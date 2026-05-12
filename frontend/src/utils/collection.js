@@ -81,6 +81,11 @@ export function getSTXFormatDescriptor(microstx) {
   }
 }
 
+/**
+ * Formats micro-STX as the plain STX display value.
+ * @param {string|number|null|undefined} microstx - Amount in micro-STX
+ * @returns {string} Formatted STX amount without the "STX" suffix
+ */
 export function formatSTX(microstx) {
   return getSTXFormatDescriptor(microstx).formatted
 }
