@@ -10,6 +10,9 @@
 import PropTypes from 'prop-types'
 import './ProgressBar.css'
 
+/**
+ * Bounded percentage bar with accessible value metadata.
+ */
 export function ProgressBar({ value, max = 100, showLabel = true, size = 'medium', color = 'primary', ariaLabel = 'Progress' }) {
   const MAX_PERCENTAGE = 100
   const SUPPORTED_COLORS = ['primary', 'success', 'warning', 'danger', 'gradient', 'striped']
