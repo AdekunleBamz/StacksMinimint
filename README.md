@@ -6,7 +6,7 @@
 [![Hiro](https://img.shields.io/badge/Tools-Clarinet-orange.svg)](https://hiro.so/)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**StacksMinimint** is a high-performance, modular NFT minting and rewards ecosystem built specifically for the Stacks blockchain. Leveraging Clarity smart contracts and the Nakamoto-era capabilities, it provides a seamless experience for both collectors and developers.
+**StacksMinimint** is a high-performance, modular NFT minting and rewards ecosystem built for the Stacks blockchain. Leveraging Clarity smart contracts and Nakamoto-era capabilities, it provides a seamless experience for both collectors and developers.
 
 ---
 
