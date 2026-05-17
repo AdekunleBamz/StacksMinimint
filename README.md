@@ -30,7 +30,7 @@
 - **💸 Low-Friction Minting**: Optimized execution costs and user-friendly post-conditions.
 - **💎 SIP-009 Standard**: Fully compliant Non-Fungible Token implementation.
 - **💰 SIP-010 Integration**: Native reward tokenomics with built-in staking capabilities.
-- **🔌 Universal Wallet Support**: Seamless integration with Leather, Xverse, and OKX via `@stacks/connect`.
+- **🔌 Universal Wallet Support**: Smooth integration with Leather, Xverse, and OKX via `@stacks/connect`.
 
 ---
 
