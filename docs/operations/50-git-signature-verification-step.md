@@ -7,7 +7,7 @@ Confirm signature status in the remote branch or pull request view after pushing
 
 Attach a verified-signature screenshot to release artifacts when audit evidence is needed.
 
-Use `git log --show-signature -1` in release verification comments so reviewers can confirm signature state quickly.
+Use `git log --show-signature -1` in release verification comments so reviewers can confirm the signature state quickly.
 
 Escalate release blocks where signature verification fails on a maintainer environment.
 
