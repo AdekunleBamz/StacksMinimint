@@ -5,5 +5,5 @@ Core contract maps should stay aligned across docs, frontend config, and deploym
 
 ## Checks
 - Compare core, token, and hub contract names.
-- Confirm preview and production networks are not mixed.
+- Confirm that preview and production networks are not mixed.
 - Keep contract aliases documented for support.
