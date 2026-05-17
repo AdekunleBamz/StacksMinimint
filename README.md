@@ -145,7 +145,7 @@ npm run frontend:test
 ```
 This command runs `npm run test` inside `frontend/` from the repo root.
 
-Run frontend smoke tests for quick rendering and wallet prompt verification:
+Run frontend smoke tests for quick rendering checks and wallet prompt verification:
 ```bash
 npm run frontend:smoke
 ```
