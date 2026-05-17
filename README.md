@@ -201,7 +201,7 @@ We welcome contributions! Please see our [CONTRIBUTING.md](./CONTRIBUTING.md) fo
 
 ### Focus Areas
 - **Optimization**: Reducing gas costs in Clarity functions.
-- **UX**: Enhancing the dashboard with better real-time data visualization.
+- **UX**: Enhancing the dashboard with clearer real-time data visualization.
 - **Testing**: Expanding the Vitest and Clarinet test suites, especially around wallet and explorer edge cases.
 
 ---
