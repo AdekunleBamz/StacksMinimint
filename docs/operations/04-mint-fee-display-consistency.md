@@ -9,7 +9,7 @@ Verify the fee copy is identical in the card, confirmation step, and receipt det
 
 When values differ, post both the on-chain fee and rendered fee in the release thread before merging a fix.
 
-Escalate if fee text and wallet confirmation differ after a full page refresh on the same commit.
+Escalate if fee text and wallet confirmation still differ after a full page refresh on the same commit.
 
 Verification evidence: preserve one screenshot of UI fee copy and one wallet prompt showing the same amount.
 
