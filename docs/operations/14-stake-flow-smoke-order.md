@@ -5,7 +5,7 @@ Sequence validation catches state-coupling bugs better than isolated calls.
 
 Run the stake, claim, and unstake path in that order and log transaction ids for each step.
 
-When a step fails, restart from wallet connect to keep the flow order consistent.
+When a step fails, restart from wallet connection to keep the flow order consistent.
 
 If stake and claim are both tested, keep the same wallet for both actions to preserve cooldown context.
 
