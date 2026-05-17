@@ -13,4 +13,4 @@ Escalate if the hub pin changes without a corresponding deployment reference in 
 
 Verification evidence: save the hub contract principal from deployment output and the frontend variable used in QA.
 
-Follow-up cadence: confirm hub pin alignment after each environment variable rotation.
+Follow-up cadence: confirm hub pin alignment after every environment variable rotation.
