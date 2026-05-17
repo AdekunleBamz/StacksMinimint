@@ -6,4 +6,4 @@ Explorer links should explain that new mint transactions may not be indexed imme
 ## Checks
 - Open explorer links immediately after broadcast.
 - Keep raw tx ids visible for copying.
-- Recheck network-specific explorer bases before release.
+- Recheck network-specific explorer base URLs before release.
