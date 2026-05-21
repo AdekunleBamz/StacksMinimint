@@ -265,4 +265,8 @@ describe('maintenance utility coverage', () => {
   it('accepts maximum royalty basis points', () => {
     expect(validators.isValidRoyaltyBps(10000)).toBe(true)
   })
+
+  it('rejects royalty basis points over the maximum', () => {
+    expect(validators.isValidRoyaltyBps(10001)).toBe(false)
+  })
 }
