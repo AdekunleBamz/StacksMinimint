@@ -216,4 +216,8 @@ describe('maintenance utility coverage', () => {
   it('does not treat numeric zero as blank text', () => {
     expect(strings.isBlank(0)).toBe(false)
   })
+
+  it('does not treat false as blank text', () => {
+    expect(strings.isBlank(false)).toBe(false)
+  })
 }
