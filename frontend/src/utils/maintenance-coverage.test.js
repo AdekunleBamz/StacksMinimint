@@ -86,4 +86,8 @@ describe('maintenance utility coverage', () => {
       isFuture: false,
     })
   })
+
+  it('exposes exact descriptor ISO output for epoch timestamps', () => {
+    expect(collection.getExactTimeDescriptor(0, 'en-US').iso).toBe('1970-01-01T00:00:00.000Z')
+  })
 }
