@@ -191,4 +191,8 @@ describe('maintenance utility coverage', () => {
   it('formats null reveal delays as zero blocks', () => {
     expect(format.formatRevealDelay(null)).toBe('0 blocks to reveal')
   })
+
+  it('uppercases token symbols without stripping internal punctuation', () => {
+    expect(format.formatTokenSymbol('stx-1')).toBe('STX-1')
+  })
 }
