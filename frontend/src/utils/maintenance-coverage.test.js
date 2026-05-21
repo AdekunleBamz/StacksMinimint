@@ -155,4 +155,8 @@ describe('maintenance utility coverage', () => {
   it('removes repeated leading slashes from gateway CIDs', () => {
     expect(format.formatGatewayUrl('///Qmabc')).toBe('https://ipfs.io/ipfs/Qmabc')
   })
+
+  it('formats string microstx values with fixed precision', () => {
+    expect(format.formatMicroStx('2500000')).toBe('2.500000 STX')
+  })
 }
