@@ -135,4 +135,8 @@ describe('maintenance utility coverage', () => {
   it('formats zero listing prices with two decimals', () => {
     expect(format.formatListingPrice(0)).toBe('0.00 STX')
   })
+
+  it('formats string bid amounts without numeric coercion', () => {
+    expect(format.formatBidAmount('7.5')).toBe('Bid: 7.5 STX')
+  })
 }
