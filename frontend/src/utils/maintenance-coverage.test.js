@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import * as collection from './collection'
 import * as format from './format'
 import * as strings from './strings'
+import * as validators from './validators'
 
 describe('maintenance utility coverage', () => {
   it('formats compact zero STX with fixed decimals', () => {
@@ -251,5 +252,9 @@ describe('maintenance utility coverage', () => {
 
   it('capitalizes after leading spaces', () => {
     expect(strings.capitalize(' hello')).toBe('Hello')
+  })
+
+  it('accepts maximum length CID values', () => {
+    expect(validators.isValidCID('a'.repeat(128))).toBe(true)
   })
 }
