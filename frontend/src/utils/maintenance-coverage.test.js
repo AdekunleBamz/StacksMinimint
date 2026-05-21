@@ -277,4 +277,8 @@ describe('maintenance utility coverage', () => {
   it('rejects lowercase owner address prefixes', () => {
     expect(validators.isValidOwnerAddress(`sp${'A'.repeat(37)}`)).toBe(false)
   })
+
+  it('accepts trimmed explorer HTTPS URLs', () => {
+    expect(validators.isValidExplorerUrl(' https://explorer.stacks.co ')).toBe(true)
+  })
 }
