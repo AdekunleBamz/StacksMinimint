@@ -143,4 +143,8 @@ describe('maintenance utility coverage', () => {
   it('capitalizes multiword transaction statuses once', () => {
     expect(format.formatTxStatus('confirmed success')).toBe('Confirmed success')
   })
+
+  it('keeps zero NFT ids visible in names', () => {
+    expect(format.formatNFTName('Art', 0)).toBe('Art #0')
+  })
 }
