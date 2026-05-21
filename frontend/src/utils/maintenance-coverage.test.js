@@ -73,4 +73,8 @@ describe('maintenance utility coverage', () => {
   it('keeps millisecond timestamps at the detection boundary', () => {
     expect(collection.normalizeRelativeTimestamp(1000000000000)).toBe(1000000000000)
   })
+
+  it('normalizes blank exact timestamp strings to epoch zero', () => {
+    expect(collection.normalizeExactTimestamp('')).toBe(0)
+  })
 }
