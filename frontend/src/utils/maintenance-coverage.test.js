@@ -232,4 +232,8 @@ describe('maintenance utility coverage', () => {
   it('keeps plural labels for string one counts', () => {
     expect(strings.pluralize('1', 'mint')).toBe('mints')
   })
+
+  it('zero-pads negative zero values consistently', () => {
+    expect(strings.zeroPad(-0, 4)).toBe('0000')
+  })
 }
