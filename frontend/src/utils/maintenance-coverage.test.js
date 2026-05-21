@@ -203,4 +203,8 @@ describe('maintenance utility coverage', () => {
   it('formats zero floor prices with a floor label', () => {
     expect(format.formatFloorPrice(0)).toBe('Floor 0.00 STX')
   })
+
+  it('formats null mint batches as zero quantity', () => {
+    expect(format.formatMintBatch(null)).toBe('Batch x0')
+  })
 }
