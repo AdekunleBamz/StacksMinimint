@@ -240,4 +240,8 @@ describe('maintenance utility coverage', () => {
   it('accepts negative decimal numeric strings', () => {
     expect(strings.isNumericString('-42.5')).toBe(true)
   })
+
+  it('accepts uppercase alphanumeric strings', () => {
+    expect(strings.isAlphanumeric('ABC123')).toBe(true)
+  })
 }
