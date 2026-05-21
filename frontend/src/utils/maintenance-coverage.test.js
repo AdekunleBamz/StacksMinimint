@@ -65,4 +65,8 @@ describe('maintenance utility coverage', () => {
       valueType: 'empty',
     })
   })
+
+  it('normalizes blank relative timestamp strings to epoch zero', () => {
+    expect(collection.normalizeRelativeTimestamp('')).toBe(0)
+  })
 }
