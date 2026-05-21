@@ -236,4 +236,8 @@ describe('maintenance utility coverage', () => {
   it('zero-pads negative zero values consistently', () => {
     expect(strings.zeroPad(-0, 4)).toBe('0000')
   })
+
+  it('accepts negative decimal numeric strings', () => {
+    expect(strings.isNumericString('-42.5')).toBe(true)
+  })
 }
