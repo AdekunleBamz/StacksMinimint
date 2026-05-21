@@ -257,4 +257,8 @@ describe('maintenance utility coverage', () => {
   it('accepts maximum length CID values', () => {
     expect(validators.isValidCID('a'.repeat(128))).toBe(true)
   })
+
+  it('rejects overlong CID values', () => {
+    expect(validators.isValidCID('a'.repeat(129))).toBe(false)
+  })
 }
