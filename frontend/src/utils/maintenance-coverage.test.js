@@ -286,4 +286,8 @@ describe('maintenance utility coverage', () => {
   it('exposes compact STX formatting from the utility barrel', () => {
     expect(utils.formatSTXCompact(1500000)).toBe('1.50 STX')
   })
+
+  it('exposes string defaults from the utility barrel', () => {
+    expect(utils.stringsDefault.slugify('Mini Mint')).toBe('mini-mint')
+  })
 }
