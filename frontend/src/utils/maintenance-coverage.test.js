@@ -187,4 +187,8 @@ describe('maintenance utility coverage', () => {
   it('formats zero basis points with two decimals', () => {
     expect(format.formatPercentFromBps(0)).toBe('0.00%')
   })
+
+  it('formats null reveal delays as zero blocks', () => {
+    expect(format.formatRevealDelay(null)).toBe('0 blocks to reveal')
+  })
 }
