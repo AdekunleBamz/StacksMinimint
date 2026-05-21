@@ -83,7 +83,7 @@ describe('maintenance utility coverage', () => {
   })
 
   it('labels matching relative timestamps as just now', () => {
-    expect(collection.getRelativeTimeDescriptor(120000, 120000)).toEqual({
+    expect(collection.getRelativeTimeDescriptor(120, 120000)).toEqual({
       label: 'Just now',
       unit: 'now',
       value: 0,
