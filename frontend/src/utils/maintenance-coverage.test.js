@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import * as collection from './collection'
+import * as format from './format'
 
 describe('maintenance utility coverage', () => {
   it('formats compact zero STX with fixed decimals', () => {
@@ -89,5 +90,9 @@ describe('maintenance utility coverage', () => {
 
   it('exposes exact descriptor ISO output for epoch timestamps', () => {
     expect(collection.getExactTimeDescriptor(0, 'en-US').iso).toBe('1970-01-01T00:00:00.000Z')
+  })
+
+  it('formats zero mint price values explicitly', () => {
+    expect(format.formatMintPrice(0)).toBe('0 STX')
   })
 }
