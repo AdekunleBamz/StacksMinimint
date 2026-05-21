@@ -273,4 +273,8 @@ describe('maintenance utility coverage', () => {
   it('keeps rarity tier validation case-sensitive', () => {
     expect(validators.isValidRarityTier('Legendary')).toBe(false)
   })
+
+  it('rejects lowercase owner address prefixes', () => {
+    expect(validators.isValidOwnerAddress(`sp${'A'.repeat(37)}`)).toBe(false)
+  })
 }
