@@ -228,4 +228,8 @@ describe('maintenance utility coverage', () => {
   it('collapses underscore-heavy slugs at the edges', () => {
     expect(strings.slugify('___Stacks___Mint___')).toBe('stacks-mint')
   })
+
+  it('keeps plural labels for string one counts', () => {
+    expect(strings.pluralize('1', 'mint')).toBe('mints')
+  })
 }
