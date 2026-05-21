@@ -151,4 +151,8 @@ describe('maintenance utility coverage', () => {
   it('coerces boolean CIDs into IPFS URLs', () => {
     expect(format.formatIPFSUrl(true)).toBe('ipfs://true')
   })
+
+  it('removes repeated leading slashes from gateway CIDs', () => {
+    expect(format.formatGatewayUrl('///Qmabc')).toBe('https://ipfs.io/ipfs/Qmabc')
+  })
 }
