@@ -111,4 +111,8 @@ describe('maintenance utility coverage', () => {
   it('capitalizes multiword rarity labels only at the front', () => {
     expect(format.formatRarity('mythic rare')).toBe('Mythic rare')
   })
+
+  it('keeps compact CID output deterministic for nine character values', () => {
+    expect(format.formatCID('123456789')).toBe('12345678...6789')
+  })
 }
