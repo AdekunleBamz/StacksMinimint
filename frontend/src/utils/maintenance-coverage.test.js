@@ -207,4 +207,8 @@ describe('maintenance utility coverage', () => {
   it('formats null mint batches as zero quantity', () => {
     expect(format.formatMintBatch(null)).toBe('Batch x0')
   })
+
+  it('trims long addresses before short display formatting', () => {
+    expect(format.formatAddressShort('  SP1234567890  ')).toBe('SP1234...7890')
+  })
 }
