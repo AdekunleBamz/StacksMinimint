@@ -244,4 +244,8 @@ describe('maintenance utility coverage', () => {
   it('accepts uppercase alphanumeric strings', () => {
     expect(strings.isAlphanumeric('ABC123')).toBe(true)
   })
+
+  it('formats trimmed addresses with no prefix segment', () => {
+    expect(strings.truncateAddress(' SP1234567890 ', 0, 4)).toBe('...7890')
+  })
 }
