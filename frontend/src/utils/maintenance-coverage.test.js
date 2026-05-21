@@ -269,4 +269,8 @@ describe('maintenance utility coverage', () => {
   it('rejects royalty basis points over the maximum', () => {
     expect(validators.isValidRoyaltyBps(10001)).toBe(false)
   })
+
+  it('keeps rarity tier validation case-sensitive', () => {
+    expect(validators.isValidRarityTier('Legendary')).toBe(false)
+  })
 }
