@@ -175,4 +175,8 @@ describe('maintenance utility coverage', () => {
   it('uses singular mint labels for numeric strings', () => {
     expect(format.formatMintCount('1')).toBe('1 mint')
   })
+
+  it('normalizes padded whitelist window bounds', () => {
+    expect(format.formatWhitelistWindow('001', '002')).toBe('WL 1-2')
+  })
 }
