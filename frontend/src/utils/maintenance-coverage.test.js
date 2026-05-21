@@ -127,4 +127,8 @@ describe('maintenance utility coverage', () => {
   it('formats million-scale collection sizes with separators', () => {
     expect(format.formatCollectionSize(1000000)).toBe('1,000,000 items')
   })
+
+  it('uses zero owner defaults for undefined counts', () => {
+    expect(format.formatOwnerCount(undefined)).toBe('0 owners')
+  })
 }
