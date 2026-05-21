@@ -179,4 +179,8 @@ describe('maintenance utility coverage', () => {
   it('normalizes padded whitelist window bounds', () => {
     expect(format.formatWhitelistWindow('001', '002')).toBe('WL 1-2')
   })
+
+  it('formats numeric owner tags through string coercion', () => {
+    expect(format.formatOwnerTag(123)).toBe('Owner: 123')
+  })
 }
