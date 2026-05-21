@@ -131,4 +131,8 @@ describe('maintenance utility coverage', () => {
   it('uses zero owner defaults for undefined counts', () => {
     expect(format.formatOwnerCount(undefined)).toBe('0 owners')
   })
+
+  it('formats zero listing prices with two decimals', () => {
+    expect(format.formatListingPrice(0)).toBe('0.00 STX')
+  })
 }
