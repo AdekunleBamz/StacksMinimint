@@ -248,4 +248,8 @@ describe('maintenance utility coverage', () => {
   it('formats trimmed addresses with no prefix segment', () => {
     expect(strings.truncateAddress(' SP1234567890 ', 0, 4)).toBe('...7890')
   })
+
+  it('capitalizes after leading spaces', () => {
+    expect(strings.capitalize(' hello')).toBe('Hello')
+  })
 }
