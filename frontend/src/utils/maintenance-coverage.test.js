@@ -53,4 +53,8 @@ describe('maintenance utility coverage', () => {
   it('keeps false limit values visible', () => {
     expect(collection.isLimitFallback(false)).toBe(false)
   })
+
+  it('formats false limit values as text', () => {
+    expect(collection.getLimitText(false)).toBe('false')
+  })
 }
