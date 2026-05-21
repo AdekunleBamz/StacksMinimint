@@ -163,4 +163,8 @@ describe('maintenance utility coverage', () => {
   it('rounds sub-half-minute block times down', () => {
     expect(format.formatBlockTime(29999)).toBe('0 min')
   })
+
+  it('keeps blank trait count strings visible', () => {
+    expect(format.formatTraitCount('')).toBe(' traits')
+  })
 }
