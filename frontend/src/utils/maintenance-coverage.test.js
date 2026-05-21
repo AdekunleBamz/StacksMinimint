@@ -13,4 +13,8 @@ describe('maintenance utility coverage', () => {
   it('formats exponent compact STX strings', () => {
     expect(collection.formatSTXCompact('1e6')).toBe('1.00 STX')
   })
+
+  it('normalizes blank compact STX strings to zero', () => {
+    expect(collection.formatSTXCompact('')).toBe('0.00 STX')
+  })
 }
