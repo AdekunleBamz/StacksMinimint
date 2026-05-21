@@ -45,4 +45,8 @@ describe('maintenance utility coverage', () => {
   it('formats addresses with no prefix segment', () => {
     expect(collection.formatAddress('SP1234567890', 0, 4)).toBe('...7890')
   })
+
+  it('uses default address suffix when suffix length is invalid', () => {
+    expect(collection.formatAddress('SP1234567890', 4, -1)).toBe('SP1234567890')
+  })
 }
