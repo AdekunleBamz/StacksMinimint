@@ -17,4 +17,8 @@ describe('maintenance utility coverage', () => {
   it('normalizes blank compact STX strings to zero', () => {
     expect(collection.formatSTXCompact('')).toBe('0.00 STX')
   })
+
+  it('normalizes blank microstx strings as zero', () => {
+    expect(collection.normalizeMicrostxInput('')).toBe(0)
+  })
 }
