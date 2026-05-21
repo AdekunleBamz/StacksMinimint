@@ -290,4 +290,8 @@ describe('maintenance utility coverage', () => {
   it('exposes string defaults from the utility barrel', () => {
     expect(utils.stringsDefault.slugify('Mini Mint')).toBe('mini-mint')
   })
+
+  it('exposes collection defaults from the utility barrel', () => {
+    expect(utils.collectionDefault.formatSTX(1000000)).toBe('1')
+  })
 }
