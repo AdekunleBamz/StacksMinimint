@@ -95,4 +95,8 @@ describe('maintenance utility coverage', () => {
   it('formats zero mint price values explicitly', () => {
     expect(format.formatMintPrice(0)).toBe('0 STX')
   })
+
+  it('trims numeric mint price strings through number coercion', () => {
+    expect(format.formatMintPrice(' 3 ')).toBe('3 STX')
+  })
 }
