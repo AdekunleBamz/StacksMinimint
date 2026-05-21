@@ -167,4 +167,8 @@ describe('maintenance utility coverage', () => {
   it('keeps blank trait count strings visible', () => {
     expect(format.formatTraitCount('')).toBe(' traits')
   })
+
+  it('calculates mint cost for padded quantity strings', () => {
+    expect(format.calculateTotalMintCost('02', 5)).toBe('10 STX')
+  })
 }
