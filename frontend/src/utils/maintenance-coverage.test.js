@@ -195,4 +195,8 @@ describe('maintenance utility coverage', () => {
   it('uppercases token symbols without stripping internal punctuation', () => {
     expect(format.formatTokenSymbol('stx-1')).toBe('STX-1')
   })
+
+  it('keeps numeric collection titles visible', () => {
+    expect(format.formatCollectionTitle(0)).toBe('0')
+  })
 }
