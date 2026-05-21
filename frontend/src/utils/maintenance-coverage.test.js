@@ -115,4 +115,8 @@ describe('maintenance utility coverage', () => {
   it('keeps compact CID output deterministic for nine character values', () => {
     expect(format.formatCID('123456789')).toBe('12345678...6789')
   })
+
+  it('preserves boolean block labels through display formatting', () => {
+    expect(format.formatBlocksRemaining(false)).toBe('false blocks')
+  })
 }
