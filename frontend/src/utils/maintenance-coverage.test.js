@@ -41,4 +41,8 @@ describe('maintenance utility coverage', () => {
   it('formats exponent STX strings', () => {
     expect(collection.formatSTX('1e6')).toBe('1')
   })
+
+  it('formats addresses with no prefix segment', () => {
+    expect(collection.formatAddress('SP1234567890', 0, 4)).toBe('...7890')
+  })
 }
