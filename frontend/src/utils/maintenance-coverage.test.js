@@ -103,4 +103,8 @@ describe('maintenance utility coverage', () => {
   it('uses zero supply defaults for missing values', () => {
     expect(format.formatSupply(undefined, undefined)).toBe('0 / 0')
   })
+
+  it('formats non-round royalty basis points', () => {
+    expect(format.formatRoyalty(333)).toBe('3.3%')
+  })
 }
