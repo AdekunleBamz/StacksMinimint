@@ -147,4 +147,8 @@ describe('maintenance utility coverage', () => {
   it('keeps zero NFT ids visible in names', () => {
     expect(format.formatNFTName('Art', 0)).toBe('Art #0')
   })
+
+  it('coerces boolean CIDs into IPFS URLs', () => {
+    expect(format.formatIPFSUrl(true)).toBe('ipfs://true')
+  })
 }
