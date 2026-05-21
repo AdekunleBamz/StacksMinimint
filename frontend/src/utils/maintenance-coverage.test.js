@@ -25,4 +25,8 @@ describe('maintenance utility coverage', () => {
   it('preserves negative microstx normalization', () => {
     expect(collection.normalizeMicrostxInput('-42')).toBe(-42)
   })
+
+  it('describes precise microstx conversions', () => {
+    expect(collection.getSTXFormatDescriptor(1234567).formatted).toBe('1.234567')
+  })
 }
