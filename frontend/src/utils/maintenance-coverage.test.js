@@ -139,4 +139,8 @@ describe('maintenance utility coverage', () => {
   it('formats string bid amounts without numeric coercion', () => {
     expect(format.formatBidAmount('7.5')).toBe('Bid: 7.5 STX')
   })
+
+  it('capitalizes multiword transaction statuses once', () => {
+    expect(format.formatTxStatus('confirmed success')).toBe('Confirmed success')
+  })
 }
