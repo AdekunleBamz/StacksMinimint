@@ -183,4 +183,8 @@ describe('maintenance utility coverage', () => {
   it('formats numeric owner tags through string coercion', () => {
     expect(format.formatOwnerTag(123)).toBe('Owner: 123')
   })
+
+  it('formats zero basis points with two decimals', () => {
+    expect(format.formatPercentFromBps(0)).toBe('0.00%')
+  })
 }
