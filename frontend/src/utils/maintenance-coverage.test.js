@@ -171,4 +171,8 @@ describe('maintenance utility coverage', () => {
   it('calculates mint cost for padded quantity strings', () => {
     expect(format.calculateTotalMintCost('02', 5)).toBe('10 STX')
   })
+
+  it('uses singular mint labels for numeric strings', () => {
+    expect(format.formatMintCount('1')).toBe('1 mint')
+  })
 }
