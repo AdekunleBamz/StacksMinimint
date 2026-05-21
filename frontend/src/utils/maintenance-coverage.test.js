@@ -224,4 +224,8 @@ describe('maintenance utility coverage', () => {
   it('slugifies names with punctuation removed', () => {
     expect(strings.slugify('Stacks & Bitcoin NFTs')).toBe('stacks-bitcoin-nfts')
   })
+
+  it('collapses underscore-heavy slugs at the edges', () => {
+    expect(strings.slugify('___Stacks___Mint___')).toBe('stacks-mint')
+  })
 }
