@@ -220,4 +220,8 @@ describe('maintenance utility coverage', () => {
   it('does not treat false as blank text', () => {
     expect(strings.isBlank(false)).toBe(false)
   })
+
+  it('slugifies names with punctuation removed', () => {
+    expect(strings.slugify('Stacks & Bitcoin NFTs')).toBe('stacks-bitcoin-nfts')
+  })
 }
