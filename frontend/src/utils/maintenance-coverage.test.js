@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import * as collection from './collection'
 import * as format from './format'
+import * as strings from './strings'
 
 describe('maintenance utility coverage', () => {
   it('formats compact zero STX with fixed decimals', () => {
@@ -210,5 +211,9 @@ describe('maintenance utility coverage', () => {
 
   it('trims long addresses before short display formatting', () => {
     expect(format.formatAddressShort('  SP1234567890  ')).toBe('SP1234...7890')
+  })
+
+  it('does not treat numeric zero as blank text', () => {
+    expect(strings.isBlank(0)).toBe(false)
   })
 }
