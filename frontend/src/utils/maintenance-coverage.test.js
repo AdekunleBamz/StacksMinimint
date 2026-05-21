@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import * as collection from './collection'
 import * as format from './format'
 import * as strings from './strings'
+import * as utils from './index'
 import * as validators from './validators'
 
 describe('maintenance utility coverage', () => {
@@ -280,5 +281,9 @@ describe('maintenance utility coverage', () => {
 
   it('accepts trimmed explorer HTTPS URLs', () => {
     expect(validators.isValidExplorerUrl(' https://explorer.stacks.co ')).toBe(true)
+  })
+
+  it('exposes compact STX formatting from the utility barrel', () => {
+    expect(utils.formatSTXCompact(1500000)).toBe('1.50 STX')
   })
 }
