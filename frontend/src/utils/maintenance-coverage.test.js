@@ -159,4 +159,8 @@ describe('maintenance utility coverage', () => {
   it('formats string microstx values with fixed precision', () => {
     expect(format.formatMicroStx('2500000')).toBe('2.500000 STX')
   })
+
+  it('rounds sub-half-minute block times down', () => {
+    expect(format.formatBlockTime(29999)).toBe('0 min')
+  })
 }
