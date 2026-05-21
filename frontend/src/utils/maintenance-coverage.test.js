@@ -77,4 +77,13 @@ describe('maintenance utility coverage', () => {
   it('normalizes blank exact timestamp strings to epoch zero', () => {
     expect(collection.normalizeExactTimestamp('')).toBe(0)
   })
+
+  it('labels matching relative timestamps as just now', () => {
+    expect(collection.getRelativeTimeDescriptor(120000, 120000)).toEqual({
+      label: 'Just now',
+      unit: 'now',
+      value: 0,
+      isFuture: false,
+    })
+  })
 }
