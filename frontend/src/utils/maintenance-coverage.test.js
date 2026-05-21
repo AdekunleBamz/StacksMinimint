@@ -261,4 +261,8 @@ describe('maintenance utility coverage', () => {
   it('rejects overlong CID values', () => {
     expect(validators.isValidCID('a'.repeat(129))).toBe(false)
   })
+
+  it('accepts maximum royalty basis points', () => {
+    expect(validators.isValidRoyaltyBps(10000)).toBe(true)
+  })
 }
