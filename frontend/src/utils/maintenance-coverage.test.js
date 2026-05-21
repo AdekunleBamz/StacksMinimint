@@ -21,4 +21,8 @@ describe('maintenance utility coverage', () => {
   it('normalizes blank microstx strings as zero', () => {
     expect(collection.normalizeMicrostxInput('')).toBe(0)
   })
+
+  it('preserves negative microstx normalization', () => {
+    expect(collection.normalizeMicrostxInput('-42')).toBe(-42)
+  })
 }
