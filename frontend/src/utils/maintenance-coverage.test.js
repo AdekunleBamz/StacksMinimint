@@ -119,4 +119,8 @@ describe('maintenance utility coverage', () => {
   it('preserves boolean block labels through display formatting', () => {
     expect(format.formatBlocksRemaining(false)).toBe('false blocks')
   })
+
+  it('formats zero trait values without falling back', () => {
+    expect(format.formatTraitValue(0)).toBe('0')
+  })
 }
