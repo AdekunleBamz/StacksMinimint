@@ -107,4 +107,8 @@ describe('maintenance utility coverage', () => {
   it('formats non-round royalty basis points', () => {
     expect(format.formatRoyalty(333)).toBe('3.3%')
   })
+
+  it('capitalizes multiword rarity labels only at the front', () => {
+    expect(format.formatRarity('mythic rare')).toBe('Mythic rare')
+  })
 }
