@@ -57,4 +57,12 @@ describe('maintenance utility coverage', () => {
   it('formats false limit values as text', () => {
     expect(collection.getLimitText(false)).toBe('false')
   })
+
+  it('describes custom fallback labels for missing limits', () => {
+    expect(collection.describeLimit(undefined, 'Any')).toEqual({
+      text: 'Any',
+      isFallback: true,
+      valueType: 'empty',
+    })
+  })
 }
