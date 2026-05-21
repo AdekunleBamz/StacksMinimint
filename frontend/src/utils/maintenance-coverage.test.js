@@ -29,4 +29,8 @@ describe('maintenance utility coverage', () => {
   it('describes precise microstx conversions', () => {
     expect(collection.getSTXFormatDescriptor(1234567).formatted).toBe('1.234567')
   })
+
+  it('marks negative microstx descriptors as valid numbers', () => {
+    expect(collection.getSTXFormatDescriptor(-1000000).isValid).toBe(true)
+  })
 }
