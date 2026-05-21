@@ -123,4 +123,8 @@ describe('maintenance utility coverage', () => {
   it('formats zero trait values without falling back', () => {
     expect(format.formatTraitValue(0)).toBe('0')
   })
+
+  it('formats million-scale collection sizes with separators', () => {
+    expect(format.formatCollectionSize(1000000)).toBe('1,000,000 items')
+  })
 }
