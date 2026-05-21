@@ -199,4 +199,8 @@ describe('maintenance utility coverage', () => {
   it('keeps numeric collection titles visible', () => {
     expect(format.formatCollectionTitle(0)).toBe('0')
   })
+
+  it('formats zero floor prices with a floor label', () => {
+    expect(format.formatFloorPrice(0)).toBe('Floor 0.00 STX')
+  })
 }
