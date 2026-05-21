@@ -37,4 +37,8 @@ describe('maintenance utility coverage', () => {
   it('formats maximum precision STX values', () => {
     expect(collection.formatSTX(123456789)).toBe('123.456789')
   })
+
+  it('formats exponent STX strings', () => {
+    expect(collection.formatSTX('1e6')).toBe('1')
+  })
 }
