@@ -294,4 +294,4 @@ describe('maintenance utility coverage', () => {
   it('exposes collection defaults from the utility barrel', () => {
     expect(utils.collectionDefault.formatSTX(1000000)).toBe('1')
   })
-}
+})
