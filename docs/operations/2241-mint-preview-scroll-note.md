@@ -1,0 +1,3 @@
+# Mint Preview Scroll
+
+Mint preview panes should keep the submit action reachable after long metadata previews.
