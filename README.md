@@ -84,11 +84,11 @@ The legacy SIP-010 function surface (`transfer`, `mint`, `get-balance`, `get-tot
    ```
    > **Note**: This command expects a `scripts/package.json`. If your checkout does not include the automation package yet, skip this step because it is not required for contracts or frontend development.
 
-4. **Environment Configuration:**
+4. **Frontend Environment Configuration:**
    ```bash
-   cp .env.example .env
+   cp frontend/.env.example frontend/.env
    ```
-   Edit `.env` to configure the network (mainnet/testnet), core contract address, hub contract address, and optional mint fee override.
+   Edit `frontend/.env` to configure the network (mainnet/testnet), core contract address, hub contract address, and optional mint fee override.
    See [Environment Variables](#-environment-variables) for available options.
 
 ---
