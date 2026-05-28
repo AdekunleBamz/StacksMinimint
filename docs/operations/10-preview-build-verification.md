@@ -13,4 +13,6 @@ Escalate preview regressions that reproduce on both preview and local builds fro
 
 Verification evidence: attach the preview link and a screenshot of the commit SHA banner from the hosting dashboard.
 
+Confirm wallet callback domains in the preview environment before sharing links with external testers.
+
 Follow-up cadence: re-check preview verification after every dependency bump touching build tooling.
