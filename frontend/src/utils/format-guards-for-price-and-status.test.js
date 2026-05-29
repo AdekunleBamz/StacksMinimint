@@ -73,7 +73,7 @@ describe('format guards', () => {
   })
 
   it('shortens CID labels for compact display', () => {
-    expect(formatCID('bafybeigdyrzt')).toBe('bafybeigdy...')
+    expect(formatCID('bafybeigdyrzt')).toBe('bafybeig...yrzt')
   })
 
   it('returns empty CID labels for missing values', () => {

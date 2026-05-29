@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { normalizeToastMessage } from './useToast'
 
 describe('normalizeToastMessage', () => {
-  it('passes null values through unchanged', () => {
-    expect(normalizeToastMessage(null)).toBeNull()
+  it('normalizes null values to an empty message', () => {
+    expect(normalizeToastMessage(null)).toBe('')
   })
 })

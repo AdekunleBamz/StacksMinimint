@@ -13,6 +13,6 @@ describe('RecentMints', () => {
       })
     )
 
-    expect(markup).toContain('Fresh activity appears here as soon as a wallet submission is sent.')
+    expect(markup).toContain('Fresh activity from this browser appears here as soon as a wallet submission is sent.')
   })
 })

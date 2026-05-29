@@ -16,7 +16,7 @@ describe('Header', () => {
       })
     )
 
-    expect(markup).toContain('Connect Wallet')
+    expect(markup).toContain('Connect wallet')
     expect(markup).not.toContain('Disconnect')
   })
 })

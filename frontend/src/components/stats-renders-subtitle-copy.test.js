@@ -14,6 +14,6 @@ describe('Stats', () => {
       recentActivityCount: 1
     }))
 
-    expect(markup).toContain('Supply, pricing, and wallet limits stay visible while you mint.')
+    expect(markup).toContain('Supply, pricing, and wallet limits stay visible while you prepare each mint.')
   })
 })

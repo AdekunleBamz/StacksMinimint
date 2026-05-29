@@ -45,6 +45,7 @@ export function Toast({ message, type = 'info', onClose }) {
           className="toast__close"
           onClick={onClose}
           aria-label={`Dismiss ${safeType} notification`}
+          aria-keyshortcuts="Escape"
           title={`Dismiss ${safeType} notification`}
         >
           ×
