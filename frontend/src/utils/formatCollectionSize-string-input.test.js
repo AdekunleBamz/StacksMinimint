@@ -3,7 +3,7 @@ import { formatCollectionSize } from './format'
 
 describe('formatCollectionSize', () => {
   it('keeps string counts readable when formatting item totals', () => {
-    expect(formatCollectionSize('1200')).toBe('1200 items')
+    expect(formatCollectionSize('1200')).toBe('1,200 items')
   })
 
   it('coerces numeric strings before appending item labels', () => {
