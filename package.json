@@ -14,6 +14,7 @@
     "frontend:install": "npm --prefix frontend ci",
     "frontend:dev": "npm --prefix frontend run dev",
     "frontend:build": "npm --prefix frontend run build",
+    "build": "npm run frontend:build",
     "frontend:preview": "npm --prefix frontend run preview",
     "frontend:check": "npm --prefix frontend run check",
     "frontend:test": "npm --prefix frontend run test",
