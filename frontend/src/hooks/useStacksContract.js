@@ -108,8 +108,29 @@ export function useStacksContract(address) {
   }, [address, stacksNetwork]);
 
   useEffect(() => {
-    fetchContractInfo();
-  }, [fetchContractInfo]);
+    if (!address) return undefined;
+
+    let cancelled = false;
+    const loadContractInfo = () => {
+      if (!cancelled) {
+        fetchContractInfo();
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(loadContractInfo, { timeout: 3000 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback?.(idleId);
+      };
+    }
+
+    const timeoutId = window.setTimeout(loadContractInfo, 1500);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, [address, fetchContractInfo]);
 
   /**
    * mint - Submit a mint transaction for the given token URI.
