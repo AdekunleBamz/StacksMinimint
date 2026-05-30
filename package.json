@@ -21,6 +21,7 @@
     "frontend:test:watch": "npm --prefix frontend run test:watch",
     "frontend:smoke": "npm --prefix frontend run test -- src/hooks/useStacksContract-parseUint-clamps-negative.test.js src/hooks/useStacksWallet-getStacksAddress-trims-value.test.js",
     "check:fast": "npm run contracts:check && npm run frontend:smoke",
+    "verify:production": "npm run frontend:check && npm run build",
     "scripts:install": "[ -f scripts/package.json ] && npm --prefix scripts install || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
     "scripts:wallets": "[ -f scripts/package.json ] && npm --prefix scripts run generate:wallets || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
     "scripts:distribute": "[ -f scripts/package.json ] && npm --prefix scripts run distribute:stx || (echo \"scripts/package.json is missing. Add the scripts package before running this command.\" && exit 1)",
