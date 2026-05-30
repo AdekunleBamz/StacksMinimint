@@ -155,6 +155,11 @@ Run frontend static checks:
 npm run frontend:check
 ```
 
+Run the production verification shortcut before release handoff:
+```bash
+npm run verify:production
+```
+
 ---
 
 ## 📜 Contract Details
