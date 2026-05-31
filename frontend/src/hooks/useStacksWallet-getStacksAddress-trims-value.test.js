@@ -2,6 +2,36 @@ import { describe, expect, it } from 'vitest'
 import { getStacksAddress } from './useStacksWallet'
 
 describe('getStacksAddress', () => {
+  it('reads the selected Stacks address from a Connect v8 response array', () => {
+    expect(getStacksAddress({
+      addresses: [
+        { symbol: 'BTC', address: 'bc1qexampleaddress', publicKey: 'btc-key' },
+        { symbol: 'STX', address: ' SP2CONNECTV8ADDRESS1234567890 ', publicKey: 'stx-key' }
+      ]
+    })).toBe('SP2CONNECTV8ADDRESS1234567890')
+  })
+
+  it('reads the selected Stacks address from Connect local storage groups', () => {
+    expect(getStacksAddress({
+      addresses: {
+        stx: [
+          { address: ' ST2STORAGEADDRESS1234567890 ', publicKey: 'stx-key' }
+        ],
+        btc: [
+          { address: 'tb1qexampleaddress', publicKey: 'btc-key' }
+        ]
+      }
+    })).toBe('ST2STORAGEADDRESS1234567890')
+  })
+
+  it('reads wallet account response shapes when addresses are omitted', () => {
+    expect(getStacksAddress({
+      accounts: [
+        { address: ' SP2ACCOUNTADDRESS1234567890 ', publicKey: 'stx-key' }
+      ]
+    })).toBe('SP2ACCOUNTADDRESS1234567890')
+  })
+
   it('trims the configured network address before returning it', () => {
     expect(getStacksAddress({
       profile: {

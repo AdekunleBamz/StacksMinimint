@@ -68,14 +68,31 @@ function getAddressNetwork(address) {
  * Filters and normalises a list of address entries, then returns the first
  * address that matches the configured network, falling back to any valid address.
  *
- * @param {Array<string|{address:string}>} addresses - Address candidates
+ * @param {Array<string|{address:string}>|Object|null} addresses - Address candidates
  * @returns {string|null} Best-match address or null
  */
 function pickStacksAddress(addresses) {
+  if (addresses && !Array.isArray(addresses) && typeof addresses === 'object') {
+    return pickStacksAddress([
+      addresses.address,
+      addresses.stxAddress,
+      addresses.mainnet,
+      addresses.testnet,
+      addresses.stx,
+      addresses.STX,
+      addresses.accounts,
+      addresses.addresses
+    ].flat().filter(Boolean));
+  }
+
   if (!Array.isArray(addresses)) return null;
 
   const normalizedAddresses = addresses
-    .map((entry) => normalizeStacksAddress(typeof entry === 'string' ? entry : entry?.address))
+    .map((entry) => normalizeStacksAddress(
+      typeof entry === 'string'
+        ? entry
+        : entry?.address || entry?.stxAddress
+    ))
     .filter(Boolean)
     .filter(isStacksAddress);
 
@@ -92,11 +109,32 @@ function pickStacksAddress(addresses) {
  * @returns {string|null} Stacks address or null
  */
 export function getStacksAddress(data) {
+  if (!data) return null;
+
+  const directAddress = pickStacksAddress(data);
+  if (directAddress) return directAddress;
+
   const responseAddress = pickStacksAddress(data?.addresses);
   if (responseAddress) return responseAddress;
 
   const storedAddress = pickStacksAddress(data?.addresses?.stx);
   if (storedAddress) return storedAddress;
+
+  const accountAddress = pickStacksAddress(data?.accounts);
+  if (accountAddress) return accountAddress;
+
+  const payloadAddress = getStacksAddress(data?.authResponsePayload);
+  if (payloadAddress) return payloadAddress;
+
+  let sessionUserData = null;
+  try {
+    sessionUserData = data?.userSession?.loadUserData?.();
+  } catch (error) {
+    sessionUserData = null;
+  }
+
+  const sessionAddress = getStacksAddress(sessionUserData);
+  if (sessionAddress) return sessionAddress;
 
   if (!data?.profile?.stxAddress) return null
 
