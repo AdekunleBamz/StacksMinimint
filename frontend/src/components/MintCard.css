@@ -108,6 +108,13 @@
   margin-right: auto;
 }
 
+.mint-card__connect .mint-card__wallet-error {
+  color: #fecaca;
+  max-width: 28rem;
+  margin-top: -0.25rem;
+  overflow-wrap: anywhere;
+}
+
 .mint-card__form {
   display: flex;
   flex-direction: column;

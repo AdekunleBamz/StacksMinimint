@@ -118,6 +118,7 @@ export function getMintSubmitLabel({ isMinting, isSoldOut, walletLimitReached, m
  * @param {boolean} props.isConnected - Whether a wallet is connected
  * @param {boolean} [props.isConnecting=false] - Whether a connection attempt is in progress
  * @param {Function} props.onConnect - Callback to open the wallet connection flow
+ * @param {string|null} [props.walletError] - Error message from the wallet hook
  * @param {string|null} [props.contractError] - Error message from the contract hook
  * @returns {JSX.Element}
  */
@@ -127,6 +128,7 @@ export function MintCard({
   isConnected,
   isConnecting = false,
   onConnect,
+  walletError,
   contractError
 }) {
   const [tokenURI, setTokenURI] = useState('')
@@ -258,6 +260,11 @@ export function MintCard({
       {!isConnected ? (
         <div className="mint-card__connect" aria-live="polite">
           <p id="mint-card-connect-note" title="A connected wallet is required before minting">Connect your Stacks wallet to start minting here.</p>
+          {walletError && (
+            <p className="mint-card__wallet-error" role="alert" title={walletError}>
+              {walletError}
+            </p>
+          )}
           <button
             type="button"
             className="mint-card__btn"
@@ -384,6 +391,7 @@ MintCard.propTypes = {
   isConnected: PropTypes.bool,
   isConnecting: PropTypes.bool,
   onConnect: PropTypes.func.isRequired,
+  walletError: PropTypes.string,
   contractError: PropTypes.string
 }
 

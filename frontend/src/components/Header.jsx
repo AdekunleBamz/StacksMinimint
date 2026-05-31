@@ -47,13 +47,15 @@ export function getHeaderAccountLength(account, hasAccount) {
   return account.length
 }
 
-export function Header({ account, onConnect, onDisconnect, isConnecting }) {
+export function Header({ account, onConnect, onDisconnect, isConnecting, walletError }) {
   const { copied, copy } = useClipboard()
   const normalizedAccount = normalizeHeaderAccount(account)
   const hasAccount = typeof normalizedAccount === 'string' ? normalizedAccount.length > 0 : Boolean(normalizedAccount)
   const connectionState = getHeaderConnectionState({ hasAccount, isConnecting })
   const connectButtonA11y = getHeaderConnectButtonA11y(isConnecting)
-  const walletStatus = getHeaderWalletStatus(hasAccount)
+  const walletStatus = walletError
+    ? { text: walletError, title: walletError }
+    : getHeaderWalletStatus(hasAccount)
   const accountLength = getHeaderAccountLength(normalizedAccount, hasAccount)
 
   const handleCopy = useCallback(() => {
@@ -120,19 +122,26 @@ export function Header({ account, onConnect, onDisconnect, isConnecting }) {
             </button>
           </>
         ) : (
-          <button
-            type="button"
-            className="header__btn header__btn--connect"
-            data-connecting={isConnecting ? 'true' : 'false'}
-            onClick={onConnect}
-            disabled={isConnecting}
-            aria-busy={isConnecting}
-            aria-describedby="header-wallet-status"
-            title={connectButtonA11y.title}
-            aria-label={connectButtonA11y.label}
-          >
-            {isConnecting ? 'Connecting...' : 'Connect wallet'}
-          </button>
+          <>
+            <button
+              type="button"
+              className="header__btn header__btn--connect"
+              data-connecting={isConnecting ? 'true' : 'false'}
+              onClick={onConnect}
+              disabled={isConnecting}
+              aria-busy={isConnecting}
+              aria-describedby="header-wallet-status"
+              title={connectButtonA11y.title}
+              aria-label={connectButtonA11y.label}
+            >
+              {isConnecting ? 'Connecting...' : 'Connect wallet'}
+            </button>
+            {walletError && (
+              <span className="header__wallet-error" role="alert" title={walletError}>
+                {walletError}
+              </span>
+            )}
+          </>
         )}
       </div>
     </header>
@@ -143,7 +152,8 @@ Header.propTypes = {
   account: PropTypes.string,
   onConnect: PropTypes.func.isRequired,
   onDisconnect: PropTypes.func.isRequired,
-  isConnecting: PropTypes.bool
+  isConnecting: PropTypes.bool,
+  walletError: PropTypes.string
 }
 
 /**

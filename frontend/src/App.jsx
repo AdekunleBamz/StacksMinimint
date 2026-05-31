@@ -61,7 +61,7 @@ export function appendRecentMintResult(previousItems, nextItem) {
 }
 
 function App() {
-  const { address, isConnected, connect, disconnect, isConnecting } = useWallet()
+  const { address, isConnected, connect, disconnect, isConnecting, error: walletError } = useWallet()
   const { contractInfo, mint, isLoading, error: contractError } = useContract(address)
   const { showToast, toasts, removeToast } = useToast()
   const connectionState = getAppConnectionState({ isConnected, isConnecting })
@@ -112,6 +112,7 @@ function App() {
           onConnect={connect}
           onDisconnect={disconnect}
           isConnecting={isConnecting}
+          walletError={walletError}
         />
 
         <main className="main" id="main-content" data-has-contract-info={hasContractInfo ? 'true' : 'false'} title="StacksMinimint main dashboard">
@@ -133,6 +134,7 @@ function App() {
                 isConnected={isConnected}
                 isConnecting={isConnecting}
                 onConnect={connect}
+                walletError={walletError}
                 contractError={contractError}
               />
             </div>

@@ -248,6 +248,15 @@
   cursor: wait;
 }
 
+.header__wallet-error {
+  flex-basis: 100%;
+  max-width: min(100%, 32rem);
+  color: #fecaca;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: right;
+}
+
 @media (max-width: 720px) {
   .header {
     padding: calc(1rem + env(safe-area-inset-top, 0px)) 1rem 1rem;
@@ -258,6 +267,10 @@
     width: 100%;
     justify-content: flex-start;
     gap: 0.75rem;
+  }
+
+  .header__wallet-error {
+    text-align: left;
   }
 
   .header__address-wrapper {
