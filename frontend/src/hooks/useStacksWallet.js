@@ -9,22 +9,17 @@
  */
 import { useState, useEffect, useCallback } from 'react';
 import {
-  AppConfig,
-  UserSession,
-  connect as connectStacksWallet,
   disconnect as disconnectStacksWallet,
   getLocalStorage as getStacksConnectStorage,
+  request as requestStacksWallet,
 } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { NETWORK } from '../contract';
 import { formatAddress } from '../utils/collection';
 
 /** Permissions granted to this app when the user connects their Stacks wallet. */
-const WALLET_APP_PERMISSIONS = ['store_write', 'publish_data'];
 const WALLET_ADDRESS_STORAGE_KEY = 'stacksminimint:wallet-address';
 const WALLET_CONNECT_NETWORK = NETWORK === 'testnet' ? 'testnet' : 'mainnet';
-const appConfig = new AppConfig(WALLET_APP_PERMISSIONS);
-export const userSession = new UserSession({ appConfig });
 
 const MAINNET_ADDRESS_PREFIXES = ['SP', 'SM'];
 const TESTNET_ADDRESS_PREFIXES = ['ST', 'SN'];
@@ -84,7 +79,8 @@ function pickStacksAddress(addresses) {
       addresses.stacks,
       addresses.Stacks,
       addresses.accounts,
-      addresses.addresses
+      addresses.addresses,
+      addresses.result
     ].flat().filter(Boolean));
   }
 
@@ -126,18 +122,11 @@ export function getStacksAddress(data) {
   const accountAddress = pickStacksAddress(data?.accounts);
   if (accountAddress) return accountAddress;
 
+  const resultAddress = getStacksAddress(data?.result);
+  if (resultAddress) return resultAddress;
+
   const payloadAddress = getStacksAddress(data?.authResponsePayload);
   if (payloadAddress) return payloadAddress;
-
-  let sessionUserData = null;
-  try {
-    sessionUserData = data?.userSession?.loadUserData?.();
-  } catch (error) {
-    sessionUserData = null;
-  }
-
-  const sessionAddress = getStacksAddress(sessionUserData);
-  if (sessionAddress) return sessionAddress;
 
   if (!data?.profile?.stxAddress) return null
 
@@ -194,18 +183,36 @@ async function getStacksConnectStorageAddress({ attempts = 6, delayMs = 100 } = 
   return null;
 }
 
-/**
- * getLegacyUserData - Load user data from the legacy @stacks/connect UserSession.
- * Returns null if the user is not signed in or if session data cannot be read.
- * @returns {Object|null} Legacy user data or null
- */
-function getLegacyUserData() {
+async function requestWalletAddress(method) {
   try {
-    return userSession.isUserSignedIn() ? userSession.loadUserData() : null;
+    return getStacksAddress(await requestStacksWallet(method, { network: WALLET_CONNECT_NETWORK }));
   } catch (error) {
-    console.warn('Failed to read legacy Stacks session data:', error);
+    if (error?.code !== -31001) {
+      console.warn(`Failed to request ${method} from Stacks wallet:`, error);
+    }
     return null;
   }
+}
+
+async function selectWalletAddress() {
+  const response = await requestStacksWallet(
+    { forceWalletSelect: true, persistWalletSelect: true },
+    'stx_getAddresses',
+    { network: WALLET_CONNECT_NETWORK }
+  );
+  return {
+    address: getStacksAddress(response),
+    response
+  };
+}
+
+async function resolveConnectedAddress(connectResponse) {
+  return (
+    getStacksAddress(connectResponse) ||
+    await requestWalletAddress('stx_getAddresses') ||
+    await requestWalletAddress('getAddresses') ||
+    await getStacksConnectStorageAddress()
+  );
 }
 
 /**
@@ -213,10 +220,9 @@ function getLegacyUserData() {
  *
  * Manages connect/disconnect lifecycle and restores an existing session on mount.
  *
- * @returns {{ address: string|null, userData: Object|null, isConnected: boolean, isSignedIn: boolean, displayAddress: string|null, isConnecting: boolean, isDisconnected: boolean, connect: Function, disconnect: Function, network: Object }}
+ * @returns {{ address: string|null, isConnected: boolean, isSignedIn: boolean, displayAddress: string|null, isConnecting: boolean, isDisconnected: boolean, connect: Function, disconnect: Function, network: Object }}
  */
 export function useStacksWallet() {
-  const [userData, setUserData] = useState(null);
   const [address, setAddress] = useState(null);
   const [isConnecting, setIsConnecting] = useState(false);
 
@@ -226,14 +232,9 @@ export function useStacksWallet() {
     setIsConnecting(true);
 
     try {
-      const response = await connectStacksWallet({ network: WALLET_CONNECT_NETWORK });
-      const legacyData = getLegacyUserData();
-      const nextAddress =
-        getStacksAddress(response) ||
-        getStacksAddress(legacyData) ||
-        await getStacksConnectStorageAddress();
+      const { address: selectedAddress, response } = await selectWalletAddress();
+      const nextAddress = selectedAddress || await resolveConnectedAddress(response);
 
-      setUserData(legacyData);
       setAddress(nextAddress);
       setCachedWalletAddress(nextAddress);
 
@@ -252,7 +253,6 @@ export function useStacksWallet() {
   /** disconnect - Clear wallet session data and reset all connection state. */
   const disconnect = useCallback(() => {
     disconnectStacksWallet();
-    setUserData(null);
     setAddress(null);
     setCachedWalletAddress(null);
     setIsConnecting(false);
@@ -260,14 +260,11 @@ export function useStacksWallet() {
 
   // Restore wallet session from storage on initial mount (no re-run needed)
   useEffect(() => {
-    const legacyData = getLegacyUserData();
-    setUserData(legacyData);
-    setAddress(getStacksAddress(getStacksConnectStorage()) || getStacksAddress(legacyData) || getCachedWalletAddress());
+    setAddress(getStacksAddress(getStacksConnectStorage()) || getCachedWalletAddress());
   }, []);
 
   return {
     address,
-    userData,
     isConnected: Boolean(address),
     isSignedIn: Boolean(address),
     displayAddress: address ? formatAddress(address) : null,

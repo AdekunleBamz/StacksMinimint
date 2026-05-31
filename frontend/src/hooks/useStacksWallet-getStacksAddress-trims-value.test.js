@@ -45,6 +45,16 @@ describe('getStacksAddress', () => {
     })).toBe('SP2ACCOUNTADDRESS1234567890')
   })
 
+  it('reads JSON-RPC result envelopes from wallet providers', () => {
+    expect(getStacksAddress({
+      result: {
+        addresses: [
+          { address: ' SP2RPCRESULTADDRESS1234567890 ', publicKey: 'stx-key' }
+        ]
+      }
+    })).toBe('SP2RPCRESULTADDRESS1234567890')
+  })
+
   it('trims the configured network address before returning it', () => {
     expect(getStacksAddress({
       profile: {
