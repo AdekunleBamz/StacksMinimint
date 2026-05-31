@@ -24,6 +24,19 @@ describe('getStacksAddress', () => {
     })).toBe('ST2STORAGEADDRESS1234567890')
   })
 
+  it('reads wallet storage groups named stacks', () => {
+    expect(getStacksAddress({
+      addresses: {
+        stacks: [
+          { address: ' SP2STACKSGROUPADDRESS1234567890 ', publicKey: 'stx-key' }
+        ],
+        bitcoin: [
+          { address: 'bc1qexampleaddress', publicKey: 'btc-key' }
+        ]
+      }
+    })).toBe('SP2STACKSGROUPADDRESS1234567890')
+  })
+
   it('reads wallet account response shapes when addresses are omitted', () => {
     expect(getStacksAddress({
       accounts: [

@@ -14,7 +14,6 @@ import {
   connect as connectStacksWallet,
   disconnect as disconnectStacksWallet,
   getLocalStorage as getStacksConnectStorage,
-  isConnected as isStacksConnectConnected,
 } from '@stacks/connect';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { NETWORK } from '../contract';
@@ -22,6 +21,8 @@ import { formatAddress } from '../utils/collection';
 
 /** Permissions granted to this app when the user connects their Stacks wallet. */
 const WALLET_APP_PERMISSIONS = ['store_write', 'publish_data'];
+const WALLET_ADDRESS_STORAGE_KEY = 'stacksminimint:wallet-address';
+const WALLET_CONNECT_NETWORK = NETWORK === 'testnet' ? 'testnet' : 'mainnet';
 const appConfig = new AppConfig(WALLET_APP_PERMISSIONS);
 export const userSession = new UserSession({ appConfig });
 
@@ -80,6 +81,8 @@ function pickStacksAddress(addresses) {
       addresses.testnet,
       addresses.stx,
       addresses.STX,
+      addresses.stacks,
+      addresses.Stacks,
       addresses.accounts,
       addresses.addresses
     ].flat().filter(Boolean));
@@ -154,6 +157,43 @@ export function getStacksAddress(data) {
   return normalizeStacksAddress(candidateAddress)
 }
 
+function getCachedWalletAddress() {
+  try {
+    return normalizeStacksAddress(window.localStorage.getItem(WALLET_ADDRESS_STORAGE_KEY));
+  } catch {
+    return null;
+  }
+}
+
+function setCachedWalletAddress(nextAddress) {
+  try {
+    if (nextAddress) {
+      window.localStorage.setItem(WALLET_ADDRESS_STORAGE_KEY, nextAddress);
+    } else {
+      window.localStorage.removeItem(WALLET_ADDRESS_STORAGE_KEY);
+    }
+  } catch {
+    // Local storage can be unavailable in privacy-restricted browser contexts.
+  }
+}
+
+function wait(ms) {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
+}
+
+async function getStacksConnectStorageAddress({ attempts = 6, delayMs = 100 } = {}) {
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const address = getStacksAddress(getStacksConnectStorage());
+    if (address) return address;
+    if (attempt < attempts - 1) {
+      await wait(delayMs);
+    }
+  }
+  return null;
+}
+
 /**
  * getLegacyUserData - Load user data from the legacy @stacks/connect UserSession.
  * Returns null if the user is not signed in or if session data cannot be read.
@@ -181,28 +221,32 @@ export function useStacksWallet() {
   const [isConnecting, setIsConnecting] = useState(false);
 
   /** connect - Open the wallet prompt and persist the returned address. */
-  const connect = useCallback(() => {
+  const connect = useCallback(async () => {
     if (isConnecting || address) return;
     setIsConnecting(true);
 
-    connectStacksWallet({ network: NETWORK })
-      .then((response) => {
-        const legacyData = getLegacyUserData();
-        setUserData(legacyData);
-        setAddress(
-          getStacksAddress(response) ||
-          getStacksAddress(getStacksConnectStorage()) ||
-          getStacksAddress(legacyData)
-        );
-      })
-      .catch((error) => {
-        if (error?.code !== -31001) {
-          console.error('Failed to connect Stacks wallet:', error);
-        }
-      })
-      .finally(() => {
-        setIsConnecting(false);
-      });
+    try {
+      const response = await connectStacksWallet({ network: WALLET_CONNECT_NETWORK });
+      const legacyData = getLegacyUserData();
+      const nextAddress =
+        getStacksAddress(response) ||
+        getStacksAddress(legacyData) ||
+        await getStacksConnectStorageAddress();
+
+      setUserData(legacyData);
+      setAddress(nextAddress);
+      setCachedWalletAddress(nextAddress);
+
+      if (!nextAddress) {
+        console.error('Stacks wallet connected but no Stacks address was returned.', response);
+      }
+    } catch (error) {
+      if (error?.code !== -31001) {
+        console.error('Failed to connect Stacks wallet:', error);
+      }
+    } finally {
+      setIsConnecting(false);
+    }
   }, [isConnecting, address]);
 
   /** disconnect - Clear wallet session data and reset all connection state. */
@@ -210,6 +254,7 @@ export function useStacksWallet() {
     disconnectStacksWallet();
     setUserData(null);
     setAddress(null);
+    setCachedWalletAddress(null);
     setIsConnecting(false);
   }, []);
 
@@ -217,7 +262,7 @@ export function useStacksWallet() {
   useEffect(() => {
     const legacyData = getLegacyUserData();
     setUserData(legacyData);
-    setAddress(getStacksAddress(getStacksConnectStorage()) || getStacksAddress(legacyData));
+    setAddress(getStacksAddress(getStacksConnectStorage()) || getStacksAddress(legacyData) || getCachedWalletAddress());
   }, []);
 
   return {
