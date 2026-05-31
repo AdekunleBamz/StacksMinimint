@@ -197,7 +197,7 @@ async function requestWalletAddress(method) {
 async function selectWalletAddress() {
   const response = await requestStacksWallet(
     { forceWalletSelect: true, persistWalletSelect: true },
-    'stx_getAddresses',
+    'getAddresses',
     { network: WALLET_CONNECT_NETWORK }
   );
   return {
@@ -209,8 +209,9 @@ async function selectWalletAddress() {
 async function resolveConnectedAddress(connectResponse) {
   return (
     getStacksAddress(connectResponse) ||
-    await requestWalletAddress('stx_getAddresses') ||
     await requestWalletAddress('getAddresses') ||
+    await requestWalletAddress('stx_getAddresses') ||
+    await requestWalletAddress('stx_getAccounts') ||
     await getStacksConnectStorageAddress()
   );
 }
