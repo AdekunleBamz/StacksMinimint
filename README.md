@@ -129,6 +129,11 @@ npm run verify:local
 
 ### Frontend Development
 
+Copy the frontend environment example before starting the UI locally:
+```bash
+cp frontend/.env.example frontend/.env
+```
+
 Start the local development server:
 ```bash
 npm run frontend:dev
