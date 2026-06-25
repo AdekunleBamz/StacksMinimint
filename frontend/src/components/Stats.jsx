@@ -147,6 +147,7 @@ export function Stats({ contractInfo, isLoading, isConnected = false, recentActi
           aria-valuemin={0}
           aria-valuemax={100}
           aria-label="Mint progress"
+          title={`${roundedProgress}% of configured supply minted`}
           aria-valuetext={
             remainingSupply === null
               ? `${roundedProgress}% of the configured supply minted`
