@@ -288,6 +288,12 @@
 
 .mint-card__tx-link:focus-visible {
   outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.35);
+  border-radius: 0.5rem;
+}
+
+.mint-card__tx-link:focus-visible {
+  outline: none;
   border-radius: 0.375rem;
   box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.35);
 }
