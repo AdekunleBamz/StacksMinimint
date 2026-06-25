@@ -59,6 +59,11 @@
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
 }
 
+.mint-item:focus-within {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+}
+
 .mint-item[data-token-state='pending'] {
   border-color: rgba(234, 179, 8, 0.25);
   background: rgba(234, 179, 8, 0.05);
